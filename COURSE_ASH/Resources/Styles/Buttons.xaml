@@ -38,6 +38,7 @@
 
     <Style x:Key="GoBackArrow" TargetType="ImageButton">
         <Setter Property="WidthRequest" Value="25"/>
+        <Setter Property="BackgroundColor" Value="Transparent"/>
         <Setter Property="HeightRequest" Value="{Binding Source={RelativeSource Self},Path=WidthRequest}"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Padding" Value="0"/>

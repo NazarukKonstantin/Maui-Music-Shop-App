@@ -8,9 +8,9 @@
              x:DataType="viewmodel:ProductsViewModel"
              x:Class="COURSE_ASH.View.SearchPage"
              Shell.TabBarIsVisible="{Binding IsTabVisible}"
-             Shell.NavBarIsVisible="True">
+             Shell.NavBarIsVisible="False">
 
-    <Shell.SearchHandler>
+    <!--Shell.SearchHandler>
         <search:ProductSearchHandler Grid.Row="0"
                 x:Name="productSearch"
                 Placeholder="Search instrument models"
@@ -34,32 +34,23 @@
             </search:ProductSearchHandler.ItemTemplate>
 
         </search:ProductSearchHandler>
-    </Shell.SearchHandler>
+    </Shell.SearchHandler-->
 
 
-    <Grid RowDefinitions=".5*,.3*"
+    <Grid RowDefinitions="Auto,*"
               ColumnDefinitions=".2*,.8*"
               >
-       
-        <!--BoxView Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/-->
-        <!-->
-            <Frame 
-            Grid.Row="0"
-               Padding="0"
-            Margin="5"
-            CornerRadius="20"
-            BackgroundColor="{AppThemeBinding Default=White,
-                    Dark={StaticResource DarkBlue}}"> 
-            <-->
+
+        <BoxView Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/>
+
         <ImageButton IsVisible="{Binding IsTabNotVisible}"
-                       Grid.Column="0"
-                     
+                     Grid.Column="0"
                      Style="{StaticResource GoBackArrow}"
                         Command="{Binding GoBackCommand}"
                      CommandParameter="{Binding .}"
                      />
-        
-        <!--SearchBar x:Name="ProductSearch"
+
+            <SearchBar x:Name="ProductSearch"
                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
             ,Light={StaticResource TenderWhite}}"
                     Grid.Column="1"
@@ -70,8 +61,8 @@
                     Placeholder="Search"
                 TextColor="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"
                 SearchCommand="{Binding FilterProductsCommand}"
-                SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"/-->
-
+                SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"/>
+    
         <CollectionView BackgroundColor="Transparent"
                         Grid.Row="1"
                         Grid.ColumnSpan="2"

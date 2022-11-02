@@ -9,30 +9,30 @@ namespace COURSE_ASH.SearchHandlers
 {
     public partial class ProductSearchHandler : SearchHandler
     {
-        public readonly BindableProperty ProductsQueryProperty = BindableProperty.Create(nameof(ProductsQuery), typeof(ObservableCollection<Product>),
-                                      typeof(ProductSearchHandler), null);
-        public event PropertyChangedEventHandler ProductsQueryPropertyChanged;
-        public ObservableCollection<Product> ProductsQuery
-        {
-            get
-            {
-                return (ObservableCollection<Product>)GetValue(ProductsQueryProperty);
-            }
+        //public readonly BindableProperty ProductsQueryProperty = BindableProperty.Create(nameof(ProductsQuery), typeof(ObservableCollection<Product>),
+        //                              typeof(ProductSearchHandler), null);
+        //public event PropertyChangedEventHandler ProductsQueryPropertyChanged;
+        public ObservableCollection<Product> ProductsQuery { get; set; }
+        //{
+        //    get
+        //    {
+        //        return (ObservableCollection<Product>)GetValue(ProductsQueryProperty);
+        //    }
 
-            set
-            {
-                if (value != this.productsQuery)
-                {
-                    SetValue(ProductsQueryProperty, value);
-                    NotifyPropertyChanged();
-                }
-            }
-        }
+        //    set
+        //    {
+        //        if (value != ProductsQuery)
+        //        {
+        //            SetValue(ProductsQueryProperty, value);
+        //            NotifyPropertyChanged();
+        //        }
+        //    }
+        //}
 
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            ProductsQueryPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        //private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        //{
+        //    ProductsQueryPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        //}
 
         //public IList<Product> ProductsQuery {
         //  get => (IList<Product>)GetValue(ProductsQueryProperty);

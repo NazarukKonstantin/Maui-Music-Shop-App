@@ -10,8 +10,8 @@ public partial class SearchPage : ContentPage
         BindingContext=viewModel;
     }
 
-    public void ProductSearchHandler_Focused(object sender, EventArgs e)
-    {
-        Shell.SetTabBarIsVisible(productSearch, !IsFocused);
-    }
+    //public void ProductSearchHandler_Focused(object sender, EventArgs e)
+    //{
+    //    Shell.SetTabBarIsVisible(productSearch, !IsFocused);
+    //}
 }

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style x:Key="BaseShellStyle" TargetType="Shell">
+        <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Light={StaticResource Primary},
+                    Dark={StaticResource ComplimentaryDark},Default={StaticResource Primary}}" />
+        <Setter Property="Shell.ForegroundColor" Value="{OnPlatform Default={AppThemeBinding Light={StaticResource DarkText},
+                    Dark={StaticResource TenderWhite}}}"/>
+        <Setter Property="Shell.TitleColor" Value="{StaticResource TenderWhite}" />
+        <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+        <Setter Property="Shell.UnselectedColor" Value="{AppThemeBinding Dark=#95FFFFFF, 
+            Light=#95000000}" />
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{AppThemeBinding Dark={StaticResource ComplimentaryDark}, 
+            Light={StaticResource TenderWhite}}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}, 
+            Light={StaticResource DarkBackground}}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{AppThemeBinding Dark=#95FFFFFF, 
+            Light=#95000000}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{AppThemeBinding Dark={StaticResource LightBackground},
+            Light={StaticResource DarkBackground}}" />
+    </Style>
+
+</ResourceDictionary>

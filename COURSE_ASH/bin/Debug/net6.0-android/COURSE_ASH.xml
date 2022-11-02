@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>COURSE_ASH</name>
+    </assembly>
+    <members>
+        <member name="P:COURSE_ASH.ViewModel.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:COURSE_ASH.ViewModel.BaseViewModel.isBusy"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.CatalogViewModel.goToProductsListCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CatalogViewModel.GoToProductsListCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.CatalogViewModel.GoToProductsListCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CatalogViewModel.GoToProductsListAsync(COURSE_ASH.Model.CatalogItem)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.CatalogViewModel.goToLoginPageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CatalogViewModel.GoToLoginPageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.CatalogViewModel.GoToLoginPageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CatalogViewModel.GoToLoginPage"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.LoginPageViewModel.User">
+            <inheritdoc cref="F:COURSE_ASH.ViewModel.LoginPageViewModel.user"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductDetailsViewModel.Product">
+            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProductDetailsViewModel.product"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.ProductDetailsViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductDetailsViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductDetailsViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductDetailsViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductsViewModel.IsTabVisible">
+            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProductsViewModel._isTabVisible"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.ProductsViewModel.goToDetailsCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductsViewModel.GoToDetailsCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductsViewModel.GoToDetailsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductsViewModel.GoToDetailsAsync(COURSE_ASH.Model.Product)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.ProductsViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductsViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductsViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductsViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.ProductsViewModel.filterProductsCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductsViewModel.FilterProductsCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProductsViewModel.FilterProductsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductsViewModel.FilterProducts(System.String)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModel.ProfilePageViewModel.goToProfileCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProfilePageViewModel.GoToProfileCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModel.ProfilePageViewModel.GoToProfileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProfilePageViewModel.GoToProfileAsync"/>.</summary>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_DatePicker.TextColorTo(Microsoft.Maui.Controls.DatePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Editor.TextColorTo(Microsoft.Maui.Controls.Editor,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Entry.TextColorTo(Microsoft.Maui.Controls.Entry,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Label.TextColorTo(Microsoft.Maui.Controls.Label,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Picker.TextColorTo(Microsoft.Maui.Controls.Picker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_RadioButton.TextColorTo(Microsoft.Maui.Controls.RadioButton,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_SearchBar.TextColorTo(Microsoft.Maui.Controls.SearchBar,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+        <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_TimePicker.TextColorTo(Microsoft.Maui.Controls.TimePicker,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
+            <summary>
+            Animates the TextColor of an <see cref = "T:Microsoft.Maui.ITextStyle"/> to the given color
+            </summary>
+            <param name = "element"></param>
+            <param name = "color">The target color to animate the <see cref = "P:Microsoft.Maui.ITextStyle.TextColor"/> to</param>
+            <param name = "rate">The time, in milliseconds, between the frames of the animation</param>
+            <param name = "length">The duration, in milliseconds, of the animation</param>
+            <param name = "easing">The easing function to be used in the animation</param>
+            <returns>Value indicating if the animation completed successfully or not</returns>
+        </member>
+    </members>
+</doc>

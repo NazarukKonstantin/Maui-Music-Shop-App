@@ -1,0 +1,277 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+		<OutputType>Exe</OutputType>
+		<RootNamespace>COURSE_ASH</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Display name -->
+		<ApplicationTitle>COURSE_ASH</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.course_ash</ApplicationId>
+		<ApplicationIdGuid>3B635503-8A50-4008-9ED6-FD9C65FDBF29</ApplicationIdGuid>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.png" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#2B5278" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#17212B" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\*.gif" Resize="False" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Resources\Styles\Dictionary1.xaml.cs" />
+	  <Compile Remove="ViewModel\MainViewModel.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Remove="Resources\Styles\Colors - Copy.xaml" />
+	  <MauiXaml Remove="Resources\Styles\Styles.xaml" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-Bold.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-BoldItalic.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-Italic.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-Light.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-LightItalic.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-Medium.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-MediumItalic.ttf" />
+	  <None Remove="Resources\Fonts\FiraSans\FiraSans-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Karla-Bold.ttf" />
+	  <None Remove="Resources\Fonts\Karla-SemiBold.ttf" />
+	  <None Remove="Resources\Images\add_user.svg" />
+	  <None Remove="Resources\Images\admin.svg" />
+	  <None Remove="Resources\Images\catalog.svg" />
+	  <None Remove="Resources\Images\catalog_pack\guitar_accessories_catalog.png" />
+	  <None Remove="Resources\Images\catalog_pack\guitar_catalog.png" />
+	  <None Remove="Resources\Images\catalog_pack\kid_named_finger.png" />
+	  <None Remove="Resources\Images\catalog_pack\midi_catalog.png" />
+	  <None Remove="Resources\Images\catalog_pack\sax_catalog.png" />
+	  <None Remove="Resources\Images\catalog_pack\ukulele_catalog.png" />
+	  <None Remove="Resources\Images\catalog_pack\violin_catalog.png" />
+	  <None Remove="Resources\Images\feedback_blank.svg" />
+	  <None Remove="Resources\Images\feedback_filled.svg" />
+	  <None Remove="Resources\Images\home_blank.svg" />
+	  <None Remove="Resources\Images\home_filled.svg" />
+	  <None Remove="Resources\Images\icons\add_user.svg" />
+	  <None Remove="Resources\Images\icons\admin.svg" />
+	  <None Remove="Resources\Images\icons\arrow_back_black.png" />
+	  <None Remove="Resources\Images\icons\arrow_back_white.png" />
+	  <None Remove="Resources\Images\icons\catalog.svg" />
+	  <None Remove="Resources\Images\icons\close.svg" />
+	  <None Remove="Resources\Images\icons\error_blank.svg" />
+	  <None Remove="Resources\Images\icons\error_filled.svg" />
+	  <None Remove="Resources\Images\icons\feedback_blank.svg" />
+	  <None Remove="Resources\Images\icons\feedback_filled.svg" />
+	  <None Remove="Resources\Images\icons\home_blank.svg" />
+	  <None Remove="Resources\Images\icons\home_filled.svg" />
+	  <None Remove="Resources\Images\icons\info_black.svg" />
+	  <None Remove="Resources\Images\icons\info_white.svg" />
+	  <None Remove="Resources\Images\icons\login.svg" />
+	  <None Remove="Resources\Images\icons\login_dark.svg" />
+	  <None Remove="Resources\Images\icons\login_light.png" />
+	  <None Remove="Resources\Images\icons\logout.svg" />
+	  <None Remove="Resources\Images\icons\logout_dark.svg" />
+	  <None Remove="Resources\Images\icons\logout_light.png" />
+	  <None Remove="Resources\Images\icons\manage_search.svg" />
+	  <None Remove="Resources\Images\icons\menu.svg" />
+	  <None Remove="Resources\Images\icons\no_net.svg" />
+	  <None Remove="Resources\Images\icons\search.svg" />
+	  <None Remove="Resources\Images\icons\settings.svg" />
+	  <None Remove="Resources\Images\icons\shopping_cart.svg" />
+	  <None Remove="Resources\Images\icons\star_blank.svg" />
+	  <None Remove="Resources\Images\icons\star_full.svg" />
+	  <None Remove="Resources\Images\icons\star_half.svg" />
+	  <None Remove="Resources\Images\icons\user.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_blank.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_dark.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_empty.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_filled.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_full.svg" />
+	  <None Remove="Resources\Images\icons\visibility_off_light.svg" />
+	  <None Remove="Resources\Images\icons\visibility_onn_blank.svg" />
+	  <None Remove="Resources\Images\icons\visibility_on_dark.svg" />
+	  <None Remove="Resources\Images\icons\visibility_on_empty.svg" />
+	  <None Remove="Resources\Images\icons\visibility_on_filled.svg" />
+	  <None Remove="Resources\Images\icons\visibility_on_full.svg" />
+	  <None Remove="Resources\Images\icons\visibility_on_light.svg" />
+	  <None Remove="Resources\Images\icons\waltuh_black.png" />
+	  <None Remove="Resources\Images\icons\waltuh_white.png" />
+	  <None Remove="Resources\Images\info.svg" />
+	  <None Remove="Resources\Images\info_filled.svg" />
+	  <None Remove="Resources\Images\login.svg" />
+	  <None Remove="Resources\Images\logout.svg" />
+	  <None Remove="Resources\Images\menu.svg" />
+	  <None Remove="Resources\Images\search.svg" />
+	  <None Remove="Resources\Images\settings.svg" />
+	  <None Remove="Resources\Images\shopping_cart.svg" />
+	  <None Remove="Resources\Images\star_blank.svg" />
+	  <None Remove="Resources\Images\star_full.svg" />
+	  <None Remove="Resources\Images\star_half.svg" />
+	  <None Remove="Resources\Images\user.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\catalog_pack\kid_named_finger.png" />
+	  <MauiImage Include="Resources\Images\icons\arrow_back_black.png" />
+	  <MauiImage Include="Resources\Images\icons\arrow_back_white.png" />
+	  <MauiImage Include="Resources\Images\icons\error_blank.svg" />
+	  <MauiImage Include="Resources\Images\icons\error_filled.svg" />
+	  <MauiImage Include="Resources\Images\icons\info_black.svg" />
+	  <MauiImage Include="Resources\Images\icons\info_white.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	  <PackageReference Include="MonkeyCache" Version="2.0.0-beta" />
+	  <PackageReference Include="SimpleRatingControl.MAUI" Version="0.0.3" />
+	  <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="LigthTheme.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Colors.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Buttons.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Colors.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Dictionary1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Images.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Labels.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Frames.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\Pages.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\ShellStyles.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewControls\ReviewCard.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\CartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ImageUploadPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SearchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\catalog_pack\guitar_accessories_catalog.png" />
+	  <MauiImage Include="Resources\Images\catalog_pack\guitar_catalog.png" />
+	  <MauiImage Include="Resources\Images\catalog_pack\midi_catalog.png" />
+	  <MauiImage Include="Resources\Images\catalog_pack\sax_catalog.png" />
+	  <MauiImage Include="Resources\Images\catalog_pack\ukulele_catalog.png" />
+	  <MauiImage Include="Resources\Images\catalog_pack\violin_catalog.png" />
+	  <MauiImage Include="Resources\Images\icons\add_user.svg" />
+	  <MauiImage Include="Resources\Images\icons\admin.svg" />
+	  <MauiImage Include="Resources\Images\icons\catalog.svg" />
+	  <MauiImage Include="Resources\Images\icons\close.svg" />
+	  <MauiImage Include="Resources\Images\icons\feedback_blank.svg" />
+	  <MauiImage Include="Resources\Images\icons\feedback_filled.svg" />
+	  <MauiImage Include="Resources\Images\icons\home_blank.svg" />
+	  <MauiImage Include="Resources\Images\icons\home_filled.svg" />
+	  <MauiImage Include="Resources\Images\icons\login_dark.svg" />
+	  <MauiImage Include="Resources\Images\icons\login_light.png" />
+	  <MauiImage Include="Resources\Images\icons\logout_dark.svg" />
+	  <MauiImage Include="Resources\Images\icons\logout_light.png" />
+	  <MauiImage Include="Resources\Images\icons\manage_search.svg" />
+	  <MauiImage Include="Resources\Images\icons\menu.svg" />
+	  <MauiImage Include="Resources\Images\icons\no_net.svg" />
+	  <MauiImage Include="Resources\Images\icons\search.svg" />
+	  <MauiImage Include="Resources\Images\icons\settings.svg" />
+	  <MauiImage Include="Resources\Images\icons\shopping_cart.svg" />
+	  <MauiImage Include="Resources\Images\icons\star_blank.svg" />
+	  <MauiImage Include="Resources\Images\icons\star_full.svg" />
+	  <MauiImage Include="Resources\Images\icons\star_half.svg" />
+	  <MauiImage Include="Resources\Images\icons\user.svg" />
+	  <MauiImage Include="Resources\Images\icons\visibility_off_dark.svg" />
+	  <MauiImage Include="Resources\Images\icons\visibility_off_light.svg" />
+	  <MauiImage Include="Resources\Images\icons\visibility_on_dark.svg" />
+	  <MauiImage Include="Resources\Images\icons\visibility_on_light.svg" />
+	  <MauiImage Include="Resources\Images\icons\waltuh_black.png" />
+	  <MauiImage Include="Resources\Images\icons\waltuh_white.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="View\LoginPage.xaml.cs">
+	    <DependentUpon>LoginPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="IServices\" />
+	  <Folder Include="IViews\" />
+	  <Folder Include="ViewModel\Base\" />
+	  <Folder Include="View\Base\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Bold.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-BoldItalic.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Italic.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Light.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-LightItalic.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Medium.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-MediumItalic.ttf" />
+	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Regular.ttf" />
+	</ItemGroup>
+
+</Project>

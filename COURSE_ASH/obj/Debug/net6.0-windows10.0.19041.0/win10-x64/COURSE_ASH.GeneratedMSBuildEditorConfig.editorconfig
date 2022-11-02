@@ -1,0 +1,112 @@
+is_global = true
+build_property.TargetFramework = net6.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = COURSE_ASH
+build_property.ProjectDir = E:\OOPIP\COURSE\COURSE_ASH\
+
+[E:/OOPIP/COURSE/COURSE_ASH/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Buttons.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Buttons.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Buttons.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Buttons.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Frames.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Frames.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Frames.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Frames.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Images.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Images.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Images.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Images.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Labels.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Labels.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Labels.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Labels.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/Pages.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Pages.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Pages.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Pages.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/Resources/Styles/ShellStyles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.ShellStyles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\ShellStyles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\ShellStyles.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/ViewControls/ReviewCard.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.ViewControls.ReviewCard.xaml
+build_metadata.AdditionalFiles.TargetPath = ViewControls\ReviewCard.xaml
+build_metadata.AdditionalFiles.RelativePath = ViewControls\ReviewCard.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/CartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.CartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\CartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\CartPage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/ImageUploadPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ImageUploadPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\ImageUploadPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\ImageUploadPage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\LoginPage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\MainPage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/ProductPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ProductPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\ProductPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\ProductPage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\ProfilePage.xaml
+
+[E:/OOPIP/COURSE/COURSE_ASH/View/SearchPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.SearchPage.xaml
+build_metadata.AdditionalFiles.TargetPath = View\SearchPage.xaml
+build_metadata.AdditionalFiles.RelativePath = View\SearchPage.xaml

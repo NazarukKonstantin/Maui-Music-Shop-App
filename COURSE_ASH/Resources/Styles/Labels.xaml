@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="Rubik"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"/>
+    </Style>
+
+    <Style x:Key="CenteredLabel" TargetType="Label">
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+    </Style>
+    
+    <Style x:Key="DarkLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource DarkText}" />
+    </Style>
+
+    <Style x:Key="LightLabel" BasedOn="{StaticResource CenteredLabel}"  TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource LightText}"/>
+    </Style>
+
+    <Style x:Key="MicroLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="10"/>
+    </Style>
+
+    <Style x:Key="SmallLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style x:Key="MediumLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+
+    <Style x:Key="LargeLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="25"/>
+    </Style>
+
+    <Style x:Key="TitleSizeLabel" BasedOn="{StaticResource CenteredLabel}" TargetType="Label">
+        <Setter Property="FontSize" Value="40"/>
+    </Style>
+
+    <Style x:Key="Title" TargetType="Label" BasedOn="{StaticResource LargeLabel}">
+        <Setter Property="FontAttributes" Value="Bold"/>
+    </Style>
+
+    <Style x:Key="PageTitle" TargetType="Label" BasedOn="{StaticResource TitleSizeLabel}">
+        <Setter Property="FontAttributes" Value="None"/>
+        <Setter Property="FontFamily" Value="KarlaSemiBold"/>
+        
+    </Style>
+
+    <Style x:Key="PriceStyle" TargetType="Label" BasedOn="{StaticResource Title}">
+        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}
+                                        ,Light={StaticResource PrimaryDark}}"/>
+        <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+    </Style>
+    
+</ResourceDictionary>

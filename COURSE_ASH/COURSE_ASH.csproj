@@ -49,6 +49,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="ViewModel\Base\**" />
+	  <AndroidResource Remove="View\Base\**" />
+	  <Compile Remove="ViewModel\Base\**" />
+	  <Compile Remove="View\Base\**" />
+	  <EmbeddedResource Remove="ViewModel\Base\**" />
+	  <EmbeddedResource Remove="View\Base\**" />
+	  <MauiCss Remove="ViewModel\Base\**" />
+	  <MauiCss Remove="View\Base\**" />
+	  <MauiXaml Remove="ViewModel\Base\**" />
+	  <MauiXaml Remove="View\Base\**" />
+	  <None Remove="ViewModel\Base\**" />
+	  <None Remove="View\Base\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Remove="Resources\Styles\Dictionary1.xaml.cs" />
 	  <Compile Remove="ViewModel\MainViewModel.cs" />
 	</ItemGroup>
@@ -74,7 +89,6 @@
 	  <None Remove="Resources\Images\catalog.svg" />
 	  <None Remove="Resources\Images\catalog_pack\guitar_accessories_catalog.png" />
 	  <None Remove="Resources\Images\catalog_pack\guitar_catalog.png" />
-	  <None Remove="Resources\Images\catalog_pack\kid_named_finger.png" />
 	  <None Remove="Resources\Images\catalog_pack\midi_catalog.png" />
 	  <None Remove="Resources\Images\catalog_pack\sax_catalog.png" />
 	  <None Remove="Resources\Images\catalog_pack\ukulele_catalog.png" />
@@ -87,7 +101,6 @@
 	  <None Remove="Resources\Images\icons\admin.svg" />
 	  <None Remove="Resources\Images\icons\arrow_back_black.png" />
 	  <None Remove="Resources\Images\icons\arrow_back_white.png" />
-	  <None Remove="Resources\Images\icons\catalog.svg" />
 	  <None Remove="Resources\Images\icons\close.svg" />
 	  <None Remove="Resources\Images\icons\error_blank.svg" />
 	  <None Remove="Resources\Images\icons\error_filled.svg" />
@@ -142,7 +155,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiImage Include="Resources\Images\catalog_pack\kid_named_finger.png" />
 	  <MauiImage Include="Resources\Images\icons\arrow_back_black.png" />
 	  <MauiImage Include="Resources\Images\icons\arrow_back_white.png" />
 	  <MauiImage Include="Resources\Images\icons\error_blank.svg" />
@@ -222,7 +234,6 @@
 	  <MauiImage Include="Resources\Images\catalog_pack\violin_catalog.png" />
 	  <MauiImage Include="Resources\Images\icons\add_user.svg" />
 	  <MauiImage Include="Resources\Images\icons\admin.svg" />
-	  <MauiImage Include="Resources\Images\icons\catalog.svg" />
 	  <MauiImage Include="Resources\Images\icons\close.svg" />
 	  <MauiImage Include="Resources\Images\icons\feedback_blank.svg" />
 	  <MauiImage Include="Resources\Images\icons\feedback_filled.svg" />
@@ -254,13 +265,14 @@
 	  <Compile Update="View\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="View\CatalogPage.xaml.cs">
+	    <DependentUpon>CatalogPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Folder Include="IServices\" />
 	  <Folder Include="IViews\" />
-	  <Folder Include="ViewModel\Base\" />
-	  <Folder Include="View\Base\" />
 	</ItemGroup>
 
 	<ItemGroup>

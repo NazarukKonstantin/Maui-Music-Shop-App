@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ztLHJi4DXBoz7llsxEx+HhjTNOfQGklsUdwQ3GG87tZB7Le3cddFv+lk2BTt94vxt5YEsdBOjnO6Vw4t0042uA==",
+  "dgSpecHash": "0TDuctLevvebOThlcrAdD5q4yUG5FvOilWOBiCwQJ9W2d3cpIIwPWOQ0ZKM10ZD/F11Qz/uz+iBdvMSgKgltTQ==",
   "success": true,
-  "projectFilePath": "E:\\OOPIP\\COURSE\\WebApplication1\\WebApplication1.csproj",
+  "projectFilePath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\WebApplication1\\WebApplication1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",

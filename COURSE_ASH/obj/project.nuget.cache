@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EXJBORHc+eerS9oe61upRTJqsQ8HhktQudk0GFrRgykgaaBhbj1JiIgJfCYMuy+WE51dztolJByyngendWO+ug==",
+  "dgSpecHash": "VxL03KtIVtw3gpfYiM2Uyy5Eg3kV6ZNi3oI1GMXJiPJL/l3xAdY+TWzQQOXUE47z8O/6MfD6bA7f1Wu9lJTNZQ==",
   "success": true,
-  "projectFilePath": "E:\\OOPIP\\COURSE\\COURSE_ASH\\COURSE_ASH.csproj",
+  "projectFilePath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\communitytoolkit.maui\\1.3.0\\communitytoolkit.maui.1.3.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\communitytoolkit.maui.core\\1.3.0\\communitytoolkit.maui.core.1.3.0.nupkg.sha512",

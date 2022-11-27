@@ -34,7 +34,7 @@ public static class MauiProgram
                 fonts.AddFont("Karla-SemiBold.ttf", "KarlaSemiBold");
             });
 
-        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<CatalogPage>();
         builder.Services.AddSingleton<CatalogViewModel>();
 
         builder.Services.AddSingleton<ImageUploadPage>();

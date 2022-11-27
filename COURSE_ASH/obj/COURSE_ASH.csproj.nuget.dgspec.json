@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OOPIP\\COURSE\\COURSE_ASH\\COURSE_ASH.csproj": {}
+    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj": {}
   },
   "projects": {
-    "E:\\OOPIP\\COURSE\\COURSE_ASH\\COURSE_ASH.csproj": {
+    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OOPIP\\COURSE\\COURSE_ASH\\COURSE_ASH.csproj",
+        "projectUniqueName": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj",
         "projectName": "COURSE_ASH",
-        "projectPath": "E:\\OOPIP\\COURSE\\COURSE_ASH\\COURSE_ASH.csproj",
+        "projectPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\OOPIP\\COURSE\\COURSE_ASH\\obj\\",
+        "outputPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

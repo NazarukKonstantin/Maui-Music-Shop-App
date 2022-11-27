@@ -21,8 +21,8 @@
         <Tab Title="Home" Icon="home_blank">
             <ShellContent
             Shell.NavBarIsVisible="False"
-            ContentTemplate="{DataTemplate view:MainPage}"
-            Route="MainPage"/>
+            ContentTemplate="{DataTemplate view:CatalogPage}"
+            Route="CatalogPage"/>
         </Tab>
         <Tab Title="Search" Icon="catalog">
             <ShellContent

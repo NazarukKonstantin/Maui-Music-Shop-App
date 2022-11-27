@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SGPDMUXGa+2uHa969k11BYLil046qDScD3O5Bbpt3jSkooB8PgbFiS46++xKMshFTWOxkWmPitgeovRxLoDCcA==",
+  "dgSpecHash": "4n01pI4VGtngTpP2sD3MV/1Tz+1wcXzH9lbDrO3WfJqnc/opdsbypaOQlko2da61tuMQrsOVWA+6LnOaN2bYxw==",
   "success": true,
-  "projectFilePath": "E:\\OOPIP\\COURSE\\Maui.App.Framework\\Maui.App.Framework.csproj",
+  "projectFilePath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\Maui.App.Framework.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\communitytoolkit.mvvm\\8.0.0\\communitytoolkit.mvvm.8.0.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\googlegson\\2.9.0.1\\googlegson.2.9.0.1.nupkg.sha512",

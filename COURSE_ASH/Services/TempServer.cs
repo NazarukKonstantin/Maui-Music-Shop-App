@@ -10,8 +10,7 @@ namespace COURSE_ASH.Services
 {
     public static class TempServer
     {
-        private readonly static Product[] _products = { 
-            )};
+        private readonly static Product[] _products;
 
         private readonly static ObservableCollection<Product> _productCollection = new()
         {
@@ -20,7 +19,7 @@ namespace COURSE_ASH.Services
             new("Sax", "lol_2", "Good sax", 562.42M, "sax_catalog.png", 2),
             new("Ukulele", "Model_1", "Good ukulele", 32.42M, "ukulele_catalog.png", 1),
             new("Violin", "lol_3", "Good violin", 322.42M, "violin_catalog.png", 4),
-            new("Guitar Accessory", "Model_1", "Good shit", 232.42M, "guitar_accessories_catalog.png", 0
+            new("Guitar Accessory", "Model_1", "Good shit", 232.42M, "guitar_accessories_catalog.png", 0)
         };
 
         public static ObservableCollection<Product> GetProducts()
@@ -28,5 +27,4 @@ namespace COURSE_ASH.Services
             return _productCollection;
         }
     }
-}
 }

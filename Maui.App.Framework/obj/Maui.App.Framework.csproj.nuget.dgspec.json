@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OOPIP\\COURSE\\Maui.App.Framework\\Maui.App.Framework.csproj": {}
+    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\Maui.App.Framework.csproj": {}
   },
   "projects": {
-    "E:\\OOPIP\\COURSE\\Maui.App.Framework\\Maui.App.Framework.csproj": {
+    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\Maui.App.Framework.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OOPIP\\COURSE\\Maui.App.Framework\\Maui.App.Framework.csproj",
+        "projectUniqueName": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\Maui.App.Framework.csproj",
         "projectName": "Maui.App.Framework",
-        "projectPath": "E:\\OOPIP\\COURSE\\Maui.App.Framework\\Maui.App.Framework.csproj",
+        "projectPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\Maui.App.Framework.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\OOPIP\\COURSE\\Maui.App.Framework\\obj\\",
+        "outputPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\Maui.App.Framework\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

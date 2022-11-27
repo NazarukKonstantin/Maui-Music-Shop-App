@@ -21,8 +21,6 @@ namespace COURSE_ASH.ViewModel
 
         public ProductsViewModel()
         {
-            Products;
-
             ProductList=Products.ToList();
             IsTabVisible=true;
         }
@@ -62,9 +60,9 @@ namespace COURSE_ASH.ViewModel
             .ToList();
 
             if (string.IsNullOrWhiteSpace(Text))
-                filteredItems=_productList.ToList();
+                filteredItems=ProductList.ToList();
 
-            foreach (var item in _productList)
+            foreach (var item in ProductList)
             {
                 if (!filteredItems.Contains(item))
                 {

@@ -6,7 +6,7 @@ namespace COURSE_ASH.ViewModel
     public partial class LoginPageViewModel : BaseViewModel
     {
         [ObservableProperty]
-        User user;
+        Account user;
 
         public LoginPageViewModel()
         {

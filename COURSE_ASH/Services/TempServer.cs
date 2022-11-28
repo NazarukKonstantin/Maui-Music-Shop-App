@@ -1,30 +1,106 @@
-﻿using COURSE_ASH.Model;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace COURSE_ASH.Services
 {
     public static class TempServer
     {
-        private readonly static Product[] _products;
+        static readonly string path = FileSystem.Current.AppDataDirectory;
+        static readonly string fullPath = Path.Combine(path, "UserData.json");
+        static readonly string ordePath = Path.Combine(path, "OrderData.json");
 
-        private readonly static ObservableCollection<Product> _productCollection = new()
-        {
-            new("Guitar", "lol_1", "Good guitar", 132.42M, "guitar_catalog.png", 3),
-            new("MIDI", "Model_1", "Good midi", 164.3423M, "midi_catalog.png", 5),
-            new("Sax", "lol_2", "Good sax", 562.42M, "sax_catalog.png", 2),
-            new("Ukulele", "Model_1", "Good ukulele", 32.42M, "ukulele_catalog.png", 1),
-            new("Violin", "lol_3", "Good violin", 322.42M, "violin_catalog.png", 4),
-            new("Guitar Accessory", "Model_1", "Good shit", 232.42M, "guitar_accessories_catalog.png", 0)
-        };
+        static readonly List<Order> _orders;
+        static readonly Dictionary<string, string> _accounts;
 
-        public static ObservableCollection<Product> GetProducts()
+        static Dictionary<string, string> ReadAccounts()
         {
-            return _productCollection;
+            Dictionary<string, string> accounts;
+            using FileStream fStream = new(fullPath, FileMode.OpenOrCreate);
+            try
+            {
+                accounts = JsonSerializer.Deserialize<Dictionary<string, string>>(fStream);
+            }
+            catch (Exception)
+            {
+                accounts = new Dictionary<string, string>();
+            }
+            return accounts;
+        }
+        static void WriteAccounts(Dictionary<string, string> accounts)
+        {
+            using FileStream fs = new(fullPath, FileMode.Create);
+            JsonSerializer.Serialize(fs, accounts);
+        }
+        static TempServer()
+        {
+            _accounts = ReadAccounts();
+
+            _orders = ReadOrders();
+        }
+        public async static Task<AccountConfirmator> AuthorizationAsync(string login, string password)
+        {
+            await Task.Delay(560);
+            if (string.IsNullOrEmpty(login)||string.IsNullOrEmpty(password)) return new AccountConfirmator(login,
+                AccountAlerts.FIELDS_EMPTY);
+            if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountConfirmator(login,
+                AccountAlerts.INCORRECT_LOGIN_OR_PASSWORD);
+            return new AccountConfirmator(login, "Success");
+        }
+        public async static Task<AccountConfirmator> CreateAccountAsync(string login, string password, string confirmedPassword)
+        {
+            await Task.Delay(4000);
+
+            if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmedPassword))
+                return new AccountConfirmator(login, AccountAlerts.FIELDS_EMPTY);
+            if (_accounts.ContainsKey(login)) return new AccountConfirmator(login, AccountAlerts.SAME_LOGIN_EXIST);
+            if (password != confirmedPassword) return new AccountConfirmator(login, AccountAlerts.PASSWORDS_DONT_MATCH);
+            _accounts.Add(login, password);
+            WriteAccounts(_accounts);
+            return new AccountConfirmator(login, AccountAlerts.SUCCESS);
+        }
+
+        public static List<Product> FilterProducts(Product filterProduct)
+        {
+            List<Product> products = new ProductsService().GetProducts();
+            return (from p in products where p.ProductType == filterProduct.ProductType select p).ToList<Product>();
+        }
+
+
+        public async static Task<bool> Checkout(List<Product> products, string userName,
+            DateTime orderTime, double totalPrice)
+        {
+            int newId = 1;
+            foreach (Order order in _orders) newId++;
+            var newOrder = new Order(products, orderTime, userName, totalPrice, newId);
+            _orders.Add(newOrder);
+            await Task.Delay(100);
+            WriteOrders(_orders);
+            return true;
+        }
+
+        public async static Task<List<Order>> GetOrders(string buyerName)
+        {
+            await Task.Delay(100);
+            return (from order in _orders where order.BuyerName == buyerName select order).ToList<Order>();
+        }
+
+        static List<Order> ReadOrders()
+        {
+            List<Order> orders;
+            using FileStream fs = new(fullPath, FileMode.OpenOrCreate);
+            try
+            {
+                orders = JsonSerializer.Deserialize<List<Order>>(fs);
+            }
+            catch (Exception)
+            {
+                orders = new List<Order>();
+            }
+            return orders;
+        }
+        static void WriteOrders(List<Order> orders)
+        {
+            using FileStream fs = new(fullPath, FileMode.Create);
+            JsonSerializer.Serialize(fs, orders);
         }
     }
 }

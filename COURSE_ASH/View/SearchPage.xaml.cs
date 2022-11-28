@@ -4,7 +4,7 @@ namespace COURSE_ASH.View;
 
 public partial class SearchPage : ContentPage
 {
-    public SearchPage(ProductsViewModel viewModel)
+    public SearchPage(SearchPageViewModel viewModel)
     {
         InitializeComponent();
         BindingContext=viewModel;

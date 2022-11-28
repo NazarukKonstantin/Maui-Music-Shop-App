@@ -4,7 +4,7 @@
              xmlns:model="clr-namespace:COURSE_ASH.Model"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModel"
              xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             x:DataType="viewmodel:CatalogViewModel"
+             x:DataType="viewmodel:CatalogPageViewModel"
              x:Class="COURSE_ASH.View.CatalogPage"
              >
     <Page.Behaviors>
@@ -17,7 +17,8 @@
           ColumnDefinitions="*,Auto,.1*">
         <BoxView Style="{StaticResource NavBarBoxView}"
                  Grid.ColumnSpan="3" />
-        <Image Style="{StaticResource LogoutImageStyle}">
+        <Image Style="{StaticResource LogoutImageStyle}"
+               IsVisible="{Binding IsLoggedIn}">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer/>
             </Image.GestureRecognizers>
@@ -25,12 +26,14 @@
         <Label Text="Catalog"
                 Style="{StaticResource PageTitle}"/>
         <Image Style="{StaticResource LoginImageStyle}"
-               Grid.Column="2">
+               Grid.Column="2"
+               IsVisible="{Binding IsNotLoggedIn}">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogViewModel}},Path=GoToLoginPageCommand}"
                                       />
             </Image.GestureRecognizers>
         </Image>
+            
         <!--Catalog-->
         <CollectionView Grid.Row="1"
                         Grid.ColumnSpan="3"
@@ -55,7 +58,7 @@
                                >
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogViewModel}},Path=GoToProductsListCommand}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToProductsListCommand}"
                                                       />
                                 </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="*,*"

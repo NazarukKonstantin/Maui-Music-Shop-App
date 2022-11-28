@@ -18,5 +18,25 @@
             ProductImage=productImage;
             Rating=rating;
         }
+
+        public static enum FilterField
+        {
+            P_TYPE,MODEL,INFO,PRICE,P_IMAGE,RATING
+        };
+
+        public bool Equals(object obj, FilterField filter)
+        {
+            Product pr=(Product)obj;
+            return filter switch
+            {
+                FilterField.P_TYPE => pr.ProductType == ProductType,
+                FilterField.MODEL => pr.Model == Model,
+                FilterField.INFO => pr.Info == Info,
+                FilterField.PRICE => pr.Price == Price,
+                FilterField.P_IMAGE => pr.ProductImage == ProductImage,
+                FilterField.RATING => pr.Rating == Rating,
+                _ => base.Equals(obj)
+            };
+        }
     }
 }

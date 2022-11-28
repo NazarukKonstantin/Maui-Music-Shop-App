@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:COURSE_ASH"
     xmlns:view="clr-namespace:COURSE_ASH.View"
+    xmlns:global="clr-namespace:COURSE_ASH.Globals"
     Style="{StaticResource BaseShellStyle}"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False">
@@ -18,19 +19,19 @@
     </Shell.Resources>
 
     <TabBar>
-        <Tab Title="Home" Icon="home_blank">
+        <Tab Title="Home" Icon="{x:Static global:Icons.HomeBlank}">
             <ShellContent
             Shell.NavBarIsVisible="False"
             ContentTemplate="{DataTemplate view:CatalogPage}"
             Route="CatalogPage"/>
         </Tab>
-        <Tab Title="Search" Icon="catalog">
+        <Tab Title="Search" Icon="{x:Static global:Icons.ManageSearch}">
             <ShellContent
                 Shell.NavBarIsVisible="False"
                 ContentTemplate="{DataTemplate view:SearchPage}"
                 Route="SearchPage"/>
         </Tab>
-        <Tab Title="Cart" Icon="shopping_cart">
+        <Tab Title="Cart" Icon="{x:Static global:Icons.ShoppingCart}">
             <ShellContent
                 Shell.NavBarIsVisible="False"
                 ContentTemplate="{DataTemplate view:CartPage}"

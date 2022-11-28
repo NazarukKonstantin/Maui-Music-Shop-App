@@ -5,7 +5,7 @@ namespace COURSE_ASH.View;
 
 public partial class ProductPage : ContentPage
 {
-    public ProductPage(ProductDetailsViewModel viewModel)
+    public ProductPage(ProductPageViewModel viewModel)
     {
         InitializeComponent();
         BindingContext=viewModel;

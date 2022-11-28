@@ -34,26 +34,26 @@ public static class MauiProgram
                 fonts.AddFont("Karla-SemiBold.ttf", "KarlaSemiBold");
             });
 
-        builder.Services.AddSingleton<CatalogPage>();
-        builder.Services.AddSingleton<CatalogViewModel>();
+        builder.Services.AddTransient<CatalogPage>();
+        builder.Services.AddTransient<CatalogViewModel>();
 
-        builder.Services.AddSingleton<ImageUploadPage>();
-        builder.Services.AddSingleton<ImageUploader>();
+        builder.Services.AddTransient<ImageUploadPage>();
+        builder.Services.AddTransient<ImageUploader>();
 
-        builder.Services.AddSingleton<CartPage>();
-        builder.Services.AddSingleton<CartPageViewModel>();
+        builder.Services.AddTransient<CartPage>();
+        builder.Services.AddTransient<CartPageViewModel>();
 
         builder.Services.AddTransient<ProductPage>();
         builder.Services.AddTransient<ProductDetailsViewModel>();
 
-        builder.Services.AddSingleton<ProfilePage>();
-        builder.Services.AddSingleton<ProfilePageViewModel>();
+        builder.Services.AddTransient<ProfilePage>();
+        builder.Services.AddTransient<ProfilePageViewModel>();
 
-        builder.Services.AddSingleton<SearchPage>();
-        builder.Services.AddSingleton<ProductsViewModel>();
+        builder.Services.AddTransient<SearchPage>();
+        builder.Services.AddTransient<SearchPageViewModel>();
 
-        builder.Services.AddSingleton<LoginPage>();
-        builder.Services.AddSingleton<LoginPageViewModel>();
+        builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<LoginPageViewModel>();
 
         return builder.Build();
     }

@@ -3,14 +3,14 @@
     public class CatalogItem
     {
         public string ProductsType { get; set; }
-        public string ProductsImage { get; set; }
+        public string ItemImage { get; set; }
         public int ImageRotation { get; set; }
         public double ImageScale { get; set; }
 
         public CatalogItem(string type, string image, int imageRotation, double imageScale)
         {
             ProductsType=type;
-            ProductsImage=image;
+            ItemImage=image;
             ImageRotation=imageRotation;
             ImageScale=imageScale;
         }

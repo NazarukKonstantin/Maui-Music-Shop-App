@@ -36,6 +36,38 @@
         </search:ProductSearchHandler>
     </Shell.SearchHandler-->
 
+    <Shell.SearchHandler>
+        <search:ProductSearchHandler Placeholder="Search"
+                                             FontSize="Medium"
+                                             TextColor="White"
+                                             ShowsResults="True"
+                                             DisplayMemberName="ProductName"
+                                             Products="{x:Static viewmodel:CategoryViewModel.Products}"
+                                             BackgroundColor="{StaticResource Primary}"
+                                             SearchBoxVisibility="Collapsible"
+                                             ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"
+                                             QueryIcon="{Static globalconst:Icons.SearchIcon}">
+            <search:ProductSearchHandler.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Grid Padding="10"
+                          ColumnDefinitions="0.4*,0.6*"
+                          HeightRequest="120"
+                          BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, 
+                                            Light={StaticResource Gray100}}">
+                        <Image Source="{Binding ProductImage}"
+                               VerticalOptions="Fill"
+                               HorizontalOptions="Fill"/>
+                        <Label Grid.Column="1"
+                               Text="{Binding ProductName}"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               LineBreakMode="TailTruncation"/>
+                    </Grid>
+                </DataTemplate>
+            </search:ProductSearchHandler.ItemTemplate>
+        </search:ProductSearchHandler>
+    </Shell.SearchHandler>
 
     <Grid RowDefinitions="Auto,*"
               ColumnDefinitions=".2*,.8*"

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj": {}
+    "E:\\OOPIP\\COURSE_WORK\\Maui-Music-Shop-App\\COURSE_ASH\\COURSE_ASH.csproj": {}
   },
   "projects": {
-    "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj": {
+    "E:\\OOPIP\\COURSE_WORK\\Maui-Music-Shop-App\\COURSE_ASH\\COURSE_ASH.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj",
+        "projectUniqueName": "E:\\OOPIP\\COURSE_WORK\\Maui-Music-Shop-App\\COURSE_ASH\\COURSE_ASH.csproj",
         "projectName": "COURSE_ASH",
-        "projectPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\COURSE_ASH.csproj",
+        "projectPath": "E:\\OOPIP\\COURSE_WORK\\Maui-Music-Shop-App\\COURSE_ASH\\COURSE_ASH.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "E:\\OOPIP\\Maui-Music-Shop-App-master\\Maui-Music-Shop-App-master\\COURSE_ASH\\obj\\",
+        "outputPath": "E:\\OOPIP\\COURSE_WORK\\Maui-Music-Shop-App\\COURSE_ASH\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [
@@ -69,6 +69,10 @@
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -133,6 +137,10 @@
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -203,6 +211,10 @@
               "target": "Package",
               "version": "[8.0.0, )"
             },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
               "version": "[6.0.541, )",
@@ -272,6 +284,10 @@
             "CommunityToolkit.Mvvm": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "FirebaseDatabase.net": {
+              "target": "Package",
+              "version": "[4.1.0, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",

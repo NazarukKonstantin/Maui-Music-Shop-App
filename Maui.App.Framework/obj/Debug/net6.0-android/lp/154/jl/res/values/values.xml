@@ -1,4 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <item name="glide_custom_view_target_tag" type="id"/>
-</resources>
+<resources><string name="maui_empty_unused" /></resources>

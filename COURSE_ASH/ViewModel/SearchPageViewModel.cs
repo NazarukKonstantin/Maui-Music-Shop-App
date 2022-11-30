@@ -1,80 +1,120 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using COURSE_ASH.Model;
-using COURSE_ASH.View;
-using System.Collections.ObjectModel;
+﻿
+using CommunityToolkit.Maui.Core.Extensions;
+using COURSE_ASH.Extensions;
+using System.Linq;
 
-namespace COURSE_ASH.ViewModel
+namespace COURSE_ASH.ViewModel;
+
+[QueryProperty(nameof(IsTabVisible), nameof(IsTabVisible))]
+public partial class SearchPageViewModel : BaseViewModel
 {
-    [QueryProperty(nameof(_filterType), "FilterType")]
-    [QueryProperty(nameof(IsTabVisible), nameof(IsTabVisible))]
-    public partial class ProductsViewModel : BaseViewModel
-    {        
-        public ObservableCollection<Product> Products { get; set; }
-        public static List<Product> ProductList { get; set; }
+    public ObservableCollection<Product> Products { get; set; }
 
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsTabNotVisible))]
-        private bool _isTabVisible;
-        public bool IsTabNotVisible => !IsTabVisible;
-        private string _filterType;
+    readonly ProductsService _prodService;
 
-        public ProductsViewModel()
+    private static List<Product> _cacheList;
+
+    [ObservableProperty]
+    string query;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsTabNotVisible))]
+    private bool _isTabVisible;
+    public bool IsTabNotVisible => !IsTabVisible;
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
+    bool isEmpty = true;
+    public bool IsNotEmpty => !isEmpty;
+
+    public SearchPageViewModel(ProductsService productsService)
+    {
+        _prodService = productsService;
+        _cacheList = _prodService.GetProducts();
+        Products = _cacheList.ToObservableCollection();
+        IsTabVisible = true;
+        PropertyChanged += ProdCollectionChanged;
+    }
+
+    public void ProdCollectionChanged(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(Products)) return;
+        if (Products.Count == 0) IsEmpty = true;
+        else IsEmpty = false;
+    }
+
+    [RelayCommand] 
+    async Task GoToProductPageAsync(Product product)
+    {
+        if (product is null)
+            return;
+        await Shell.Current.GoToAsync($"{nameof(ProductPage)}", true,
+            new Dictionary<string, object>
+            {
+                [nameof(Product)]=product
+            });
+    }
+
+    [RelayCommand]
+    private async Task GoBackAsync()
+    {
+        IsTabVisible=true;
+        await Shell.Current.GoToAsync("..");
+    }
+
+    public void SortProducts(FilterField filter = FilterField.MODEL)
+    {
+        switch (filter)
         {
-            ProductList=Products.ToList();
-            IsTabVisible=true;
+            case FilterField.PRICE : Products.SortBy(pr=>pr.Price); break;
+            case FilterField.P_TYPE : Products.SortBy(pr => pr.ProductType); break;
+            case FilterField.RATING : Products.SortBy(pr => pr.Rating); break;
+            default: Products.SortBy(pr => pr.Model); break;
+        };
+    }
+
+    //[RelayCommand]
+    //private void SearchProduct()
+    //{
+    //    var model=string.Empty;
+    //    FilterProducts(model => model.StartsWith(Query));
+    //}
+
+
+    [RelayCommand]
+    private void FilterProducts (FilterField filter = FilterField.MODEL)
+    {
+        //switch (filter)
+        //{
+        //    case FilterField.PRICE: Products.SortBy(pr => pr.Price); break;
+        //    case FilterField.P_TYPE: Products.FilterBy(pr => pr.ProductType); break;
+        //    case FilterField.RATING: Products.FilterBy(pr => pr.Rating); break;
+        //    default: Products.SortBy(pr => pr.Model); break;
+        //};
+
+        if (string.IsNullOrWhiteSpace(Query))
+        {
+            Query = string.Empty;
         }
 
-        [RelayCommand]
-        async Task GoToDetailsAsync(Product product)
-        {
-            if (product is null)
-                return;
-            await Shell.Current.GoToAsync($"{nameof(ProductPage)}", true,
-                new Dictionary<string, object>
-                {
-                    [nameof(Product)]=product
-                });
-        }
-
-        [RelayCommand]
-        public async Task GoBackAsync()
-        {
-            IsTabVisible=true;
-            await Shell.Current.GoToAsync("..");
-        }
-
-        [RelayCommand]
-        public void FilterProducts(string Text)
-        {
-            if (string.IsNullOrWhiteSpace(Text))
-                Text=string.Empty;
-            if (string.IsNullOrWhiteSpace(_filterType))
-                _filterType=Text;
-
-            var filteredItems = Products
+        var filteredItems = _cacheList
             .Where(value => value.Model
             .ToLowerInvariant()
-            .Contains(_filterType
+            .Contains(Query
             .ToLowerInvariant()))
             .ToList();
 
-            if (string.IsNullOrWhiteSpace(Text))
-                filteredItems=ProductList.ToList();
-
-            foreach (var item in ProductList)
+        foreach (var value in _cacheList)
+        {
+            if (!filteredItems.Contains(value))
             {
-                if (!filteredItems.Contains(item))
-                {
-                    Products.Remove(item);
-                }
-                else if (!Products.Contains(item))
-                {
-                    Products.Add(item);
-                }
+                Products.Remove(value);
             }
-            _filterType=string.Empty;
+            else if (!Products.Contains(value))
+            {
+                Products.Add(value);
+                SortProducts();
+            }
         }
-
     }
 }

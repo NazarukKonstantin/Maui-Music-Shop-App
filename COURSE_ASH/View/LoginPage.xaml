@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModel"
-             x:DataType="viewmodel:LoginPageViewModel"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             x:DataType="viewmodel:LogInPageViewModel"
              x:Class="COURSE_ASH.View.LoginPage"
              Shell.TabBarIsVisible="False">
 
@@ -42,7 +43,7 @@
                            IsPassword="False"/>
 
                     <Image x:Name="VisibilityImg"
-                        Source="visibility_off_dark"
+                        Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="Center"
                            HeightRequest="40"
@@ -54,9 +55,9 @@
                 </HorizontalStackLayout>
             </Frame>
         </VerticalStackLayout>
-        <VerticalStackLayout Grid.Row="2" Margin="10" Padding="0" Spacing="30">
-            <Button Text="Sign Up" Style="{StaticResource LoginButtons}"/>
+        <VerticalStackLayout Grid.Row="2" Margin="10" Padding="0" Spacing="50">
             <Button Text="Log In" Style="{StaticResource LoginButtons}"/>
+            
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

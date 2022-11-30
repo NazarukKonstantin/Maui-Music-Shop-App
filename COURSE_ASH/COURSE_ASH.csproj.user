@@ -35,6 +35,9 @@
     <MauiXaml Update="View\ProfilePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="View\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="View\SearchPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

@@ -1,5 +1,4 @@
-using COURSE_ASH.ViewModel;
-
+using CommunityToolkit.Mvvm;
 namespace COURSE_ASH.View;
 
 public partial class SearchPage : ContentPage
@@ -9,9 +8,4 @@ public partial class SearchPage : ContentPage
         InitializeComponent();
         BindingContext=viewModel;
     }
-
-    //public void ProductSearchHandler_Focused(object sender, EventArgs e)
-    //{
-    //    Shell.SetTabBarIsVisible(productSearch, !IsFocused);
-    //}
 }

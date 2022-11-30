@@ -10,3 +10,15 @@ E:\OOPIP\COURSE\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App
 E:\OOPIP\COURSE\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\refint\Maui.App.Framework.dll
 E:\OOPIP\COURSE\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.pdb
 E:\OOPIP\COURSE\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\ref\Maui.App.Framework.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\bin\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.deps.json
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\bin\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\bin\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.pdb
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.csproj.AssemblyReference.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.GeneratedMSBuildEditorConfig.editorconfig
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.AssemblyInfoInputs.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.AssemblyInfo.cs
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.csproj.CoreCompileInputs.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\refint\Maui.App.Framework.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\Maui.App.Framework.pdb
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\Maui.App.Framework\obj\Debug\net6.0-windows10.0.19041.0\ref\Maui.App.Framework.dll

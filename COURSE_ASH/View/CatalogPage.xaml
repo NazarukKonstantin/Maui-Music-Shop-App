@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:model="clr-namespace:COURSE_ASH.Model"
-             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModel"
-             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
-             x:DataType="viewmodel:CatalogPageViewModel"
-             x:Class="COURSE_ASH.View.CatalogPage"
+             xmlns:x = "http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model = "clr-namespace:COURSE_ASH.Model"
+             xmlns:viewmodel = "clr-namespace:COURSE_ASH.ViewModel"
+             xmlns:mct = "clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:DataType = "viewmodel:CatalogPageViewModel"
+             x:Class = "COURSE_ASH.View.CatalogPage"
              >
     <Page.Behaviors>
-        <mct:StatusBarBehavior StatusBarColor="{AppThemeBinding Dark={StaticResource ComplimentaryDark}
+        <mct:StatusBarBehavior StatusBarColor = "{AppThemeBinding Dark={StaticResource ComplimentaryDark}
             ,Light={StaticResource Primary}}"
-                               StatusBarStyle="{AppThemeBinding Dark=LightContentm,Light=DarkContent}"/>
+                               StatusBarStyle = "{AppThemeBinding Dark=LightContentm,Light=DarkContent}"/>
     </Page.Behaviors>
 
-        <Grid RowDefinitions="Auto,*"
-          ColumnDefinitions="*,Auto,.1*">
-        <BoxView Style="{StaticResource NavBarBoxView}"
+        <Grid RowDefinitions = "Auto,*"
+          ColumnDefinitions = "*,Auto,.1*">
+        <BoxView Style = "{StaticResource NavBarBoxView}"
                  Grid.ColumnSpan="3" />
         <Image Style="{StaticResource LogoutImageStyle}"
                IsVisible="{Binding IsLoggedIn}">
@@ -29,7 +29,7 @@
                Grid.Column="2"
                IsVisible="{Binding IsNotLoggedIn}">
             <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogViewModel}},Path=GoToLoginPageCommand}"
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToLoginPageCommand}"
                                       />
             </Image.GestureRecognizers>
         </Image>
@@ -63,7 +63,7 @@
                                 </Frame.GestureRecognizers>
                                 <Grid ColumnDefinitions="*,*"
                                   >
-                                    <Image Source="{Binding ProductsImage}"
+                                    <Image Source="{Binding ItemImage}"
                                        Rotation="{Binding ImageRotation}"
                                        Scale="{Binding ImageScale}"
                                        Style="{StaticResource CatalogImageStyle}"/>

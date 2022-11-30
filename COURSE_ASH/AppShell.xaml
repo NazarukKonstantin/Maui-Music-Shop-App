@@ -8,7 +8,7 @@
     xmlns:global="clr-namespace:COURSE_ASH.Globals"
     Style="{StaticResource BaseShellStyle}"
     Shell.FlyoutBehavior="Disabled"
-    Shell.NavBarIsVisible="False">
+    >
 
     <Shell.Resources>
         <ResourceDictionary>
@@ -23,7 +23,8 @@
             <ShellContent
             Shell.NavBarIsVisible="False"
             ContentTemplate="{DataTemplate view:CatalogPage}"
-            Route="CatalogPage"/>
+            Route="CatalogPage"
+            />
         </Tab>
         <Tab Title="Search" Icon="{x:Static global:Icons.ManageSearch}">
             <ShellContent

@@ -5,3 +5,5 @@ global using COURSE_ASH.ViewModel;
 global using COURSE_ASH.Services;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
+global using System.ComponentModel;
+global using System.Collections.ObjectModel;

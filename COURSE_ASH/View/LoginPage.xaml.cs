@@ -1,10 +1,8 @@
-using COURSE_ASH.ViewModel;
-
 namespace COURSE_ASH.View;
 
 public partial class LoginPage : ContentPage
 {
-    public LoginPage(LoginPageViewModel viewModel)
+    public LoginPage(LogInPageViewModel viewModel)
     {
         InitializeComponent();
         BindingContext=viewModel;

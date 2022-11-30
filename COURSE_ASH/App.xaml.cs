@@ -2,6 +2,7 @@
 
 public partial class App : Application
 {
+    public static Account CurrentAccount { get; set; }
     public App()
     {
         InitializeComponent();

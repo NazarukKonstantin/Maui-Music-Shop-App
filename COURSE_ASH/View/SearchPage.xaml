@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModel"
              xmlns:model="clr-namespace:COURSE_ASH.Model"
              xmlns:search="clr-namespace:COURSE_ASH.SearchHandlers"
              xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
-             x:DataType="viewmodel:ProductsViewModel"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             x:DataType="viewmodel:SearchPageViewModel"
              x:Class="COURSE_ASH.View.SearchPage"
              Shell.TabBarIsVisible="{Binding IsTabVisible}"
-             Shell.NavBarIsVisible="False">
+             >
 
     <!--Shell.SearchHandler>
         <search:ProductSearchHandler Grid.Row="0"
@@ -36,43 +38,42 @@
         </search:ProductSearchHandler>
     </Shell.SearchHandler-->
 
-    <Shell.SearchHandler>
-        <search:ProductSearchHandler Placeholder="Search"
+    <!--<Shell.SearchHandler>
+        <search:ProductSearchHandler
+                                             Placeholder="Search Model"
                                              FontSize="Medium"
-                                             TextColor="White"
+                                             TextColor="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"
                                              ShowsResults="True"
                                              DisplayMemberName="ProductName"
-                                             Products="{x:Static viewmodel:CategoryViewModel.Products}"
-                                             BackgroundColor="{StaticResource Primary}"
+                                             Products="{x:Static viewmodel:SearchPageViewModel.ProdList}"
+                                             BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+            ,Light={StaticResource TenderWhite}}"
                                              SearchBoxVisibility="Collapsible"
-                                             ClearIcon="{Static globalconst:Icons.DeleteTextIcon}"
-                                             QueryIcon="{Static globalconst:Icons.SearchIcon}">
+                                             ClearIcon="{Static global:Icons.Close}"
+                                             QueryIcon="{Static global:Icons.Search}"
+                                             Query="{Binding Query, Mode=OneWay}">
             <search:ProductSearchHandler.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
-                    <Grid Padding="10"
-                          ColumnDefinitions="0.4*,0.6*"
-                          HeightRequest="120"
-                          BackgroundColor="{AppThemeBinding Dark={StaticResource Gray900}, 
-                                            Light={StaticResource Gray100}}">
-                        <Image Source="{Binding ProductImage}"
-                               VerticalOptions="Fill"
-                               HorizontalOptions="Fill"/>
-                        <Label Grid.Column="1"
-                               Text="{Binding ProductName}"
-                               FontAttributes="Bold"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center"
-                               LineBreakMode="TailTruncation"/>
+                    <Grid RowDefinitions="Auto" ColumnDefinitions="40,Auto"
+                              HeightRequest="120">
+                        <Image Source="{Binding ProductImage}" HeightRequest="30" WidthRequest="30"
+                                   VerticalOptions="Fill" HorizontalOptions="Fill"/>
+                        <VerticalStackLayout Grid.Column="1" Margin="5" Padding="5">
+                            <Label Text="{Binding Model}" Style="{StaticResource MediumLabel}"
+                                       LineBreakMode="TailTruncation"/>
+                            <Label Text="{Binding Price}" Style="{StaticResource SmallLabel}"
+                                       LineBreakMode="TailTruncation"/>
+                        </VerticalStackLayout>
                     </Grid>
                 </DataTemplate>
             </search:ProductSearchHandler.ItemTemplate>
         </search:ProductSearchHandler>
-    </Shell.SearchHandler>
+    </Shell.SearchHandler>-->
 
     <Grid RowDefinitions="Auto,*"
               ColumnDefinitions=".2*,.8*"
               >
-
+        
         <BoxView Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/>
 
         <ImageButton IsVisible="{Binding IsTabNotVisible}"
@@ -82,7 +83,7 @@
                      CommandParameter="{Binding .}"
                      />
 
-            <SearchBar x:Name="ProductSearch"
+        <SearchBar x:Name="ProductSearch"
                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
             ,Light={StaticResource TenderWhite}}"
                     Grid.Column="1"
@@ -91,10 +92,17 @@
                     VerticalOptions="Center"
                     Grid.Row="0"
                     Placeholder="Search"
-                TextColor="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"
-                SearchCommand="{Binding FilterProductsCommand}"
-                SearchCommandParameter="{Binding Source={RelativeSource Self}, Path=Text}"/>
-    
+                    Text="{Binding Query}"
+                    TextColor="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"
+                    >
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding FilterProductsCommand}"
+                    />
+            </SearchBar.Behaviors>
+        </SearchBar>
+
         <CollectionView BackgroundColor="Transparent"
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
@@ -123,8 +131,8 @@
                                Padding="0">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer
-                                                          CommandParameter="{Binding .}"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}},Path=GoToDetailsCommand}"
+                                                         CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SearchPageViewModel}}, Path=GoToDetailsCommand}"
                                                       />
                                 </Frame.GestureRecognizers>
                                 <Grid RowDefinitions=".7*,.3*"
@@ -135,10 +143,10 @@
                                              >
                                         <Frame.GestureRecognizers>
                                             <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductsViewModel}},Path=GoToDetailsCommand}"/>
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:SearchPageViewModel}},Path=GoToDetailsCommand}"/>
                                         </Frame.GestureRecognizers>
 
-                                            <Image Source="{Binding ProductImage}"
+                                        <Image Source="{Binding ProductImage}"
                                                Aspect="AspectFit"
                                                />
                                     </Frame>

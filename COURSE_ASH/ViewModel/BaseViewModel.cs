@@ -1,13 +1,10 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿namespace COURSE_ASH.ViewModel;
 
-namespace COURSE_ASH.ViewModel
+public partial class BaseViewModel : ObservableObject
 {
-    public partial class BaseViewModel : ObservableObject
-    {
-        [ObservableProperty]
-        [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-        bool isBusy;
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotBusy))]
+    bool isBusy;
 
-        public bool IsNotBusy => !IsBusy;
-    }
+    public bool IsNotBusy => !IsBusy;
 }

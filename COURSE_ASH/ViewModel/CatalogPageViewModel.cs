@@ -1,48 +1,47 @@
-﻿using CommunityToolkit.Mvvm.Input;
-using COURSE_ASH.Model;
-using COURSE_ASH.View;
-using System.Collections.ObjectModel;
+﻿using CommunityToolkit.Maui.Core.Extensions;
 
-namespace COURSE_ASH.ViewModel
+namespace COURSE_ASH.ViewModel;
+
+public partial class CatalogPageViewModel : BaseViewModel
 {
-    public partial class CatalogPageViewModel : BaseViewModel
+    readonly CatalogService _catalogService=new();
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(IsNotLoggedIn))]
+    bool isLoggedIn=false;
+    
+    public bool IsNotLoggedIn => !IsLoggedIn;
+    
+    public List<CatalogItem> Items { get; set; }
+
+    public static List<Product> Products { get; private set; }
+
+    public CatalogPageViewModel(ProductsService productsService)
     {
-        public ObservableCollection<CatalogItem> Items { get; set; } = new();
+        Items=_catalogService.GetItems();
+        Products=productsService.GetProducts();
+    }
 
-        public void HardcodeData()
-        {
-            Items.Add(new("Guitars", "guitar_catalog", 10, 1.6));
-            Items.Add(new("Brass", "sax_catalog", -60, 2));
-            Items.Add(new("Accessories", "guitar_accessories_catalog", 0, 1.5));
-            Items.Add(new("Strings", "violin_catalog", 18, 1.8));
-            Items.Add(new("Ukulele", "ukulele_catalog", 0, 1.9));
-            Items.Add(new("Keyboards", "midi_catalog", -10, 1));
-        }
+    [RelayCommand]
+    async Task GoToSearchPageAsync(CatalogItem item)
+    {
+        if (item is null || string.IsNullOrEmpty(item.ProductsType)) return;
+        bool IsTabVisible = false;
 
-        public CatalogPageViewModel()
-        {
-            HardcodeData();
-        }
+        ObservableCollection<Product> filteredProducts = (from product in Products
+                                                          where product.ProductType == item.ProductsType
+                                                          select product).ToObservableCollection<Product>();
+        await Shell.Current.GoToAsync($"{nameof(SearchPage)}", true,
+            new Dictionary<string, object>
+            {
+                ["Products"] = filteredProducts,
+                [nameof(IsTabVisible)]=IsTabVisible
+            });
+    }
 
-        [RelayCommand]
-        async Task GoToProductsListAsync(CatalogItem item)
-        {
-            if (item is null) return;
-            string FilterType = item.ProductsType.ToLowerInvariant();
-            bool IsTabVisible = false;
-            await Shell.Current.GoToAsync($"{nameof(SearchPage)}", true,
-                new Dictionary<string, object>
-                {
-                    [nameof(FilterType)]=FilterType,
-                    [nameof(IsTabVisible)]=IsTabVisible
-                });
-
-        }
-
-        [RelayCommand]
-        async Task GoToLoginPage()
-        {
-            await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
-        }
+    [RelayCommand]
+    async Task GoToLoginPage()
+    {
+        await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
     }
 }

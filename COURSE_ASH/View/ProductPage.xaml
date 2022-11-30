@@ -4,7 +4,8 @@
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModel"
              xmlns:model="clr-namespace:COURSE_ASH.Model"
              xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
-             x:DataType="viewmodel:ProductDetailsViewModel"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             x:DataType="viewmodel:ProductPageViewModel"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
              x:Class="COURSE_ASH.View.ProductPage"
@@ -15,7 +16,7 @@
                 Style="{StaticResource NavBarBoxView}"
                      Color="{AppThemeBinding Dark={StaticResource DarkBackground}
                 ,Light={StaticResource LightBackground}}"/>
-            <Label Text="{Binding Product.Model}"
+            <Label Text="{Binding PickedProduct.Model}"
                    Style="{StaticResource PageTitle}"
                    />
             <ImageButton Grid.Column="0"
@@ -24,7 +25,6 @@
                          CommandParameter="{Binding .}"
                             />
         <ScrollView Grid.Row="1" 
-                    Scrolled="ScrollView_Scrolled"
                     IsEnabled="True">
             <VerticalStackLayout>
                 <Border 
@@ -43,7 +43,7 @@
                     </Border.Shadow>
                     <Frame
                    Style="{StaticResource SearchFrameTop}">
-                        <Image Source="{Binding Product.ProductImage}"
+                        <Image Source="{Binding PickedProduct.ProductImage}"
                    Aspect="AspectFit"
                    />
                     </Frame>
@@ -69,7 +69,7 @@
                             <Label
                                 Grid.ColumnSpan="2"
                                 Grid.Row="0"
-                                Text="{Binding Product.Price,StringFormat='{0:C2}'}"
+                                Text="{Binding PickedProduct.Price,StringFormat='{0:C2}'}"
                                    Style="{StaticResource PriceStyle}"
                                 Margin="30,30,30,0"
                                 FontSize="50"/>
@@ -78,7 +78,7 @@
                                 
                                 Grid.ColumnSpan="2"
                                 Grid.Row="1"
-                                Text="{Binding Product.Model}"
+                                Text="{Binding PickedProduct.Model}"
                                 Style="{StaticResource CenteredLabel}"
                                 FontSize="50"
                                 Margin="30,10,30,0"
@@ -89,7 +89,7 @@
                             <Label
                                 Grid.ColumnSpan="2"
                                 Grid.Row="2"
-                                Text="{Binding Product.ProductType}"
+                                Text="{Binding PickedProduct.ProductType}"
                                 HorizontalOptions="StartAndExpand"
                                 FontAttributes="Bold"
                                 FontSize="25"
@@ -99,7 +99,7 @@
                             <rating:SimpleRatingControl Grid.ColumnSpan="2"
                                 Grid.Row="3"
                                                         Amount="5"
-                                                        CurrentValue="{Binding Product.Rating}"
+                                                        CurrentValue="{Binding PickedProduct.Rating}"
                                                         AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
                                         ,Light={StaticResource DarkBlue}}"
                                                         FontSize="30"
@@ -109,11 +109,11 @@
                                 />
                             <Image Grid.Row="4" Grid.Column="0"
                                    Margin="0,0,-30,20"
-                                Source="{AppThemeBinding Dark=info_white,Light=info_black}"/>
+                                Source="{AppThemeBinding Dark={x:Static global:Icons.InfoWhite},Light={x:Static global:Icons.InfoBlack}}"/>
                             <Label Grid.Row="4"  Grid.Column="1"
                                    Margin="0,0,90,20"
                                 Text="Info" Style="{StaticResource Title}"/>
-                            <Label Text="{Binding Product.Info}"
+                            <Label Text="{Binding PickedProduct.Info}"
                                    Style="{StaticResource CenteredLabel}"
                                    FontSize="Body"
                                    HorizontalOptions="StartAndExpand"

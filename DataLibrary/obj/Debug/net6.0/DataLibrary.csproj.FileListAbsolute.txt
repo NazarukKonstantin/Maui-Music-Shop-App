@@ -10,3 +10,15 @@ E:\OOPIP\COURSE\DataLibrary\obj\Debug\net6.0\DataLibrary.dll
 E:\OOPIP\COURSE\DataLibrary\obj\Debug\net6.0\refint\DataLibrary.dll
 E:\OOPIP\COURSE\DataLibrary\obj\Debug\net6.0\DataLibrary.pdb
 E:\OOPIP\COURSE\DataLibrary\obj\Debug\net6.0\ref\DataLibrary.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\bin\Debug\net6.0\DataLibrary.deps.json
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\bin\Debug\net6.0\DataLibrary.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\bin\Debug\net6.0\DataLibrary.pdb
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.csproj.AssemblyReference.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfoInputs.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.AssemblyInfo.cs
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.csproj.CoreCompileInputs.cache
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\refint\DataLibrary.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\DataLibrary.pdb
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\DataLibrary\obj\Debug\net6.0\ref\DataLibrary.dll

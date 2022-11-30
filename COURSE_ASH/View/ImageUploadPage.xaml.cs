@@ -1,5 +1,3 @@
-using COURSE_ASH.Services;
-
 namespace COURSE_ASH.View;
 
 public partial class ImageUploadPage : ContentPage

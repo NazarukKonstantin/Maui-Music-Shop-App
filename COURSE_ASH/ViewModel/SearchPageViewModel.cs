@@ -43,25 +43,6 @@ public partial class SearchPageViewModel : BaseViewModel
         else IsEmpty = false;
     }
 
-    [RelayCommand] 
-    async Task GoToProductPageAsync(Product product)
-    {
-        if (product is null)
-            return;
-        await Shell.Current.GoToAsync($"{nameof(ProductPage)}", true,
-            new Dictionary<string, object>
-            {
-                [nameof(Product)]=product
-            });
-    }
-
-    [RelayCommand]
-    private async Task GoBackAsync()
-    {
-        IsTabVisible=true;
-        await Shell.Current.GoToAsync("..");
-    }
-
     public void SortProducts(FilterField filter = FilterField.MODEL)
     {
         switch (filter)
@@ -116,5 +97,24 @@ public partial class SearchPageViewModel : BaseViewModel
                 SortProducts();
             }
         }
+    }
+
+    [RelayCommand]
+    async Task GoToProductPageAsync(Product product)
+    {
+        if (product is null)
+            return;
+        await Shell.Current.GoToAsync($"{nameof(ProductPage)}", true,
+            new Dictionary<string, object>
+            {
+                [nameof(Product)]=product
+            });
+    }
+
+    [RelayCommand]
+    private async Task GoBackAsync()
+    {
+        IsTabVisible=true;
+        await Shell.Current.GoToAsync("..");
     }
 }

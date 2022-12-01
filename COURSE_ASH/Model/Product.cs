@@ -7,14 +7,18 @@ public enum FilterField
 
 public class Product
 {
+    public string Key { get; set; }
     public string ProductType { get; set; }
     public string Model { get; set; }
     public string Info { get; set; }
-    public decimal Price { get; set; }
+    public double Price { get; set; }
     public string ProductImage { get; set; }
     public int Rating { get; set; }
 
-    public Product(string productType, string model, string info, decimal price, string productImage, int rating)
+    public Product() { }
+
+
+    public Product(string productType, string model, string info, double price, string productImage, int rating)
     {
         ProductType=productType;
         Model=model;

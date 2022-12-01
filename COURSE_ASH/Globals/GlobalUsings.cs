@@ -7,3 +7,5 @@ global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using System.ComponentModel;
 global using System.Collections.ObjectModel;
+global using Firebase.Database;
+global using Firebase.Database.Query;

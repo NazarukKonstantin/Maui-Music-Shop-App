@@ -1,7 +1,54 @@
-﻿namespace COURSE_ASH.Services;
+﻿using Firebase.Database.Query;
 
-public class ProductsService
+namespace COURSE_ASH.Services;
+
+public class ProductsService : DBManager<Product>
 {
+    private FirebaseClient _client;
+
+    public ProductsService(string url, string secret)
+    {
+        _client = BaseConstructor(url, secret);
+    }
+
+    public override async Task<bool> Add(Product value)
+    {
+        var response = await _client.Child(nameof(Product)).PostAsync(new Product()
+        {
+            ProductType=value.ProductType,
+            Price=value.Price,
+            ProductImage=value.ProductImage,
+            Info = value.Info,
+            Model = value.Model,
+            Rating = value.Rating, 
+        });
+        return response.Key!=null;
+    }
+
+    public override async Task<bool> Delete(string Key)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override async Task<Product> Get(string Key)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override async Task<List<Product>> GetAll()
+    {
+        throw new NotImplementedException();
+    }
+
+    public override async Task<bool> Update(Product value)
+    {
+        if(!string.IsNullOrEmpty(value.Key))
+            try
+            {
+                await _client.Child(nameof(Product)).Child(nameof(Product.Key)).PutAsync(value)
+            }
+    }
+
     public List<Product> GetProducts()
     {
         List<Product> products = new()

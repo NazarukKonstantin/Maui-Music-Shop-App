@@ -209,6 +209,9 @@
 	  <MauiXaml Update="View\CartPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\FilterView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\ImageUploadPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

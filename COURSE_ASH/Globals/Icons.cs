@@ -42,4 +42,6 @@ public static class Icons
     public const string VisibilityOnLight = "visibility_on_light.svg";
     public const string WaltuhBlack= "waltuh_black.png";
     public const string WaltuhWhite = "waltuh_white.png";
+    public const string FilterBlank = "filter_blank.png";
+    public const string FilterFilled = "filter_filled.png";
 }

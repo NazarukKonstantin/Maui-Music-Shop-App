@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
               "version": "[6.0.541, )",
@@ -141,6 +145,10 @@
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
@@ -215,6 +223,10 @@
               "target": "Package",
               "version": "[4.1.0, )"
             },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
+            },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",
               "version": "[6.0.541, )",
@@ -288,6 +300,10 @@
             "FirebaseDatabase.net": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "FirebaseStorage.net": {
+              "target": "Package",
+              "version": "[1.0.3, )"
             },
             "Microsoft.Maui.Dependencies": {
               "target": "Package",

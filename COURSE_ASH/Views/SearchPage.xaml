@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels"
+             xmlns:model="clr-namespace:COURSE_ASH.Models"
+             xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             x:DataType="viewmodel:SearchPageViewModel"
+             x:Class="COURSE_ASH.View.SearchPage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="{Binding IsTabVisible}"
+             >
+
+    <Grid RowDefinitions="Auto,*"
+              ColumnDefinitions=".2*,.8*"
+              >
+        
+        <BoxView Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/>
+
+        <ImageButton IsVisible="{Binding IsTabNotVisible}"
+                     Grid.Column="0"
+                     Style="{StaticResource GoBackArrow}"
+                        Command="{Binding GoBackCommand}"
+                     CommandParameter="{Binding .}"
+                     />
+
+        <SearchBar x:Name="ProductSearch"
+                   BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+            ,Light={StaticResource TenderWhite}}"
+                    Grid.Column="1"
+                    Margin="-35"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    Grid.Row="0"
+                    Placeholder="Search"
+                    Text="{Binding Query}"
+                    TextColor="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}"
+                    >
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior
+                    EventName="TextChanged"
+                    Command="{Binding FilterProductsCommand}"
+                    />
+            </SearchBar.Behaviors>
+        </SearchBar>
+
+        <CollectionView BackgroundColor="Transparent"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Products}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2" Orientation="Vertical"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Grid Padding="10">
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.StrokeShape>
+                                <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}"/>
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                    ,Light={StaticResource PrimaryDark}}"
+                                    Offset="10,10"
+                                    Radius="20"
+                                    Opacity="0.5" />
+                            </Border.Shadow>
+                            <Frame x:Name="BottomFrame"
+                                Style="{StaticResource SearchFrameBottom}"
+                                HeightRequest="400"
+                               Padding="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                                      Command="{Binding Source={RelativeSource 
+                                        AncestorType={x:Type viewmodel:SearchPageViewModel}}, 
+                                        Path=GoToProductPageCommand}"
+                                        CommandParameter="{Binding .}"
+                                                      />
+                                </Frame.GestureRecognizers>
+                                <Grid RowDefinitions=".7*,.3*"
+                                  RowSpacing="20"
+                                      
+                                  >
+                                    <Frame   Style="{StaticResource SearchFrameTop}"                         
+                                             Grid.Row="0"
+                                             >
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                      Command="{Binding Source={RelativeSource 
+                                                AncestorType={x:Type viewmodel:SearchPageViewModel}},
+                                                Path=GoToProductPageCommand}"
+                                                CommandParameter="{Binding .}"/>
+                                        </Frame.GestureRecognizers>
+
+                                        <Image Source="{Binding Image}"
+                                               Aspect="AspectFit"
+                                               />
+                                    </Frame>
+
+                                    <VerticalStackLayout HorizontalOptions="Start"
+                                                     VerticalOptions="Start"
+                                                     Grid.Row="1"
+                                                     Padding="0"
+                                                     Spacing="5"
+                                                     Margin="15,0,15,0"
+                                                     >
+                                        <Label Text="{Binding Price, StringFormat='{0:C2}'}"
+                                           Style="{StaticResource PriceStyle}"/>
+
+                                        <Label Text="{Binding Model}"
+                                           Style="{StaticResource CenteredLabel}"
+                                           FontSize="21"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="Start"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation"
+                                           />
+                                        <rating:SimpleRatingControl
+                                                                Amount="5"
+                                                                CurrentValue="{Binding Rating}"
+                                                                AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
+                                        ,Light={StaticResource DarkBlue}}"
+                                                                FontSize="25"
+                                                                HorizontalOptions="Start"
+                                                                IsEnabled="False"
+                                                                />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

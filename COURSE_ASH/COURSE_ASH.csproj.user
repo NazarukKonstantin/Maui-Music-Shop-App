@@ -17,31 +17,34 @@
     <MauiXaml Update="Resources\Styles\ShellStyles.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="ViewControls\ReviewCard.xaml">
+    <MauiXaml Update="Shells\AdminShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\CartPage.xaml">
+    <MauiXaml Update="Views\AdminViews\AddProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\FilterView.xaml">
+    <MauiXaml Update="Views\CartPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\ImageUploadPage.xaml">
+    <MauiXaml Update="Views\FilterView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\LoginPage.xaml">
+    <MauiXaml Update="Views\ImageUploadPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\ProductPage.xaml">
+    <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\ProfilePage.xaml">
+    <MauiXaml Update="Views\ProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\RegistrationPage.xaml">
+    <MauiXaml Update="Views\ProfilePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="View\SearchPage.xaml">
+    <MauiXaml Update="Views\AuthorizationViews\RegistrationPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

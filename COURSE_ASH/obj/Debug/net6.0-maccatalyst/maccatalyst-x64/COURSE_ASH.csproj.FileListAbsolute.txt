@@ -815,3 +815,4 @@ E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\COURSE_ASH.csproj.CopyComplete
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\COURSE_ASH.genruntimeconfig.cache
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\ref\COURSE_ASH.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-maccatalyst\maccatalyst-x64\Firebase.Storage.dll

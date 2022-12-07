@@ -12,6 +12,7 @@ public class MonoPackageManager_Resources {
 		"CommunityToolkit.Maui.Core.dll",
 		"CommunityToolkit.Mvvm.dll",
 		"Firebase.dll",
+		"Firebase.Storage.dll",
 		"GoogleGson.dll",
 		"LiteDB.dll",
 		"Microsoft.Extensions.Configuration.dll",

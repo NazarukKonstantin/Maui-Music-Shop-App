@@ -15,12 +15,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/AppShell.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.AppShell.xaml
-build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
-build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
-
 [E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Resources/Styles/Buttons.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Styles.Buttons.xaml
@@ -63,62 +57,74 @@ build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Resources.Style
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\ShellStyles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\ShellStyles.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/ViewControls/ReviewCard.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Shells/AdminShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.ViewControls.ReviewCard.xaml
-build_metadata.AdditionalFiles.TargetPath = ViewControls\ReviewCard.xaml
-build_metadata.AdditionalFiles.RelativePath = ViewControls\ReviewCard.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Shells.AdminShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AdminShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AdminShell.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/CartPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Shells/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.CartPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\CartPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\CartPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Shells.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AppShell.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/CatalogPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AdminViews/AddProductPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.CatalogPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\CatalogPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\CatalogPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AdminViews.AddProductPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\AddProductPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\AddProductPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/FilterView.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AuthorizationViews/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.FilterView.xaml
-build_metadata.AdditionalFiles.TargetPath = View\FilterView.xaml
-build_metadata.AdditionalFiles.RelativePath = View\FilterView.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AuthorizationViews.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthorizationViews\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthorizationViews\LoginPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/ImageUploadPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AuthorizationViews/RegistrationPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ImageUploadPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\ImageUploadPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\ImageUploadPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AuthorizationViews.RegistrationPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AuthorizationViews\RegistrationPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AuthorizationViews\RegistrationPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/LoginPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/CartPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.LoginPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\LoginPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\LoginPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.CartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CartPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/ProductPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/CatalogPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ProductPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\ProductPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\ProductPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.CatalogPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CatalogPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CatalogPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/ProfilePage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/FilterView.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.ProfilePage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\ProfilePage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\ProfilePage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.FilterView.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\FilterView.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\FilterView.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/RegistrationPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/ImageUploadPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.RegistrationPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\RegistrationPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\RegistrationPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.ImageUploadPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ImageUploadPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ImageUploadPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/View/SearchPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/ProductPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.View.SearchPage.xaml
-build_metadata.AdditionalFiles.TargetPath = View\SearchPage.xaml
-build_metadata.AdditionalFiles.RelativePath = View\SearchPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.ProductPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductPage.xaml
+
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProfilePage.xaml
+
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/SearchPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.SearchPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\SearchPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\SearchPage.xaml

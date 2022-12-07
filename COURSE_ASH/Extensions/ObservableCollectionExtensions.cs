@@ -28,6 +28,21 @@ namespace COURSE_ASH.Extensions
             }
         }
 
+        public static ObservableCollection<Product> MyToObservableCollection(this IEnumerable<ICRUDable> enumerableList)
+        {
+            if (enumerableList != null)
+            {
+                //create an emtpy observable collection object
+                var observableCollection = new ObservableCollection<Product>();
 
+                //loop through all the records and add to observable collection object
+                foreach (var item in enumerableList)
+                    observableCollection.Add((Product)item);
+
+                //return the populated observable collection
+                return observableCollection;
+            }
+            return null;
+        }
     }
 }

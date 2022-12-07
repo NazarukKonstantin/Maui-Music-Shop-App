@@ -5,7 +5,7 @@ namespace COURSE_ASH.Services;
 public static class TempServer
 {
     static readonly string path = FileSystem.Current.AppDataDirectory;
-    static readonly string fullPath = Path.Combine(path, "UserData.json");
+    static readonly string fullPath = Path.Combine(path, "DBAccountData.json");
     static readonly string ordePath = Path.Combine(path, "OrderData.json");
 
     static readonly List<Order> _orders;
@@ -36,26 +36,26 @@ public static class TempServer
 
         _orders = ReadOrders();
     }
-    public async static Task<AccountConfirmator> LogInAsync(string login, string password)
+    public async static Task<AccountData> LogInAsync(string login, string password)
     {
         await Task.Delay(560);
-        if (string.IsNullOrEmpty(login)||string.IsNullOrEmpty(password)) return new AccountConfirmator(login,
+        if (string.IsNullOrEmpty(login)||string.IsNullOrEmpty(password)) return new AccountData(login,Roles.User,
             AccountAlerts.FIELDS_EMPTY);
-        if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountConfirmator(login,
+        if (!_accounts.ContainsKey(login) || _accounts[login] != password) return new AccountData(login,Roles.User,
             AccountAlerts.INCORRECT_LOGIN_OR_PASSWORD);
-        return new AccountConfirmator(login, "Success");
+        return new AccountData(login,Roles.User, "Success");
     }
-    public async static Task<AccountConfirmator> CreateAccountAsync(string login, string password, string confirmedPassword)
+    public async static Task<AccountData> CreateAccountAsync(string login, string password, string confirmedPassword)
     {
         await Task.Delay(4000);
 
         if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmedPassword))
-            return new AccountConfirmator(login, AccountAlerts.FIELDS_EMPTY);
-        if (_accounts.ContainsKey(login)) return new AccountConfirmator(login, AccountAlerts.SAME_LOGIN_EXIST);
-        if (password != confirmedPassword) return new AccountConfirmator(login, AccountAlerts.PASSWORDS_DONT_MATCH);
+            return new AccountData(login, Roles.User, AccountAlerts.FIELDS_EMPTY);
+        if (_accounts.ContainsKey(login)) return new AccountData(login, Roles.User,AccountAlerts.SAME_LOGIN_EXIST);
+        if (password != confirmedPassword) return new AccountData(login, Roles.User, AccountAlerts.PASSWORDS_DONT_MATCH);
         _accounts.Add(login, password);
         WriteAccounts(_accounts);
-        return new AccountConfirmator(login, AccountAlerts.SUCCESS);
+        return new AccountData(login,Roles.User, AccountAlerts.SUCCESS);
     }
 
     public static List<Product> FilterProducts(Product filterProduct, FilterField filterField)
@@ -67,16 +67,16 @@ public static class TempServer
     public static List<Product> FilterProducts<T>(FilterField filterField, T filter)
     {
         List<Product> products = new ProductsService().GetProducts();
-        decimal temp = 0;
-        if (filter is decimal) 
-            if(!decimal.TryParse(filter as string, out temp)) return products;
+        double  temp = 0;
+        if (filter is double) 
+            if(!double.TryParse(filter as string, out temp)) return products;
         return filterField switch
         {
             FilterField.P_TYPE => (from p in products where p.ProductType == filter as string select p).ToList(),
             FilterField.MODEL => (from p in products where p.Model == filter as string select p).ToList(),
             FilterField.INFO => (from p in products where p.Info == filter as string select p).ToList(),
             FilterField.PRICE => (from p in products where p.Price == temp select p).ToList(),
-            FilterField.P_IMAGE => (from p in products where p.ProductImage == filter as string select p).ToList(),
+            FilterField.P_IMAGE => (from p in products where p.Image == filter as string select p).ToList(),
             FilterField.RATING => (from p in products where p.Rating == Convert.ToInt32(filter) select p).ToList(),
             _ => products
         };

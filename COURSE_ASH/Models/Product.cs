@@ -5,18 +5,18 @@ public enum FilterField
     ID,P_TYPE, MODEL, INFO, PRICE, P_IMAGE, RATING
 };
 
-public class Product : ICRUDable
+public class Product : IDBItem, IImageDisposable
 {
-    public string Key { get; set; }
     public int ID { get; set; }
-    public static int TotalAmount { get; set; }
+
+    public string Image { get; set; }
+    public int ImageLinkCounter { get; set; } = 0;
 
     public string Category { get; set; }
     public string ProductType { get; set; }
     public string Model { get; set; }
     public string Info { get; set; }
     public double Price { get; set; }
-    public string Image { get; set; }
     public int Rating { get; set; }
 
     public Product() { }
@@ -30,8 +30,6 @@ public class Product : ICRUDable
         Price=price;
         Image=image;
         Rating=rating;
-
-        ID=TotalAmount;
     }
 
     public bool Equals(object obj, FilterField filter=FilterField.ID)

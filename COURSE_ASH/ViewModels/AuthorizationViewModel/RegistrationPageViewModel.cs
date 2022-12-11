@@ -4,7 +4,7 @@ namespace COURSE_ASH.ViewModels.AuthorizationViewModel;
 
 public partial class RegistrationPageViewModel: BaseViewModel
 {
-    readonly AccountService _accountService;
+    readonly RegistrationService _service;
 
     [ObservableProperty]
     public string login;
@@ -21,22 +21,28 @@ public partial class RegistrationPageViewModel: BaseViewModel
     [ObservableProperty]
     string alert;
 
-    public RegistrationPageViewModel(AccountService accountService)
+    public RegistrationPageViewModel(RegistrationService service)
     {
-        _accountService = accountService;
+        _service=service;
     }
 
     [RelayCommand]
     async Task CreateAccount()
     {
         IsBusy = true;
-        AccountData accountConf = await _accountService.CreateAccountAsync(Login, Password, ConfirmPassword);
-        if (accountConf.Alert != AccountAlerts.SUCCESS)
+        AccountState accountState = await _service.RegisterUserAsync(Login, Password, ConfirmPassword);
+        if (accountState.Alert != AccountAlerts.SUCCESS)
         {
             IsSuccessful = false;
-            Alert = accountConf.Alert;
+            Alert = accountState.Alert;
         }
         else IsSuccessful=true;
         IsBusy = false;
+    }
+
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
     }
 }

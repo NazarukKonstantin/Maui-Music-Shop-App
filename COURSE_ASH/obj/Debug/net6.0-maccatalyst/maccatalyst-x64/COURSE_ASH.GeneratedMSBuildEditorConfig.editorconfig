@@ -69,6 +69,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Shells.AppShell
 build_metadata.AdditionalFiles.TargetPath = Shells\AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = Shells\AppShell.xaml
 
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Shells/AuthorizationShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Shells.AuthorizationShell.xaml
+build_metadata.AdditionalFiles.TargetPath = Shells\AuthorizationShell.xaml
+build_metadata.AdditionalFiles.RelativePath = Shells\AuthorizationShell.xaml
+
 [E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AdminViews/AddProductPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AdminViews.AddProductPage.xaml

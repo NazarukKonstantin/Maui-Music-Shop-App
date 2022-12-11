@@ -12,6 +12,8 @@ global using COURSE_ASH.Models.Interfaces;
 global using COURSE_ASH.Extensions;
 global using COURSE_ASH.Shells;
 global using COURSE_ASH.Services.AccountServices;
+global using COURSE_ASH.Services.DataStorageStrategies;
+global using COURSE_ASH.Services.Exceptions;
 global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Maui.Core.Extensions;
 global using CommunityToolkit.Mvvm.Input;

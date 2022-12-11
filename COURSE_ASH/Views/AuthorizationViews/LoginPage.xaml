@@ -5,7 +5,8 @@
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:LogInPageViewModel"
              x:Class="COURSE_ASH.Views.AuthorizationViews.LoginPage"
-             Shell.TabBarIsVisible="False">
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False">
 
     <Grid RowDefinitions=".4*,.3*,.3*">
         <Frame HeightRequest="160"

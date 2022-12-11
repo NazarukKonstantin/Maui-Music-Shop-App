@@ -7,18 +7,18 @@
              xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:SearchPageViewModel"
-             x:Class="COURSE_ASH.View.SearchPage"
+             x:Class="COURSE_ASH.Views.SearchPage"
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="{Binding IsTabVisible}"
              >
 
     <Grid RowDefinitions="Auto,*"
-              ColumnDefinitions=".2*,.8*"
-              >
+              ColumnDefinitions=".2*,.8*" >
         
-        <BoxView Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/>
+        <BoxView x:Name="NavBar" Margin="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource NavBarBoxView}"/>
 
-        <ImageButton IsVisible="{Binding IsTabNotVisible}"
+        <ImageButton x:Name="GoBack"
+                     IsVisible="{Binding IsTabNotVisible}"
                      Grid.Column="0"
                      Style="{StaticResource GoBackArrow}"
                         Command="{Binding GoBackCommand}"
@@ -45,7 +45,8 @@
             </SearchBar.Behaviors>
         </SearchBar>
 
-        <CollectionView BackgroundColor="Transparent"
+        <CollectionView x:Name="ProductCollection"
+                        BackgroundColor="Transparent"
                         Grid.Row="1"
                         Grid.ColumnSpan="2"
                         ItemsSource="{Binding Products}"

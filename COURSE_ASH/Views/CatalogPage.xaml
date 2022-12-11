@@ -5,7 +5,7 @@
              xmlns:viewmodel = "clr-namespace:COURSE_ASH.ViewModels"
              xmlns:mct = "clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
              x:DataType = "viewmodel:CatalogPageViewModel"
-             x:Class = "COURSE_ASH.View.CatalogPage">
+             x:Class = "COURSE_ASH.Views.CatalogPage">
     
     <Page.Behaviors>
         <mct:StatusBarBehavior StatusBarColor = "{AppThemeBinding Dark={StaticResource ComplimentaryDark}

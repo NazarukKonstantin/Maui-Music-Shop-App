@@ -7,7 +7,7 @@
              xmlns:model="clr-namespace:COURSE_ASH.Models"
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:CartPageViewModel"
-             x:Class="COURSE_ASH.View.CartPage">
+             x:Class="COURSE_ASH.Views.CartPage">
 
     <Grid RowDefinitions="Auto,*">
         <BoxView Style="{StaticResource NavBarBoxView}"/>

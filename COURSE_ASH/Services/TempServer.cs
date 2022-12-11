@@ -5,7 +5,7 @@ namespace COURSE_ASH.Services;
 public static class TempServer
 {
     static readonly string path = FileSystem.Current.AppDataDirectory;
-    static readonly string fullPath = Path.Combine(path, "DBAccountData.json");
+    static readonly string fullPath = Path.Combine(path, "AccountData.json");
     static readonly string ordePath = Path.Combine(path, "OrderData.json");
 
     static readonly List<Order> _orders;

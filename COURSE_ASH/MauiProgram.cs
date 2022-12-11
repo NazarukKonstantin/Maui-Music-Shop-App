@@ -1,9 +1,5 @@
 ﻿namespace COURSE_ASH;
 using CommunityToolkit.Maui;
-using COURSE_ASH.Services;
-using COURSE_ASH.Services.AccountServices;
-using COURSE_ASH.View;
-using COURSE_ASH.ViewModel;
 using SimpleRatingControlMaui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
@@ -62,6 +58,7 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<AccountService>();
         builder.Services.AddSingleton<LogInService>();
+        builder.Services.AddSingleton<RegistrationService>();
         builder.Services.AddSingleton<CatalogService>();
         builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();

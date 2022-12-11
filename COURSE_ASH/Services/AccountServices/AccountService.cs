@@ -2,10 +2,18 @@
 
 public class AccountService
 {
-  
-    //
-    public async Task<AccountData> CreateAccountAsync(string login, string password, string repeatPassword)
+    protected static bool DoPasswordsMatch(string passwordOne, string passwordTwo)
     {
-        return await TempServer.CreateAccountAsync(login, password, repeatPassword);
+        return passwordOne == SHA256HashComputer.ComputeSha256Hash(passwordTwo);
+    }
+
+    protected static bool DoLoginsMatch(IEnumerable<AccountData> accounts, string login)
+    {
+        return (from acc in accounts where acc.UserName == login select acc).Any();
+    }
+
+    protected static string SetPassword(string newPassword)
+    {
+        return SHA256HashComputer.ComputeSha256Hash(newPassword);
     }
 }

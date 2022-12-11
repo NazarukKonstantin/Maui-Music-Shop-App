@@ -207,6 +207,9 @@
 	  <MauiXaml Update="Shells\AdminShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Shells\AuthorizationShell.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\AddProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -273,6 +276,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Shells\AuthorizationShell.xaml.cs">
+	    <DependentUpon>AuthorizationShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AuthorizationViews\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
@@ -293,6 +299,11 @@
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Medium.ttf" />
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-MediumItalic.ttf" />
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Regular.ttf" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="ViewModels\UserViewModels\" />
+	  <Folder Include="Views\UserViews\" />
 	</ItemGroup>
 
 </Project>

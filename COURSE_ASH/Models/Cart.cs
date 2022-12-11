@@ -3,8 +3,11 @@ using System.Text.Json;
 
 namespace COURSE_ASH.Models;
 
-public class Cart
+public class Cart : IDBItem, IAccountBased
 {
+    public int ID { get; set; }
+    public string UserName { get; set; }
+
     static string _path = FileSystem.Current.CacheDirectory;
     static string _fullPath = Path.Combine(_path, "CartData.json");
 

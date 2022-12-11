@@ -1,8 +1,9 @@
 ﻿namespace COURSE_ASH.Models;
 
-public class Order
+public class Order : IDBItem, IAccountBased
 {
     public int ID { get; set; }
+    public string UserName { get; set; }
 
     public List<Product> Products { get; }
     public DateTime OrderTime { get; }

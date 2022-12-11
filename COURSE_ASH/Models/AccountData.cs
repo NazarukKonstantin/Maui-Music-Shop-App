@@ -1,15 +1,11 @@
-﻿namespace COURSE_ASH.Models;
-
-public class AccountData
+﻿namespace COURSE_ASH.Models
 {
-    public string Login { get; set; }
-    public string Role { get; set; }
-    public string Alert { get; set; }
-
-    public AccountData(string login, string role,string alert)
+    public class AccountData : IDBItem, IAccountBased
     {
-        Login=login;
-        Role=role;
-        Alert=alert;
+        public int ID { get; set; }
+
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Role { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace COURSE_ASH.Extensions
             }
         }
 
-        public static ObservableCollection<Product> MyToObservableCollection(this IEnumerable<ICRUDable> enumerableList)
+        public static ObservableCollection<Product> MyToObservableCollection(this IEnumerable<IDBItem> enumerableList)
         {
             if (enumerableList != null)
             {

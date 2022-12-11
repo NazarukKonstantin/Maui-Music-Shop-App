@@ -6,7 +6,9 @@ public class CartProduct : Product
 
     public CartProduct() : base()
     {
+
     }
+
     public CartProduct(Product product) : base()
     {
         ID = product.ID;

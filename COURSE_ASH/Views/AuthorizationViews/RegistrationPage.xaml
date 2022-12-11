@@ -7,7 +7,7 @@
              x:DataType="viewmodel:RegistrationPageViewModel"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
-             Title="RegisterPage">
+             Title="RegistrationPage">
 
     <Grid RowDefinitions="Auto,250,.6*,.5*">
         <BoxView Margin="0" Style="{StaticResource NavBarBoxView}"/>
@@ -17,6 +17,7 @@
                      Command="{Binding GoBackCommand}"
                      CommandParameter="{Binding .}"
                      />
+        
         <Frame Grid.Row="1"
                HeightRequest="160"
                WidthRequest="160"

@@ -1,7 +1,9 @@
 ﻿namespace COURSE_ASH.Models;
 
-public class CatalogItem
+public class CatalogItem : IDBItem
 {
+    public int ID { get; set; }
+
     public string Category { get; }
     public ImageSource ItemImage { get; }
     public int ImageRotation { get; set; }

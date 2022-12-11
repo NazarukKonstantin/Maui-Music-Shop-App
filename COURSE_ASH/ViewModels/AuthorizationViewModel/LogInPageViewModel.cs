@@ -16,7 +16,7 @@ public partial class LogInPageViewModel : BaseViewModel
     bool isPasswordVisible;
 
     [ObservableProperty]
-    string errorMessage;
+    string alert;
 
     public LogInPageViewModel(LogInService logInService)
     {
@@ -27,13 +27,13 @@ public partial class LogInPageViewModel : BaseViewModel
     public async Task LogIn()
     {
         IsBusy = true;
-        AccountData accountConf = await _logInService.LogInAsync(Login, Password);
-        if (accountConf.Alert == AccountAlerts.SUCCESS)
+        AccountState accountState = await _logInService.LogInUserAsync(Login, Password);
+        if (accountState.Alert == AccountAlerts.SUCCESS)
         {
             IsSuccessful = true;
             IsFailed = false;
-            App.CurrentLogin = accountConf.Login;
-            if (accountConf.Role == Roles.Admin)
+            App.CurrentLogin = accountState.Login;
+            if (accountState.Role == Roles.Admin)
                 App.Current.MainPage = new AdminShell();
             else
                 App.Current.MainPage = new AppShell();
@@ -41,7 +41,7 @@ public partial class LogInPageViewModel : BaseViewModel
         else
         {
             IsSuccessful = false;
-            ErrorMessage = accountConf.Alert;
+            Alert = accountState.Alert;
             IsFailed = true;
             Password = string.Empty;
         }

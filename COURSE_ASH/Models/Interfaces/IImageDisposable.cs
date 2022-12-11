@@ -2,6 +2,6 @@
 
 public interface IImageDisposable
 {
-    string Image { get; set; }
+    string ImageLink { get; set; }
     int ImageLinkCounter { get; set; }
 }

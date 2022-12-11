@@ -1,9 +1,6 @@
-﻿using Firebase.Database;
-using Firebase.Storage;
+﻿namespace COURSE_ASH.Services;
 
-namespace COURSE_ASH.Services;
-
-public static class DataStorageService<T> where T : IDBItem
+public static class DataStorageService<T> where T: class
 {
     private static readonly ChildQuery _firebaseQuery =
         App.FbClientManager.GetDataStorageClient().Child(GetTableName(typeof(T)));
@@ -24,35 +21,35 @@ public static class DataStorageService<T> where T : IDBItem
                 select item.Object)?.AsEnumerable();
     }
 
-    public static async Task<T> GetItemAsync(string fieldName, int value)
+    public static async Task<T> GetItemAsync(string searchFieldName, int value)
     {
         var item = await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>();
         return item.Any() ? item.First().Object : default;
     }
 
-    public static async Task<T> GetItemAsync(string fieldName, string value)
+    public static async Task<T> GetItemAsync(string searchFieldName, string value)
     {
         var item = await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>();
         return item.Any() ? item.First().Object : default;
     }
-    public static async Task<IEnumerable<T>> GetItemsAsync(string fieldName,int value)
+    public static async Task<IEnumerable<T>> GetItemsAsync(string searchFieldName,int value)
     {
         return (from item in (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>())
                 select item.Object)?.AsEnumerable<T>();
     }
-    public static async Task<IEnumerable<T>> GetItemsAsync(string fieldName,string value)
+    public static async Task<IEnumerable<T>> GetItemsAsync(string searchFieldName,string value)
     {
         return (from item in (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>())
                 select item.Object)?.AsEnumerable<T>();
@@ -62,10 +59,10 @@ public static class DataStorageService<T> where T : IDBItem
         await _firebaseQuery
             .PostAsync(item);
     }
-    public static async Task DeleteItemAsync(string fieldName, int value)
+    public static async Task DeleteItemAsync(string searchFieldName, int value)
     {
         var item = (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>()).First();
 
@@ -73,10 +70,10 @@ public static class DataStorageService<T> where T : IDBItem
             .Child(item.Key)
             .DeleteAsync();
     }
-    public static async Task DeleteItemAsync(string fieldName, string value)
+    public static async Task DeleteItemAsync(string searchFieldName, string value)
     {
         var item = (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>()).First();
 
@@ -84,10 +81,10 @@ public static class DataStorageService<T> where T : IDBItem
             .Child(item.Key)
             .DeleteAsync();
     }
-    public static async Task UpdateItemAsync(T item, string fieldName, int value)
+    public static async Task UpdateItemAsync(T item, string searchFieldName, int value)
     {
         var target = (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>()).First();
 
@@ -95,10 +92,10 @@ public static class DataStorageService<T> where T : IDBItem
             .Child(target.Key)
             .PatchAsync(item);
     }
-    public static async Task UpdateItemAsync(T item, string fieldName, string value)
+    public static async Task UpdateItemAsync(T item, string searchFieldName, string value)
     {
         var target = (await _firebaseQuery
-            .OrderBy(fieldName)
+            .OrderBy(searchFieldName)
             .EqualTo(value)
             .OnceAsync<T>()).First();
 

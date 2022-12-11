@@ -4,22 +4,22 @@ namespace COURSE_ASH.ViewModels.AuthorizationViewModel;
 
 public partial class RegistrationPageViewModel: BaseViewModel
 {
-    readonly RegistrationService _service;
+    private readonly RegistrationService _service;
 
     [ObservableProperty]
-    public string login;
+    private string _login;
 
     [ObservableProperty]
-    string password;
+    private string _password;
 
     [ObservableProperty]
-    bool isPasswordVisible;
+    private bool _isPasswordVisible;
 
     [ObservableProperty]
-    string confirmPassword;
+    private string _confirmPassword;
 
     [ObservableProperty]
-    string alert;
+    private string _alert;
 
     public RegistrationPageViewModel(RegistrationService service)
     {

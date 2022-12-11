@@ -19,7 +19,7 @@ public class RegistrationService : AccountService
         await DataStorageService<AccountData>.AddItemAsync(new AccountData
         {
             ID=accounts.Count()+1,
-            UserName=login,
+            CurrentLogin=login,
             Password=SetPassword(password),
             Role=role,
         });

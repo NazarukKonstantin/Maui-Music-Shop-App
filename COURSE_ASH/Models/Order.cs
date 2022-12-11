@@ -1,21 +1,19 @@
 ﻿namespace COURSE_ASH.Models;
 
-public class Order : IDBItem, IAccountBased
+public class Order : IAccountBased
 {
+    public string CurrentLogin { get; set; }
+
     public int ID { get; set; }
-    public string UserName { get; set; }
+    public List<CartProduct> Products { get; set;}
+    public DateTime OrderTime { get; set; }
+    public string Address { get; set; }
+    public string BuyerName { get; set; }
+    public double TotalPrice { get; set;  }
+    public string Status { get; set; }
 
-    public List<Product> Products { get; }
-    public DateTime OrderTime { get; }
-    public string BuyerName { get; }
-    public double TotalPrice { get; }
-
-    public Order(List<Product> products, DateTime orderTime, string buyerName, double totalPrice, int orderID)
+    public static bool CanBeCancelled (string status)
     {
-        Products = products;
-        OrderTime = orderTime;
-        BuyerName = buyerName;
-        TotalPrice = totalPrice;
-        ID = orderID;
+        return status == OrderStatus.AWAITING_CONFIRMATION || status == OrderStatus.ACCEPTED;
     }
 }

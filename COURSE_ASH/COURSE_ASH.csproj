@@ -168,6 +168,8 @@
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
 	  <PackageReference Include="FirebaseDatabase.net" Version="4.1.0" />
 	  <PackageReference Include="FirebaseStorage.net" Version="1.0.3" />
+	  <PackageReference Include="Geocoding.Core" Version="4.0.1" />
+	  <PackageReference Include="Geocoding.Microsoft" Version="4.0.1" />
 	  <PackageReference Include="MonkeyCache" Version="2.0.0-beta" />
 	  <PackageReference Include="SimpleRatingControl.MAUI" Version="0.0.3" />
 	  <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
@@ -213,28 +215,37 @@
 	  <MauiXaml Update="Views\AdminViews\AddProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CartPage.xaml">
+	  <MauiXaml Update="Views\AdminViews\AdminSearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\FilterView.xaml">
+	  <MauiXaml Update="Views\AdminViews\EditProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ImageUploadPage.xaml">
+	  <MauiXaml Update="Views\UserViews\CartPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserViews\CheckoutPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserViews\FilterView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProductPage.xaml">
+	  <MauiXaml Update="Views\UserViews\OrderHistoryPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ProfilePage.xaml">
+	  <MauiXaml Update="Views\UserViews\ProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\UserViews\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AuthorizationViews\RegistrationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SearchPage.xaml">
+	  <MauiXaml Update="Views\UserViews\SearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -279,10 +290,13 @@
 	  <Compile Update="Shells\AuthorizationShell.xaml.cs">
 	    <DependentUpon>AuthorizationShell.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AdminViews\AdminSearchPage.xaml.cs">
+	    <DependentUpon>AdminSearchPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AuthorizationViews\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\CatalogPage.xaml.cs">
+	  <Compile Update="Views\UserViews\CatalogPage.xaml.cs">
 	    <DependentUpon>CatalogPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\AuthorizationViews\RegistrationPage.xaml.cs">
@@ -299,11 +313,6 @@
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Medium.ttf" />
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-MediumItalic.ttf" />
 	  <MauiFont Include="Resources\Fonts\FiraSans\FiraSans-Regular.ttf" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="ViewModels\UserViewModels\" />
-	  <Folder Include="Views\UserViews\" />
 	</ItemGroup>
 
 </Project>

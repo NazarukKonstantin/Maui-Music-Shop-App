@@ -6,7 +6,6 @@ public class CartProduct : Product
 
     public CartProduct() : base()
     {
-
     }
 
     public CartProduct(Product product) : base()
@@ -17,7 +16,21 @@ public class CartProduct : Product
         Price = product.Price;
         Rating= product.Rating;
         Info = product.Info;
-        Image = product.Image;
+        ImageLink = product.ImageLink;
         UnitQuantity = 0;
+    }
+
+    public Product GetProduct()
+    {
+        return new Product
+        {
+            ID = ID,
+            ProductType = ProductType,
+            Category = Category,
+            Price = Price,
+            Rating = Rating,
+            Info= Info,
+            ImageLink=ImageLink,
+        };
     }
 }

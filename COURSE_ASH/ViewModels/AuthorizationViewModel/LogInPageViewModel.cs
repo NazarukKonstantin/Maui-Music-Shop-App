@@ -7,16 +7,16 @@ public partial class LogInPageViewModel : BaseViewModel
     readonly LogInService _logInService;
 
     [ObservableProperty]
-    string login;
+    private string _login;
 
     [ObservableProperty]
-    string password;
+    private string _password;
 
     [ObservableProperty]
-    bool isPasswordVisible;
+    private bool _isPasswordVisible;
 
     [ObservableProperty]
-    string alert;
+    private string _alert;
 
     public LogInPageViewModel(LogInService logInService)
     {

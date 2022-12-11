@@ -1,9 +1,7 @@
 ﻿namespace COURSE_ASH.Models;
 
-public class CatalogItem : IDBItem
+public class CatalogItem
 {
-    public int ID { get; set; }
-
     public string Category { get; }
     public ImageSource ItemImage { get; }
     public int ImageRotation { get; set; }
@@ -16,4 +14,15 @@ public class CatalogItem : IDBItem
         ImageRotation=imageRotation;
         ImageScale=imageScale;
     }
+
+    public static List<CatalogItem> CatalogList { get; } = new()
+    {
+            new("Guitars", Icons.CatalogGuitar, 10, 1.6),
+            new("Brass", Icons.CatalogSax, -60, 2),
+            new("Accessories", Icons.CatalogGuitarAccessories, 0, 1.5),
+            new("Strings", Icons.CatalogViolin, 18, 1.8),
+            new("Ukuleles", Icons.CatalogUkulele, 0, 1.9),
+            new("Keyboards", Icons.CatalogPiano, -10, 1)
+    };
+
 }

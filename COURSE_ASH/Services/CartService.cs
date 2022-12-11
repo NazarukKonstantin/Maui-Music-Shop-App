@@ -1,40 +1,97 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace COURSE_ASH.Services;
+﻿namespace COURSE_ASH.Services;
 
 public class CartService
 {
-    public List<Product> GetCartList()
+    public async Task<List<CartProduct>> GetCartFromStorageAsync(string currentLogin)
     {
-        return Cart.GetCartList();
+        Cart cart = await GetCartBy(currentLogin);
+
+        return cart ?.Products ?? new List<CartProduct>();
     }
-    public async Task<List<Product>> AddProduct(Product product)
+    public async Task<CartProduct> AddProductToStorageCartAsync(string currentLogin, CartProduct product)
     {
-        List<Product> tempList = await Cart.AddProduct(product);
-        CartChanged?.Invoke();
-        return tempList;
+        product.UnitQuantity++;
+
+        Cart cart = await GetCartBy(currentLogin);
+
+        if (cart is null)
+        {
+            await DataStorageService<Cart>.AddItemAsync(new Cart
+            {
+                CurrentLogin=currentLogin,
+                Products=new List<CartProduct> { product },
+            });
+            return product;
+        }
+
+        cart.Products ??= new List<CartProduct>();
+
+        if (cart.Products.Contains(product))
+            cart.Products[cart.Products.IndexOf(product)].UnitQuantity++;
+        else
+            cart.Products.Add(product);
+
+        await UpdateCartGlobal(cart);
+
+        return product;
     }
-    public async Task<List<Product>> RemoveProduct(Product product)
+    public async Task DeleteProductFromStorageCartAsync(string currentLogin, Product product)
     {
-        List<Product> tempList = await Cart.RemoveProduct(product);
-        CartChanged.Invoke();
-        return tempList;
+        Cart cart = await GetCartBy(currentLogin);
+
+        if (cart is not null)
+        {
+            cart.Products.Remove(new CartProduct(product));
+
+            await UpdateCartGlobal(cart);
+        }
     }
-    public void ClearCart()
+    public async Task<CartProduct> RemoveProductFromStorageCartAsync(string currentLogin,CartProduct product)
     {
-        Cart.ClearCart();
-        CartChanged?.Invoke();
+        product.UnitQuantity--;
+
+        Cart cart = await GetCartBy(currentLogin);
+
+        if (product.UnitQuantity == 0)
+            cart.Products.Remove(product);
+        else
+            cart.Products[
+                cart.Products.IndexOf(product)].UnitQuantity--;
+
+        await UpdateCartGlobal(cart);
+
+        return product;
     }
-    public async Task<int> CountProductInCart(int productId)
+    public async Task ClearStorageCartAsync(string currentLogin)
     {
-        return await Cart.CountProductInCart(productId);
+        Cart cart = await GetCartBy(currentLogin);
+        if(cart is not null)
+        {
+            await DataStorageService<Cart>.DeleteItemAsync
+                (nameof(Cart.CurrentLogin),cart.CurrentLogin);
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("ERROR",$"Cart for {currentLogin} doesn't exist","OK");
+        }
     }
 
-    public event CartUpdated CartChanged;
+    public async Task<bool> IsProductInStorageCart(Product product, string currentLogin)
+    {
+        Cart cart = await GetCartBy(currentLogin);
 
-    public delegate void CartUpdated();
+        if (cart is null || cart.Products is null) return false;
+
+        return (from cartProduct in cart.Products where cartProduct.ID == product.ID select cartProduct).Any();
+    }
+
+    private static async Task<Cart> GetCartBy(string currentLogin)
+    {
+        return await DataStorageService<Cart>.GetItemAsync(nameof(Cart.CurrentLogin), currentLogin);
+    }
+
+    private static async Task UpdateCartGlobal(Cart cart)
+    {
+       await DataStorageService<Cart>.UpdateItemAsync(cart, nameof(Cart.CurrentLogin), cart.CurrentLogin);
+    }
 }

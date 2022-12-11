@@ -6,7 +6,7 @@ public class EmptyURLException : Exception
     {
         get
         {
-            return Alerts.EMPTY_URL;
+            return ExceptionAlerts.EMPTY_URL;
         }
     }
 

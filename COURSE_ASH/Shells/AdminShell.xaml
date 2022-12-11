@@ -5,11 +5,41 @@
        xmlns:views="clr-namespace:COURSE_ASH.Views.AdminViews"
        xmlns:globalconst="clr-namespace:COURSE_ASH.Globals"
        xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminShellViewModel"
+       Style="{StaticResource BaseShellStyle}"
+       Shell.FlyoutBehavior="Disabled"
        x:Class="COURSE_ASH.Shells.AdminShell"
-       Shell.TabBarIsVisible="True"
-       Shell.NavBarIsVisible="False"
        x:DataType="viewmodel:AdminShellViewModel">
 
-    <ShellContent />
+    <Shell.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/ShellStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <Tab Title="Home" Icon="{x:Static global:Icons.HomeBlank}"
+             Route="CatalogPage">
+            <ShellContent
+            Shell.NavBarIsVisible="False"
+            ContentTemplate="{DataTemplate view:CatalogPage}"
+            />
+        </Tab>
+        <Tab Title="Search" Icon="{x:Static global:Icons.ManageSearch}"
+             Route="SearchPage">
+            <ShellContent
+                Shell.NavBarIsVisible="False"
+                ContentTemplate="{DataTemplate view:SearchPage}"
+                />
+        </Tab>
+        <Tab Title="Cart" Icon="{x:Static global:Icons.ShoppingCart}"
+             Route="CartPage">
+            <ShellContent
+                Shell.NavBarIsVisible="False"
+                ContentTemplate="{DataTemplate view:CartPage}"
+                />
+        </Tab>
+    </TabBar>
 
 </Shell>

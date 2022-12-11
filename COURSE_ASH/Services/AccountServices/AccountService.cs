@@ -9,7 +9,7 @@ public class AccountService
 
     protected static bool DoLoginsMatch(IEnumerable<AccountData> accounts, string login)
     {
-        return (from acc in accounts where acc.UserName == login select acc).Any();
+        return (from acc in accounts where acc.CurrentLogin == login select acc).Any();
     }
 
     protected static string SetPassword(string newPassword)

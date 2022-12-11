@@ -2,5 +2,5 @@
 
 public interface IAccountBased
 {
-    public string UserName { get; set; }
+    public string CurrentLogin { get; set; }
 }

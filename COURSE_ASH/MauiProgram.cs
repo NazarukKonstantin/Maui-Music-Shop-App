@@ -1,5 +1,6 @@
 ﻿namespace COURSE_ASH;
 using CommunityToolkit.Maui;
+using COURSE_ASH.Views.AdminViews;
 using SimpleRatingControlMaui;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 
@@ -31,11 +32,23 @@ public static class MauiProgram
                 fonts.AddFont("Karla-SemiBold.ttf", "KarlaSemiBold");
             });
 
+        builder.Services.AddTransient<AddProductPage>();
+        builder.Services.AddTransient<AddProductPageViewModel>();
+
+        builder.Services.AddTransient<AdminSearchPage>();
+        builder.Services.AddTransient<AdminSearchPageViewModel>();
+
+        builder.Services.AddTransient<EditProductPage>();
+        builder.Services.AddTransient<EditProductPageViewModel>();
+
+        builder.Services.AddTransient<CheckoutPage>();
+        builder.Services.AddTransient<CheckoutPageViewModel>();
+
+        builder.Services.AddTransient<OrderHistoryPage>();
+        builder.Services.AddTransient<OrderHistoryPageViewModel>();
+
         builder.Services.AddTransient<CatalogPage>();
         builder.Services.AddTransient<CatalogPageViewModel>();
-
-        builder.Services.AddTransient<ImageUploadPage>();
-        builder.Services.AddTransient<ImageUploader>();
 
         builder.Services.AddTransient<CartPage>();
         builder.Services.AddTransient<CartPageViewModel>();
@@ -58,10 +71,14 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<AccountService>();
         builder.Services.AddSingleton<LogInService>();
+        builder.Services.AddSingleton<PasswordChangingService>();
         builder.Services.AddSingleton<RegistrationService>();
-        builder.Services.AddSingleton<CatalogService>();
+        builder.Services.AddSingleton<BillingAddressService>();
         builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
+        builder.Services.AddSingleton<OrderService>();
+        builder.Services.AddSingleton<FavouritesService>();
+        
 
         return builder.Build();
     }

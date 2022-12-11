@@ -2,14 +2,14 @@
 
 public enum FilterField
 {
-    ID,P_TYPE, MODEL, INFO, PRICE, P_IMAGE, RATING
+    ID, P_TYPE, MODEL, PRICE, IMAGE_LINK, RATING
 };
 
-public class Product : IDBItem, IImageDisposable
+public class Product : IImageDisposable
 {
     public int ID { get; set; }
 
-    public string Image { get; set; }
+    public string ImageLink { get; set; }
     public int ImageLinkCounter { get; set; } = 0;
 
     public string Category { get; set; }
@@ -21,14 +21,14 @@ public class Product : IDBItem, IImageDisposable
 
     public Product() { }
 
-    public Product(string category, string productType, string model, string info, double price, string image, int rating)
+    public Product(string category, string productType, string model, string info, double price, string imageLink, int rating)
     {
-        Category = category;
+        Category=category;
         ProductType=productType;
         Model=model;
         Info=info;
         Price=price;
-        Image=image;
+        ImageLink=imageLink;
         Rating=rating;
     }
 
@@ -46,9 +46,8 @@ public class Product : IDBItem, IImageDisposable
                 FilterField.ID => pr.ID==ID,
                 FilterField.P_TYPE => pr.ProductType == ProductType,
                 FilterField.MODEL => pr.Model == Model,
-                FilterField.INFO => pr.Info == Info,
                 FilterField.PRICE => pr.Price == Price,
-                FilterField.P_IMAGE => pr.Image == Image,
+                FilterField.IMAGE_LINK => pr.ImageLink == ImageLink,
                 FilterField.RATING => pr.Rating == Rating,
                 _ => base.Equals(obj)
             };

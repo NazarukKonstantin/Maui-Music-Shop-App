@@ -1,8 +1,10 @@
 ﻿namespace COURSE_ASH.ViewModels.UserViewModels;
 
+[QueryProperty(nameof(ImageLink),nameof(ImageLink))]
 public partial class ProfilePageViewModel : BaseViewModel
 {
     private readonly PasswordChangingService _passwordChangingService;
+    private FileResult _image = null;
 
     [ObservableProperty]
     private string _currentLogin;
@@ -17,6 +19,9 @@ public partial class ProfilePageViewModel : BaseViewModel
     private string _confirmPassword;
 
     [ObservableProperty]
+    private string _imageLink;
+
+    [ObservableProperty]
     private string _alert;
     
     public ProfilePageViewModel(PasswordChangingService passwordChangingService)
@@ -26,7 +31,7 @@ public partial class ProfilePageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async void GoToOrdersAsync()
+    async void GoToOrderHistoryPageAsync()
     {
         await Shell.Current.GoToAsync($"{nameof(OrderHistoryPage)}",
             new Dictionary<string, object>
@@ -37,7 +42,7 @@ public partial class ProfilePageViewModel : BaseViewModel
 
 
     [RelayCommand]
-    public async Task CahngePassword()
+    async Task ChangePasswordAsync()
     {
         IsBusy = true;
         AccountState accountState = await _passwordChangingService
@@ -59,10 +64,18 @@ public partial class ProfilePageViewModel : BaseViewModel
 
         IsBusy = false;
     }
+
+    [RelayCommand]
+    async Task PickImage()
+    {
+        _image = await MediaPicker.PickPhotoAsync();
+        if (_image is null) return;
+        ImageLink = _image.FullPath;
+    }
+
     public void RefreshAsync()
     {
         CurrentLogin = App.CurrentLogin;
-
         IsSuccessful = false;
         IsFailed = false;
     }

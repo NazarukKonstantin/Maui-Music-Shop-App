@@ -56,7 +56,7 @@ public class BillingAddressService
             return false;
         return true;
     }
-    public async Task<string> GetPostcode(string country, string city, string street, int? buildingNumber)
+    public async Task<string> GetPostCode(string country, string city, string street, int? buildingNumber)
     {
         if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return null;
         if (await ValidateAddressAsync(country, city, street, buildingNumber) != AddressAlerts.SUCCESS) return null;

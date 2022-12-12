@@ -1,23 +1,28 @@
 ﻿using CommunityToolkit.Maui.Core.Extensions;
+using COURSE_ASH.Services;
 
 namespace COURSE_ASH.ViewModels.UserViewModels;
 
+
 public partial class CatalogPageViewModel : BaseViewModel
 {
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsNotLoggedIn))]
-    bool isLoggedIn=false;
-    
-    public bool IsNotLoggedIn => !IsLoggedIn;
-    
-    public List<CatalogItem> Items { get; set; }
+    private readonly ProductsService _service;
 
-    public static List<Product> Products { get; private set; }
+    [ObservableProperty]
+    private string _currentLogin;
+
+    [ObservableProperty]
+    private string _imageLink;
+
+    [ObservableProperty]
+    private ObservableCollection<Product> _products;
+
+    public List<CatalogItem> Items { get; set; }
 
     public CatalogPageViewModel(ProductsService productsService)
     {
-        Items=CatalogItem.CatalogList;
-        Products=productsService.GetProducts();
+        _service=productsService;
+        RefreshAsync();
     }
 
     [RelayCommand]
@@ -28,7 +33,7 @@ public partial class CatalogPageViewModel : BaseViewModel
 
         ObservableCollection<Product> filteredProducts = (from product in Products
                                                           where product.Category == item.Category
-                                                          select product).ToObservableCollection<Product>();
+                                                          select product).ToObservableCollection();
         await Shell.Current.GoToAsync($"{nameof(SearchPage)}", true,
             new Dictionary<string, object>
             {
@@ -38,8 +43,32 @@ public partial class CatalogPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GoToLoginPage()
+    async Task GoToProfilePage()
     {
-        await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
+        await Shell.Current.GoToAsync($"{nameof(ProfilePage)}", true,
+            new Dictionary<string, object>
+            {
+                ["ImageLink"]=ImageLink,
+            });
+    }
+
+    [RelayCommand]
+    void SignOut()
+    {
+        CurrentLogin = string.Empty;
+        ImageLink = string.Empty;
+        App.CurrentLogin = string.Empty;
+        App.Current.MainPage = new AuthorizationShell();
+    }
+
+    public async void RefreshAsync()
+    {
+        CurrentLogin=App.CurrentLogin;
+        ImageLink = (await DataStorageService<AccountData>
+            .GetItemAsync(nameof(AccountData.CurrentLogin),CurrentLogin))
+            .ImageLink ?? string.Empty;
+
+        Items=CatalogItem.CatalogList;
+        Products = (await _service.GetProductsAsync()).ToObservableCollection();
     }
 }

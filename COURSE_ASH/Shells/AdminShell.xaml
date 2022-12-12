@@ -4,7 +4,7 @@
        xmlns:local="clr-namespace:COURSE_ASH"
        xmlns:views="clr-namespace:COURSE_ASH.Views.AdminViews"
        xmlns:globalconst="clr-namespace:COURSE_ASH.Globals"
-       xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminShellViewModel"
+       xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModel"
        Style="{StaticResource BaseShellStyle}"
        Shell.FlyoutBehavior="Disabled"
        x:Class="COURSE_ASH.Shells.AdminShell"

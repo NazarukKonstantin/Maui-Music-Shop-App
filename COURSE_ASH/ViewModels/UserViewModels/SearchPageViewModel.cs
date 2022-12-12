@@ -4,15 +4,15 @@
 [QueryProperty(nameof(IsTabVisible), nameof(IsTabVisible))]
 public partial class SearchPageViewModel : BaseViewModel
 {
-    [ObservableProperty]
-    ObservableCollection<Product> _products;
-
-    readonly ProductsService _prodService;
+    private readonly ProductsService _service;
 
     private static List<Product> _cacheList;
 
     [ObservableProperty]
-    string query;
+    ObservableCollection<Product> _products;
+
+    [ObservableProperty]
+    private string query;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsTabNotVisible))]
@@ -21,30 +21,29 @@ public partial class SearchPageViewModel : BaseViewModel
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
-    bool isEmpty = true;
-    public bool IsNotEmpty => !isEmpty;
+    private bool _isEmpty = true;
+    public bool IsNotEmpty => !IsEmpty;
 
     public SearchPageViewModel(ProductsService service)
     {
-        _prodService = service;
-        _cacheList = _prodService.GetProducts();
+        _service = service;
+        _cacheList = _service.GetProducts();
         Products = _cacheList.ToObservableCollection();
         IsTabVisible = true;
-        PropertyChanged += ProdCollectionChanged;
+        PropertyChanged += ProductCollectionChanged;
     }
 
-    public void ProdCollectionChanged(object sender, PropertyChangedEventArgs e)
+    public void ProductCollectionChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName != nameof(Products)) return;
-        if (Products.Count == 0) IsEmpty = true;
-        else IsEmpty = false;
+        IsEmpty=Products.Count==0;
     }
 
     public void SortProducts(FilterField filter = FilterField.MODEL)
     {
         switch (filter)
         {
-            case FilterField.PRICE : Products.SortBy(pr=>pr.Price); break;
+            case FilterField.PRICE : Products.SortBy(pr => pr.Price); break;
             case FilterField.P_TYPE : Products.SortBy(pr => pr.ProductType); break;
             case FilterField.RATING : Products.SortBy(pr => pr.Rating); break;
             default: Products.SortBy(pr => pr.Model); break;
@@ -57,30 +56,45 @@ public partial class SearchPageViewModel : BaseViewModel
     //    var model=string.Empty;
     //    FilterProducts(model => model.StartsWith(Query));
     //}
+    private List<Product> GetListFilteredBy(FilterField filter=FilterField.MODEL)
+    {
+        return filter switch
+        {
+            FilterField.PRICE => _cacheList
+                        .Where(value => value.Rating
+                        .ToString()
+                        .Contains(Query))
+                        .ToList(),
+            FilterField.P_TYPE => _cacheList
+                        .Where(value => value.ProductType
+                        .ToLowerInvariant()
+                        .Contains(Query
+                        .ToLowerInvariant()))
+                        .ToList(),
+            FilterField.RATING => _cacheList
+                        .Where(value => value.Rating
+                        .ToString()
+                        .Contains(Query))
+                        .ToList(),
+            _ => _cacheList
+                        .Where(value => value.Model
+                        .ToLowerInvariant()
+                        .Contains(Query
+                        .ToLowerInvariant()))
+                        .ToList(),
+        };
+    }
 
 
     [RelayCommand]
-    private void FilterProducts ()
+    private void FilterProducts (FilterField filter=FilterField.MODEL)
     {
-        //switch (filter)
-        //{
-        //    case FilterField.PRICE: Products.SortBy(pr => pr.Price); break;
-        //    case FilterField.P_TYPE: Products.FilterBy(pr => pr.ProductType); break;
-        //    case FilterField.RATING: Products.FilterBy(pr => pr.Rating); break;
-        //    default: Products.SortBy(pr => pr.Model); break;
-        //};
-
         if (string.IsNullOrWhiteSpace(Query))
         {
             Query = string.Empty;
         }
 
-        var filteredItems = _cacheList
-            .Where(value => value.Model
-            .ToLowerInvariant()
-            .Contains(Query
-            .ToLowerInvariant()))
-            .ToList();
+        var filteredItems = GetListFilteredBy(filter);
 
         foreach (var value in _cacheList)
         {

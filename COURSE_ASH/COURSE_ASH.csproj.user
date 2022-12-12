@@ -32,6 +32,9 @@
     <MauiXaml Update="Views\AdminViews\EditProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\UserViews\BillingAddressPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\UserViews\CartPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -45,6 +48,9 @@
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\OrderHistoryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\UserViews\OrderPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\ProductPage.xaml">

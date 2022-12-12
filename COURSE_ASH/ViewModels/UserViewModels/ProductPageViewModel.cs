@@ -20,24 +20,24 @@ public partial class ProductPageViewModel : BaseViewModel
     private bool _inCart = false;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsNotFavouriteForUser))]
-    private bool _isFavouriteForUser = false;
+    [NotifyPropertyChangedFor(nameof(IsNotFavourite))]
+    private bool _isFavourite = false;
 
-    public bool IsNotFavouriteForUser => !_isFavouriteForUser;
+    public bool IsNotFavourite => !_isFavourite;
     public bool NotInCart => !_inCart;
 
     public ProductPageViewModel(CartService cartService, FavouritesService favouritesService)
     {
         _cartService = cartService;
         _favouritesService = favouritesService;
-
         PropertyChanged += ProductPropertyChanged;
     }
+
     public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName != nameof(PickedProduct)) return;
         InCart = await _cartService.IsProductInStorageCart(PickedProduct, App.CurrentLogin);
-        IsFavouriteForUser = await _favouritesService.IsProductFavouriteForUserAsync(App.CurrentLogin, PickedProduct.ID);
+        IsFavourite = await _favouritesService.IsProductFavouriteForUserAsync(App.CurrentLogin, PickedProduct.ID);
     }
 
     [RelayCommand]
@@ -48,10 +48,7 @@ public partial class ProductPageViewModel : BaseViewModel
             .AddProductToStorageCartAsync(App.CurrentLogin,
                 new CartProduct(product) { UnitQuantity = CountInCart });
 
-
-        string text = "Added to cart";
-        await Toast.Make(text, ToastDuration.Short).Show();
-
+        await Toast.Make(GeneralAlerts.ADDED_TO_CART, ToastDuration.Short).Show();
         InCart = true;
         IsBusy = false;
     }
@@ -60,12 +57,10 @@ public partial class ProductPageViewModel : BaseViewModel
     async Task RemoveFromCart(Product product)
     {
         IsBusy = true;
-        await _cartService.DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
-
-
-        string text = "Removed from cart";
-        await Toast.Make(text, ToastDuration.Short).Show();
-
+        await _cartService
+            .DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
+        await Toast.Make(GeneralAlerts.REMOVED_FROM_CART,
+                ToastDuration.Short).Show();
         InCart = false;
         IsBusy = false;
     }
@@ -74,10 +69,10 @@ public partial class ProductPageViewModel : BaseViewModel
     async Task AddToFavourites()
     {
         IsBusy = true;
-        if (IsFavouriteForUser)
+        if (IsFavourite)
             await _favouritesService.DeleteFromFavouritesAsync(App.CurrentLogin, PickedProduct.ID);
         else await _favouritesService.SetFavouriteAsync(App.CurrentLogin, PickedProduct.ID);
-        IsFavouriteForUser = !IsFavouriteForUser;
+        IsFavourite = !IsFavourite;
         IsBusy = false;
     }
 }

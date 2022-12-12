@@ -4,6 +4,7 @@
              xmlns:model = "clr-namespace:COURSE_ASH.Models"
              xmlns:viewmodel = "clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
              xmlns:mct = "clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType = "viewmodel:CatalogPageViewModel"
              x:Class = "COURSE_ASH.Views.UserViews.CatalogPage">
     
@@ -17,23 +18,31 @@
           ColumnDefinitions = "*,Auto,.1*">
         <BoxView Style = "{StaticResource NavBarBoxView}"
                  Grid.ColumnSpan="3" />
-        <Image Style="{StaticResource LogoutImageStyle}"
-               IsVisible="{Binding IsLoggedIn}">
+
+        <Image  x:Name="LogOut"
+                Style="{StaticResource CatalogNavBarImage}"
+                Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
+                                        ,Light={Static global:Icons.LogoutDark}}"
+               VerticalOptions="StartAndExpand">
             <Image.GestureRecognizers>
                 <TapGestureRecognizer/>
             </Image.GestureRecognizers>
         </Image>
+            
         <Label Text="Catalog"
                 Style="{StaticResource PageTitle}"/>
-        <Image Style="{StaticResource LoginImageStyle}"
-               Grid.Column="2"
-               IsVisible="{Binding IsNotLoggedIn}">
-            <Image.GestureRecognizers>
-                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToLoginPageCommand}"
-                                      />
-            </Image.GestureRecognizers>
-        </Image>
-            
+        <Border Stroke="Transparent"
+                StrokeShape="Ellipse">
+            <Image x:Name="ProfilePic"
+               Style="{StaticResource CatalogNavBarImage}"
+               Grid.Column="2">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
+                    {x:Type viewmodel:CatalogPageViewModel}},Path=GoToProfilePageCommand}"/>
+                </Image.GestureRecognizers>
+            </Image>
+        </Border>
+
         <!--Catalog-->
         <CollectionView Grid.Row="1"
                         Grid.ColumnSpan="3"

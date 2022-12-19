@@ -9,6 +9,6 @@ public static class AccountAlerts
     public static readonly string SAME_LOGIN_EXIST = "Same login already exist!";
     public static readonly string SUCCESS = "Success!";
     public static readonly string LOGIN_OR_PASSWORD_TOO_SHORT = "Login and password must contain at least 8 symbols!";
-    public static readonly string PASSWORD_TOO_SHORT = "Password must contain at least 8 symbols!";
+    public static readonly string PASSWORD_TOO_SHORT = "PasswordSHA256 must contain at least 8 symbols!";
     public static readonly string INCORRECT_OLD_PASSWORD = "Incorrect old password!";
 }

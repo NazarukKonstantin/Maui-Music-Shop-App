@@ -5,12 +5,15 @@ public enum FilterField
     ID, P_TYPE, MODEL, PRICE, IMAGE_LINK, RATING
 };
 
+public enum SortDirection
+{
+    ASC,DESC,
+}
+
 public class Product : IImageDisposable
 {
     public int ID { get; set; }
-
     public string ImageLink { get; set; }
-    public int ImageLinkCounter { get; set; } = 0;
 
     public string Category { get; set; }
     public string ProductType { get; set; }
@@ -31,6 +34,11 @@ public class Product : IImageDisposable
         ImageLink=imageLink;
         Rating=rating;
     }
+
+    public static List<string> ProductTypes { get; set; } = new()
+    {
+        "Guitar","MIDI","Sax","Ukulele","Violin","Guitar Accessory",
+    };
 
     public bool Equals(object obj, FilterField filter=FilterField.ID)
     {

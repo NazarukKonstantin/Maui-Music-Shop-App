@@ -6,29 +6,22 @@ public partial class BillingAddressPageViewModel : BaseViewModel
 
     readonly BillingAddressService _addressService;
 
-    [ObservableProperty]
-    ObservableCollection<CartProduct> _products;
 
     [ObservableProperty]
     private string _alert;
 
     [ObservableProperty]
     private string _country;
-
     [ObservableProperty]
     private string _city;
-
     [ObservableProperty]
     private string _street;
-
     [ObservableProperty]
     private int? _buildingNumber;
-
     [ObservableProperty]
     private int? _apartmentNumber;
-
     [ObservableProperty]
-    private string _postCode;
+    private string _postalCode;
 
     [ObservableProperty]
     bool isNotEmpty = false;
@@ -39,11 +32,11 @@ public partial class BillingAddressPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task CheckAddress()
+    private async Task CheckAddress()
     {
         IsBusy = true;
-        Alert = await _addressService.ValidateAddressAsync(Country, City, Street, BuildingNumber, PostCode);
-        if (Alert != AccountAlerts.SUCCESS)
+        Alert = await _addressService.CheckAddressAsync(Country, City, Street, BuildingNumber, PostalCode);
+        if (Alert != AddressAlerts.SUCCESS)
         {
             IsFailed = true;
             IsBusy = false;
@@ -51,17 +44,16 @@ public partial class BillingAddressPageViewModel : BaseViewModel
         }
         IsFailed = false;
         await GoBackAsync(_addressService.GetFormattedAddress(Country, City, Street,
-            BuildingNumber, ApartmentNumber, PostCode));
+            BuildingNumber, ApartmentNumber, PostalCode));
     }
 
     [RelayCommand]
-    async Task SuggestPostCode()
+    private async Task SuggestPostCode()
     {
-        PostCode = await _addressService.GetPostCode(Country, City, Street, BuildingNumber);
+        PostalCode = await _addressService.GetPostalCode(Country, City, Street, BuildingNumber);
     }
 
-    [RelayCommand]
-    async Task GoBackAsync(string address)
+    private async Task GoBackAsync(string address)
     {
         await Shell.Current.GoToAsync($"..",
             new Dictionary<string, object>

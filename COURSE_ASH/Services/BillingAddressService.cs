@@ -6,64 +6,34 @@ namespace COURSE_ASH.Services;
 public class BillingAddressService
 {
     private readonly BingMapsGeocoder geocoder =
-            new BingMapsGeocoder("AhxYjH0f7KdF01OnF0qQs_jIlPZdEMSkzxWSQHH - h9lNEOBHl44jNkvnviZP0OR0");
+            new ("AhxYjH0f7KdF01OnF0qQs_jIlPZdEMSkzxWSQHH - h9lNEOBHl44jNkvnviZP0OR0");
 
-    async Task<string> ValidateAddressAsync(string country, string city, string street, int? buildingNumber)
-    {
-        if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return AddressAlerts.FIELDS_EMPTY;
-
-        IEnumerable<BingAddress> addresses = await geocoder.GeocodeAsync($"{country}, {city}, {street}, {buildingNumber}");
-
-        BingAddress address = addresses.FirstOrDefault((BingAddress)null);
-        if (address is null) return null;
-
-        if (!await IsCityCorrectAsync(country, city))
-            return AddressAlerts.WRONG_CITY;
-        if (!address.AddressLine.ToLower().Contains(street.ToLower()))
-            return AddressAlerts.WRONG_STREET;
-        if (!address.AddressLine.ToLower().Contains(buildingNumber.ToString()))
-            return AddressAlerts.WRONG_BUILDING_NUMBER;
-
-        return AddressAlerts.SUCCESS;
-    }
-    public async Task<string> ValidateAddressAsync(string country, string city, string street, int? buildingNumber, string postalCode)
+    public async Task<string> CheckAddressAsync(string country, string city, string street, int? buildingNumber, string postalCode)
     {
         if (AreFieldsEmpty(country, city, street, postalCode) || buildingNumber is null) return AddressAlerts.FIELDS_EMPTY;
 
-        IEnumerable<BingAddress> addresses = await geocoder.GeocodeAsync($"{country}, {city}, {street}, {buildingNumber}");
-
-        BingAddress address = addresses.FirstOrDefault((BingAddress)null);
-        if (address is null) return null;
-
-        if (!await IsCityCorrectAsync(country, city))
-            return AddressAlerts.WRONG_CITY;
-        if (!address.AddressLine.ToLower().Contains(street.ToLower()))
-            return AddressAlerts.WRONG_STREET;
-        if (!address.AddressLine.ToLower().Contains(buildingNumber.ToString()))
-            return AddressAlerts.WRONG_BUILDING_NUMBER;
-
-        return AddressAlerts.SUCCESS;
-    }
-    async Task<bool> IsCityCorrectAsync(string country, string city)
-    {
         IEnumerable<BingAddress> addresses = await geocoder.GeocodeAsync($"{country}, {city}");
 
         BingAddress address = addresses.FirstOrDefault((BingAddress)null);
-        if (address is null) return false;
 
         if (!(address.CountryRegion.ToLower().Contains(country.ToLower()) &&
                 address.Locality.ToLower().Contains(city.ToLower())))
-            return false;
-        return true;
+            return AddressAlerts.WRONG_CITY;
+        return AddressAlerts.SUCCESS;
     }
-    public async Task<string> GetPostCode(string country, string city, string street, int? buildingNumber)
+    public async Task<string> GetPostalCode(string country, string city, string street, int? buildingNumber)
     {
-        if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return null;
-        if (await ValidateAddressAsync(country, city, street, buildingNumber) != AddressAlerts.SUCCESS) return null;
+        if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return string.Empty;
 
         IEnumerable<BingAddress> addresses = await geocoder.GeocodeAsync($"{country}, {city}, {street}, {buildingNumber}");
 
-        return addresses?.First()?.PostalCode;
+        BingAddress address = addresses.FirstOrDefault((BingAddress)null);
+
+        if (!(address.CountryRegion.ToLower().Contains(country.ToLower()) &&
+                address.Locality.ToLower().Contains(city.ToLower())))
+            return string.Empty;
+
+        return address?.PostalCode;
     }
     public static IEnumerable<string> GetCountries()
     {
@@ -82,10 +52,11 @@ public class BillingAddressService
                 return true;
         return false;
     }
-
     public string GetFormattedAddress(string country, string city, string street, int? buildingNumber,
-        int? apartmentNumber, string postalcode)
+        int? apartmentNumber, string postalСode)
     {
-        return $"{country}, {city}, {street}, {buildingNumber}, {apartmentNumber}, {postalcode}";
+        return apartmentNumber is null ?
+         $"{country}, {city}, {street}, {buildingNumber}, {postalСode}" :
+         $"{country}, {city}, {street}, {buildingNumber}, {apartmentNumber}, {postalСode}";
     }
 }

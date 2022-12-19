@@ -2,7 +2,7 @@
 
 public class RegistrationService : AccountService
 {
-    public async Task<AccountState> RegisterUserAsync(string login, string password, string repeatPassword)
+    public async Task<AccountState> RegisterAsync(string login, string password, string repeatPassword)
     {
         string state = AccountSafetyChecker.CheckRegistration(login, password, repeatPassword);
         if (state != AccountAlerts.SUCCESS) 
@@ -14,13 +14,16 @@ public class RegistrationService : AccountService
         if (DoLoginsMatch(accounts,login))
             return new AccountState(AccountAlerts.SAME_LOGIN_EXIST);
 
-        string role = accounts.Any() ? Roles.User : Roles.Admin; // if no users -> the first one is admin
+        Roles role = accounts.Any() ? Roles.User : Roles.Boss; // if no users -> the first one is boss
+        int newID = (from account
+                     in accounts 
+                     select account.ID)?.Max() + 1 ?? 1;
 
         await DataStorageService<AccountData>.AddItemAsync(new AccountData
         {
-            ID=accounts.Count()+1,
+            ID=newID,
             CurrentLogin=login,
-            Password=SetPassword(password),
+            PasswordSHA256=SetPasswordSHA256(password),
             Role=role,
         });
 

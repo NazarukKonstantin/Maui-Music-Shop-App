@@ -12,9 +12,6 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
     private string _currentLogin;
 
     [ObservableProperty]
-    private int _iD;
-
-    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
     private bool isEmpty = true;
     public bool IsNotEmpty => !isEmpty;
@@ -22,7 +19,6 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
     public OrderHistoryPageViewModel(OrderService orderService)
     {
         _orderService = orderService;
-        PropertyChanged += UserChanged;
         PropertyChanged += OrdersChanged;
         RefreshAsync();
     }
@@ -31,12 +27,6 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
         if (string.IsNullOrEmpty(CurrentLogin)) return;
         OrderHistory = new ObservableCollection<Order>
             (await _orderService.GetOrdersAsync(CurrentLogin));
-    }
-
-    void UserChanged(object sender, PropertyChangedEventArgs e)
-    {
-        if (e.PropertyName != nameof(CurrentLogin)) return;
-        RefreshAsync();
     }
 
     void OrdersChanged(object sender, PropertyChangedEventArgs e)

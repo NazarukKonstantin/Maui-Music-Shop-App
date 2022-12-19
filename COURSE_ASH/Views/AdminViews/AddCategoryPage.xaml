@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COURSE_ASH.Views.AdminViews.AddCategoryPage"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
+             x:DataType="viewmodel:AddCategoryPageViewModel"
+             Title="AddCategoryPage">
+    <VerticalStackLayout>
+        <Label 
+            Rotation="{Binding ImageRotation}"
+            Scale="{Binding ImageScale}"
+            Text="Add category"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Slider x:Name="imgRotation"
+                Maximum="360"
+                Value="{Binding ImageRotation, Mode=TwoWay}"/>
+        <Slider x:Name="imgScale"
+                Maximum="5.0"
+                Value="{Binding ImageScale, Mode=TwoWay}"/>
+    </VerticalStackLayout>
+</ContentPage>

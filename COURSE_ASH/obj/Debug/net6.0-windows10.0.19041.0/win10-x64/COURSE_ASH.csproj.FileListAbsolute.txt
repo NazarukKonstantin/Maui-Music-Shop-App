@@ -1145,3 +1145,5 @@ E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Firebase.Storage.dll
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\clrcompression.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Geocoding.Core.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Geocoding.Microsoft.dll

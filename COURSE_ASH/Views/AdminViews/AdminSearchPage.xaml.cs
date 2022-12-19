@@ -5,7 +5,6 @@ public partial class AdminSearchPage : ContentPage
 	public AdminSearchPage(AdminSearchPageViewModel viewModel)
 	{
 		InitializeComponent();
-
 		BindingContext = viewModel;
 	}
 }

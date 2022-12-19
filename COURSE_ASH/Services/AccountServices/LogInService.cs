@@ -8,11 +8,12 @@ public class LogInService : AccountService
         if (state != AccountAlerts.SUCCESS) 
             return new AccountState(state);
 
-        AccountData userAccount = await DataStorageService<AccountData>.GetItemAsync(nameof(AccountData.CurrentLogin),login);
+        AccountData account = await DataStorageService<AccountData>
+            .GetItemByAsync(nameof(AccountData.CurrentLogin),login);
 
-        if (userAccount is null || !DoPasswordsMatch(userAccount.Password, password))
+        if (account is null || !DoPasswordsMatch(account.PasswordSHA256, password))
             return new AccountState(AccountAlerts.INCORRECT_LOGIN_OR_PASSWORD);
 
-        return new AccountState(login, userAccount.Role, AccountAlerts.SUCCESS);
+        return new AccountState(login, account.Role, AccountAlerts.SUCCESS);
     }
 }

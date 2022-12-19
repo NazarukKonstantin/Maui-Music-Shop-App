@@ -13,6 +13,6 @@ public class ProductEventArgs : EventArgs
 
     public enum ProductWas
     {
-        ADDED,REMOVED,CHANGED,
+        Added,Removed,Changed,
     }
 }

@@ -739,6 +739,12 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\firebasestorage.net\1.0.3\lib\netstandard1.1\Firebase.Storage.dll">
       <PackagePath>Firebase.Storage.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\geocoding.core\4.0.1\lib\netstandard1.3\Geocoding.Core.dll">
+      <PackagePath>Geocoding.Core.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\user\.nuget\packages\geocoding.microsoft\4.0.1\lib\netstandard1.3\Geocoding.Microsoft.dll">
+      <PackagePath>Geocoding.Microsoft.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\litedb\4.1.4\lib\netstandard2.0\LiteDB.dll">
       <PackagePath>LiteDB.dll</PackagePath>
     </AppxPackagedFile>

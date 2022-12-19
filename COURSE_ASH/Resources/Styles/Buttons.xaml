@@ -46,4 +46,109 @@
         <Setter Property="HorizontalOptions" Value="Start"/>
         <Setter Property="VerticalOptions" Value="Center"/>
     </Style>
+
+
+    <ControlTemplate x:Key="FrameRadioTemplate">
+        <Border Style="{StaticResource CardViewBorder}">
+            <Border.Shadow>
+                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                    ,Light=Black}"
+                                    Offset="15,15"
+                                    Radius="15"
+                                    Opacity="0.2" />
+            </Border.Shadow>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CheckedStates">
+                    <VisualState x:Name="Checked">
+                        <VisualState.Setters>
+                            <Setter Property="IsVisible"
+                                    Value="True"/>
+                        </VisualState.Setters>
+                    </VisualState>
+
+                    <VisualState x:Name="Unchecked">
+                        <VisualState.Setters>
+                            <Setter Property="IsVisible"
+                                    Value="False"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+                <Frame Padding="0" BorderColor="Transparent" CornerRadius="15" VerticalOptions="Center"
+               HeightRequest="100" WidthRequest="100" HorizontalOptions="Center">
+
+                <HorizontalStackLayout Spacing="5">
+                    <ContentPresenter>
+                        <ContentPresenter.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="HorizontalOptions" Value="Center"/>
+                                <Setter Property="VerticalOptions" Value="Center"/>
+
+                                <Style.Triggers>
+                                    <DataTrigger TargetType="Label"
+                                         Binding="{Binding Path=IsChecked,
+                                                           Source={x:RelativeSource AncestorType={x:Type RadioButton}}}"
+                                         Value="True">
+                                        <Setter Property="TextColor" Value="{StaticResource TenderWhite}"/>
+                                        <Setter Property="FontAttributes" Value="Bold"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Label"
+                                                 Binding="{Binding Path=IsChecked,
+                                                           Source={x:RelativeSource AncestorType={x:Type RadioButton}}}"
+                                         Value="False">
+                                        <Setter Property="TextColor" Value="{StaticResource DarkText}"/>
+                                        <Setter Property="FontAttributes" Value="None"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                            <Style TargetType="Image">
+                                <Setter Property="HorizontalOptions" Value="Center"/>
+                                <Setter Property="VerticalOptions" Value="Center"/>
+
+                                <Style.Triggers>
+                                    <DataTrigger TargetType="Image"
+                                         Binding="{Binding Path=IsChecked,
+                                                           Source={x:RelativeSource AncestorType={x:Type RadioButton}}}"
+                                         Value="True">
+                                        <Setter Property="Scale" Value="1"/>
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Image"
+                                                 Binding="{Binding Path=IsChecked,
+                                                           Source={x:RelativeSource AncestorType={x:Type RadioButton}}}"
+                                         Value="False">
+                                        <Setter Property="Scale" Value="0.8"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ContentPresenter.Resources>
+                    </ContentPresenter>
+                </HorizontalStackLayout>
+
+
+                    <VisualStateManager.VisualStateGroups>
+                    <VisualStateGroup x:Name="CheckedStates">
+                        <VisualState x:Name="Checked">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                ,Light={StaticResource PrimaryDark}}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+
+                        <VisualState x:Name="Unchecked">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark=White
+                                ,Light=Grey}"/>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateManager.VisualStateGroups>
+            </Frame>
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="RadioButton">
+        <Setter Property="ControlTemplate"
+                    Value="{StaticResource FrameRadioTemplate}" />
+    </Style>
 </ResourceDictionary>

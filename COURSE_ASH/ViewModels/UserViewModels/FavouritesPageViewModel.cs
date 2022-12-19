@@ -2,15 +2,15 @@
 
 public partial class FavouritesPageViewModel : BaseViewModel
 {
+    private readonly FavouritesService _favouritesService; 
+
     [ObservableProperty]
     ObservableCollection<Product> _favourites;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
-    bool isEmpty = true;
+    private bool isEmpty = true;
     public bool IsNotEmpty => !isEmpty;
-
-    readonly FavouritesService _favouritesService;
     public FavouritesPageViewModel(FavouritesService favouritesService)
     {
         _favouritesService = favouritesService;
@@ -20,9 +20,9 @@ public partial class FavouritesPageViewModel : BaseViewModel
     public async void RefreshAsync()
     {
         Favourites = (await _favouritesService
-            .GetFavouritesForUserAsync(App.CurrentLogin))
+            .GetFavouriteProductsAsync(App.CurrentLogin))?
             .ToObservableCollection();
-        IsEmpty = Favourites.Count == 0;
+        IsEmpty = Favourites is null || Favourites.Count==0;
     }
 
     [RelayCommand]
@@ -41,10 +41,11 @@ public partial class FavouritesPageViewModel : BaseViewModel
         if (IsBusy) return;
         IsBusy = true;
         await _favouritesService
-            .DeleteFromFavouritesAsync(App.CurrentLogin, product.ID);
+            .DeleteFromFavouritesAsync(App.CurrentLogin, product);
         Favourites = (await _favouritesService
-            .GetFavouritesForUserAsync(App.CurrentLogin))
+            .GetFavouriteProductsAsync(App.CurrentLogin))?
             .ToObservableCollection();
+        IsEmpty = Favourites is null || Favourites.Count==0;
         IsBusy = false;
     }
 }

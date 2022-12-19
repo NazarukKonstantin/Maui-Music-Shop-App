@@ -4,209 +4,683 @@
         <name>COURSE_ASH</name>
     </assembly>
     <members>
-        <member name="P:COURSE_ASH.Model.Account.IsLoggedIn">
-            <inheritdoc cref="F:COURSE_ASH.Model.Account._isLoggedIn"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.Accounts">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._accounts"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.BaseViewModel.IsBusy">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.BaseViewModel.isBusy"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.Role">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._role"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.IsSignedIn">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.CartPageViewModel.isSignedIn"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.switchRoleCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.SwitchRoleCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.Products">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.CartPageViewModel.products"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.SwitchRoleCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.SwitchRoleAsync(COURSE_ASH.Models.AccountData)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.TotalPrice">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.CartPageViewModel._totalPrice"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.deleteAccountCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.DeleteAccountCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.IsEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.CartPageViewModel.isEmpty"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.DeleteAccountCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.DeleteAccountAsync(COURSE_ASH.Models.AccountData)"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.removeProductCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.RemoveProductCommand"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.RemoveProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.RemoveProduct(COURSE_ASH.Model.Product)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackAsync"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.addProductCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.AddProductCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.Name">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel._name"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.AddProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.AddProduct(COURSE_ASH.Model.Product)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel._imageLink"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.goToProductCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.GoToProductCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel._imageRotation"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.GoToProductCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.GoToProduct(COURSE_ASH.Model.Product)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel._imageScale"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.goToSearchPageCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.GoToSearchPageCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.isNotEmpty"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.GoToSearchPageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.GoToSearchPageAsync"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.confirmCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ConfirmCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.checkoutCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.CheckoutCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ConfirmCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.ConfirmAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.CheckoutCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.CheckoutAsync"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.GoBackCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.countTotalCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.CountTotalCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.GoBackAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.CountTotalCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.CountTotal"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.PickImageCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CartPageViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CartPageViewModel.SignInCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.PickImage"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CartPageViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CartPageViewModel.SignIn"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.Categories">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._categories"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CatalogPageViewModel.IsLoggedIn">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.CatalogPageViewModel.isLoggedIn"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.ProductType">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._productType"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CatalogPageViewModel.goToSearchPageCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToSearchPageCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.Category">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._category"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToSearchPageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToSearchPageAsync(COURSE_ASH.Model.CatalogItem)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.Model">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._model"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.CatalogPageViewModel.goToLoginPageCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToLoginPageCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.Price">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._price"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToLoginPageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.CatalogPageViewModel.GoToLoginPage"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.Info">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._info"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.Login">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.login"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._imageLink"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.Password">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.password"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._isNotEmpty"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.IsPasswordVisible">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.isPasswordVisible"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.PickImageCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.IsSuccessful">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.isSuccessful"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.PickImage"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.IsLoginOrPasswordWrong">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.isLoginOrPasswordWrong"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddProductCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.ErrorMessage">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.LogInPageViewModel.errorMessage"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddProduct"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.LogInPageViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.LogInPageViewModel.SignInCommand"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.GoBackCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.LogInPageViewModel.SignIn"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.GoBackAsync"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.LogInPageViewModel.signUpCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.LogInPageViewModel.SignUpCommand"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.addCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddCategoryCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.SignUpCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.LogInPageViewModel.SignUp"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddCategoryAsync"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.LogInPageViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.LogInPageViewModel.GoBackCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategListSelected">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isCategListSelected"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.LogInPageViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.LogInPageViewModel.GoBackAsync"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.Query">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._query"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProductPageViewModel.PickedProduct">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProductPageViewModel._pickedProduct"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.Products">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._products"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProductPageViewModel.CountInCart">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProductPageViewModel._countInCart"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ProdCacheList">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._prodCacheList"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.ProductPageViewModel.addToCartCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductPageViewModel.AddToCartCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.Categories">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._categories"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProductPageViewModel.AddToCartCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductPageViewModel.AddToCart(COURSE_ASH.Model.Product)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.CategCacheList">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._categCacheList"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.ProductPageViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProductPageViewModel.GoBackCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsProdListEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.isProdListEmpty"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProductPageViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProductPageViewModel.GoBackAsync"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategListEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.isCategListEmpty"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProfilePageViewModel.CurrentAccount">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProfilePageViewModel.currentAccount"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.CurrentLogin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._currentLogin"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProfilePageViewModel.UserName">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProfilePageViewModel.userName"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageLink"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProfilePageViewModel.IsLoggedIn">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.ProfilePageViewModel.isLoggedIn"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.goToProfilePageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.GoToProfilePageCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.ProfilePageViewModel.signInCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.ProfilePageViewModel.SignInCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.GoToProfilePageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.GoToProfilePageAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.ProfilePageViewModel.SignInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.ProfilePageViewModel.SignIn"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.signOutCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SignOutCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.Login">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.login"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SignOutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SignOut"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.Password">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.password"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.searchProductsCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchProductsCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.IsPasswordVisible">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.isPasswordVisible"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchProductsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchProducts"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.RepeatPassword">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.repeatPassword"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.searchCategoriesCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchCategoriesCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.IsSuccessful">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.isSuccessful"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchCategoriesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SearchCategories"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.Alert">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.alert"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.chooseCategActionCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseCategActionCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.createAccountCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.CreateAccountCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseCategActionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseCategActionAsync(COURSE_ASH.Models.CatalogItem)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.CreateAccountCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.RegistrationPageViewModel.CreateAccount"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.chooseProdActionCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseProdActionCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.RegistrationPageViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.GoBackCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseProdActionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChooseProdActionAsync(COURSE_ASH.Models.Product)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.RegistrationPageViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.RegistrationPageViewModel.GoBackAsync"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.addCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddCategoryCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.Products">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.SearchPageViewModel._products"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddCategoryAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.Query">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.SearchPageViewModel.query"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.deleteCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteCategoryCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.IsTabVisible">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.SearchPageViewModel._isTabVisible"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteCategoryAsync(COURSE_ASH.Models.CatalogItem)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.IsEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModel.SearchPageViewModel.isEmpty"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.changeCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeCategoryCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.SearchPageViewModel.filterProductsCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.SearchPageViewModel.FilterProductsCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeCategoryAsync(COURSE_ASH.Models.CatalogItem)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.FilterProductsCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.SearchPageViewModel.FilterProducts"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddProductCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.SearchPageViewModel.goToProductPageCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.SearchPageViewModel.GoToProductPageCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.AddProductAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.GoToProductPageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.SearchPageViewModel.GoToProductPageAsync(COURSE_ASH.Model.Product)"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.deleteProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteProductCommand"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModel.SearchPageViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModel.SearchPageViewModel.GoBackCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.DeleteProductAsync(COURSE_ASH.Models.Product)"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModel.SearchPageViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModel.SearchPageViewModel.GoBackAsync"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.changeProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ChangeProductAsync(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.Category">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel._category"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.Name">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel._name"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel._imageLink"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel._imageScale"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.isNotEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.changeCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ChangeCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ChangeCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.ChangeCategory"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.PickImageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditCategoryPageViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.Categories">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._categories"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.CurrentProduct">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._currentProduct"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ProductType">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._productType"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ProductCategory">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._productCategory"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.Model">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._model"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.Price">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._price"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.Info">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._info"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._imageLink"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.changeProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ChangeProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ChangeProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ChangeProduct"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.PickImageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.addCategoryCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.AddCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.AddCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.AddCategoryAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.Orders">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel._orders"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.goToOrderCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrderCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrder(COURSE_ASH.Models.Order)"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.CurrentOrder">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._currentOrder"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.IsStatusChanged">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._isStatusChanged"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.Status">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._status"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.changeStatusCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.Login">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel._login"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.Password">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel._password"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.IsPasswordVisible">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel._isPasswordVisible"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.Alert">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel._alert"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.logInCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogInCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogInCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogIn"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.signUpCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.SignUpCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.SignUpCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.SignUp"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.Login">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel._login"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.Password">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel._password"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.IsPasswordVisible">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel._isPasswordVisible"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.ConfirmPassword">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel._confirmPassword"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.Alert">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel._alert"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.createAccountCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.CreateAccountCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.CreateAccountCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.CreateAccountAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.RegistrationPageViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel._isBusy"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsSuccessful">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel.isSuccessful"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsFailed">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel.isFailed"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.PickedProduct">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._pickedProduct"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsInCart">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isInCart"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsFavourite">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isFavourite"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.addToCartCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.AddToCartCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.AddToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.AddToCartAsync(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.removeFromCartCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.RemoveFromCartCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.RemoveFromCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.RemoveFromCartAsync(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.changeFavouriteStatusCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.ChangeFavouriteStatusCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.ChangeFavouriteStatusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.ChangeFavouriteStatusAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.CurrentLogin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._currentLogin"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.OldPassword">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._oldPassword"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.NewPassword">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._newPassword"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ConfirmPassword">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._confirmPassword"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._imageLink"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.Alert">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._alert"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.goToOrderHistoryPageAsyncCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.GoToOrderHistoryPageAsyncCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.GoToOrderHistoryPageAsyncCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProfilePageViewModel.GoToOrderHistoryPageAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.changePasswordCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ChangePasswordCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ChangePasswordCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProfilePageViewModel.ChangePasswordAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.pickImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.PickImageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.PickImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProfilePageViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.Range">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._range"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.Rating">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._rating"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.Products">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._products"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.Query">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._query"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.IsTabVisible">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._isTabVisible"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.IsFilterViewVisible">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._isFilterViewVisible"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.IsEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.SearchPageViewModel._isEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.SearchPageViewModel.goToProductPageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.SearchPageViewModel.GoToProductPageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.GoToProductPageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.GoToProductPageAsync(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.SearchPageViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.SearchPageViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.SearchPageViewModel.sortProductsByCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsByCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsByCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsBy(COURSE_ASH.Models.FilterField)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.SearchPageViewModel.sortProductsByDescendingCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsByDescendingCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsByDescendingCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.SortProductsByDescending(COURSE_ASH.Models.FilterField)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.SearchPageViewModel.filterProductsByCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.SearchPageViewModel.FilterProductsByCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.FilterProductsByCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.FilterProductsBy"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Alert">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._alert"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Country">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._country"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.City">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._city"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Street">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._street"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.BuildingNumber">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._buildingNumber"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.ApartmentNumber">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._apartmentNumber"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.PostalCode">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._postalCode"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.isNotEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.checkAddressCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddressCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddress"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.suggestPostCodeCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCodeCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCodeCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCode"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.Products">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel._products"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.TotalPrice">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel._totalPrice"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.IsEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.isEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.removeProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.RemoveProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.RemoveProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.RemoveProduct(COURSE_ASH.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.deleteProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.DeleteProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.DeleteProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.DeleteProduct(COURSE_ASH.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.addProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.AddProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.AddProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.AddProduct(COURSE_ASH.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.goToProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToProduct(COURSE_ASH.Models.CartProduct)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.checkoutCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CheckoutCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CheckoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CheckoutAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.countTotalCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CountTotalCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CountTotalCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.CountTotal"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.goToSearchPageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.CurrentLogin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._currentLogin"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageLink"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.Products">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._products"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.Items">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._items"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.goToSearchPageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToSearchPageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToSearchPageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToSearchPageAsync(COURSE_ASH.Models.CatalogItem)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.goToProfilePageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToProfilePageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToProfilePageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.GoToProfilePageAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.signOutCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.SignOutCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.SignOutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.SignOut"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.Products">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._products"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.BillingAddress">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._billingAddress"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.TotalPrice">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._totalPrice"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._isNotEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.confirmCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.ConfirmCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.ConfirmCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.ConfirmAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.enterAddressCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressAsync"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.Favourites">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel._favourites"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.IsEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.isEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.goToProductCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.GoToProductCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.GoToProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.GoToProduct(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.deleteFromFavouritesCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.DeleteFromFavouritesCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.DeleteFromFavouritesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.DeleteFromFavouritesAsync(COURSE_ASH.Models.Product)"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.OrderHistory">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel._orderHistory"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.CurrentLogin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel._currentLogin"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.IsEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.isEmpty"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.goToOrderCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.GoToOrderCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.GoToOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.OrderHistoryPageViewModel.GoToOrderAsync(COURSE_ASH.Models.Order)"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.CurrentOrder">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel._currentOrder"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.requestCancellationCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.RequestCancellationCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.RequestCancellationCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.RequestCancellationAsync"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

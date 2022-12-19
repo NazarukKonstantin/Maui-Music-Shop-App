@@ -4,10 +4,10 @@
 public partial class OrderPageViewModel : BaseViewModel
 {
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsCancelable))]
+    [NotifyPropertyChangedFor(nameof(CanBeCancelled))]
     Order _currentOrder;
 
-    public bool IsCancelable => Order
+    public bool CanBeCancelled => Order
         .CanBeCancelled(CurrentOrder?.Status ?? null);
 
     private readonly OrderService _orderService;

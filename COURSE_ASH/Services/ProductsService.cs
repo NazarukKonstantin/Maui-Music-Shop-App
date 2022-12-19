@@ -1,4 +1,7 @@
-﻿namespace COURSE_ASH.Services;
+﻿using COURSE_ASH.Models;
+using COURSE_ASH.Models.Interfaces;
+
+namespace COURSE_ASH.Services;
 
 public class ProductsService
 {
@@ -9,32 +12,42 @@ public class ProductsService
     public async Task AddProductAsync(Product product, FileResult productImage)
     {
         product.ImageLink = await DataStorageService<Product>.LinkToStorageAsync(productImage);
-        product.ID = await DataStorageService<Product>.GetIDAsync();
+        var products = await GetProductsAsync();
+        int newId = (from p in products select p.ID)?.Max() + 1 ?? 1;
+        product.ID = newId;
 
         await DataStorageService<Product>.AddItemAsync(product);
 
-        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.ADDED));
+        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Added));
     }
     public async Task DeleteProductAsync(Product product)
     {
-        await DataStorageService<Product>.DeleteFileAsync(product.ImageLink);
+        await DisposeImageOfAsync(product);
 
         await DataStorageService<Product>.DeleteItemAsync(nameof(Product.ID), product.ID);
 
-        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.REMOVED));
+        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Removed));
     }
-    public async Task ChangeProductAsync(Product product, FileResult productImage)
+    public async Task ChangeProductAsync(Product product, FileResult productImage=null)
     {
         if (productImage != null)
+        {
+            await DisposeImageOfAsync(product);
             product.ImageLink = await DataStorageService<Product>.LinkToStorageAsync(productImage);
+        }
 
-        await DataStorageService<Product>.UpdateItemAsync(product,nameof(Product.ID), product.ID);
+        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
 
-        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.CHANGED));
+        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
+    }
+
+    private async Task DisposeImageOfAsync(Product product)
+    {
+        if ((await DataStorageService<Product>.Count(nameof(Product.ImageLink), product.ImageLink))==1)
+            await DataStorageService<Product>.DeleteFileAsync(product.ImageLink);
     }
 
     public event EventHandler<ProductEventArgs> ProductChanged;
-
 
     public List<Product> GetProducts()
     {

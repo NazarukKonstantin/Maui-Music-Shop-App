@@ -14,6 +14,9 @@
     <MauiXaml Update="Resources\Styles\Images.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Resources\Styles\SearchBars.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Resources\Styles\ShellStyles.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
@@ -23,13 +26,28 @@
     <MauiXaml Update="Shells\AuthorizationShell.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\AccountsPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\AddCategoryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AdminViews\AddProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\AdminViews\AdminSearchPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\EditCategoryPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Views\AdminViews\EditProductPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\OrdersCatalogPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="Views\AdminViews\OrderStatusPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\BillingAddressPage.xaml">
@@ -41,10 +59,10 @@
     <MauiXaml Update="Views\UserViews\CheckoutPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\FilterView.xaml">
+    <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
+    <MauiXaml Update="Views\UserViews\FavouritesPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\OrderHistoryPage.xaml">
@@ -53,16 +71,16 @@
     <MauiXaml Update="Views\UserViews\OrderPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\ProductPage.xaml">
+    <MauiXaml Update="Views\ProductPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\ProfilePage.xaml">
+    <MauiXaml Update="Views\ProfilePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\AuthorizationViews\RegistrationPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\SearchPage.xaml">
+    <MauiXaml Update="Views\SearchPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

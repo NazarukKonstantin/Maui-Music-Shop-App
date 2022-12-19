@@ -7,15 +7,15 @@ public class PasswordChangingService : AccountService
         string state = AccountSafetyChecker.CheckPasswordChange(oldPassword, newPassword, repeatPassword);
         if (state != AccountAlerts.SUCCESS) return new AccountState(state);
 
-        AccountData userAccount = await DataStorageService<AccountData>.GetItemAsync(nameof(AccountData.CurrentLogin), login);
+        AccountData account = await DataStorageService<AccountData>.GetItemByAsync(nameof(AccountData.CurrentLogin), login);
 
-        if (userAccount is null || !DoPasswordsMatch(userAccount.Password,oldPassword))
+        if (account is null || !DoPasswordsMatch(account.PasswordSHA256,oldPassword))
             return new AccountState(AccountAlerts.INCORRECT_OLD_PASSWORD);
 
-        userAccount.Password = SetPassword(newPassword);
+        account.PasswordSHA256 = SetPasswordSHA256(newPassword);
 
-        await DataStorageService<AccountData>.UpdateItemAsync(userAccount,nameof(AccountData.CurrentLogin),login); 
+        await DataStorageService<AccountData>.UpdateItemAsync(account,nameof(AccountData.CurrentLogin),login); 
 
-        return new AccountState(login, userAccount.Role, AccountAlerts.SUCCESS);
+        return new AccountState(login, account.Role, AccountAlerts.SUCCESS);
     }
 }

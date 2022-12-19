@@ -10,12 +10,12 @@ public class DataStorageLocationManager<T> where T : class
         _url=url;
     }
     
-    public void SetDataStorage(IDataStorage<T> dataStorage)
+    public void SetStorage(IDataStorage<T> dataStorage)
     {
         _dataStorage=dataStorage;
     }
 
-    public T GetDataStorageClient()
+    public T GetClient()
     {
         return _dataStorage.GetClient(_url);
     }

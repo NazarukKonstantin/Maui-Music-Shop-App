@@ -11,18 +11,18 @@ public partial class CatalogPage : ContentPage
         BindingContext=viewModel;
     }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-        if (string.IsNullOrEmpty(_viewModel.ImageLink))
-        {
-            ProfilePic.SetAppTheme(Image.SourceProperty,
-                Icons.WaltuhBlack, Icons.WaltuhWhite);
-        }
-        else
-        {
-            ProfilePic.Source.BindingContext=_viewModel.ImageLink;
-        }
-    }
+    //protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    //{
+    //    base.OnNavigatedTo(args);
+    //    if (string.IsNullOrEmpty(_viewModel.ImageLink))
+    //    {
+    //        ProfilePic.SetAppTheme(Image.SourceProperty,
+    //            Icons.WaltuhBlack, Icons.WaltuhWhite);
+    //    }
+    //    else
+    //    {
+    //        ProfilePic.Source.BindingContext=_viewModel.ImageLink;
+    //    }
+    //}
 }
 

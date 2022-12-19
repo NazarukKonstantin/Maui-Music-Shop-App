@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="COURSE_ASH.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:COURSE_ASH"
-    xmlns:view="clr-namespace:COURSE_ASH.Views"
+    xmlns:userView="clr-namespace:COURSE_ASH.Views.UserViews"
+    xmlns:commonView="clr-namespace:COURSE_ASH.Views"
     xmlns:global="clr-namespace:COURSE_ASH.Globals"
     Style="{StaticResource BaseShellStyle}"
     Shell.FlyoutBehavior="Disabled"
+    x:Class="COURSE_ASH.AppShell"
     >
 
-    <Shell.Resources>
+    <!--<Shell.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/ShellStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Shell.Resources>
+    </Shell.Resources>-->
 
     <TabBar>
         <Tab Title="Home" Icon="{x:Static global:Icons.HomeBlank}"
              Route="CatalogPage">
             <ShellContent
             Shell.NavBarIsVisible="False"
-            ContentTemplate="{DataTemplate view:CatalogPage}"
-            
+            ContentTemplate="{DataTemplate userView:CatalogPage}"
             />
         </Tab>
         <Tab Title="Search" Icon="{x:Static global:Icons.ManageSearch}"
              Route="SearchPage">
             <ShellContent
                 Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate view:SearchPage}"
+                ContentTemplate="{DataTemplate commonView:SearchPage}"
                 />
         </Tab>
         <Tab Title="Cart" Icon="{x:Static global:Icons.ShoppingCart}"
              Route="CartPage">
             <ShellContent
                 Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate view:CartPage}"
+                ContentTemplate="{DataTemplate userView:CartPage}"
                 />
         </Tab>
     </TabBar>

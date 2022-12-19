@@ -3,5 +3,4 @@
 public interface IImageDisposable
 {
     string ImageLink { get; set; }
-    int ImageLinkCounter { get; set; }
 }

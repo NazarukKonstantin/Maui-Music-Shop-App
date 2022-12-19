@@ -18,8 +18,8 @@ public class CartService
         {
             await DataStorageService<Cart>.AddItemAsync(new Cart
             {
-                CurrentLogin=currentLogin,
-                Products=new List<CartProduct> { product },
+                CurrentLogin = currentLogin,
+                Products = new List<CartProduct> { product },
             });
             return product;
         }
@@ -66,14 +66,8 @@ public class CartService
     {
         Cart cart = await GetCartBy(currentLogin);
         if(cart is not null)
-        {
-            await DataStorageService<Cart>.DeleteItemAsync
+        await DataStorageService<Cart>.DeleteItemAsync
                 (nameof(Cart.CurrentLogin),cart.CurrentLogin);
-        }
-        else
-        {
-            await Shell.Current.DisplayAlert("ERROR",$"Cart for {currentLogin} doesn't exist","OK");
-        }
     }
 
     public async Task<bool> IsProductInStorageCart(Product product, string currentLogin)
@@ -82,15 +76,23 @@ public class CartService
 
         if (cart is null || cart.Products is null) return false;
 
-        return (from cartProduct in cart.Products where cartProduct.ID == product.ID select cartProduct).Any();
+        return (from cartProduct 
+                in cart.Products 
+                where cartProduct.ID == product.ID 
+                select cartProduct).Any();
     }
 
-    private static async Task<Cart> GetCartBy(string currentLogin)
+    private async Task<Cart> GetCartBy(string currentLogin)
     {
-        return await DataStorageService<Cart>.GetItemAsync(nameof(Cart.CurrentLogin), currentLogin);
+        Cart cart = await DataStorageService<Cart>.GetItemByAsync(nameof(Cart.CurrentLogin), currentLogin);
+        if (cart is null)
+        {
+            await Shell.Current.DisplayAlert("ERROR!", $"Cart of {currentLogin} doesn't exist", "OK");
+        }
+        return cart;
     }
 
-    private static async Task UpdateCartGlobal(Cart cart)
+    private async Task UpdateCartGlobal(Cart cart)
     {
        await DataStorageService<Cart>.UpdateItemAsync(cart, nameof(Cart.CurrentLogin), cart.CurrentLogin);
     }

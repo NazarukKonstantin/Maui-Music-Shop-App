@@ -12,7 +12,7 @@ public class AccountService
         return (from acc in accounts where acc.CurrentLogin == login select acc).Any();
     }
 
-    protected static string SetPassword(string newPassword)
+    protected static string SetPasswordSHA256(string newPassword)
     {
         return SHA256HashComputer.ComputeSha256Hash(newPassword);
     }

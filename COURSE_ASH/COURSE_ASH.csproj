@@ -97,8 +97,6 @@
 	  <None Remove="Resources\Images\feedback_filled.svg" />
 	  <None Remove="Resources\Images\home_blank.svg" />
 	  <None Remove="Resources\Images\home_filled.svg" />
-	  <None Remove="Resources\Images\icons\add_user.svg" />
-	  <None Remove="Resources\Images\icons\admin.svg" />
 	  <None Remove="Resources\Images\icons\arrow_back_black.png" />
 	  <None Remove="Resources\Images\icons\arrow_back_white.png" />
 	  <None Remove="Resources\Images\icons\close.svg" />
@@ -120,12 +118,10 @@
 	  <None Remove="Resources\Images\icons\menu.svg" />
 	  <None Remove="Resources\Images\icons\no_net.svg" />
 	  <None Remove="Resources\Images\icons\search.svg" />
-	  <None Remove="Resources\Images\icons\settings.svg" />
 	  <None Remove="Resources\Images\icons\shopping_cart.svg" />
 	  <None Remove="Resources\Images\icons\star_blank.svg" />
 	  <None Remove="Resources\Images\icons\star_full.svg" />
 	  <None Remove="Resources\Images\icons\star_half.svg" />
-	  <None Remove="Resources\Images\icons\user.svg" />
 	  <None Remove="Resources\Images\icons\visibility_off_blank.svg" />
 	  <None Remove="Resources\Images\icons\visibility_off_dark.svg" />
 	  <None Remove="Resources\Images\icons\visibility_off_empty.svg" />
@@ -203,6 +199,9 @@
 	  <MauiXaml Update="Resources\Styles\Pages.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Resources\Styles\SearchBars.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\ShellStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -212,13 +211,28 @@
 	  <MauiXaml Update="Shells\AuthorizationShell.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\AccountsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\AddCategoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\AddProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\AdminSearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\EditCategoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\AdminViews\EditProductPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\OrdersCatalogPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\AdminViews\OrderStatusPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserViews\BillingAddressPage.xaml">
@@ -230,10 +244,10 @@
 	  <MauiXaml Update="Views\UserViews\CheckoutPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserViews\FilterView.xaml">
+	  <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AuthorizationViews\LoginPage.xaml">
+	  <MauiXaml Update="Views\UserViews\FavouritesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserViews\OrderHistoryPage.xaml">
@@ -242,16 +256,16 @@
 	  <MauiXaml Update="Views\UserViews\OrderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserViews\ProductPage.xaml">
+	  <MauiXaml Update="Views\ProductPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserViews\ProfilePage.xaml">
+	  <MauiXaml Update="Views\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\AuthorizationViews\RegistrationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserViews\SearchPage.xaml">
+	  <MauiXaml Update="Views\SearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -263,8 +277,6 @@
 	  <MauiImage Include="Resources\Images\catalog_pack\sax_catalog.png" />
 	  <MauiImage Include="Resources\Images\catalog_pack\ukulele_catalog.png" />
 	  <MauiImage Include="Resources\Images\catalog_pack\violin_catalog.png" />
-	  <MauiImage Include="Resources\Images\icons\add_user.svg" />
-	  <MauiImage Include="Resources\Images\icons\admin.svg" />
 	  <MauiImage Include="Resources\Images\icons\close.svg" />
 	  <MauiImage Include="Resources\Images\icons\feedback_blank.svg" />
 	  <MauiImage Include="Resources\Images\icons\feedback_filled.svg" />
@@ -278,12 +290,10 @@
 	  <MauiImage Include="Resources\Images\icons\menu.svg" />
 	  <MauiImage Include="Resources\Images\icons\no_net.svg" />
 	  <MauiImage Include="Resources\Images\icons\search.svg" />
-	  <MauiImage Include="Resources\Images\icons\settings.svg" />
 	  <MauiImage Include="Resources\Images\icons\shopping_cart.svg" />
 	  <MauiImage Include="Resources\Images\icons\star_blank.svg" />
 	  <MauiImage Include="Resources\Images\icons\star_full.svg" />
 	  <MauiImage Include="Resources\Images\icons\star_half.svg" />
-	  <MauiImage Include="Resources\Images\icons\user.svg" />
 	  <MauiImage Include="Resources\Images\icons\visibility_off_dark.svg" />
 	  <MauiImage Include="Resources\Images\icons\visibility_off_light.svg" />
 	  <MauiImage Include="Resources\Images\icons\visibility_on_dark.svg" />

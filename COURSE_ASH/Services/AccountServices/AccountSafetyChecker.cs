@@ -13,7 +13,7 @@ public static class AccountSafetyChecker
 
     public static string CheckRegistration (string login, string password, string confirmPassword)
     {
-        if (IsEntryEmpty(login, password, confirmPassword))
+        if (IsFieldEmpty(login, password, confirmPassword))
             return FIELDS_EMPTY;
 
         if (!IsLengthEnoughIn(Field.LOGIN,login) || !IsLengthEnoughIn(Field.PASSWORD, password))
@@ -27,7 +27,7 @@ public static class AccountSafetyChecker
 
     public static string CheckAuthorization (string login, string password)
     {
-        if (IsEntryEmpty(login, password))
+        if (IsFieldEmpty(login, password))
             return FIELDS_EMPTY;
 
         if (!IsLengthEnoughIn(Field.LOGIN, login) || !IsLengthEnoughIn(Field.PASSWORD, password))
@@ -38,7 +38,7 @@ public static class AccountSafetyChecker
 
     public static string CheckPasswordChange (string oldPassword, string newPassword, string repeatPassword)
     {
-        if (IsEntryEmpty(oldPassword, newPassword, repeatPassword))
+        if (IsFieldEmpty(oldPassword, newPassword, repeatPassword))
             return FIELDS_EMPTY;
 
         if (!IsLengthEnoughIn(Field.PASSWORD,oldPassword) || !IsLengthEnoughIn(Field.PASSWORD, newPassword)|| !IsLengthEnoughIn(Field.PASSWORD,repeatPassword))
@@ -60,7 +60,7 @@ public static class AccountSafetyChecker
         };
     }
 
-    private static bool IsEntryEmpty(params string[] entryList)
+    private static bool IsFieldEmpty(params string[] entryList)
     {
         foreach (var entry in entryList)
             if (string.IsNullOrEmpty(entry))

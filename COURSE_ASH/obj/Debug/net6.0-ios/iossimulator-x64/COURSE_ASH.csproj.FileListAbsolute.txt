@@ -830,3 +830,5 @@ E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-ios\iossimu
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-ios\iossimulator-x64\COURSE_ASH.genruntimeconfig.cache
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-ios\iossimulator-x64\ref\COURSE_ASH.dll
 E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-ios\iossimulator-x64\Firebase.Storage.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-ios\iossimulator-x64\Geocoding.Core.dll
+E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-ios\iossimulator-x64\Geocoding.Microsoft.dll

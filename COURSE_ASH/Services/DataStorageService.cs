@@ -1,11 +1,11 @@
 ﻿namespace COURSE_ASH.Services;
 
-public static class DataStorageService<T> where T: class
+public static class DataStorageService<T> where T : class
 {
     private static readonly ChildQuery _firebaseQuery =
-        App.FbClientManager.GetDataStorageClient().Child(GetTableName(typeof(T)));
-    private static readonly FirebaseStorage _storage =
-        App.FbStorageManager.GetDataStorageClient();
+        App.FbClientManager.GetClient().Child(GetTableName(typeof(T)));
+    private static readonly FirebaseStorageReference _storage =
+        App.FbStorageManager.GetClient().Child(GetTableName(typeof(T)));
 
     private static string GetTableName(Type type)
     {
@@ -21,7 +21,7 @@ public static class DataStorageService<T> where T: class
                 select item.Object)?.AsEnumerable();
     }
 
-    public static async Task<T> GetItemAsync(string searchFieldName, int value)
+    public static async Task<T> GetItemByAsync(string searchFieldName, int value)
     {
         var item = await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -30,7 +30,7 @@ public static class DataStorageService<T> where T: class
         return item.Any() ? item.First().Object : default;
     }
 
-    public static async Task<T> GetItemAsync(string searchFieldName, string value)
+    public static async Task<T> GetItemByAsync(string searchFieldName, string value)
     {
         var item = await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -38,7 +38,7 @@ public static class DataStorageService<T> where T: class
             .OnceAsync<T>();
         return item.Any() ? item.First().Object : default;
     }
-    public static async Task<IEnumerable<T>> GetItemsAsync(string searchFieldName,int value)
+    public static async Task<IEnumerable<T>> GetItemsByAsync(string searchFieldName, int value)
     {
         return (from item in (await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -46,7 +46,7 @@ public static class DataStorageService<T> where T: class
             .OnceAsync<T>())
                 select item.Object)?.AsEnumerable<T>();
     }
-    public static async Task<IEnumerable<T>> GetItemsAsync(string searchFieldName,string value)
+    public static async Task<IEnumerable<T>> GetItemsByAsync(string searchFieldName,string value)
     {
         return (from item in (await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -86,10 +86,14 @@ public static class DataStorageService<T> where T: class
         var target = (await _firebaseQuery
             .OrderBy(searchFieldName)
             .EqualTo(value)
-            .OnceAsync<T>()).First();
-
+            .OnceAsync<T>());
+        if (target.Count is 0)
+        {
+            await AddItemAsync(item);
+            return;
+        }
         await _firebaseQuery
-            .Child(target.Key)
+            .Child(target.First().Key)
             .PatchAsync(item);
     }
     public static async Task UpdateItemAsync(T item, string searchFieldName, string value)
@@ -97,17 +101,15 @@ public static class DataStorageService<T> where T: class
         var target = (await _firebaseQuery
             .OrderBy(searchFieldName)
             .EqualTo(value)
-            .OnceAsync<T>()).First();
-
+            .OnceAsync<T>());
+        if (target.Count is 0)
+        {
+            await AddItemAsync(item);
+            return;
+        }
         await _firebaseQuery
-            .Child(target.Key)
+            .Child(target.First().Key)
             .PatchAsync(item);
-    }
-
-    public static async Task<int> GetIDAsync()
-    {
-        return (await _firebaseQuery
-           .OnceAsync<T>())?.Count + 1 ?? 1;
     }
 
     public static async Task<string> LinkToStorageAsync(FileResult file)
@@ -126,7 +128,16 @@ public static class DataStorageService<T> where T: class
 
     public static async Task DeleteFileAsync(string fileURI)
     {
-        await _storage.Child(Path.GetFileName(new Uri(fileURI).LocalPath))
+        await _storage
+            .Child(Path.GetFileName(new Uri(fileURI).LocalPath))
             .DeleteAsync();
+    }
+
+    public static async Task<int> Count(string imageFieldName, string imageLink)
+    {
+        return (await _firebaseQuery
+            .OrderBy(imageFieldName)
+            .EqualTo(imageLink)
+            .OnceAsync<T>()).Count;
     }
 }

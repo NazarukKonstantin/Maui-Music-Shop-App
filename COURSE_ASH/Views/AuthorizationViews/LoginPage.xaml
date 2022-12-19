@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AuthorizationViewModel"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AuthorizationViewModels"
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:LogInPageViewModel"
              x:Class="COURSE_ASH.Views.AuthorizationViews.LoginPage"
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False">
-
-    <Grid RowDefinitions=".4*,.3*,.3*">
-        <Frame HeightRequest="160"
+    
+    <ScrollView>
+        <Grid RowDefinitions=".4*,.3*,.3*">
+            <Frame HeightRequest="160"
                WidthRequest="160"
                HorizontalOptions="Center"
                VerticalOptions="Center"
                CornerRadius="80"
                BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},Light={StaticResource PrimaryDark}}"
                >
-            <Image Source="{AppThemeBinding Dark=waltuh_white,Light=waltuh_black}"
+                <Image Source="{AppThemeBinding Dark=waltuh_white,Light=waltuh_black}"
                HorizontalOptions="CenterAndExpand"
                VerticalOptions="CenterAndExpand"
                WidthRequest="130"
                HeightRequest="130"
                Aspect="AspectFill"
                />
-        </Frame>
+            </Frame>
 
-        <VerticalStackLayout Grid.Row="1" Margin="0" Padding="0" Spacing="15">
-            <Frame Style="{StaticResource LoginEntryFrame}">
-                <Entry Placeholder="Username" PlaceholderColor="Gray"
+            <VerticalStackLayout Grid.Row="1" Margin="0" Padding="0" Spacing="15">
+                <Frame Style="{StaticResource LoginEntryFrame}">
+                    <Entry Placeholder="Username" PlaceholderColor="Gray"
                        WidthRequest="310"
                        HorizontalOptions="Center"
                        VerticalOptions="EndAndExpand"/>
-            </Frame>
-            <Frame Style="{StaticResource LoginEntryFrame}" Margin="10">
-                <HorizontalStackLayout Margin="0" Padding="0" Spacing="3">
-                    <Entry x:Name="PassEntry" 
+                </Frame>
+                <Frame Style="{StaticResource LoginEntryFrame}" Margin="10">
+                    <HorizontalStackLayout Margin="0" Padding="0" Spacing="3">
+                        <Entry x:Name="PassEntry" 
                         Placeholder="Password" 
                            HeightRequest="40"
                            WidthRequest="280"
@@ -43,18 +44,18 @@
                            VerticalOptions="Start"
                            IsPassword="True"/>
 
-                    <Image x:Name="VisibilityOnImg"
+                        <Image x:Name="VisibilityOnImg"
                         Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
                         HorizontalOptions="EndAndExpand"
                         VerticalOptions="Center"
                            HeightRequest="40"
                            WidthRequest="40"
                           >
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="VisibilityTapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                    <Image x:Name="VisibilityOffImg"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="VisibilityTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                        <Image x:Name="VisibilityOffImg"
                            IsVisible="False"
                         Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},Light={Static global:Icons.VisibilityOffDark}}"
                         HorizontalOptions="EndAndExpand"
@@ -62,23 +63,24 @@
                            HeightRequest="40"
                            WidthRequest="40"
                           >
-                        <Image.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="VisibilityTapped"/>
-                        </Image.GestureRecognizers>
-                    </Image>
-                </HorizontalStackLayout>
-            </Frame>
-        </VerticalStackLayout>
-        <VerticalStackLayout Grid.Row="2" Margin="10" Padding="0" Spacing="50">
-            <Button Text="Log In" Style="{StaticResource LoginButtons}"
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="VisibilityTapped"/>
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="2" Margin="10" Padding="0" Spacing="50">
+                <Button Text="Log In" Style="{StaticResource LoginButtons}"
                     Command="{Binding LogInCommand}"
                     />
-            <Button Text="Sign Up" Style="{StaticResource LoginButtons}"
+                <Button Text="Sign Up" Style="{StaticResource LoginButtons}"
                     HeightRequest="40"
                     WidthRequest="125"
                     CornerRadius="30"
                     FontSize="Medium"
                     Command="{Binding SignUpCommand}"/>
-        </VerticalStackLayout>
-    </Grid>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

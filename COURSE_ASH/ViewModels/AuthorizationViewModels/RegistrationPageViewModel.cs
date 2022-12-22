@@ -53,7 +53,8 @@ public partial class RegistrationPageViewModel: BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not create account!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not create account!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

@@ -48,83 +48,19 @@
                    FontSize="Small"
                    TextDecorations="Underline" />
 
-            <Border IsVisible="true"
-                    Stroke="transparent"
-                    StrokeShape="RoundRectangle 35"
-                    WidthRequest="365"
-                    HeightRequest="80"
-                    StrokeThickness="4">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                                 Binding="{Binding IsFailed}"
-                                 Value="True">
-                        <Setter Property="Stroke"
-                                Value="OrangeRed" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="Border"
-                                 Binding="{Binding IsSuccessful}"
-                                 Value="true">
-                        <Setter Property="Stroke"
-                                Value="Transparent" />
-                    </DataTrigger>
-                </Border.Triggers>
+            <Border Style="{StaticResource ErrorPossibleBorder}">
                 <Frame Style="{StaticResource LoginEntryFrame}"
                        Margin="0"
                        Padding="0">
                     <Entry x:Name="LoginEntry"
                            Placeholder="Login"
-                           Text="{Binding Login}"
-                           PlaceholderColor="Gray"
-                           WidthRequest="300"
-                           HorizontalOptions="Center"
-                           VerticalOptions="CenterAndExpand"
-                           FontSize="Medium"
+                           Text="{Binding Login, Mode=TwoWay}"
                            Completed="LoginEntryCompleted"
-                           ClearButtonVisibility="WhileEditing">
-                        <Entry.Triggers>
-                            <DataTrigger TargetType="Entry"
-                                         Binding="{Binding IsFailed}"
-                                         Value="True">
-                                <Setter Property="TextColor"
-                                        Value="OrangeRed" />
-                                <Setter Property="PlaceholderColor"
-                                        Value="OrangeRed" />
-                            </DataTrigger>
-                            <DataTrigger TargetType="Entry"
-                                         Binding="{Binding IsSuccessful}"
-                                         Value="True">
-                                <Setter Property="TextColor"
-                                        Value="{AppThemeBinding Dark={StaticResource LightText},
-                                                                    Light={StaticResource DarkText}}" />
-                                <Setter Property="PlaceholderColor"
-                                        Value="{AppThemeBinding Dark={StaticResource LightText},
-                                                                    Light={StaticResource DarkText}}" />
-                            </DataTrigger>
-                        </Entry.Triggers>
+                           Style="{StaticResource ErrorPossibleEntry}">
                     </Entry>
                 </Frame>
             </Border>
-            <Border IsVisible="true"
-                    Stroke="transparent"
-                    StrokeShape="RoundRectangle 35"
-                    WidthRequest="365"
-                    HeightRequest="80"
-                    StrokeThickness="4">
-                <Border.Triggers>
-                    <DataTrigger TargetType="Border"
-                                 Binding="{Binding IsFailed}"
-                                 Value="True">
-                        <Setter Property="Stroke"
-                                Value="OrangeRed" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="Border"
-                                 Binding="{Binding IsSuccessful}"
-                                 Value="true">
-                        <Setter Property="Stroke"
-                                Value="Transparent" />
-                    </DataTrigger>
-                </Border.Triggers>
-
+            <Border Style="{StaticResource ErrorPossibleBorder}">
                 <Frame Style="{StaticResource LoginEntryFrame}"
                        Margin="0"
                        Padding="0">
@@ -134,41 +70,10 @@
                         <Entry x:Name="PassEntry"
                                Grid.Column="0"
                                Placeholder="Password"
-                               Text="{Binding Password}"
-                               HeightRequest="50"
-                               WidthRequest="270"
-                               PlaceholderColor="Gray"
-                               HorizontalOptions="End"
-                               VerticalOptions="End"
-                               IsPassword="True"
-                               FontSize="Medium"
-                               FontAttributes="None"
+                               Text="{Binding Password, Mode=TwoWay}"
                                Completed="PasswordEntryCompleted"
-                               ClearButtonVisibility="WhileEditing">
-
-                            <Entry.Triggers>
-                                <DataTrigger TargetType="Entry"
-                                             Binding="{Binding IsFailed}"
-                                             Value="True">
-                                    <Setter Property="TextColor"
-                                            Value="OrangeRed" />
-                                    <Setter Property="PlaceholderColor"
-                                            Value="OrangeRed" />
-                                </DataTrigger>
-                                <DataTrigger TargetType="Entry"
-                                             Binding="{Binding IsSuccessful}"
-                                             Value="True">
-                                    <Setter Property="TextColor"
-                                            Value="{AppThemeBinding Dark={StaticResource LightText},
-                                                                    Light={StaticResource DarkText}}" />
-                                    <Setter Property="PlaceholderColor"
-                                            Value="{AppThemeBinding Dark={StaticResource LightText},
-                                                                    Light={StaticResource DarkText}}" />
-                                </DataTrigger>
-                            </Entry.Triggers>
-                        </Entry>
-
-
+                               Style="{StaticResource PasswordEntry}" />
+                        
                         <Image x:Name="VisibilityOnImg"
                                Margin="0,15,0,0"
                                IsEnabled="True"
@@ -209,12 +114,10 @@
             <Button x:Name="LoginButton"
                     Text="Log In"
                     Style="{StaticResource LoginButtons}"
-                    FontAttributes="Bold"
-                    FontSize="30"
-                    Command="{Binding LogInCommand}" />
+                    Command="{Binding LogInCommand}"
+                    IsEnabled="{Binding IsNotBusy}"/>
             
             <Button Text="Sign Up"
-                    FontAttributes="Bold"
                     Style="{StaticResource LoginButtons}"
                     HeightRequest="60"
                     WidthRequest="125"

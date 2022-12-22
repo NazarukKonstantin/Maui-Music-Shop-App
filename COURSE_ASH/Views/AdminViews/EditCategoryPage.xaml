@@ -4,6 +4,8 @@
              x:Class="COURSE_ASH.Views.AdminViews.EditCategoryPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
              x:DataType="viewmodel:EditCategoryPageViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="False"
              Title="EditCategoryPage">
     <VerticalStackLayout>
         <Label 

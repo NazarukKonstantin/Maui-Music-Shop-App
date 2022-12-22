@@ -9,6 +9,8 @@ public static class Icons
     public const string CatalogUkulele = "ukulele_catalog.png";
     public const string CatalogViolin = "violin_catalog.png";
 
+    public const string AddImageBlack = "add_image_black.png";
+    public const string AddImageWhite = "add_image_white.png";
     public const string ArrowBackBlack = "arrow_back_black.png";
     public const string ArrowBackWhite = "arrow_back_white.png";
     public const string BinEmpty = "bin_empty.png";

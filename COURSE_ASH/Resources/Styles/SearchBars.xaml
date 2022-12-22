@@ -1,16 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Style TargetType="SearchBar" ApplyToDerivedTypes="True">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBlue}
-            ,Light={StaticResource TenderWhite}}"/>
-        <Setter Property="Placeholder" Value="Search"/>
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource LightText}
-            ,Light={StaticResource DarkText}}"/>
-        <Setter Property="HorizontalOptions" Value="Start"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
+    <Style TargetType="SearchBar"
+           ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Dark={StaticResource DarkBlue}
+            ,Light={StaticResource TenderWhite}}" />
+        <Setter Property="Placeholder"
+                Value="Search" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource LightText}
+            ,Light={StaticResource DarkText}}" />
+        <Setter Property="HorizontalOptions"
+                Value="Start" />
+        <Setter Property="VerticalOptions"
+                Value="Center" />
     </Style>
 
+    <Style TargetType="Entry"
+           ApplyToDerivedTypes="True">
+        <Setter Property="PlaceholderColor"
+                Value="Gray" />
+        <Setter Property="WidthRequest"
+                Value="300" />
+        <Setter Property="HorizontalOptions"
+                Value="Center" />
+        <Setter Property="VerticalOptions"
+                Value="CenterAndExpand" />
+        <Setter Property="FontSize"
+                Value="Medium" />
+        <Setter Property="ClearButtonVisibility"
+                Value="WhileEditing" />
+    </Style>
+
+    <Style TargetType="Entry"
+           x:Key="ErrorPossibleEntry">
+        <Style.Triggers>
+            <DataTrigger TargetType="Entry"
+                         Binding="{Binding IsFailed}"
+                         Value="True">
+                <Setter Property="PlaceholderColor"
+                        Value="OrangeRed" />
+                <Setter Property="Text"
+                        Value="" />
+            </DataTrigger>
+            <DataTrigger TargetType="Entry"
+                         Binding="{Binding IsSuccessful}"
+                         Value="True">
+                <Setter Property="TextColor"
+                        Value="{AppThemeBinding Dark={StaticResource LightText},
+                                       Light={StaticResource DarkText}}" />
+                <Setter Property="PlaceholderColor"
+                        Value="{AppThemeBinding Dark={StaticResource LightText},
+                                       Light={StaticResource DarkText}}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="Entry"
+           x:Key="PasswordEntry"
+           BasedOn="{StaticResource ErrorPossibleEntry}">
+        <Setter Property="HeightRequest"
+                Value="50" />
+        <Setter Property="IsPassword"
+                Value="True" />
+        <Setter Property="WidthRequest"
+                Value="270" />
+        <Setter Property="HorizontalOptions"
+                Value="End" />
+        <Setter Property="VerticalOptions"
+                Value="End" />
+    </Style>
 </ResourceDictionary>

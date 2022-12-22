@@ -34,7 +34,8 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

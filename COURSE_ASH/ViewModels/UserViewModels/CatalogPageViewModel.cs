@@ -94,7 +94,8 @@ public partial class CatalogPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load items!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load items!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

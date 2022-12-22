@@ -23,6 +23,7 @@ public partial class CartPageViewModel : BaseViewModel
     public CartPageViewModel(CartService cartService)
     {
         _cartService = cartService;
+        PropertyChanged += CollectionChanged;
         RefreshAsync();
     }
 
@@ -38,7 +39,8 @@ public partial class CartPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -67,7 +69,8 @@ public partial class CartPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not remove product from cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not remove product from cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -91,7 +94,8 @@ public partial class CartPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not delete product from cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not delete product from cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -115,7 +119,8 @@ public partial class CartPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -176,7 +181,6 @@ public partial class CartPageViewModel : BaseViewModel
     //Метод отвечает за обновление экрана корзины
     public void RefreshAsync()
     {
-        PropertyChanged += CollectionChanged;
         GetCart();
     }
 
@@ -186,6 +190,6 @@ public partial class CartPageViewModel : BaseViewModel
         //Если изменение списка не затронула объект Products, выйти из метода
         if (e.PropertyName != nameof(Products)) return;
         //Иначе изменить статус поля IsEmpty в зависимости от длины списка Products
-        IsEmpty = Products.Count == 0;
+        IsEmpty = Products is null || Products.Count == 0;
     }
 }

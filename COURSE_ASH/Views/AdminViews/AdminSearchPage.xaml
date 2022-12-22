@@ -10,6 +10,8 @@
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
              xmlns:model="clr-namespace:COURSE_ASH.Models"
              x:DataType="viewmodel:AdminSearchPageViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Title="AdminSearchPage">
 
     <Page.Behaviors>

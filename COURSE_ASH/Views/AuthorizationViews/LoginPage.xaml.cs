@@ -16,16 +16,12 @@ public partial class LoginPage : ContentPage
         PassEntry.IsPassword = !PassEntry.IsPassword;
         VisibilityOnImg.IsVisible = !VisibilityOnImg.IsVisible;
         VisibilityOffImg.IsVisible = !VisibilityOffImg.IsVisible;
-        Focus();
     }
 
     private void LoginEntryCompleted(object sender, EventArgs e)
     {
-        if (LoginEntry.Focus())
-        {
-            LoginEntry.Unfocus();
-            PassEntry.Focus();
-        }
+        LoginEntry.Unfocus();
+        PassEntry.Focus();
     }
 
     private async void PasswordEntryCompleted(object sender, EventArgs e)
@@ -35,10 +31,9 @@ public partial class LoginPage : ContentPage
             Platform.CurrentActivity
                 .HideKeyboard(Platform.CurrentActivity.CurrentFocus);
 #endif
-        if (PassEntry.Focus())
-        {
-            PassEntry.Unfocus();
-        }
+
+        PassEntry.Unfocus();
+
         LoginButton.Focus();
         await _viewModel.LogInAsync();
     }

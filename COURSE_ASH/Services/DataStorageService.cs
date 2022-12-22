@@ -1,4 +1,6 @@
-﻿namespace COURSE_ASH.Services;
+﻿using Firebase.Database;
+
+namespace COURSE_ASH.Services;
 
 public static class DataStorageService<T> where T : class
 {
@@ -46,7 +48,7 @@ public static class DataStorageService<T> where T : class
             .OnceAsync<T>())
                 select item.Object)?.AsEnumerable<T>();
     }
-    public static async Task<IEnumerable<T>> GetItemsByAsync(string searchFieldName,string value)
+    public static async Task<IEnumerable<T>> GetItemsByAsync(string searchFieldName, string value)
     {
         return (from item in (await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -59,27 +61,33 @@ public static class DataStorageService<T> where T : class
         await _firebaseQuery
             .PostAsync(item);
     }
-    public static async Task DeleteItemAsync(string searchFieldName, int value)
+    public static async Task DeleteItemsAsync(string searchFieldName, int value)
     {
-        var item = (await _firebaseQuery
+        var items = (await _firebaseQuery
             .OrderBy(searchFieldName)
             .EqualTo(value)
-            .OnceAsync<T>()).First();
+            .OnceAsync<T>());
 
-        await _firebaseQuery
-            .Child(item.Key)
-            .DeleteAsync();
+        foreach (var item in items)
+        {
+            await _firebaseQuery
+                .Child(item.Key)
+                .DeleteAsync();
+        }
     }
-    public static async Task DeleteItemAsync(string searchFieldName, string value)
+    public static async Task DeleteItemsAsync(string searchFieldName, string value)
     {
-        var item = (await _firebaseQuery
-            .OrderBy(searchFieldName)
-            .EqualTo(value)
-            .OnceAsync<T>()).First();
+        var items = (await _firebaseQuery
+                    .OrderBy(searchFieldName)
+                    .EqualTo(value)
+                    .OnceAsync<T>());
 
-        await _firebaseQuery
-            .Child(item.Key)
-            .DeleteAsync();
+        foreach (var item in items)
+        {
+            await _firebaseQuery
+                .Child(item.Key)
+                .DeleteAsync();
+        }
     }
     public static async Task UpdateItemAsync(T item, string searchFieldName, int value)
     {

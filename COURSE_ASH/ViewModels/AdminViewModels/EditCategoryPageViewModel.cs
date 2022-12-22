@@ -5,7 +5,6 @@ public partial class EditCategoryPageViewModel : BaseViewModel
 {
     private FileResult _image;
     private readonly CatalogService _catalogService;
-    private readonly ProductsService _productsService;
 
     [ObservableProperty]
     private CatalogItem _category;
@@ -25,10 +24,9 @@ public partial class EditCategoryPageViewModel : BaseViewModel
     [ObservableProperty]
     bool isNotEmpty = false;
 
-    public EditCategoryPageViewModel(CatalogService catalogService, ProductsService productsService)
+    public EditCategoryPageViewModel(CatalogService catalogService)
     {
         _catalogService = catalogService;
-        _productsService = productsService;
         PropertyChanged += CategoryChanged;
         PropertyChanged += CheckEmpty;
     }
@@ -54,13 +52,14 @@ public partial class EditCategoryPageViewModel : BaseViewModel
             Category.ImageRotation = ImageRotation;
             Category.ImageLink = ImageLink;
 
-            await _catalogService.ChangeCategoryAsync(oldName, Category, _productsService, _image);
+            await _catalogService.ChangeCategoryAsync(oldName, Category,_image);
             await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
             await GoBackAsync();
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not change category!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not change category!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

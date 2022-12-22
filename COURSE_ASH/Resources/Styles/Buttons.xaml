@@ -1,40 +1,63 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:global="clr-namespace:COURSE_ASH.Globals">
 
-    <Style x:Key="ButtonOutline" TargetType="Button">
-        <Setter Property="Background" Value="{StaticResource LightBackground}"/>
-        <Setter Property="TextColor" Value="{StaticResource Primary}"/>
-        <Setter Property="BorderColor" Value="{StaticResource Primary}"/>
-        <Setter Property="BorderWidth" Value="2"/>
-        <Setter Property="HeightRequest" Value="40"/>
-        <Setter Property="CornerRadius" Value="20"/>
+    <Style x:Key="ButtonOutline"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="{StaticResource LightBackground}" />
+        <Setter Property="TextColor"
+                Value="{StaticResource Primary}" />
+        <Setter Property="BorderColor"
+                Value="{StaticResource Primary}" />
+        <Setter Property="BorderWidth"
+                Value="2" />
+        <Setter Property="HeightRequest"
+                Value="40" />
+        <Setter Property="CornerRadius"
+                Value="20" />
     </Style>
 
-    <Style x:Key="StandardButton" TargetType="Button">
-        <Setter Property="Background" Value="{AppThemeBinding
+    <Style x:Key="StandardButton"
+           TargetType="Button">
+        <Setter Property="Background"
+                Value="{AppThemeBinding
                     Dark={StaticResource ComplimentaryLight},
                     Light={StaticResource PrimaryDark},
-                    Default={StaticResource PrimaryDark}}"/>
-        <Setter Property="FontSize" Value="Medium"/>
-        <Setter Property="TextColor" Value="{StaticResource TenderWhite}"/>
-        <Setter Property="BorderColor" Value="{AppThemeBinding
+                    Default={StaticResource PrimaryDark}}" />
+        <Setter Property="FontSize"
+                Value="Medium" />
+        <Setter Property="TextColor"
+                Value="{StaticResource TenderWhite}" />
+        <Setter Property="BorderColor"
+                Value="{AppThemeBinding
                     Default={StaticResource PrimaryDark},
                     Light={StaticResource PrimaryDark},
-                    Dark={StaticResource ComplimentaryLight}}"/>
-        <Setter Property="BorderWidth" Value="2"/>
-        <Setter Property="HeightRequest" Value="40"/>
-        <Setter Property="CornerRadius" Value="20"/>
+                    Dark={StaticResource ComplimentaryLight}}" />
+        <Setter Property="BorderWidth"
+                Value="2" />
+        <Setter Property="HeightRequest"
+                Value="40" />
+        <Setter Property="CornerRadius"
+                Value="20" />
 
     </Style>
 
-    <Style x:Key="LoginButtons" TargetType="Button" BasedOn="{StaticResource StandardButton}">
-        <Setter Property="HeightRequest" Value="65"/>
-        <Setter Property="FontSize" Value="Title"/>
-        <Setter Property="WidthRequest" Value="250"/>
-        <Setter Property="CornerRadius" Value="60"/>
+    <Style x:Key="LoginButtons"
+           TargetType="Button"
+           BasedOn="{StaticResource StandardButton}">
+        <Setter Property="FontAttributes"
+                Value="Bold" />
+        <Setter Property="HeightRequest"
+                Value="65" />
+        <Setter Property="FontSize"
+                Value="30" />
+        <Setter Property="WidthRequest"
+                Value="250" />
+        <Setter Property="CornerRadius"
+                Value="60" />
     </Style>
 
     <Style x:Key="GoBackArrow"
@@ -57,7 +80,7 @@
         <Setter Property="VerticalOptions"
                 Value="Center" />
     </Style>
-    
+
     <ControlTemplate x:Key="FrameRadioTemplate">
         <Border Style="{StaticResource CardViewBorder}">
             <Border.Shadow>

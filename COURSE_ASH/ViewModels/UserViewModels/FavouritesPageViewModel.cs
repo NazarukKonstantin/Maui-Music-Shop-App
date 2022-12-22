@@ -30,7 +30,8 @@ public partial class FavouritesPageViewModel : BaseViewModel
         }
         catch(Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load favourites!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load favourites!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -64,7 +65,8 @@ public partial class FavouritesPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not delete from favourites!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not delete from favourites!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

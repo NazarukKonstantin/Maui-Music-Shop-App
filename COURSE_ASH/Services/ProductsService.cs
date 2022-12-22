@@ -1,6 +1,7 @@
 ﻿using COURSE_ASH.Models;
 using COURSE_ASH.Models.Interfaces;
 using COURSE_ASH.Views;
+using Microsoft.Maui;
 
 namespace COURSE_ASH.Services;
 
@@ -12,9 +13,9 @@ public class ProductsService
     }
     public async Task AddProductAsync(Product product, FileResult productImage)
     {
-        product.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(productImage);
-        var products = await GetProductsAsync();
-        int newId = (from p in products select p.ID)?.Max() + 1 ?? 1;
+        product.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
+        var products = await GetProductsAsync() ?? new List<Product>();
+        int newId = products.Count == 0 ? 1 : (from prod in products select prod.ID).Max() + 1;
         product.ID = newId;
 
         await DataStorageService<Product>.AddItemAsync(product);
@@ -23,29 +24,24 @@ public class ProductsService
     }
     public async Task DeleteProductAsync(Product product)
     {
-        await DisposeImageOfAsync(product);
+        await DataStorageService<Product>.DeleteItemsAsync(nameof(Product.ID), product.ID);
 
-        await DataStorageService<Product>.DeleteItemAsync(nameof(Product.ID), product.ID);
+        if (await ImageSeekingService.ShouldDelete<Product>(product.ImageLink))
+            await ImageManager<Product>.RemoveImageAsync(product.ImageLink);
 
         ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Removed));
     }
-    public async Task ChangeProductAsync(Product product, FileResult productImage=null)
+    public async Task ChangeProductAsync(Product product, string oldImageLink, FileResult productImage=null)
     {
         if (productImage != null)
-        {
-            await DisposeImageOfAsync(product);
-            product.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(productImage);
-        }
+            product.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
 
-        await UpdateByIDAsync(product);
+        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
+
+        if (productImage != null && await ImageSeekingService.ShouldDelete<Product>(oldImageLink))
+            await ImageManager<Product>.RemoveImageAsync(oldImageLink);
 
         ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
-    }
-
-    private async Task DisposeImageOfAsync(Product product)
-    {
-        if ((await ImageService<Product>.CountLinksAsync(product.ImageLink))==1)
-            await ImageService<Product>.RemoveImageAsync(product.ImageLink);
     }
 
     public async Task<List<Review>> GetReviewsForAsync(Product product)

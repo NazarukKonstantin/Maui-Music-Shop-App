@@ -1,4 +1,6 @@
-﻿namespace COURSE_ASH.Services;
+﻿using Microsoft.Maui;
+
+namespace COURSE_ASH.Services;
 
 public class CartService
 {
@@ -44,6 +46,9 @@ public class CartService
             cart.Products.Remove(new CartProduct(product));
 
             await UpdateCartGlobal(cart);
+
+            if (await ImageSeekingService.ShouldDelete<Product>(product.ImageLink))
+                await ImageManager<Product>.RemoveImageAsync(product.ImageLink);
         }
     }
     public async Task<CartProduct> RemoveProductFromStorageCartAsync(string currentLogin,CartProduct product)
@@ -60,14 +65,20 @@ public class CartService
 
         await UpdateCartGlobal(cart);
 
+        if (await ImageSeekingService.ShouldDelete<Product>(product.ImageLink))
+            await ImageManager<Product>.RemoveImageAsync(product.ImageLink);
         return product;
     }
     public async Task ClearStorageCartAsync(string currentLogin)
     {
         Cart cart = await GetCartBy(currentLogin);
         if(cart is not null)
-        await DataStorageService<Cart>.DeleteItemAsync
+        await DataStorageService<Cart>.DeleteItemsAsync
                 (nameof(Cart.CurrentLogin),cart.CurrentLogin);
+
+        foreach (Product product in cart.Products)
+            if (await ImageSeekingService.ShouldDelete<Product>(product.ImageLink))
+            await ImageManager<Product>.RemoveImageAsync(product.ImageLink);
     }
 
     public async Task<bool> IsProductInStorageCart(Product product, string currentLogin)

@@ -4,6 +4,8 @@
              x:Class="COURSE_ASH.Views.AdminViews.OrdersCatalogPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
              x:DataType="viewmodel:OrdersCatalogPageViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Title="OrdersCatalogPage">
     <VerticalStackLayout>
         <Label 

@@ -49,7 +49,8 @@ public partial class AddCategoryPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not create category!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not create category!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -60,11 +61,6 @@ public partial class AddCategoryPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task GoBackAsync()
     {
-        Name=string.Empty;
-        ImageLink=string.Empty;
-        ImageRotation=0;
-        ImageScale=0;
-        _image=default;
         await Shell.Current.GoToAsync("..");
     }
 

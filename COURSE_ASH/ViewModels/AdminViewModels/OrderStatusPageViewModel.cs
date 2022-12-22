@@ -57,7 +57,8 @@ public partial class OrderStatusPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not change order status!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not change order status!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

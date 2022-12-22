@@ -7,6 +7,8 @@
              xmlns:model="clr-namespace:COURSE_ASH.Models"
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:CartPageViewModel"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              x:Class="COURSE_ASH.Views.UserViews.CartPage">
 
     <ScrollView>

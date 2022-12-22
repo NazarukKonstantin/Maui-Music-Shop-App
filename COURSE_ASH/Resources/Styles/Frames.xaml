@@ -64,4 +64,37 @@
         <Setter Property="RowSpacing" Value="0"/>
         <Setter Property="ColumnSpacing" Value="0"/>
     </Style>
+
+    <Style TargetType="Border"
+           x:Key="EntryBorder">
+        <Setter Property="Stroke"
+                Value="Transparent" />
+        <Setter Property="StrokeShape"
+                Value="RoundRectangle 35" />
+        <Setter Property="WidthRequest"
+                Value="365" />
+        <Setter Property="HeightRequest"
+                Value="80" />
+        <Setter Property="StrokeThickness"
+                Value="4" />
+    </Style>
+
+    <Style TargetType="Border"
+           x:Key="ErrorPossibleBorder"
+           BasedOn="{StaticResource EntryBorder}">
+        <Style.Triggers>
+            <DataTrigger TargetType="Border"
+                         Binding="{Binding IsFailed}"
+                         Value="True">
+                <Setter Property="Stroke"
+                        Value="OrangeRed" />
+            </DataTrigger>
+            <DataTrigger TargetType="Border"
+                         Binding="{Binding IsSuccessful}"
+                         Value="true">
+                <Setter Property="Stroke"
+                        Value="Transparent" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

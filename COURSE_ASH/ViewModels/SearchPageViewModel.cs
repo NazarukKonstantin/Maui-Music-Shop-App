@@ -54,7 +54,8 @@ public partial class SearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

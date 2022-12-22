@@ -26,6 +26,6 @@ public class AccountManager
     }
     public async Task DeleteAccount(string login)
     {
-        await DataStorageService<AccountData>.DeleteItemAsync(nameof(AccountData.CurrentLogin), login);
+        await DataStorageService<AccountData>.DeleteItemsAsync(nameof(AccountData.CurrentLogin), login);
     }
 }

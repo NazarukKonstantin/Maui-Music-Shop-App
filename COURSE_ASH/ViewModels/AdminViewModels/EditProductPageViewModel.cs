@@ -4,6 +4,7 @@
 public partial class EditProductPageViewModel : BaseViewModel
 {
     private FileResult _image = null;
+    private string _oldImage = null;
     private readonly ProductsService _productsService;
     private readonly CatalogService _catalogService;
 
@@ -23,13 +24,18 @@ public partial class EditProductPageViewModel : BaseViewModel
     private string _model;
 
     [ObservableProperty]
-    private double _price;
+    private string _price;
 
     [ObservableProperty]
     private string _info;
 
     [ObservableProperty]
     private string _imageLink;
+
+
+    [ObservableProperty]
+    bool isNotEmpty = false;
+
 
     public EditProductPageViewModel(ProductsService productsService, CatalogService catalogService)
     {
@@ -56,7 +62,8 @@ public partial class EditProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -70,9 +77,11 @@ public partial class EditProductPageViewModel : BaseViewModel
         ProductType = CurrentProduct.ProductType;
         ProductCategory = CurrentProduct.Category;
         Model = CurrentProduct.Model;
-        Price = CurrentProduct.Price;
+        Price = CurrentProduct.Price.ToString();
         Info = CurrentProduct.Info;
         ImageLink = CurrentProduct.ImageLink;
+
+        _oldImage ??= CurrentProduct.ImageLink;
     }
 
     [RelayCommand]
@@ -84,36 +93,43 @@ public partial class EditProductPageViewModel : BaseViewModel
             CurrentProduct.ProductType = ProductType;
             CurrentProduct.Category = ProductCategory;
             CurrentProduct.Model = Model;
-            CurrentProduct.Price = Price;
+            CurrentProduct.Price = Double.Parse(Price);
             CurrentProduct.Info = Info;
             CurrentProduct.ImageLink = ImageLink;
 
-            await _productsService.ChangeProductAsync(CurrentProduct, _image);
+            await _productsService.ChangeProductAsync(CurrentProduct, _oldImage, _image);
             await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
             await GoBackAsync();
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not change product!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not change product!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
             IsBusy = false;
         }
     }
+    private void CheckEmpty(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(ProductType)
+            && e.PropertyName != nameof(ProductCategory)
+            && e.PropertyName != nameof(Model)
+            && e.PropertyName != nameof(Info)
+            && e.PropertyName != nameof(Price)) return;
+        if (string.IsNullOrEmpty(ProductType) ||
+            string.IsNullOrEmpty(ProductCategory) ||
+            string.IsNullOrEmpty(Model) ||
+            string.IsNullOrEmpty(Info) ||
+            string.IsNullOrEmpty(Price))
+            IsNotEmpty = false;
+        else IsNotEmpty = true;
+    }
 
     [RelayCommand]
     private async Task GoBackAsync()
     {
-        _image = null;
-        _categories=null;
-        _currentProduct=null;
-        _productType=string.Empty;
-        _productCategory=string.Empty;
-        _model=string.Empty;
-        _price=0;
-        _info=string.Empty;
-        _imageLink=string.Empty;
         await Shell.Current.GoToAsync("..");
     }
 

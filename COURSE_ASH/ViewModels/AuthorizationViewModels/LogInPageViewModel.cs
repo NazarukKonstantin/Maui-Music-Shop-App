@@ -1,5 +1,4 @@
 ﻿namespace COURSE_ASH.ViewModels.AuthorizationViewModels;
-
 public partial class LogInPageViewModel : BaseViewModel
 {
     //Объект сервиса по работе с авторизацией и чтением аккаунта из БД
@@ -62,7 +61,8 @@ public partial class LogInPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not log in!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not log in!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

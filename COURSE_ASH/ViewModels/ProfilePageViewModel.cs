@@ -66,7 +66,8 @@ public partial class ProfilePageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not change password!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not change password!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

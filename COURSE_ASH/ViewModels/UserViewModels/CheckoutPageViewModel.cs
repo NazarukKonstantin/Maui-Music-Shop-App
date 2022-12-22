@@ -58,7 +58,8 @@ public partial class CheckoutPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not make an order!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not make an order!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         try
         {
@@ -66,7 +67,8 @@ public partial class CheckoutPageViewModel : BaseViewModel
         }
         catch(Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not clear the cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not clear the cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
 
         await Shell.Current.DisplayAlert("SUCCESS!",

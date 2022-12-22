@@ -28,7 +28,8 @@ public partial class AccountsPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not get users!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not get users!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION,ToastDuration.Short).Show();
         }
         finally
         {
@@ -49,8 +50,8 @@ public partial class AccountsPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not record new role!");
-            await Shell.Current.DisplayAlert("ERROR", "Could not record new role!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not record new role!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -76,8 +77,8 @@ public partial class AccountsPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not delete account!");
-            await Shell.Current.DisplayAlert("ERROR", "Could not delete account!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not delete account!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

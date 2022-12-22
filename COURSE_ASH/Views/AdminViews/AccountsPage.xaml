@@ -8,6 +8,8 @@
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
              x:DataType="viewmodel:AccountsPageViewModel"
              x:Class="COURSE_ASH.Views.AdminViews.AccountsPage"
+             Shell.NavBarIsVisible="False"
+             Shell.TabBarIsVisible="True"
              Title="AccountsPage">
 
     <ContentPage.Resources>

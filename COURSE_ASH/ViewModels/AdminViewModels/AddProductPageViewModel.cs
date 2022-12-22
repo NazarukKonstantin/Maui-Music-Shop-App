@@ -55,7 +55,8 @@ public partial class AddProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -74,7 +75,12 @@ public partial class AddProductPageViewModel : BaseViewModel
 
     private void CheckAnyFieldEmpty(object sender, PropertyChangedEventArgs e)
     {
-        if (e.PropertyName == nameof(IsNotEmpty)) return;
+        if (e.PropertyName != nameof(ProductType)
+            && e.PropertyName != nameof(Category)
+            && e.PropertyName != nameof(Model)
+            && e.PropertyName != nameof(Info)
+            && e.PropertyName != nameof(Price)
+            && e.PropertyName != nameof(ImageLink)) return;
         IsNotEmpty = !(string.IsNullOrEmpty(ProductType) ||
             string.IsNullOrEmpty(Category) ||
             string.IsNullOrEmpty(Model) ||
@@ -103,7 +109,8 @@ public partial class AddProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

@@ -78,7 +78,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
     }
     private async Task LoadProductsAsync()
@@ -91,7 +92,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
     }
     private async Task LoadImageAsync()
@@ -104,7 +106,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR!", "Could not load images", "OK");
+            //await Shell.Current.DisplayAlert("ERROR!", "Could not load images", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
     }
 
@@ -271,11 +274,13 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 $"of this category will be deleted",
                 "Confirm",
                 "Cancel");
-            if (choice) await _catalogService.RemoveCategoryAsync(item, _productsService);
+            if (choice) await _catalogService.RemoveCategoryAsync(item);
+            await Toast.Make("Category deleted",ToastDuration.Short).Show();
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not delete category!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not delete category!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -317,7 +322,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

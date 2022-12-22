@@ -265,6 +265,9 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._imageLink"/>
         </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.isNotEmpty"/>
+        </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.changeProductCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ChangeProductCommand"/>.</summary>
         </member>

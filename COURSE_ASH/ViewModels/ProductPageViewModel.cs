@@ -55,7 +55,8 @@ public partial class ProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not load reviews!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not load reviews!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -80,7 +81,8 @@ public partial class ProductPageViewModel : BaseViewModel
         }
         catch(Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not save review!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not save review!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -102,7 +104,8 @@ public partial class ProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not add to cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not add to cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -124,7 +127,8 @@ public partial class ProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not remove from cart!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not remove from cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {
@@ -145,7 +149,8 @@ public partial class ProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            await Shell.Current.DisplayAlert("ERROR", "Could not change favourite status!", "OK");
+            //await Shell.Current.DisplayAlert("ERROR", "Could not change favourite status!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
         finally
         {

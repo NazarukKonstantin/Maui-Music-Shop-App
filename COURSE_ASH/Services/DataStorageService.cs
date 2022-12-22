@@ -2,10 +2,10 @@
 
 public static class DataStorageService<T> where T : class
 {
+    private const string FB_REALTIME_DB_URL = "https://musicshop-725ec-default-rtdb.europe-west1.firebasedatabase.app/";
+
     private static readonly ChildQuery _firebaseQuery =
-        App.FbClientManager.GetClient().Child(GetTableName(typeof(T)));
-    private static readonly FirebaseStorageReference _storage =
-        App.FbStorageManager.GetClient().Child(GetTableName(typeof(T)));
+        new FirebaseClient(FB_REALTIME_DB_URL).Child(GetTableName(typeof(T)));
 
     private static string GetTableName(Type type)
     {
@@ -110,34 +110,5 @@ public static class DataStorageService<T> where T : class
         await _firebaseQuery
             .Child(target.First().Key)
             .PatchAsync(item);
-    }
-
-    public static async Task<string> LinkToStorageAsync(FileResult file)
-    {
-        Stream imageToUpload = await file.OpenReadAsync();
-        string fileName = file.FileName;
-
-        await _storage
-            .Child($"{fileName}")
-            .PutAsync(imageToUpload);
-
-        return await _storage
-            .Child($"{fileName}")
-            .GetDownloadUrlAsync();
-    }
-
-    public static async Task DeleteFileAsync(string fileURI)
-    {
-        await _storage
-            .Child(Path.GetFileName(new Uri(fileURI).LocalPath))
-            .DeleteAsync();
-    }
-
-    public static async Task<int> Count(string imageFieldName, string imageLink)
-    {
-        return (await _firebaseQuery
-            .OrderBy(imageFieldName)
-            .EqualTo(imageLink)
-            .OnceAsync<T>()).Count;
     }
 }

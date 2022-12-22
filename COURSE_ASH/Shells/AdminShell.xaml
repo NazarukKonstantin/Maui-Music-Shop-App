@@ -9,27 +9,23 @@
        x:Class="COURSE_ASH.Shells.AdminShell">
 
     <TabBar>
-        <Tab Title="Products" Icon="{x:Static global:Icons.ManageSearch}"
+        <Tab Title="Products"
+             Icon="{x:Static global:Icons.ManageSearch}"
              Route="AdminSearchPage">
-            <ShellContent
-            Shell.NavBarIsVisible="False"
-            ContentTemplate="{DataTemplate view:AdminSearchPage}"
-            />
+            <ShellContent Shell.NavBarIsVisible="False"
+                          ContentTemplate="{DataTemplate view:AdminSearchPage}" />
         </Tab>
-        <Tab Title="Users" Icon="{x:Static global:Icons.User}"
+        <Tab Title="Users"
+             Icon="{x:Static global:Icons.User}"
              Route="AccountsPage">
-            <ShellContent
-                Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate view:AccountsPage}"
-                />
+            <ShellContent Shell.NavBarIsVisible="False"
+                          ContentTemplate="{DataTemplate view:AccountsPage}" />
         </Tab>
-        <Tab Title="Orders" Icon="{x:Static global:Icons.OrdersFilled}"
+        <Tab Title="Orders"
+             Icon="{x:Static global:Icons.OrdersFilled}"
              Route="OrdersCatalogPage">
-            <ShellContent
-                Shell.NavBarIsVisible="False"
-                ContentTemplate="{DataTemplate view:OrdersCatalogPage}"
-                />
+            <ShellContent Shell.NavBarIsVisible="False"
+                          ContentTemplate="{DataTemplate view:OrdersCatalogPage}" />
         </Tab>
     </TabBar>
-
 </Shell>

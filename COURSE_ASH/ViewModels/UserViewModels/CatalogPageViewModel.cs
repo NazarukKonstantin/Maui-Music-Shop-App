@@ -1,7 +1,4 @@
-﻿using CommunityToolkit.Maui.Core.Extensions;
-using COURSE_ASH.Services;
-
-namespace COURSE_ASH.ViewModels.UserViewModels;
+﻿namespace COURSE_ASH.ViewModels.UserViewModels;
 
 public partial class CatalogPageViewModel : BaseViewModel
 {
@@ -11,19 +8,19 @@ public partial class CatalogPageViewModel : BaseViewModel
     //Атрибут, позволяющий удобно реализовать паттерн Наблюдатель
     [ObservableProperty]
     //Поле, хранящее логин вошедшего пользователя
-    private string _currentLogin;
+    string _currentLogin;
 
     [ObservableProperty]
     //Поле, хранящее ссылку на изображение - аватар пользователя
-    private string _imageLink;
+    string _imageLink;
 
     [ObservableProperty]
     //Коллекция товаров
-    private ObservableCollection<Product> _products;
+    ObservableCollection<Product> _products;
 
     //Коллекция категорий товаров
     [ObservableProperty]
-    private ObservableCollection<CatalogItem> _items;
+    ObservableCollection<CatalogItem> _items;
 
     //Аргумент конструктора - объект сервиса работы с товарами
     public CatalogPageViewModel(ProductsService productsService)

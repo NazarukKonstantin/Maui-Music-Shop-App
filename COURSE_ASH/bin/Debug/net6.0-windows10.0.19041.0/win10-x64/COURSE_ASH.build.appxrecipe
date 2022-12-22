@@ -10,31 +10,31 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>3B635503-8A50-4008-9ED6-FD9C65FDBF29</PackageIdentityName>
     <PackageIdentityPublisher>CN=User Name</PackageIdentityPublisher>
-    <IntermediateOutputPath>E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
+    <IntermediateOutputPath>E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\</IntermediateOutputPath>
     <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
     <PackageRegistrationPath></PackageRegistrationPath>
     <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath></WindowsSdkPath>
-    <LayoutDir>E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
+    <LayoutDir>E:\repo\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppX</LayoutDir>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
+    <AppXManifest Include="E:\repo\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.runtimeconfig.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.runtimeconfig.json">
       <PackagePath>COURSE_ASH.runtimeconfig.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.dll">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.dll">
       <PackagePath>COURSE_ASH.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>COURSE_ASH.exe</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.10\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
@@ -865,7 +865,7 @@
     <AppxPackagedFile Include="C:\Users\user\.nuget\packages\skiasharp.nativeassets.win32\2.88.1\runtimes\win-x64\native\libSkiaSharp.dll">
       <PackagePath>libSkiaSharp.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.deps.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\COURSE_ASH.deps.json">
       <PackagePath>COURSE_ASH.deps.json</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Controls.Ref.win\6.0.541\ref\net6.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
@@ -877,781 +877,559 @@
     <AppxPackagedFile Include="C:\Program Files\dotnet\packs\Microsoft.Maui.Core.Ref.win\6.0.541\ref\net6.0-windows10.0.19041\Microsoft.Maui.pri">
       <PackagePath>Microsoft.Maui.pri</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\Resources\Raw\AboutAssets.txt">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\Resources\Raw\empty_cart_dark.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\empty_blue_box.json">
+      <PackagePath>empty_blue_box.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\empty_cart_dark.json">
       <PackagePath>empty_cart_dark.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\Resources\Raw\empty_cart_light.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\empty_cart_light.json">
       <PackagePath>empty_cart_light.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\Resources\Raw\music_loader_dark.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\empty_orange_box.json">
+      <PackagePath>empty_orange_box.json</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\music_loader_dark.json">
       <PackagePath>music_loader_dark.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\Resources\Raw\music_loader_light.json">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\Resources\Raw\music_loader_light.json">
       <PackagePath>music_loader_light.json</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-100.png">
       <PackagePath>splashSplashScreen.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-125.png">
       <PackagePath>splashSplashScreen.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-150.png">
       <PackagePath>splashSplashScreen.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-200.png">
       <PackagePath>splashSplashScreen.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\sp\splashSplashScreen.scale-400.png">
       <PackagePath>splashSplashScreen.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Bold.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Bold.ttf">
       <PackagePath>FiraSans-Bold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-BoldItalic.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-BoldItalic.ttf">
       <PackagePath>FiraSans-BoldItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Italic.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Italic.ttf">
       <PackagePath>FiraSans-Italic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Light.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Light.ttf">
       <PackagePath>FiraSans-Light.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-LightItalic.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-LightItalic.ttf">
       <PackagePath>FiraSans-LightItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Medium.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Medium.ttf">
       <PackagePath>FiraSans-Medium.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-MediumItalic.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-MediumItalic.ttf">
       <PackagePath>FiraSans-MediumItalic.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Regular.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\FiraSans-Regular.ttf">
       <PackagePath>FiraSans-Regular.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Karla-Bold.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Karla-Bold.ttf">
       <PackagePath>Karla-Bold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Karla-SemiBold.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Karla-SemiBold.ttf">
       <PackagePath>Karla-SemiBold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Regular.ttf">
       <PackagePath>OpenSans-Regular.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\OpenSans-Semibold.ttf">
       <PackagePath>OpenSans-Semibold.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik-Light.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik-Light.ttf">
       <PackagePath>Rubik-Light.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik-Regular.ttf">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik-Regular.ttf">
       <PackagePath>Rubik-Regular.ttf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik.zip">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\f\Rubik.zip">
       <PackagePath>Rubik.zip</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_user.scale-100.png">
-      <PackagePath>add_user.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_user.scale-125.png">
-      <PackagePath>add_user.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_user.scale-150.png">
-      <PackagePath>add_user.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_user.scale-200.png">
-      <PackagePath>add_user.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\add_user.scale-400.png">
-      <PackagePath>add_user.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\admin.scale-100.png">
-      <PackagePath>admin.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\admin.scale-125.png">
-      <PackagePath>admin.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\admin.scale-150.png">
-      <PackagePath>admin.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\admin.scale-200.png">
-      <PackagePath>admin.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\admin.scale-400.png">
-      <PackagePath>admin.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico">
       <PackagePath>appicon.ico</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-100.png">
       <PackagePath>appiconLargeTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-125.png">
       <PackagePath>appiconLargeTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-150.png">
       <PackagePath>appiconLargeTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-200.png">
       <PackagePath>appiconLargeTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLargeTile.scale-400.png">
       <PackagePath>appiconLargeTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png">
       <PackagePath>appiconLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png">
       <PackagePath>appiconLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-150.png">
       <PackagePath>appiconLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-200.png">
       <PackagePath>appiconLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-400.png">
       <PackagePath>appiconLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-100.png">
       <PackagePath>appiconMediumTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-125.png">
       <PackagePath>appiconMediumTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-150.png">
       <PackagePath>appiconMediumTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-200.png">
       <PackagePath>appiconMediumTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconMediumTile.scale-400.png">
       <PackagePath>appiconMediumTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-100.png">
       <PackagePath>appiconSmallTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-125.png">
       <PackagePath>appiconSmallTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-150.png">
       <PackagePath>appiconSmallTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-200.png">
       <PackagePath>appiconSmallTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconSmallTile.scale-400.png">
       <PackagePath>appiconSmallTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-100.png">
       <PackagePath>appiconStoreLogo.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-125.png">
       <PackagePath>appiconStoreLogo.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-150.png">
       <PackagePath>appiconStoreLogo.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-200.png">
       <PackagePath>appiconStoreLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconStoreLogo.scale-400.png">
       <PackagePath>appiconStoreLogo.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-100.png">
       <PackagePath>appiconWideTile.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-125.png">
       <PackagePath>appiconWideTile.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-150.png">
       <PackagePath>appiconWideTile.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-200.png">
       <PackagePath>appiconWideTile.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconWideTile.scale-400.png">
       <PackagePath>appiconWideTile.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow_back_black.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow_back_black.scale-100.png">
       <PackagePath>arrow_back_black.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow_back_white.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\arrow_back_white.scale-100.png">
       <PackagePath>arrow_back_white.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\catalog.scale-100.png">
-      <PackagePath>catalog.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\catalog.scale-125.png">
-      <PackagePath>catalog.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\catalog.scale-150.png">
-      <PackagePath>catalog.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\catalog.scale-200.png">
-      <PackagePath>catalog.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\catalog.scale-400.png">
-      <PackagePath>catalog.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-100.png">
       <PackagePath>close.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-125.png">
       <PackagePath>close.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-150.png">
       <PackagePath>close.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-200.png">
       <PackagePath>close.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\close.scale-400.png">
       <PackagePath>close.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-100.png">
       <PackagePath>error_blank.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-125.png">
       <PackagePath>error_blank.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-150.png">
       <PackagePath>error_blank.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-200.png">
       <PackagePath>error_blank.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_blank.scale-400.png">
       <PackagePath>error_blank.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-100.png">
       <PackagePath>error_filled.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-125.png">
       <PackagePath>error_filled.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-150.png">
       <PackagePath>error_filled.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-200.png">
       <PackagePath>error_filled.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\error_filled.scale-400.png">
       <PackagePath>error_filled.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-100.png">
       <PackagePath>feedback_blank.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-125.png">
       <PackagePath>feedback_blank.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-150.png">
       <PackagePath>feedback_blank.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-200.png">
       <PackagePath>feedback_blank.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_blank.scale-400.png">
       <PackagePath>feedback_blank.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-100.png">
       <PackagePath>feedback_filled.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-125.png">
       <PackagePath>feedback_filled.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-150.png">
       <PackagePath>feedback_filled.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-200.png">
       <PackagePath>feedback_filled.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\feedback_filled.scale-400.png">
       <PackagePath>feedback_filled.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\guitar_accessories_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\guitar_accessories_catalog.scale-100.png">
       <PackagePath>guitar_accessories_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\guitar_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\guitar_catalog.scale-100.png">
       <PackagePath>guitar_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-100.png">
       <PackagePath>home_blank.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-125.png">
       <PackagePath>home_blank.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-150.png">
       <PackagePath>home_blank.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-200.png">
       <PackagePath>home_blank.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_blank.scale-400.png">
       <PackagePath>home_blank.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-100.png">
       <PackagePath>home_filled.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-125.png">
       <PackagePath>home_filled.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-150.png">
       <PackagePath>home_filled.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-200.png">
       <PackagePath>home_filled.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\home_filled.scale-400.png">
       <PackagePath>home_filled.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info.scale-100.png">
-      <PackagePath>info.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info.scale-125.png">
-      <PackagePath>info.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info.scale-150.png">
-      <PackagePath>info.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info.scale-200.png">
-      <PackagePath>info.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info.scale-400.png">
-      <PackagePath>info.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-100.png">
       <PackagePath>info_black.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-125.png">
       <PackagePath>info_black.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-150.png">
       <PackagePath>info_black.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-200.png">
       <PackagePath>info_black.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_black.scale-400.png">
       <PackagePath>info_black.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_filled.scale-100.png">
-      <PackagePath>info_filled.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_filled.scale-125.png">
-      <PackagePath>info_filled.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_filled.scale-150.png">
-      <PackagePath>info_filled.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_filled.scale-200.png">
-      <PackagePath>info_filled.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_filled.scale-400.png">
-      <PackagePath>info_filled.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-100.png">
       <PackagePath>info_white.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-125.png">
       <PackagePath>info_white.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-150.png">
       <PackagePath>info_white.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-200.png">
       <PackagePath>info_white.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\info_white.scale-400.png">
       <PackagePath>info_white.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\kid_named_finger.scale-100.png">
-      <PackagePath>kid_named_finger.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login.scale-100.png">
-      <PackagePath>login.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login.scale-125.png">
-      <PackagePath>login.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login.scale-150.png">
-      <PackagePath>login.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login.scale-200.png">
-      <PackagePath>login.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login.scale-400.png">
-      <PackagePath>login.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-100.png">
       <PackagePath>login_dark.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-125.png">
       <PackagePath>login_dark.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-150.png">
       <PackagePath>login_dark.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-200.png">
       <PackagePath>login_dark.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_dark.scale-400.png">
       <PackagePath>login_dark.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_light.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\login_light.scale-100.png">
       <PackagePath>login_light.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout.scale-100.png">
-      <PackagePath>logout.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout.scale-125.png">
-      <PackagePath>logout.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout.scale-150.png">
-      <PackagePath>logout.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout.scale-200.png">
-      <PackagePath>logout.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout.scale-400.png">
-      <PackagePath>logout.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-100.png">
       <PackagePath>logout_dark.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-125.png">
       <PackagePath>logout_dark.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-150.png">
       <PackagePath>logout_dark.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-200.png">
       <PackagePath>logout_dark.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_dark.scale-400.png">
       <PackagePath>logout_dark.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_light.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\logout_light.scale-100.png">
       <PackagePath>logout_light.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-100.png">
       <PackagePath>manage_search.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-125.png">
       <PackagePath>manage_search.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-150.png">
       <PackagePath>manage_search.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-200.png">
       <PackagePath>manage_search.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\manage_search.scale-400.png">
       <PackagePath>manage_search.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-100.png">
       <PackagePath>menu.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-125.png">
       <PackagePath>menu.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-150.png">
       <PackagePath>menu.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-200.png">
       <PackagePath>menu.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\menu.scale-400.png">
       <PackagePath>menu.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\midi_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\midi_catalog.scale-100.png">
       <PackagePath>midi_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-100.png">
       <PackagePath>no_net.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-125.png">
       <PackagePath>no_net.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-150.png">
       <PackagePath>no_net.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-200.png">
       <PackagePath>no_net.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\no_net.scale-400.png">
       <PackagePath>no_net.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\sax_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\sax_catalog.scale-100.png">
       <PackagePath>sax_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-100.png">
       <PackagePath>search.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-125.png">
       <PackagePath>search.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-150.png">
       <PackagePath>search.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-200.png">
       <PackagePath>search.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\search.scale-400.png">
       <PackagePath>search.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-100.png">
-      <PackagePath>settings.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-125.png">
-      <PackagePath>settings.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-150.png">
-      <PackagePath>settings.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-200.png">
-      <PackagePath>settings.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\settings.scale-400.png">
-      <PackagePath>settings.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-100.png">
       <PackagePath>shopping_cart.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-125.png">
       <PackagePath>shopping_cart.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-150.png">
       <PackagePath>shopping_cart.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-200.png">
       <PackagePath>shopping_cart.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\shopping_cart.scale-400.png">
       <PackagePath>shopping_cart.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-100.png">
       <PackagePath>star_blank.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-125.png">
       <PackagePath>star_blank.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-150.png">
       <PackagePath>star_blank.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-200.png">
       <PackagePath>star_blank.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_blank.scale-400.png">
       <PackagePath>star_blank.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-100.png">
       <PackagePath>star_full.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-125.png">
       <PackagePath>star_full.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-150.png">
       <PackagePath>star_full.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-200.png">
       <PackagePath>star_full.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_full.scale-400.png">
       <PackagePath>star_full.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-100.png">
       <PackagePath>star_half.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-125.png">
       <PackagePath>star_half.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-150.png">
       <PackagePath>star_half.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-200.png">
       <PackagePath>star_half.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\star_half.scale-400.png">
       <PackagePath>star_half.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\ukulele_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\ukulele_catalog.scale-100.png">
       <PackagePath>ukulele_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\user.scale-100.png">
-      <PackagePath>user.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\user.scale-125.png">
-      <PackagePath>user.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\user.scale-150.png">
-      <PackagePath>user.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\user.scale-200.png">
-      <PackagePath>user.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\user.scale-400.png">
-      <PackagePath>user.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\violin_catalog.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\violin_catalog.scale-100.png">
       <PackagePath>violin_catalog.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off.scale-100.png">
-      <PackagePath>visibility_off.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off.scale-125.png">
-      <PackagePath>visibility_off.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off.scale-150.png">
-      <PackagePath>visibility_off.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off.scale-200.png">
-      <PackagePath>visibility_off.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off.scale-400.png">
-      <PackagePath>visibility_off.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_blank.scale-100.png">
-      <PackagePath>visibility_off_blank.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_blank.scale-125.png">
-      <PackagePath>visibility_off_blank.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_blank.scale-150.png">
-      <PackagePath>visibility_off_blank.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_blank.scale-200.png">
-      <PackagePath>visibility_off_blank.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_blank.scale-400.png">
-      <PackagePath>visibility_off_blank.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-100.png">
       <PackagePath>visibility_off_dark.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-125.png">
       <PackagePath>visibility_off_dark.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-150.png">
       <PackagePath>visibility_off_dark.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-200.png">
       <PackagePath>visibility_off_dark.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_dark.scale-400.png">
       <PackagePath>visibility_off_dark.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_filled.scale-100.png">
-      <PackagePath>visibility_off_filled.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_filled.scale-125.png">
-      <PackagePath>visibility_off_filled.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_filled.scale-150.png">
-      <PackagePath>visibility_off_filled.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_filled.scale-200.png">
-      <PackagePath>visibility_off_filled.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_filled.scale-400.png">
-      <PackagePath>visibility_off_filled.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-100.png">
       <PackagePath>visibility_off_light.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-125.png">
       <PackagePath>visibility_off_light.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-150.png">
       <PackagePath>visibility_off_light.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-200.png">
       <PackagePath>visibility_off_light.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_off_light.scale-400.png">
       <PackagePath>visibility_off_light.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on.scale-100.png">
-      <PackagePath>visibility_on.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on.scale-125.png">
-      <PackagePath>visibility_on.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on.scale-150.png">
-      <PackagePath>visibility_on.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on.scale-200.png">
-      <PackagePath>visibility_on.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on.scale-400.png">
-      <PackagePath>visibility_on.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_blank.scale-100.png">
-      <PackagePath>visibility_on_blank.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_blank.scale-125.png">
-      <PackagePath>visibility_on_blank.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_blank.scale-150.png">
-      <PackagePath>visibility_on_blank.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_blank.scale-200.png">
-      <PackagePath>visibility_on_blank.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_blank.scale-400.png">
-      <PackagePath>visibility_on_blank.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-100.png">
       <PackagePath>visibility_on_dark.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-125.png">
       <PackagePath>visibility_on_dark.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-150.png">
       <PackagePath>visibility_on_dark.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-200.png">
       <PackagePath>visibility_on_dark.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_dark.scale-400.png">
       <PackagePath>visibility_on_dark.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_filled.scale-100.png">
-      <PackagePath>visibility_on_filled.scale-100.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_filled.scale-125.png">
-      <PackagePath>visibility_on_filled.scale-125.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_filled.scale-150.png">
-      <PackagePath>visibility_on_filled.scale-150.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_filled.scale-200.png">
-      <PackagePath>visibility_on_filled.scale-200.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_filled.scale-400.png">
-      <PackagePath>visibility_on_filled.scale-400.png</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-100.png">
       <PackagePath>visibility_on_light.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-125.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-125.png">
       <PackagePath>visibility_on_light.scale-125.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-150.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-150.png">
       <PackagePath>visibility_on_light.scale-150.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-200.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-200.png">
       <PackagePath>visibility_on_light.scale-200.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-400.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\visibility_on_light.scale-400.png">
       <PackagePath>visibility_on_light.scale-400.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\waltuh_black.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\waltuh_black.scale-100.png">
       <PackagePath>waltuh_black.scale-100.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\waltuh_white.scale-100.png">
+    <AppxPackagedFile Include="E:\repo\COURSE_ASH\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\resizetizer\r\waltuh_white.scale-100.png">
       <PackagePath>waltuh_white.scale-100.png</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

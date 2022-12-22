@@ -53,11 +53,16 @@
         
     </Style>
 
-    <Style x:Key="PriceStyle" TargetType="Label" BasedOn="{StaticResource Title}">
-        <Setter Property="TextColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}
-                                        ,Light={StaticResource PrimaryDark}}"/>
-        <Setter Property="HorizontalOptions" Value="StartAndExpand"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
+    <Style x:Key="PriceStyle"
+           TargetType="Label"
+           BasedOn="{StaticResource Title}">
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource LightBackground}
+                                        ,Light={StaticResource PrimaryDark}}" />
+        <Setter Property="HorizontalOptions"
+                Value="StartAndExpand" />
+        <Setter Property="VerticalOptions"
+                Value="Center" />
     </Style>
-    
+
 </ResourceDictionary>

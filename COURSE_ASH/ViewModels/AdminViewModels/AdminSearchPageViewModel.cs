@@ -1,6 +1,4 @@
-﻿using COURSE_ASH.Models;
-
-namespace COURSE_ASH.ViewModels.AdminViewModels;
+﻿namespace COURSE_ASH.ViewModels.AdminViewModels;
 
 public partial class AdminSearchPageViewModel : BaseViewModel
 {
@@ -30,13 +28,13 @@ public partial class AdminSearchPageViewModel : BaseViewModel
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsProdListNotEmpty))]
-    private bool isProdListEmpty = true;
-    public bool IsProdListNotEmpty => !isProdListEmpty;
+    private bool _isProdListEmpty = true;
+    public bool IsProdListNotEmpty => !IsProdListEmpty;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsCategListNotEmpty))]
-    private bool isCategListEmpty = true;
-    public bool IsCategListNotEmpty => !isCategListEmpty;
+    private bool _isCategListEmpty = true;
+    public bool IsCategListNotEmpty => !IsCategListEmpty;
 
     [ObservableProperty]
     private string _currentLogin;
@@ -56,18 +54,57 @@ public partial class AdminSearchPageViewModel : BaseViewModel
 
     public async void RefreshAsync()
     {
+        IsRefreshing=true;
         IsCategListSelected=true;
         IsProdListSelected=false;
-        _categCacheList = (await _catalogService.GetCategoriesAsync()).ToList();
-        Categories = _categCacheList.ToObservableCollection();
-        _prodCacheList = (await _productsService.GetProductsAsync()).ToList();
-        Products = _prodCacheList.ToObservableCollection();
+        CurrentLogin=App.CurrentLogin;
+
+        await LoadCategoriesAsync();
+        await LoadProductsAsync();
+        await LoadImagesAsync();
+
         IsProdListEmpty = Products.Count==0;
         IsCategListEmpty = Categories.Count==0;
-        CurrentLogin=App.CurrentLogin;
-        ImageLink = (await DataStorageService<AccountData>
-                     .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
-                     .ImageLink ?? string.Empty;
+        IsRefreshing=false;
+    }
+
+    private async Task LoadCategoriesAsync()
+    {
+        try
+        {
+            CategCacheList = (await _catalogService.GetCategoriesAsync()).ToList();
+        }
+        catch (Exception)
+        {
+            //await _popup.NotifyAsync("Could not load categories");
+        }
+    }
+    private async Task LoadProductsAsync()
+    {
+        try
+        {
+            Categories = CategCacheList.ToObservableCollection();
+            ProdCacheList= (await _productsService.GetProductsAsync()).ToList();
+            Products = ProdCacheList.ToObservableCollection();
+
+        }
+        catch (Exception)
+        {
+            //await _popup.NotifyAsync("Could not load products");
+        }
+    }
+    private async Task LoadImagesAsync()
+    {
+        try
+        {
+            ImageLink = (await DataStorageService<AccountData>
+                        .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
+                        .ImageLink ?? string.Empty;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR!", "Could not load images", "OK");
+        }
     }
 
     [RelayCommand]
@@ -106,13 +143,13 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     {
         CheckQuery();
 
-        var filteredItems = _prodCacheList
+        var filteredItems = ProdCacheList
                         .Where(value => value.Model
                         .ToLowerInvariant()
                         .Contains(Query
                         .ToLowerInvariant()));
 
-        foreach (var value in _prodCacheList)
+        foreach (var value in ProdCacheList)
         {
             if (!filteredItems.Contains(value))
             {
@@ -131,13 +168,13 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     {
         CheckQuery();
 
-        var filteredItems = _categCacheList
+        var filteredItems = CategCacheList
                         .Where(value => value.Category
                         .ToLowerInvariant()
                         .Contains(Query
                         .ToLowerInvariant()));
 
-        foreach (var value in _categCacheList)
+        foreach (var value in CategCacheList)
         {
             if (!filteredItems.Contains(value))
             {
@@ -307,19 +344,11 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 break;
             case ProductEventArgs.ProductWas.Removed:
                 Products.Remove(e.Product);
-                DeleteUnusedCategories(e.Product.Category);
                 IsProdListEmpty = Products.Count == 0;
                 break;
             case ProductEventArgs.ProductWas.Changed:
                 Products[Products.IndexOf(e.Product)] = e.Product;
-                DeleteUnusedCategories(e.Product.Category);
                 break;
         }
-    }
-    
-    private async void DeleteUnusedCategories(string name)
-    {
-        if (!(from product in Products where product.Category == name select product).Any())
-            await _catalogService.RemoveCategoryAsync(name,_productsService);
     }
 }

@@ -3,6 +3,7 @@
 public class AddressAlerts
 {
     public static readonly string WRONG_ADDRESS = "Wrong address!";
+    public static readonly string WRONG_NUMBER = "Incorrect number";
     public static readonly string WRONG_CITY = "No such city in system!";
     public static readonly string WRONG_BUILDING_NUMBER = "No building with such number in system!";
     public static readonly string CONNECTION_ERROR = "No connection!";

@@ -1,26 +1,45 @@
+using Microsoft.Maui.Platform;
+
 namespace COURSE_ASH.Views.AuthorizationViews;
 
 public partial class LoginPage : ContentPage
 {
+    LogInPageViewModel _viewModel;
     public LoginPage(LogInPageViewModel viewModel)
     {
         InitializeComponent();
-        BindingContext=viewModel;
+        _viewModel = viewModel;
+        BindingContext = viewModel;
+    }
+    private void VisibilityChanged(object sender, EventArgs e)
+    {
+        PassEntry.IsPassword = !PassEntry.IsPassword;
+        VisibilityOnImg.IsVisible = !VisibilityOnImg.IsVisible;
+        VisibilityOffImg.IsVisible = !VisibilityOffImg.IsVisible;
+        Focus();
     }
 
-    private void VisibilityTapped(object sender, EventArgs e)
+    private void LoginEntryCompleted(object sender, EventArgs e)
     {
-        if(PassEntry.IsPassword)
+        if (LoginEntry.Focus())
         {
-            PassEntry.IsPassword=false;
-            VisibilityOnImg.IsVisible=false;
-            VisibilityOffImg.IsVisible=true;
+            LoginEntry.Unfocus();
+            PassEntry.Focus();
         }
-        else
+    }
+
+    private async void PasswordEntryCompleted(object sender, EventArgs e)
+    {
+#if ANDROID
+        if (Platform.CurrentActivity.CurrentFocus != null)
+            Platform.CurrentActivity
+                .HideKeyboard(Platform.CurrentActivity.CurrentFocus);
+#endif
+        if (PassEntry.Focus())
         {
-            PassEntry.IsPassword=true;
-            VisibilityOnImg.IsVisible=true;
-            VisibilityOffImg.IsVisible=false;
+            PassEntry.Unfocus();
         }
+        LoginButton.Focus();
+        await _viewModel.LogInAsync();
     }
 }

@@ -15,7 +15,7 @@ public class CatalogService
         CatalogItem category = new()
         {
             Category = name,
-            ImageLink = await DataStorageService<CatalogItem>.LinkToStorageAsync(categoryImage),
+            ImageLink = await ImageService<CatalogItem>.LinkImageToStorageAsync(categoryImage),
             ImageRotation = imageRotation,
             ImageScale = imageScale,
         };
@@ -31,7 +31,7 @@ public class CatalogService
         if (newCategoryImage != null)
         {
             await DisposeImageOfAsync(newItem);
-            newItem.ImageLink = await DataStorageService<CatalogItem>.LinkToStorageAsync(newCategoryImage);
+            newItem.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(newCategoryImage);
         }
         if (!newItem.Category.Equals(oldName))
         {
@@ -80,8 +80,8 @@ public class CatalogService
 
     private async Task DisposeImageOfAsync(CatalogItem item)
     {
-        if ((await DataStorageService<CatalogItem>.Count(nameof(CatalogItem.ImageLink), item.ImageLink))==1)
-            await DataStorageService<Product>.DeleteFileAsync(item.ImageLink);
+        if ((await ImageService<CatalogItem>.CountLinksAsync(item.ImageLink))==1)
+            await ImageService<Product>.RemoveImageAsync(item.ImageLink);
     }
 
     public event EventHandler<CategoryEventArgs> CategoryChanged;

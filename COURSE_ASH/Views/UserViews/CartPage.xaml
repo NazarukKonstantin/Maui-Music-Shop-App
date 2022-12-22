@@ -8,35 +8,38 @@
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              x:DataType="viewmodel:CartPageViewModel"
              x:Class="COURSE_ASH.Views.UserViews.CartPage">
-    
+
     <ScrollView>
         <Grid RowDefinitions="Auto,*">
-            <BoxView Style="{StaticResource NavBarBoxView}"/>
-            <Label Text="Shopping Cart" Style="{StaticResource PageTitle}"
-                   />
-            <Grid RowDefinitions="Auto,.7*,*,.9*" Grid.Row="1" Grid.RowSpan="2" IsVisible="{Binding IsEmpty}">
+            <BoxView Style="{StaticResource NavBarBoxView}" />
+            <Label Text="Shopping Cart"
+                   Style="{StaticResource PageTitle}" />
+            <Grid RowDefinitions="Auto,.7*,*,.9*"
+                  Grid.Row="1"
+                  Grid.RowSpan="2"
+                  IsVisible="{Binding IsEmpty}">
                 <Label Text="Looks like your cart is empty :("
-               Grid.Row="1"
-               Style="{StaticResource LargeLabel}"/>
-                <Button Grid.Row="3" Style="{StaticResource LoginButtons}"
-            Text="SHOP NOW"
-            FontAttributes="Bold"
-            Command="{Binding GoToSearchPageCommand}"
-            />
+                       Grid.Row="1"
+                       Style="{StaticResource LargeLabel}" />
+                <Button Grid.Row="3"
+                        Style="{StaticResource LoginButtons}"
+                        Text="SHOP NOW"
+                        FontAttributes="Bold"
+                        Command="{Binding GoToSearchPageCommand}" />
                 <skia:SKLottieView Grid.Row="2"
-        Source="{AppThemeBinding Dark=empty_cart_dark.json,Light=empty_cart_light.json}"
-        RepeatCount="-1"/>
+                                   Source="{AppThemeBinding Dark=empty_cart_dark.json,Light=empty_cart_light.json}"
+                                   RepeatCount="-1" />
             </Grid>
 
-            <Grid RowDefinitions="*,0.005*,.15*,0.005*,.15*" IsVisible="{Binding IsNotEmpty}" Grid.Row="1" Grid.RowSpan="2">
+            <Grid RowDefinitions="*,0.005*,.15*,0.005*,.15*"
+                  IsVisible="{Binding IsNotEmpty}"
+                  Grid.Row="1"
+                  Grid.RowSpan="2">
                 <CollectionView ItemsSource="{Binding Products}"
-                            IsVisible="{Binding IsNotEmpty}"
-                            >
+                                IsVisible="{Binding IsNotEmpty}">
                     <CollectionView.Behaviors>
-                        <toolkit:EventToCommandBehavior
-                        EventName="PropertyChanged"
-                        Command="{Binding CountTotalCommand}"
-                        />
+                        <toolkit:EventToCommandBehavior EventName="PropertyChanged"
+                                                        Command="{Binding CountTotalCommand}" />
                     </CollectionView.Behaviors>
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="model:CartProduct">
@@ -44,73 +47,75 @@
                                 <Border.Shadow>
                                     <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light=Black}"
-                                    Offset="15,15"
-                                    Radius="15"
-                                    Opacity="0.2" />
+                                            Offset="15,15"
+                                            Radius="15"
+                                            Opacity="0.2" />
                                 </Border.Shadow>
                                 <Frame Style="{StaticResource CatalogStyle}"
-                                    Margin="5"
-                                    HeightRequest="150">
+                                       Margin="5"
+                                       HeightRequest="150">
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Source={RelativeSource
                                     AncestorType={x:Type viewmodel:CartPageViewModel}},
-                                    Path=GoToProductCommand}" CommandParameter="{Binding .}"/>
+                                    Path=GoToProductCommand}"
+                                                              CommandParameter="{Binding .}" />
                                     </Frame.GestureRecognizers>
-                                    <Grid Margin="15" RowDefinitions=".7*,.7*,*" ColumnDefinitions=".5*,.3*,.4*,.3*">
+                                    <Grid Margin="15"
+                                          RowDefinitions=".7*,.7*,*"
+                                          ColumnDefinitions=".5*,.3*,.4*,.3*">
 
                                         <Image  Source="{Binding ImageLink}"
-                                     Aspect="AspectFit"
-                                    HorizontalOptions="Center"
-                                    Grid.RowSpan="3"/>
+                                                Aspect="AspectFit"
+                                                HorizontalOptions="Center"
+                                                Grid.RowSpan="3" />
 
                                         <Label Text="{Binding Model}"
-                                   Grid.Column="1"
-                                   Grid.ColumnSpan="3"
-                                   Margin="20,0,0,0"
-                                   Style="{StaticResource LargeLabel}"
-                                   HorizontalOptions="Start"
-                                   LineBreakMode="TailTruncation"/>
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="3"
+                                               Margin="20,0,0,0"
+                                               Style="{StaticResource LargeLabel}"
+                                               HorizontalOptions="Start"
+                                               LineBreakMode="TailTruncation" />
 
                                         <Label Text="{Binding Price, StringFormat='{0:C2}'}"
-                                   Grid.Row="1"
-                                   Grid.Column="1"
-                                   Grid.ColumnSpan="3"
-                                   Margin="20,0,0,0"
-                                   Style="{StaticResource Title}"
-                                   HorizontalOptions="Start"
-                                   LineBreakMode="TailTruncation"/>
+                                               Grid.Row="1"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="3"
+                                               Margin="20,0,0,0"
+                                               Style="{StaticResource Title}"
+                                               HorizontalOptions="Start"
+                                               LineBreakMode="TailTruncation" />
 
                                         <Button Grid.Column="1"
-                                    Grid.Row="2"
-                                    Margin="40,0,0,0"
-                                    Style="{StaticResource StandardButton}"
-                                    Padding="0,-10,0,0"
-                                    Text="–"
-                                    FontSize="40"
-                                    WidthRequest="60"
-                                    CornerRadius="10"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartPageViewModel}},
-                                Path=RemoveProductCommand}" CommandParameter="{Binding .}"
-                                    />
+                                                Grid.Row="2"
+                                                Margin="40,0,0,0"
+                                                Style="{StaticResource StandardButton}"
+                                                Padding="0,-10,0,0"
+                                                Text="–"
+                                                FontSize="40"
+                                                WidthRequest="60"
+                                                CornerRadius="10"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartPageViewModel}},
+                                Path=RemoveProductCommand}"
+                                                CommandParameter="{Binding .}" />
 
                                         <Label Text="{Binding UnitQuantity, StringFormat='x{0}'}"
-                                   Grid.Column="2"
-                                   Grid.Row="2"
-                                   Margin="13,0,0,0"
-                                   Style="{StaticResource LargeLabel}"
-                                   />
+                                               Grid.Column="2"
+                                               Grid.Row="2"
+                                               Margin="13,0,0,0"
+                                               Style="{StaticResource LargeLabel}" />
 
                                         <Button Grid.Column="3"
-                                    Grid.Row="2"
-                                    Style="{StaticResource StandardButton}"
-                                    Padding="0,-10,0,0"
-                                    Text="+"
-                                    FontSize="40"
-                                    WidthRequest="60"
-                                    CornerRadius="10"
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartPageViewModel}},
-                                Path=AddProductCommand}" CommandParameter="{Binding .}"
-                                    />
+                                                Grid.Row="2"
+                                                Style="{StaticResource StandardButton}"
+                                                Padding="0,-10,0,0"
+                                                Text="+"
+                                                FontSize="40"
+                                                WidthRequest="60"
+                                                CornerRadius="10"
+                                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CartPageViewModel}},
+                                Path=AddProductCommand}"
+                                                CommandParameter="{Binding .}" />
 
                                     </Grid>
                                 </Frame>
@@ -119,21 +124,27 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
 
-                <BoxView Grid.Row="1" BackgroundColor="Black"/>
-                <Grid ColumnDefinitions=".3*,.8*" Grid.Row="2" Margin="20,0,0,5">
-                    <Label Text="Total:" Style="{StaticResource PageTitle}"/>
+                <BoxView Grid.Row="1"
+                         BackgroundColor="Black" />
+                <Grid ColumnDefinitions=".3*,.8*"
+                      Grid.Row="2"
+                      Margin="20,0,0,5">
+                    <Label Text="Total:"
+                           Style="{StaticResource PageTitle}" />
                     <Label Grid.Column="1"
-                       Text="{Binding TotalPrice, StringFormat='{0:C2}'}" Style="{StaticResource PageTitle}"
-                       TextColor="{AppThemeBinding Dark={StaticResource LightBackground}
-                                        ,Light={StaticResource PrimaryDark}}"/>
+                           Text="{Binding TotalPrice, StringFormat='{0:C2}'}"
+                           Style="{StaticResource PageTitle}"
+                           TextColor="{AppThemeBinding Dark={StaticResource LightBackground}
+                                        ,Light={StaticResource PrimaryDark}}" />
                 </Grid>
-                <BoxView Grid.Row="3" BackgroundColor="Black"/>
+                <BoxView Grid.Row="3"
+                         BackgroundColor="Black" />
                 <Button Grid.Row="4"
-                    Text="Purchase"
-                    WidthRequest="350"
-                    Padding="-0,0,-0,0"
-                    FontSize="40"
-                    Style="{StaticResource LoginButtons}"/>
+                        Text="Purchase"
+                        WidthRequest="350"
+                        Padding="-0,0,-0,0"
+                        FontSize="40"
+                        Style="{StaticResource LoginButtons}" />
             </Grid>
         </Grid>
     </ScrollView>

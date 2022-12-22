@@ -3,9 +3,9 @@
   <PropertyGroup>
     <ActiveDebugFramework>net6.0-android</ActiveDebugFramework>
     <IsFirstTimeProjectOpen>False</IsFirstTimeProjectOpen>
-    <ActiveDebugProfile>Pixel 5 - API 32 (Android 12.1 - API 32)</ActiveDebugProfile>
+    <ActiveDebugProfile>Pixel 5 - API 33 (1) (Android 13.0 — API 33)</ActiveDebugProfile>
     <SelectedPlatformGroup>Emulator</SelectedPlatformGroup>
-    <DefaultDevice>pixel_5_-_api_32</DefaultDevice>
+    <DefaultDevice>pixel_5_-_api_33_1</DefaultDevice>
   </PropertyGroup>
   <ItemGroup>
     <MauiXaml Update="Resources\Styles\Colors.xaml">

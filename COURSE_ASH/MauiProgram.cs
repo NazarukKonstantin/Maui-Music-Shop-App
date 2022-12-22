@@ -18,6 +18,7 @@ public static class MauiProgram
             .UseSkiaSharp()
             .UseSimpleRatingControl()
             .UseMauiCommunityToolkit()
+            .UseMauiCommunityToolkitCore()
             //Добавление используемых шрифтов
             .ConfigureFonts(fonts =>
             {
@@ -117,7 +118,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<CartService>();
         builder.Services.AddSingleton<OrderService>();
         builder.Services.AddSingleton<FavouritesService>();
-        
+
         //Метод возвращает готовый объект приложения
         return builder.Build();
     }

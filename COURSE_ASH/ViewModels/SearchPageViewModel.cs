@@ -1,5 +1,4 @@
-﻿using CommunityToolkit.Maui.Core.Extensions;
-namespace COURSE_ASH.ViewModels;
+﻿namespace COURSE_ASH.ViewModels;
 
 [QueryProperty(nameof(Products), nameof(Products))]
 [QueryProperty(nameof(IsTabVisible), nameof(IsTabVisible))]
@@ -45,11 +44,15 @@ public partial class SearchPageViewModel : BaseViewModel
     public SearchPageViewModel(ProductsService service)
     {
         _service = service;
-        _cacheList = _service.GetProducts();
-        Products = _cacheList.ToObservableCollection();
-        //TypeList = GetTypeList().ToList();
+        GetProducts();
         IsTabVisible = true;
         PropertyChanged += ProductCollectionChanged;
+    }
+
+    private async void GetProducts()
+    {
+        _cacheList = await _service.GetProductsAsync();
+        Products = _cacheList.ToObservableCollection();
     }
 
     [RelayCommand]

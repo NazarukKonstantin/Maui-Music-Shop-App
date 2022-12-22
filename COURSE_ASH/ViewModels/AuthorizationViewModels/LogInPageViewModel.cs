@@ -31,7 +31,7 @@ public partial class LogInPageViewModel : BaseViewModel
     //Атрибут, позволяющий удобно реализовать паттерн Команда
     [RelayCommand]
     //Метод отвечает за вход в аккаунт
-    public async Task LogIn()
+    public async Task LogInAsync()
     {
         IsBusy = true;
         //Проверка введённых данных производится сервисом.

@@ -11,7 +11,7 @@ public class ProductsService
     }
     public async Task AddProductAsync(Product product, FileResult productImage)
     {
-        product.ImageLink = await DataStorageService<Product>.LinkToStorageAsync(productImage);
+        product.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(productImage);
         var products = await GetProductsAsync();
         int newId = (from p in products select p.ID)?.Max() + 1 ?? 1;
         product.ID = newId;
@@ -33,7 +33,7 @@ public class ProductsService
         if (productImage != null)
         {
             await DisposeImageOfAsync(product);
-            product.ImageLink = await DataStorageService<Product>.LinkToStorageAsync(productImage);
+            product.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(productImage);
         }
 
         await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
@@ -43,8 +43,29 @@ public class ProductsService
 
     private async Task DisposeImageOfAsync(Product product)
     {
-        if ((await DataStorageService<Product>.Count(nameof(Product.ImageLink), product.ImageLink))==1)
-            await DataStorageService<Product>.DeleteFileAsync(product.ImageLink);
+        if ((await ImageService<Product>.CountLinksAsync(product.ImageLink))==1)
+            await ImageService<Product>.RemoveImageAsync(product.ImageLink);
+    }
+
+    public async Task<List<Review>> GetReviewsForAsync(Product product)
+    {
+        Product prod = await DataStorageService<Product>.GetItemByAsync(nameof(Product.ID), product.ID);
+        if (prod is null)
+        {
+            await Shell.Current.DisplayAlert("ERROR!", $"{product.Model} doesn't exist", "OK");
+        }
+        return prod?.Reviews ?? new List<Review>();
+    }
+
+    public void CountRatingOf(Product product)
+    {
+        product.Rating=0;
+        int ratingSum = 0;
+        foreach(var review in product.Reviews)
+        {
+            ratingSum+=review.Rating;
+        }
+        product.Rating=ratingSum/(double)product.Reviews.Count;
     }
 
     public event EventHandler<ProductEventArgs> ProductChanged;

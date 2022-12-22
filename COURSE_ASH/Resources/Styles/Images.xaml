@@ -1,17 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             >
-    <Style x:Key="CatalogNavBarImage" TargetType="Image">
-        <Setter Property="Margin" Value="12"/>
-        <Setter Property="VerticalOptions" Value="Center"/>
-        <Setter Property="HeightRequest" Value="{AppThemeBinding Light=40,Dark=35}"/>
-        <Setter Property="WidthRequest" Value="40"/>
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:global="clr-namespace:COURSE_ASH.Globals">
+    
+    <Style x:Key="CatalogNavBarImage"
+           TargetType="Image">
+        <Setter Property="Margin"
+                Value="12" />
+        <Setter Property="VerticalOptions"
+                Value="Center" />
+        <Setter Property="HeightRequest"
+                Value="{AppThemeBinding Light=40,Dark=35}" />
+        <Setter Property="WidthRequest"
+                Value="40" />
     </Style>
 
-    <Style x:Key="CatalogImageStyle" TargetType="Image">
-        <Setter Property="HeightRequest" Value="150"/>
-        <Setter Property="Aspect" Value="AspectFit"/>
+    <Style x:Key="ProfilePicStyle"
+           TargetType="Image">
+        <Setter Property="Source"
+                Value="{Binding ImageLink, FallbackValue={AppThemeBinding 
+                        Dark = {Static global:Icons.WaltuhWhite},
+                        Light = {Static global:Icons.WaltuhBlack}}}" />
+        <Setter Property="HeightRequest"
+                Value="150" />
+        <Setter Property="Aspect"
+                Value="AspectFit" />
     </Style>
 </ResourceDictionary>

@@ -13,22 +13,22 @@ public partial class AddProductPageViewModel : BaseViewModel
     private string _productType;
 
     [ObservableProperty]
-    private string _category;
+    string _category;
 
     [ObservableProperty]
-    private string _model;
+    string _model;
 
     [ObservableProperty]
-    private string _price;
+    string _price;
 
     [ObservableProperty]
-    private string _info;
+    string _info;
 
     [ObservableProperty]
-    private string _imageLink;
+    string _imageLink;
 
     [ObservableProperty]
-    private bool _isNotEmpty = false;
+    bool _isNotEmpty;
 
     public AddProductPageViewModel(ProductsService productsService, CatalogService catalogService)
     {
@@ -45,7 +45,19 @@ public partial class AddProductPageViewModel : BaseViewModel
     }
     public async void GetCategories()
     {
-        Categories = (from cat in await _catalogService.GetCategoriesAsync() select cat.Category).ToObservableCollection();
+        try
+        {
+            IsBusy=true;
+            Categories = (from cat in await _catalogService.GetCategoriesAsync() select cat.Category).ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            //await _popup.NotifyAsync("Could not load categories");
+        }
+        finally
+        {
+            IsBusy=false;
+        }
     }
 
     [RelayCommand]
@@ -70,31 +82,41 @@ public partial class AddProductPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task AddProduct()
     {
-        IsBusy = true;
-        Product newProduct = new()
+        try
         {
-            ProductType = _productType,
-            Category = _category,
-            Model = _model,
-            Price = double.Parse(_price),
-            Info = _info,
-        };
-        await _productsService.AddProductAsync(newProduct, _image);
-        await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product added", "OK");
-        await GoBackAsync();
-        IsBusy = false;
+            IsBusy = true;
+            Product newProduct = new()
+            {
+                ProductType = ProductType,
+                Category = Category,
+                Model = Model,
+                Price = double.Parse(Price),
+                Info = Info,
+            };
+            await _productsService.AddProductAsync(newProduct, _image);
+            await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product added", "OK");
+            await GoBackAsync();
+        }
+        catch (Exception)
+        {
+            //await _popup.NotifyAsync("Could not add product");
+        }
+        finally
+        {
+            IsBusy=false;
+        }
     }
 
     [RelayCommand]
     private async Task GoBackAsync()
     {
         _image=null;
-        _productType=string.Empty;
-        _category=string.Empty;
-        _model=string.Empty;
-        _price=string.Empty;
-        _info=string.Empty;
-        _imageLink=null;
+        ProductType=string.Empty;
+        Category=string.Empty;
+        Model=string.Empty;
+        Price=string.Empty;
+        Info=string.Empty;
+        ImageLink=null;
         await Shell.Current.GoToAsync("..");
     }
 

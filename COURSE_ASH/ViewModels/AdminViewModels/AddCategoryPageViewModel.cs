@@ -18,7 +18,7 @@ public partial class AddCategoryPageViewModel : BaseViewModel
     private double _imageScale;
 
     [ObservableProperty]
-    bool isNotEmpty = false;
+    private bool isNotEmpty = false;
 
     public AddCategoryPageViewModel(CatalogService service)
     {
@@ -35,16 +35,26 @@ public partial class AddCategoryPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ConfirmAsync()
     {
-        bool isSuccessful = await _service.AddCategory(Name, _image, ImageRotation, ImageScale);
-        if (!isSuccessful)
+        try
         {
-            await Shell.Current.DisplayAlert("ERROR!", "Category already exists", "OK");
-            IsBusy = false;
-            return;
+            bool isSuccessful = await _service.AddCategory(Name, _image, ImageRotation, ImageScale);
+            if (!isSuccessful)
+            {
+                await Shell.Current.DisplayAlert("ERROR!", "Category already exists", "OK");
+                IsBusy = false;
+                return;
+            }
+            await Shell.Current.DisplayAlert("SUCCESS!", "Category created", "OK");
+            await GoBackAsync();
         }
-        await Shell.Current.DisplayAlert("SUCCESS!", "Category created", "OK");
-        await GoBackAsync();
-        IsBusy = false;
+        catch (Exception)
+        {
+            //await _popup.NotifyAsync("Could not get create category!");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

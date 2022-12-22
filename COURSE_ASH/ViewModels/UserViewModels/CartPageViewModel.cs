@@ -15,10 +15,10 @@ public partial class CartPageViewModel : BaseViewModel
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
     //Поле, описывающее состояние корзины как пустой
-    private bool isEmpty = true;
+    private bool _isEmpty = true;
 
     //Поле, описывающее состояние корзины как не пустой
-    public bool IsNotEmpty => !isEmpty;
+    public bool IsNotEmpty => !IsEmpty;
 
     //В конструктор передаётся объект сервиса по работе с корзиной
     public CartPageViewModel(CartService cartService)

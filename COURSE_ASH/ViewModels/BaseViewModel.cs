@@ -4,14 +4,17 @@ public partial class BaseViewModel : ObservableObject
 {
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotBusy))]
-    bool _isBusy = false;
-    public bool IsNotBusy => !_isBusy;
+    bool _isBusy;
+    public bool IsNotBusy => !IsBusy;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotSuccessful))]
-    bool isSuccessful = false;
-    public bool IsNotSuccessful => !isSuccessful;
+    bool _isSuccessful = false;
+    public bool IsNotSuccessful => !IsSuccessful;
 
     [ObservableProperty]
-    public bool isFailed = false;
+    private bool _isFailed = false;
+
+    [ObservableProperty]
+    private bool _isRefreshing = false;
 }

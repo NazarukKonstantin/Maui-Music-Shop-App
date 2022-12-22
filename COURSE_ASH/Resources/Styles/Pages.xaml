@@ -17,12 +17,15 @@
         <Setter Property="BarTextColor" Value="{StaticResource TenderWhite}" />
     </Style>
 
-    <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightBackground}
-            ,Dark={StaticResource DarkBackground}}"/>
-        <Setter Property="NavigationPage.HasNavigationBar" Value="False"/>
-        <Setter Property="Padding" Value="0"/>
+    <Style TargetType="ContentPage"
+           ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Light={StaticResource LightBackground}
+            ,Dark={StaticResource DarkBackground}}" />
+        <Setter Property="NavigationPage.HasNavigationBar"
+                Value="False" />
+        <Setter Property="Padding"
+                Value="0" />
     </Style>
-    
-    
+
 </ResourceDictionary>

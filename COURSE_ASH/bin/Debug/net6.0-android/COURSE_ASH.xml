@@ -22,12 +22,6 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.DeleteAccountCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.DeleteAccountAsync(COURSE_ASH.Models.AccountData)"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.goBackCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackCommand"/>.</summary>
-        </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.GoBackAsync"/>.</summary>
-        </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel.Name">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddCategoryPageViewModel._name"/>
         </member>
@@ -128,10 +122,10 @@
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._categCacheList"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsProdListEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.isProdListEmpty"/>
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isProdListEmpty"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategListEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.isCategListEmpty"/>
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isCategListEmpty"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.CurrentLogin">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._currentLogin"/>
@@ -335,7 +329,7 @@
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogInCommand"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogInCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogIn"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.LogInAsync"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.signUpCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.SignUpCommand"/>.</summary>
@@ -374,19 +368,40 @@
             <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel._isBusy"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsSuccessful">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel.isSuccessful"/>
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel._isSuccessful"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsFailed">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel.isFailed"/>
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel._isFailed"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.BaseViewModel.IsRefreshing">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.BaseViewModel._isRefreshing"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.PickedProduct">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._pickedProduct"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.ReviewList">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._reviewList"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.Review">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._review"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.Rating">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._rating"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.CurrentLogin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._currentLogin"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsInCart">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isInCart"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsFavourite">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isFavourite"/>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.saveReviewCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReview"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.addToCartCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.AddToCartCommand"/>.</summary>
@@ -542,7 +557,7 @@
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel._totalPrice"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.IsEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.isEmpty"/>
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel._isEmpty"/>
         </member>
         <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.removeProductCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.RemoveProductCommand"/>.</summary>
@@ -621,6 +636,9 @@
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.BillingAddress">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._billingAddress"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.PhoneNumber">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._phoneNumber"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.TotalPrice">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._totalPrice"/>

@@ -8,9 +8,22 @@ public partial class ProductPageViewModel : BaseViewModel
 {
     private readonly CartService _cartService;
     private readonly FavouritesService _favouritesService;
+    private readonly ProductsService _productsService;
 
     [ObservableProperty]
     private Product _pickedProduct;
+
+    [ObservableProperty]
+    private ObservableCollection<Review> _reviewList;
+
+    [ObservableProperty]
+    private string _review;
+
+    [ObservableProperty]
+    private int _rating;
+
+    [ObservableProperty]
+    private string _currentLogin;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotInCart))]
@@ -20,21 +33,33 @@ public partial class ProductPageViewModel : BaseViewModel
     [NotifyPropertyChangedFor(nameof(IsNotFavourite))]
     private bool _isFavourite = false;
 
-    public bool IsNotFavourite => !_isFavourite;
-    public bool IsNotInCart => !_isInCart;
+    public bool IsNotFavourite => !IsFavourite;
+    public bool IsNotInCart => !IsInCart;
 
-    public ProductPageViewModel(CartService cartService, FavouritesService favouritesService)
+    public ProductPageViewModel(CartService cartService, FavouritesService favouritesService, ProductsService productsService)
     {
         _cartService = cartService;
         _favouritesService = favouritesService;
+        _productsService=productsService;
+        GetReviewsAsync();
         PropertyChanged += ProductPropertyChanged;
     }
 
+    private async void GetReviewsAsync()
+    {
+        ReviewList=(await _productsService.GetReviewsForAsync(PickedProduct)).ToObservableCollection();
+    }
     public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName != nameof(PickedProduct)) return;
         IsInCart = await _cartService.IsProductInStorageCart(PickedProduct, App.CurrentLogin);
         IsFavourite = await _favouritesService.IsProductFavouriteAsync(App.CurrentLogin, PickedProduct);
+    }
+
+    [RelayCommand]
+    private async Task SaveReview()
+    {
+
     }
 
     [RelayCommand]

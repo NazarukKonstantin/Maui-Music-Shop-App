@@ -20,11 +20,12 @@ public class Product : IImageDisposable
     public string Model { get; set; }
     public string Info { get; set; }
     public double Price { get; set; }
-    public int Rating { get; set; }
+    public double Rating { get; set; }
+    public List<Review> Reviews { get; set; }
 
     public Product() { }
 
-    public Product(string category, string productType, string model, string info, double price, string imageLink, int rating)
+    public Product(string category, string productType, string model, string info, double price, string imageLink, double rating)
     {
         Category=category;
         ProductType=productType;

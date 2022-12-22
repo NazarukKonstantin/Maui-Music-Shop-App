@@ -17,15 +17,6 @@ public class CatalogItem : IImageDisposable
         ImageScale=imageScale;
     }
 
-    public static string ToCategoryString (string productCategory)
-    {
-        if (productCategory.EndsWith("s"))
-        {
-            return productCategory + "es";
-        }
-        else return productCategory + "s";
-    }
-
     public static List<CatalogItem> CatalogList { get; } = new()
     {
             new("Guitars", Icons.CatalogGuitar, 10.0, 1.6),

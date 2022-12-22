@@ -46,7 +46,9 @@ public partial class EditProductPageViewModel : BaseViewModel
     }
     public async void GetCategories()
     {
-        Categories = (from cat in await _catalogService.GetCategoriesAsync() select cat.Category).ToObservableCollection();
+        Categories = (from cat 
+                      in await _catalogService.GetCategoriesAsync() 
+                      select cat.Category).ToObservableCollection();
     }
     private void ProductChanged(object sender, PropertyChangedEventArgs e)
     {

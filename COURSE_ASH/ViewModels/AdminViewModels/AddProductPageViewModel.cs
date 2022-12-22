@@ -48,14 +48,18 @@ public partial class AddProductPageViewModel : BaseViewModel
         try
         {
             IsBusy=true;
-            Categories = (from cat in await _catalogService.GetCategoriesAsync() select cat.Category).ToObservableCollection();
+            IsRefreshing = true;
+            Categories = (from cat 
+                          in await _catalogService.GetCategoriesAsync() 
+                          select cat.Category).ToObservableCollection();
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not load categories");
+            await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
         }
         finally
         {
+            IsRefreshing=false;
             IsBusy=false;
         }
     }
@@ -99,7 +103,7 @@ public partial class AddProductPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not add product");
+            await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
         }
         finally
         {

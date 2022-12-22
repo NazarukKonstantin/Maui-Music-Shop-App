@@ -49,7 +49,7 @@ public partial class AddCategoryPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not get create category!");
+            await Shell.Current.DisplayAlert("ERROR", "Could not create category!", "OK");
         }
         finally
         {

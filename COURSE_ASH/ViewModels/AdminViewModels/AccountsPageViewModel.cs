@@ -28,7 +28,7 @@ public partial class AccountsPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not get users!");
+            await Shell.Current.DisplayAlert("ERROR", "Could not get users!", "OK");
         }
         finally
         {
@@ -46,11 +46,11 @@ public partial class AccountsPageViewModel : BaseViewModel
             IsBusy = true;
             account.Role = _service.SwitchRole(account.Role);
             await _service.RecordNewRoleAsync(account.CurrentLogin, account.Role);
-            IsBusy = false;
         }
         catch (Exception)
         {
             //await _popup.NotifyAsync("Could not record new role!");
+            await Shell.Current.DisplayAlert("ERROR", "Could not record new role!", "OK");
         }
         finally
         {
@@ -77,6 +77,7 @@ public partial class AccountsPageViewModel : BaseViewModel
         catch (Exception)
         {
             //await _popup.NotifyAsync("Could not delete account!");
+            await Shell.Current.DisplayAlert("ERROR", "Could not delete account!", "OK");
         }
         finally
         {

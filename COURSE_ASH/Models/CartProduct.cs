@@ -19,6 +19,21 @@ public class CartProduct : Product
         ImageLink = product.ImageLink;
         UnitQuantity = 0;
     }
+    public override bool Equals(object obj)
+    {
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+
+        CartProduct pr = (CartProduct)obj;
+        return pr.ID == ID;
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
+    }
 
     public Product GetProduct()
     {

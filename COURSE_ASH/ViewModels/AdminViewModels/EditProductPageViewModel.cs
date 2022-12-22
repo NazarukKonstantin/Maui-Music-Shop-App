@@ -46,9 +46,23 @@ public partial class EditProductPageViewModel : BaseViewModel
     }
     public async void GetCategories()
     {
-        Categories = (from cat 
-                      in await _catalogService.GetCategoriesAsync() 
-                      select cat.Category).ToObservableCollection();
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            Categories = (from cat
+                          in await _catalogService.GetCategoriesAsync()
+                          select cat.Category).ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            IsRefreshing = false;
+        }
     }
     private void ProductChanged(object sender, PropertyChangedEventArgs e)
     {
@@ -64,18 +78,28 @@ public partial class EditProductPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task ChangeProduct()
     {
-        IsBusy = true;
-        CurrentProduct.ProductType= ProductType;
-        CurrentProduct.Category= ProductCategory;
-        CurrentProduct.Model= Model;
-        CurrentProduct.Price = Price;
-        CurrentProduct.Info= Info;
-        CurrentProduct.ImageLink = ImageLink;
+        try
+        {
+            IsBusy = true;
+            CurrentProduct.ProductType = ProductType;
+            CurrentProduct.Category = ProductCategory;
+            CurrentProduct.Model = Model;
+            CurrentProduct.Price = Price;
+            CurrentProduct.Info = Info;
+            CurrentProduct.ImageLink = ImageLink;
 
-        await _productsService.ChangeProductAsync(CurrentProduct, _image);
-        await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
-        await GoBackAsync();
-        IsBusy = false;
+            await _productsService.ChangeProductAsync(CurrentProduct, _image);
+            await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
+            await GoBackAsync();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not change product!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

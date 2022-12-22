@@ -21,7 +21,7 @@ public class BillingAddressService
             return AddressAlerts.WRONG_CITY;
         return AddressAlerts.SUCCESS;
     }
-    public async Task<string> GetPostalCode(string country, string city, string street, int? buildingNumber)
+    public async Task<string> GetPostalCodeAsync(string country, string city, string street, int? buildingNumber)
     {
         if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return string.Empty;
 

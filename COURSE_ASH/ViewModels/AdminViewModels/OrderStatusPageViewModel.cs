@@ -47,11 +47,21 @@ public partial class OrderStatusPageViewModel : BaseViewModel
     [RelayCommand]
     async Task ChangeStatusAsync()
     {
-        IsBusy = true;
-        await _service.ChangeStatusAsync(CurrentOrder.ID, Status);
-        await Toast.Make(GeneralAlerts.ORDER_STATUS_CHANGED, ToastDuration.Short).Show();
-        _oldStatus = Status;
-        IsStatusChanged = false;
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            await _service.ChangeStatusAsync(CurrentOrder.ID, Status);
+            await Toast.Make(GeneralAlerts.ORDER_STATUS_CHANGED, ToastDuration.Short).Show();
+            _oldStatus = Status;
+            IsStatusChanged = false;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not change order status!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 }

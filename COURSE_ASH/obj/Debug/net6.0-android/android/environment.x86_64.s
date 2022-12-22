@@ -4062,7 +4062,7 @@ application_config:
 
 	.type	.L.autostr.8, @object
 .L.autostr.8:
-	.asciz	"cf3fa33e-b180-4cb7-9a07-c5d9e5c70c77"
+	.asciz	"c5e7cf18-59fe-4461-ba6a-7080e9a1efd4"
 	.size	.L.autostr.8, 37
 
 	.type	.L.autostr.9, @object

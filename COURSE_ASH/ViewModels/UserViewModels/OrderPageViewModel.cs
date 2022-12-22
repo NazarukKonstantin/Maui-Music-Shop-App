@@ -20,9 +20,19 @@ public partial class OrderPageViewModel : BaseViewModel
     [RelayCommand]
     async Task RequestCancellationAsync()
     {
-        IsBusy = true;
-        CurrentOrder = await _orderService
-            .ChangeStatusAsync(CurrentOrder.ID, OrderStatus.CANCELLATION_REQUESTED);
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            CurrentOrder = await _orderService
+                .ChangeStatusAsync(CurrentOrder.ID, OrderStatus.CANCELLATION_REQUESTED);
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not change order status!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 }

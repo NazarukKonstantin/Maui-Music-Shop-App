@@ -7,7 +7,7 @@ public enum FilterField
 
 public enum SortDirection
 {
-    ASC,DESC,
+    ASC, DESC,
 }
 
 public class Product : IImageDisposable
@@ -27,13 +27,13 @@ public class Product : IImageDisposable
 
     public Product(string category, string productType, string model, string info, double price, string imageLink, double rating)
     {
-        Category=category;
-        ProductType=productType;
-        Model=model;
-        Info=info;
-        Price=price;
-        ImageLink=imageLink;
-        Rating=rating;
+        Category = category;
+        ProductType = productType;
+        Model = model;
+        Info = info;
+        Price = price;
+        ImageLink = imageLink;
+        Rating = rating;
     }
 
     public static List<string> ProductTypes { get; set; } = new()
@@ -41,7 +41,7 @@ public class Product : IImageDisposable
         "Guitar","MIDI","Sax","Ukulele","Violin","Guitar Accessory",
     };
 
-    public bool Equals(object obj, FilterField filter=FilterField.ID)
+    public bool Equals(object obj, FilterField filter = FilterField.ID)
     {
         if ((obj == null) || !this.GetType().Equals(obj.GetType()))
         {
@@ -52,7 +52,7 @@ public class Product : IImageDisposable
             Product pr = (Product)obj;
             return filter switch
             {
-                FilterField.ID => pr.ID==ID,
+                FilterField.ID => pr.ID == ID,
                 FilterField.P_TYPE => pr.ProductType == ProductType,
                 FilterField.MODEL => pr.Model == Model,
                 FilterField.PRICE => pr.Price == Price,
@@ -61,5 +61,35 @@ public class Product : IImageDisposable
                 _ => base.Equals(obj)
             };
         }
+    }
+
+    public Product CloneProductWithCategory(string newCategory)
+    {
+        return new Product
+        {
+            ID = ID,
+            Category = newCategory,
+            ProductType = ProductType,
+            Model = Model,
+            Info = Info,
+            Price = Price,
+            ImageLink = ImageLink,
+            Rating = Rating,
+        };
+    }
+
+    public override bool Equals(object obj)
+    {
+        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
+        {
+            return false;
+        }
+
+        Product pr = (Product)obj;
+        return pr.ID == this.ID;
+    }
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

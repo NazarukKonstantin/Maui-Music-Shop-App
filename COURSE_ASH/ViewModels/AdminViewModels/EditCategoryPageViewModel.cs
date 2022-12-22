@@ -45,17 +45,27 @@ public partial class EditCategoryPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task ChangeCategory()
     {
-        IsBusy = true;
-        string oldName = Category.Category;
-        Category.Category = Name;
-        Category.ImageScale= ImageScale;
-        Category.ImageRotation = ImageRotation;
-        Category.ImageLink = ImageLink;
+        try
+        {
+            IsBusy = true;
+            string oldName = Category.Category;
+            Category.Category = Name;
+            Category.ImageScale = ImageScale;
+            Category.ImageRotation = ImageRotation;
+            Category.ImageLink = ImageLink;
 
-        await _catalogService.ChangeCategoryAsync(oldName,Category, _productsService, _image);
-        await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
-        await GoBackAsync();
-        IsBusy = false;
+            await _catalogService.ChangeCategoryAsync(oldName, Category, _productsService, _image);
+            await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
+            await GoBackAsync();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not change category!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     private void CheckEmpty(object sender, PropertyChangedEventArgs e)

@@ -4,7 +4,7 @@ namespace COURSE_ASH.Views.AuthorizationViews;
 
 public partial class LoginPage : ContentPage
 {
-    LogInPageViewModel _viewModel;
+    private readonly LogInPageViewModel _viewModel;
     public LoginPage(LogInPageViewModel viewModel)
     {
         InitializeComponent();

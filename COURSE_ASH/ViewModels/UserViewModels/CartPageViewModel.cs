@@ -3,7 +3,6 @@
 public partial class CartPageViewModel : BaseViewModel
 {
     private readonly CartService _cartService;
-
     
     [ObservableProperty] //Атрибут, позволяющий реализовать паттерн Наблюдатель
     private ObservableCollection<CartProduct> _products; //Список товаров в корзине
@@ -30,8 +29,22 @@ public partial class CartPageViewModel : BaseViewModel
     //Асинхронный метод, позволяющий получить корзину пользователя из БД
     async void GetCart()
     {
-        Products = (await _cartService.GetCartFromStorageAsync(App.CurrentLogin))?
-            .ToObservableCollection();
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            Products = (await _cartService.GetCartFromStorageAsync(App.CurrentLogin))?
+                .ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load cart!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            IsRefreshing = false;
+        }
     }
 
     [RelayCommand] //Атрибут, позволяющий реализовать паттерн Команда
@@ -39,31 +52,51 @@ public partial class CartPageViewModel : BaseViewModel
     //Аргументом выступает данный продукт
     async void RemoveProduct(CartProduct product)
     {
-        IsBusy = true;
-        //Уменьшение количества товара в БД
-        CartProduct removingProduct = await _cartService
-            .RemoveProductFromStorageCartAsync(App.CurrentLogin,product);
+        try
+        {
+            IsBusy = true;
+            //Уменьшение количества товара в БД
+            CartProduct removingProduct = await _cartService
+                .RemoveProductFromStorageCartAsync(App.CurrentLogin, product);
 
-        //Если количество данного товара равно 0, удалить товар из локального списка
-        if (removingProduct.UnitQuantity == 0) Products.Remove(product);
-        //Иначе присвоить данному товару в списке объект изменённого товара из БД
-        else Products[Products.IndexOf(product)] = removingProduct;
-        IsEmpty = !Products.Any();
-        IsBusy = false;
+            //Если количество данного товара равно 0, удалить товар из локального списка
+            if (removingProduct.UnitQuantity == 0) Products.Remove(product);
+            //Иначе присвоить данному товару в списке объект изменённого товара из БД
+            else Products[Products.IndexOf(product)] = removingProduct;
+            IsEmpty = !Products.Any();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not remove product from cart!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
     [RelayCommand]
     //Метод, полностью удаляющий товар из корзины
     //Аргументом является данный товар
     async void DeleteProduct(CartProduct product)
     {
-        IsBusy = true;
-        //Удаление товара из БД
-        await _cartService
-            .DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
-        //Удаление товара из локального списка
-        Products.Remove(product);
-        IsEmpty = !Products.Any();
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            //Удаление товара из БД
+            await _cartService
+                .DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
+            //Удаление товара из локального списка
+            Products.Remove(product);
+            IsEmpty = !Products.Any();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not delete product from cart!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
@@ -71,13 +104,23 @@ public partial class CartPageViewModel : BaseViewModel
     //Аргументом выступает данный товар
     async Task AddProduct(CartProduct product)
     {
-        IsBusy = true;
-        //Добавление количества товара в БД
-        CartProduct newProduct = await _cartService
-            .AddProductToStorageCartAsync(App.CurrentLogin, product);
-        //Присвоение данному товару в списке объекта изменённого товара из БД
-        Products[Products.IndexOf(product)] = newProduct;
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            //Добавление количества товара в БД
+            CartProduct newProduct = await _cartService
+                .AddProductToStorageCartAsync(App.CurrentLogin, product);
+            //Присвоение данному товару в списке объекта изменённого товара из БД
+            Products[Products.IndexOf(product)] = newProduct;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not add product!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

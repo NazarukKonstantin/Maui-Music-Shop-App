@@ -29,124 +29,132 @@
                                StatusBarStyle="{AppThemeBinding Dark=LightContent,Light=DarkContent}" />
     </Page.Behaviors>
 
-    <ScrollView>
-        <Grid RowDefinitions="Auto,*"
-              ColumnDefinitions="*,Auto,.1*">
+    <Grid RowDefinitions="Auto,*"
+          ColumnDefinitions="*,Auto,.1*">
 
-            <BoxView Style="{StaticResource NavBarBoxView}"
-                     Grid.ColumnSpan="3" />
+        <BoxView Style="{StaticResource NavBarBoxView}"
+                 Grid.ColumnSpan="3" />
 
-            <Label Text="Accounts"
-                   Style="{StaticResource PageTitle}" />
+        <Label Text="Accounts"
+               Style="{StaticResource PageTitle}" />
 
-            <!--Catalog-->
-            <CollectionView Grid.Row="1"
-                            Grid.ColumnSpan="3"
-                            ItemsSource="{Binding Accounts}">
+        <!--Catalog-->
+        <CollectionView Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Accounts}">
 
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="1"
-                                     Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:AccountData">
-                        <SwipeView>
-                            <SwipeView.RightItems>
-                                <SwipeItems Mode="Execute">
-                                    <SwipeItem Text="Delete"
-                                               IconImageSource="{x:Static global:Icons.BinFilled}"
-                                               BackgroundColor="Red"
-                                               CommandParameter="{Binding .}"
-                                               Command="{Binding Source={RelativeSource 
-                                    AncestorType={x:Type viewmodel:AccountsPageViewModel}},Path=DeleteAccountCommand}" />
-                                </SwipeItems>
-                            </SwipeView.RightItems>
-                            <Grid Padding="8">
-                                <Border Style="{StaticResource CardViewBorder}">
-                                    <Border.Shadow>
-                                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:AccountData">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+                                <SwipeItem Text="Delete"
+                                           IconImageSource="{x:Static global:Icons.BinFilled}"
+                                           BackgroundColor="Red"
+                                           CommandParameter="{Binding .}"
+                                           Command="{Binding Source={RelativeSource 
+                                    AncestorType={x:Type viewmodel:AccountsPageViewModel}},
+                                    Path=DeleteAccountCommand}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="8">
+                            <Border Style="{StaticResource CardViewBorder}">
+                                <Border.Shadow>
+                                    <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                                      ,Light=Black}"
-                                                Offset="15,15"
-                                                Radius="15"
-                                                Opacity="0.2" />
-                                    </Border.Shadow>
-                                    <Frame HeightRequest="100"
-                                           Style="{StaticResource CatalogStyle}">
-                                        <Grid ColumnDefinitions="*,*,*,*"
-                                              RowDefinitions=".6*,.4*">
+                                            Offset="15,15"
+                                            Radius="15"
+                                            Opacity="0.2" />
+                                </Border.Shadow>
+                                <Frame HeightRequest="100"
+                                       Style="{StaticResource CatalogStyle}">
+                                    <Grid ColumnDefinitions="*,*,*,*"
+                                          RowDefinitions=".6*,.4*">
 
-                                            <Border Stroke="Transparent"
-                                                    StrokeShape="Ellipse"
-                                                    Grid.Column="0"
-                                                    Grid.Row="0">
-                                                <Image x:Name="ProfilePic"
-                                                       Style="{StaticResource ProfilePicStyle}" 
-                                                       HeightRequest="100"/>
-                                            </Border>
+                                        <Border Stroke="Transparent"
+                                                StrokeShape="Ellipse"
+                                                Grid.Column="0"
+                                                Grid.Row="0">
+                                            <Image x:Name="ProfilePic"
+                                                   Style="{StaticResource ProfilePicStyle}"
+                                                   HeightRequest="100" />
+                                        </Border>
 
-                                            <Label Text="{Binding CurrentLogin}"
-                                                   Grid.Column="1"
-                                                   Grid.ColumnSpan="3"
-                                                   Grid.Row="0"
-                                                   HorizontalOptions="Center"
-                                                   Style="{StaticResource Title}"/>
+                                        <Label Text="{Binding CurrentLogin}"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="3"
+                                               Grid.Row="0"
+                                               HorizontalOptions="Center"
+                                               Style="{StaticResource Title}" />
 
-                                            <Label Text="User"
-                                                   Grid.Column="1"
-                                                   Grid.Row="1"
-                                                   BackgroundColor="Transparent">
-                                                <Label.Triggers>
-                                                    <DataTrigger TargetType="Label"
-                                                                 Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
-                                                                 Value="false">
-                                                        <Setter Property="TextColor"
-                                                                Value="{StaticResource GrayText}" />
-                                                    </DataTrigger>
-                                                    <DataTrigger TargetType="Label"
-                                                                 Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
-                                                                 Value="true">
-                                                        <Setter Property="TextColor"
-                                                                Value="{StaticResource TenderWhite}" />
-                                                    </DataTrigger>
-                                                </Label.Triggers>
-                                            </Label>
+                                        <Label Text="User"
+                                               Grid.Column="1"
+                                               Grid.Row="1"
+                                               BackgroundColor="Transparent">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
+                                                             Value="false">
+                                                    <Setter Property="TextColor"
+                                                            Value="{StaticResource GrayText}" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
+                                                             Value="true">
+                                                    <Setter Property="TextColor"
+                                                            Value="{StaticResource TenderWhite}" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
 
-                                            <Switch x:Name="RoleSwitch"
-                                                    Grid.Row="1"
-                                                    Grid.Column="2"
-                                                    IsToggled="{Binding Role, 
+                                        <Switch x:Name="RoleSwitch"
+                                                Grid.Row="1"
+                                                Grid.Column="2"
+                                                IsToggled="{Binding Role, 
                                                 Converter={StaticResource RolesConverter}}"
-                                                    ThumbColor="{StaticResource TenderWhite}"
-                                                    BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
-                                            ,Light={StaticResource Primary}}" />
+                                                ThumbColor="{StaticResource TenderWhite}"
+                                                BackgroundColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                                            ,Light={StaticResource Primary}}">
 
-                                            <Label Text="Admin"
-                                                   Grid.Column="3"
-                                                   Grid.Row="1"
-                                                   BackgroundColor="Transparent">
-                                                <Label.Triggers>
-                                                    <DataTrigger TargetType="Label"
-                                                                 Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
-                                                                 Value="false">
-                                                        <Setter Property="TextColor"
-                                                                Value="{StaticResource GrayText}" />
-                                                    </DataTrigger>
-                                                    <DataTrigger TargetType="Label"
-                                                                 Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
-                                                                 Value="true">
-                                                        <Setter Property="TextColor"
-                                                                Value="{StaticResource TenderWhite}" />
-                                                    </DataTrigger>
-                                                </Label.Triggers>
-                                            </Label>
-                                        </Grid>
-                                    </Frame>
-                                </Border>
-                            </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ScrollView>
+                                            <Switch.Behaviors>
+                                                <toolkit:EventToCommandBehavior EventName="Toggled"
+                                                                                Command="{Binding Source={RelativeSource 
+                                                                            AncestorType={x:Type viewmodel:AccountsPageViewModel}},
+                                                                            Path=SwitchRoleCommand}" 
+                                                                                CommandParameter="{Binding .}"/>
+                                            </Switch.Behaviors>
+                                        </Switch>
+
+                                        <Label Text="Admin"
+                                               Grid.Column="3"
+                                               Grid.Row="1"
+                                               BackgroundColor="Transparent">
+                                            <Label.Triggers>
+                                                <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
+                                                             Value="false">
+                                                    <Setter Property="TextColor"
+                                                            Value="{StaticResource GrayText}" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="Label"
+                                                             Binding="{Binding Source={x:Reference RoleSwitch}, Path=IsToggled}"
+                                                             Value="true">
+                                                    <Setter Property="TextColor"
+                                                            Value="{StaticResource TenderWhite}" />
+                                                </DataTrigger>
+                                            </Label.Triggers>
+                                        </Label>
+                                    </Grid>
+                                </Frame>
+                            </Border>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

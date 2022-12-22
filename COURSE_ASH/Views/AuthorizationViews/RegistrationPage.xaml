@@ -8,62 +8,175 @@
              Shell.TabBarIsVisible="False"
              Shell.NavBarIsVisible="False"
              Title="RegistrationPage">
-    <ScrollView>
-        <Grid RowDefinitions="Auto,250,.6*,.5*">
-            <BoxView Margin="0"
-                     Style="{StaticResource NavBarBoxView}" />
 
-            <ImageButton Grid.Row="0"
-                         Style="{StaticResource GoBackArrow}"
-                         Command="{Binding GoBackCommand}"
-                         CommandParameter="{Binding .}" />
 
-            <Frame Grid.Row="1"
-                   HeightRequest="160"
-                   WidthRequest="160"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   CornerRadius="80"
-                   BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},Light={StaticResource PrimaryDark}}">
-                <Image Source="{AppThemeBinding Dark={Static global:Icons.WaltuhWhite},Light={Static global:Icons.WaltuhBlack}}"
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="CenterAndExpand"
-                       WidthRequest="130"
-                       HeightRequest="130"
-                       Aspect="AspectFill" />
-            </Frame>
+    <Grid RowDefinitions="Auto,250,.6*,.5*">
+        <BoxView Margin="0"
+                 Style="{StaticResource NavBarBoxView}" />
 
-            <VerticalStackLayout Grid.Row="2"
-                                 Margin="0"
-                                 Padding="0"
-                                 Spacing="15">
+        <ImageButton Grid.Row="0"
+                     Style="{StaticResource GoBackArrow}"
+                     Command="{Binding GoBackCommand}"
+                     CommandParameter="{Binding .}" />
+
+        <Frame Grid.Row="1"
+               HeightRequest="160"
+               WidthRequest="160"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               CornerRadius="80"
+               BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},
+                                                 Light={StaticResource PrimaryDark}}">
+            <Image Source="{AppThemeBinding Dark={Static global:Icons.WaltuhWhite},
+                                            Light={Static global:Icons.WaltuhBlack}}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   WidthRequest="130"
+                   HeightRequest="130"
+                   Aspect="AspectFill" />
+        </Frame>
+
+        <VerticalStackLayout Grid.Row="2"
+                             Margin="0"
+                             Padding="0"
+                             Spacing="20">
+            
+            <Label Text="{Binding Alert}"
+                   TextColor="OrangeRed"
+                   Margin="30,0,30,0"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="StartAndExpand"
+                   IsVisible="{Binding IsFailed}"
+                   FontSize="Small"
+                   TextDecorations="Underline" />
+
+            <Border IsVisible="true"
+                    Stroke="transparent"
+                    StrokeShape="RoundRectangle 35"
+                    WidthRequest="365"
+                    HeightRequest="80"
+                    StrokeThickness="4">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsFailed}"
+                                 Value="True">
+                        <Setter Property="Stroke"
+                                Value="OrangeRed" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsSuccessful}"
+                                 Value="true">
+                        <Setter Property="Stroke"
+                                Value="Transparent" />
+                    </DataTrigger>
+                </Border.Triggers>
                 <Frame Style="{StaticResource LoginEntryFrame}">
-                    <Entry Placeholder="Username"
+                    <Entry x:Name="LoginEntry"
+                           Placeholder="Login"
                            PlaceholderColor="Gray"
-                           WidthRequest="310"
                            HorizontalOptions="Center"
-                           VerticalOptions="EndAndExpand" />
+                           VerticalOptions="CenterAndExpand"
+                           Completed="LoginEntryCompleted"
+                           Text="{Binding Login}"
+                           WidthRequest="300"
+                           FontSize="Medium"
+                           ClearButtonVisibility="WhileEditing">
+                        <Entry.Triggers>
+                            <DataTrigger TargetType="Entry"
+                                         Binding="{Binding IsFailed}"
+                                         Value="True">
+                                <Setter Property="TextColor"
+                                        Value="OrangeRed" />
+                                <Setter Property="PlaceholderColor"
+                                        Value="OrangeRed" />
+                            </DataTrigger>
+                            <DataTrigger TargetType="Entry"
+                                         Binding="{Binding IsSuccessful}"
+                                         Value="True">
+                                <Setter Property="TextColor"
+                                        Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                                <Setter Property="PlaceholderColor"
+                                        Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                            </DataTrigger>
+                        </Entry.Triggers>
+                    </Entry>
                 </Frame>
+            </Border>
+            <Border IsVisible="true"
+                    Stroke="transparent"
+                    StrokeShape="RoundRectangle 35"
+                    WidthRequest="365"
+                    HeightRequest="80"
+                    StrokeThickness="4">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsFailed}"
+                                 Value="True">
+                        <Setter Property="Stroke"
+                                Value="OrangeRed" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsSuccessful}"
+                                 Value="true">
+                        <Setter Property="Stroke"
+                                Value="Transparent" />
+                    </DataTrigger>
+                </Border.Triggers>
                 <Frame Style="{StaticResource LoginEntryFrame}"
-                       Margin="10">
-                    <HorizontalStackLayout Margin="0"
-                                           Padding="0"
-                                           Spacing="3">
+                       Margin="0"
+                       Padding="0">
+                    <Grid ColumnDefinitions="*,.2*"
+                          Margin="0,0,0,10"
+                          Padding="0">
                         <Entry x:Name="PassEntry"
                                Placeholder="Password"
-                               HeightRequest="40"
-                               WidthRequest="280"
+                               HeightRequest="50"
+                               WidthRequest="270"
                                PlaceholderColor="Gray"
                                HorizontalOptions="End"
-                               VerticalOptions="Start"
-                               IsPassword="True" />
+                               VerticalOptions="End"
+                               IsPassword="True"
+                               Completed="PasswordEntryCompleted"
+                               Grid.Column="0"
+                               Text="{Binding Password}"
+                               FontSize="Medium"
+                               FontAttributes="None"
+                               ClearButtonVisibility="WhileEditing">
+                            
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry"
+                                             Binding="{Binding IsFailed}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="OrangeRed" />
+                                    <Setter Property="PlaceholderColor"
+                                            Value="OrangeRed" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Entry"
+                                             Binding="{Binding IsSuccessful}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                                    <Setter Property="PlaceholderColor"
+                                            Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
 
                         <Image x:Name="VisibilityOnImg"
                                Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
-                               HorizontalOptions="EndAndExpand"
+                               HorizontalOptions="Start"
                                VerticalOptions="Center"
                                HeightRequest="40"
-                               WidthRequest="40">
+                               WidthRequest="40"
+                               Margin="0,15,0,0"
+                               IsEnabled="True"
+                               Grid.Column="1">
+                            
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="VisibilityTapped" />
                             </Image.GestureRecognizers>
@@ -71,37 +184,95 @@
                         <Image x:Name="VisibilityOffImg"
                                IsVisible="False"
                                Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},Light={Static global:Icons.VisibilityOffDark}}"
-                               HorizontalOptions="EndAndExpand"
+                               HorizontalOptions="Start"
                                VerticalOptions="Center"
                                HeightRequest="40"
-                               WidthRequest="40">
+                               WidthRequest="40"
+                               Margin="0,15,0,0"
+                               IsEnabled="True"
+                               Grid.Column="1">
+                            
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="VisibilityTapped" />
                             </Image.GestureRecognizers>
                         </Image>
 
-                    </HorizontalStackLayout>
+                    </Grid>
                 </Frame>
+            </Border>
+            <Border IsVisible="true"
+                    Stroke="transparent"
+                    StrokeShape="RoundRectangle 35"
+                    WidthRequest="365"
+                    HeightRequest="80"
+                    StrokeThickness="4">
+                <Border.Triggers>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsFailed}"
+                                 Value="True">
+                        <Setter Property="Stroke"
+                                Value="OrangeRed" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Border"
+                                 Binding="{Binding IsSuccessful}"
+                                 Value="true">
+                        <Setter Property="Stroke"
+                                Value="Transparent" />
+                    </DataTrigger>
+                </Border.Triggers>
                 <Frame Style="{StaticResource LoginEntryFrame}"
-                       Margin="0">
-                    <HorizontalStackLayout Margin="0"
-                                           Padding="0"
-                                           Spacing="3">
+                       Margin="0"
+                       Padding="0">
+                    <Grid ColumnDefinitions="*,.2*"
+                          Margin="0,0,0,10"
+                          Padding="0">
                         <Entry x:Name="ConfirmPassEntry"
                                Placeholder="Confirm Password"
-                               HeightRequest="40"
-                               WidthRequest="280"
+                               HeightRequest="50"
+                               WidthRequest="270"
                                PlaceholderColor="Gray"
                                HorizontalOptions="End"
-                               VerticalOptions="Start"
-                               IsPassword="True" />
+                               VerticalOptions="End"
+                               IsPassword="True"
+                               Grid.Column="0"
+                               Text="{Binding ConfirmPassword}"
+                               FontSize="Medium"
+                               FontAttributes="None"
+                               ClearButtonVisibility="WhileEditing"
+                               Completed="ConfirmPasswordEntryCompleted">
+                            
+                            <Entry.Triggers>
+                                <DataTrigger TargetType="Entry"
+                                             Binding="{Binding IsFailed}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="OrangeRed" />
+                                    <Setter Property="PlaceholderColor"
+                                            Value="OrangeRed" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="Entry"
+                                             Binding="{Binding IsSuccessful}"
+                                             Value="True">
+                                    <Setter Property="TextColor"
+                                            Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                                    <Setter Property="PlaceholderColor"
+                                            Value="{AppThemeBinding Dark={StaticResource LightText},
+                                                                    Light={StaticResource DarkText}}" />
+                                </DataTrigger>
+                            </Entry.Triggers>
+                        </Entry>
 
                         <Image x:Name="ConfirmVisibilityOnImg"
                                Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
-                               HorizontalOptions="EndAndExpand"
+                               HorizontalOptions="Start"
                                VerticalOptions="Center"
                                HeightRequest="40"
-                               WidthRequest="40">
+                               WidthRequest="40"
+                               Margin="0,15,0,0"
+                               IsEnabled="True"
+                               Grid.Column="1">
+                            
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="VisibilityTapped" />
                             </Image.GestureRecognizers>
@@ -109,25 +280,33 @@
                         <Image x:Name="ConfirmVisibilityOffImg"
                                IsVisible="False"
                                Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},Light={Static global:Icons.VisibilityOffDark}}"
-                               HorizontalOptions="EndAndExpand"
+                               HorizontalOptions="Start"
                                VerticalOptions="Center"
                                HeightRequest="40"
-                               WidthRequest="40">
+                               WidthRequest="40"
+                               Margin="0,15,0,0"
+                               IsEnabled="True"
+                               Grid.Column="1">
+                            
                             <Image.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="VisibilityTapped" />
                             </Image.GestureRecognizers>
                         </Image>
 
-                    </HorizontalStackLayout>
+                    </Grid>
                 </Frame>
-            </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
 
-            <Button Grid.Row="3"
-                    Margin="10"
-                    Padding="0"
-                    Text="Sign Up"
-                    Style="{StaticResource LoginButtons}"
-                    Command="{Binding CreateAccountCommand}" />
-        </Grid>
-    </ScrollView>
+        <Button x:Name="SignUpButton"
+                Grid.Row="3"
+                Margin="10"
+                Padding="0"
+                Text="Sign Up"
+                Style="{StaticResource LoginButtons}"
+                Command="{Binding CreateAccountCommand}"
+                FontAttributes="Bold"
+                FontSize="30" />
+    </Grid>
+
 </ContentPage>

@@ -50,7 +50,7 @@ public partial class BillingAddressPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task SuggestPostCode()
     {
-        PostalCode = await _addressService.GetPostalCode(Country, City, Street, BuildingNumber);
+        PostalCode = await _addressService.GetPostalCodeAsync(Country, City, Street, BuildingNumber);
     }
 
     private async Task GoBackAsync(string address)

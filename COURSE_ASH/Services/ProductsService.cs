@@ -1,5 +1,6 @@
 ﻿using COURSE_ASH.Models;
 using COURSE_ASH.Models.Interfaces;
+using COURSE_ASH.Views;
 
 namespace COURSE_ASH.Services;
 
@@ -36,7 +37,7 @@ public class ProductsService
             product.ImageLink = await ImageService<Product>.LinkImageToStorageAsync(productImage);
         }
 
-        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
+        await UpdateByIDAsync(product);
 
         ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
     }
@@ -49,12 +50,53 @@ public class ProductsService
 
     public async Task<List<Review>> GetReviewsForAsync(Product product)
     {
-        Product prod = await DataStorageService<Product>.GetItemByAsync(nameof(Product.ID), product.ID);
+        Product prod = await GetByIDAsync(product);
         if (prod is null)
         {
             await Shell.Current.DisplayAlert("ERROR!", $"{product.Model} doesn't exist", "OK");
         }
         return prod?.Reviews ?? new List<Review>();
+    }
+
+    public async Task AddReviewForAsync(Product product, Review review)
+    {
+        Product prod = await GetByIDAsync(product);
+        if (prod is null)
+        {
+            await Shell.Current.DisplayAlert("ERROR!", $"{product.Model} doesn't exist", "OK");
+        }
+        if (review != null)
+        {
+            product.Reviews.Add(review);
+        }
+
+        await UpdateByIDAsync(product);
+
+        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
+    }
+
+    public async Task ChangeReviewForAsync(Product product, Review prev_review,Review new_review)
+    {
+        Product prod = await GetByIDAsync(product);
+        if (prod is null)
+        {
+            await Shell.Current.DisplayAlert("ERROR!", $"{product.Model} doesn't exist", "OK");
+        }
+        if (new_review != null && prev_review!=null)
+        {
+            product.Reviews[product.Reviews.IndexOf(prev_review)]=new_review;
+        }
+        await UpdateByIDAsync(product);
+        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
+    }
+
+    private async Task<Product> GetByIDAsync(Product product)
+    {
+       return await DataStorageService<Product>.GetItemByAsync(nameof(Product.ID), product.ID);
+    }
+    private async Task UpdateByIDAsync(Product product)
+    {
+        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
     }
 
     public void CountRatingOf(Product product)

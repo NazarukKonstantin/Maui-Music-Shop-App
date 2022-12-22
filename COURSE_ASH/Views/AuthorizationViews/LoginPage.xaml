@@ -212,6 +212,7 @@
                     FontAttributes="Bold"
                     FontSize="30"
                     Command="{Binding LogInCommand}" />
+            
             <Button Text="Sign Up"
                     FontAttributes="Bold"
                     Style="{StaticResource LoginButtons}"

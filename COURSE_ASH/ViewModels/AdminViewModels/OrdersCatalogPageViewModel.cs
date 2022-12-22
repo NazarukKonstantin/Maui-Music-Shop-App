@@ -14,7 +14,21 @@ public partial class OrdersCatalogPageViewModel : BaseViewModel
     }
     public async void RefreshAsync()
     {
-        Orders = (await _service.GetAllOrdersAsync()).ToObservableCollection();
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            Orders = (await _service.GetAllOrdersAsync()).ToObservableCollection();
+        }
+        catch(Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
+        }
+        finally
+        {
+            IsRefreshing = false;
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

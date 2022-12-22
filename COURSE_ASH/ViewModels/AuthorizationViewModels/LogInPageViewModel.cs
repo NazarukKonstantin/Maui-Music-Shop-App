@@ -33,31 +33,41 @@ public partial class LogInPageViewModel : BaseViewModel
     //Метод отвечает за вход в аккаунт
     public async Task LogInAsync()
     {
-        IsBusy = true;
-        //Проверка введённых данных производится сервисом.
-        //Вызванный метод возвращает текущий логин, роль пользователя и возможную ошибку при авторизации
-        AccountState accountState = await _logInService.LogInUserAsync(Login, Password);
-        //Если отсутствуют ошибки при авторизации, открыть соответствующую роли главную страницу
-        if (accountState.Alert == AccountAlerts.SUCCESS)
+        try
         {
-            IsSuccessful = true;
-            IsFailed = false;
-            App.CurrentLogin = accountState.Login;
-            if (accountState.Role == Roles.Admin
-                || accountState.Role==Roles.Boss)
-                App.Current.MainPage = new AdminShell();
+            IsBusy = true;
+            //Проверка введённых данных производится сервисом.
+            //Вызванный метод возвращает текущий логин, роль пользователя и возможную ошибку при авторизации
+            AccountState accountState = await _logInService.LogInUserAsync(Login, Password);
+            //Если отсутствуют ошибки при авторизации, открыть соответствующую роли главную страницу
+            if (accountState.Alert == AccountAlerts.SUCCESS)
+            {
+                IsSuccessful = true;
+                IsFailed = false;
+                App.CurrentLogin = accountState.Login;
+                if (accountState.Role == Roles.Admin
+                    || accountState.Role == Roles.Boss)
+                    App.Current.MainPage = new AdminShell();
+                else
+                    App.Current.MainPage = new AppShell();
+            }
+            //Иначе присвоить полям IsSuccessful и Alert соответствующие значения
             else
-                App.Current.MainPage = new AppShell();
+            {
+                IsSuccessful = false;
+                Alert = accountState.Alert;
+                IsFailed = true;
+                Password = string.Empty;
+            }
         }
-        //Иначе присвоить полям IsSuccessful и Alert соответствующие значения
-        else
+        catch (Exception)
         {
-            IsSuccessful = false;
-            Alert = accountState.Alert;
-            IsFailed = true;
-            Password = string.Empty;
+            await Shell.Current.DisplayAlert("ERROR", "Could not log in!", "OK");
         }
-        IsBusy = false;
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

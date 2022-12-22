@@ -80,12 +80,26 @@ public partial class CatalogPageViewModel : BaseViewModel
     //Метод отвечает за обновление страницы
     public async void RefreshAsync()
     {
-        CurrentLogin = App.CurrentLogin;
-        //Получение ссылки на изображение из БД
-        ImageLink = (await DataStorageService<AccountData>
-                    .GetItemByAsync(nameof(AccountData.CurrentLogin),CurrentLogin))
-                    .ImageLink ?? string.Empty;
-        Items = CatalogItem.CatalogList.ToObservableCollection();
-        Products = (await _service.GetProductsAsync()).ToObservableCollection();
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            CurrentLogin = App.CurrentLogin;
+            //Получение ссылки на изображение из БД
+            ImageLink = (await DataStorageService<AccountData>
+                        .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
+                        .ImageLink ?? string.Empty;
+            Items = CatalogItem.CatalogList.ToObservableCollection();
+            Products = (await _service.GetProductsAsync()).ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load items!", "OK");
+        }
+        finally
+        {
+            IsRefreshing = false;
+            IsBusy = false;
+        }
     }
 }

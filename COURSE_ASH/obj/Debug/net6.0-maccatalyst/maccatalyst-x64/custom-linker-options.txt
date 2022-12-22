@@ -3,7 +3,7 @@ AreAnyAssembliesTrimmed=false
 				AOTCompiler=
 				AOTOutputDirectory=obj\Debug\net6.0-maccatalyst\maccatalyst-x64\nativelibraries/aot-output/
 				AppBundleManifestPath=bin\Debug\net6.0-maccatalyst\maccatalyst-x64\COURSE_ASH.app\Contents/Info.plist
-				CacheDirectory=E:\repo\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\linker-cache
+				CacheDirectory=E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\linker-cache
 				
 				Debug=true
 				DeploymentTarget=
@@ -179,7 +179,7 @@ FrameworkAssembly=System.Private.CoreLib
 				Interpreter=all
 				IntermediateLinkDir=obj\Debug\net6.0-maccatalyst\maccatalyst-x64\linked\
 				InvariantGlobalization=false
-				ItemsDirectory=E:\repo\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\linker-items
+				ItemsDirectory=E:\OOPIP\COURSE_WORK\Maui-Music-Shop-App\COURSE_ASH\obj\Debug\net6.0-maccatalyst\maccatalyst-x64\linker-items
 				IsAppExtension=false
 				IsSimulatorBuild=
 				LibMonoLinkMode=dylib

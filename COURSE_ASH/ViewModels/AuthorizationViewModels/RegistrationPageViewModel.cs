@@ -35,20 +35,30 @@ public partial class RegistrationPageViewModel: BaseViewModel
     //Атрибут, позволяющий удобно реализовать паттерн Команда
     [RelayCommand]
     //Метод, отвечающий за создание аккаунта
-    async Task CreateAccountAsync()
+    public async Task CreateAccountAsync()
     {
-        IsBusy = true;
-        //Проверка введённых полей производится сервисом.
-        //Вызванный метод возвращает текущий логин, роль пользователя и возможную ошибку при регистрации 
-        AccountState accountState = await _service.RegisterAsync(Login, Password, ConfirmPassword);
-        //Если присутствуют ошибки при регистрации, присвоить полям IsSuccessful и Alert соответствующие значения
-        if (accountState.Alert != AccountAlerts.SUCCESS)
+        try
         {
-            IsSuccessful = false;
-            Alert = accountState.Alert;
+            IsBusy = true;
+            //Проверка введённых полей производится сервисом.
+            //Вызванный метод возвращает текущий логин, роль пользователя и возможную ошибку при регистрации 
+            AccountState accountState = await _service.RegisterAsync(Login, Password, ConfirmPassword);
+            //Если присутствуют ошибки при регистрации, присвоить полям IsSuccessful и Alert соответствующие значения
+            if (accountState.Alert != AccountAlerts.SUCCESS)
+            {
+                IsSuccessful = false;
+                Alert = accountState.Alert;
+            }
+            else IsSuccessful = true;
         }
-        else IsSuccessful=true;
-        IsBusy = false;
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not create account!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

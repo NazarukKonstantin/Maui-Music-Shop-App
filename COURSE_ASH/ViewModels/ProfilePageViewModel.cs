@@ -44,24 +44,34 @@ public partial class ProfilePageViewModel : BaseViewModel
     [RelayCommand]
     async Task ChangePasswordAsync()
     {
-        IsBusy = true;
-        AccountState accountState = await _service
-            .ChangePasswordAsync(App.CurrentLogin, OldPassword, NewPassword, ConfirmPassword);
-        if (accountState.Alert == AccountAlerts.SUCCESS)
+        try
         {
-            IsSuccessful = true;
-            IsFailed = false;
+            IsBusy = true;
+            AccountState accountState = await _service
+                .ChangePasswordAsync(App.CurrentLogin, OldPassword, NewPassword, ConfirmPassword);
+            if (accountState.Alert == AccountAlerts.SUCCESS)
+            {
+                IsSuccessful = true;
+                IsFailed = false;
+            }
+            else
+            {
+                IsSuccessful = false;
+                Alert = accountState.Alert;
+                IsFailed = true;
+            }
+            OldPassword = string.Empty;
+            NewPassword = string.Empty;
+            ConfirmPassword = string.Empty;
         }
-        else
+        catch (Exception)
         {
-            IsSuccessful = false;
-            Alert = accountState.Alert;
-            IsFailed = true;
+            await Shell.Current.DisplayAlert("ERROR", "Could not change password!", "OK");
         }
-        OldPassword = string.Empty;
-        NewPassword = string.Empty;
-        ConfirmPassword = string.Empty;
-        IsBusy = false;
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

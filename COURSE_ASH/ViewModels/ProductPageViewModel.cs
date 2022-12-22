@@ -47,7 +47,21 @@ public partial class ProductPageViewModel : BaseViewModel
 
     private async void GetReviewsAsync()
     {
-        ReviewList=(await _productsService.GetReviewsForAsync(PickedProduct)).ToObservableCollection();
+        try
+        {
+            IsBusy = true;
+            IsRefreshing = true;
+            ReviewList = (await _productsService.GetReviewsForAsync(PickedProduct)).ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load reviews!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            IsRefreshing = false;
+        }
     }
     public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
@@ -57,45 +71,87 @@ public partial class ProductPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async Task SaveReview()
+    private async Task SaveReviewAsync(Review review)
     {
-
+        try
+        {
+            IsBusy = true;
+            await _productsService.AddReviewForAsync(PickedProduct,review);
+        }
+        catch(Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not save review!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
     async Task AddToCartAsync(Product product)
     {
-        IsBusy = true;
-        await _cartService
-            .AddProductToStorageCartAsync(App.CurrentLogin,
-                new CartProduct(product) { UnitQuantity = 0});
-
-        await Toast.Make(GeneralAlerts.ADDED_TO_CART, ToastDuration.Short).Show();
-        IsInCart = true;
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            await _cartService
+                .AddProductToStorageCartAsync(App.CurrentLogin,
+                    new CartProduct(product) { UnitQuantity = 0 });
+            await Toast.Make(GeneralAlerts.ADDED_TO_CART, ToastDuration.Short).Show();
+            IsInCart = true;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not add to cart!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
     async Task RemoveFromCartAsync(Product product)
     {
-        IsBusy = true;
-        await _cartService
-            .DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
-        await Toast.Make(GeneralAlerts.REMOVED_FROM_CART,
-                ToastDuration.Short).Show();
-        IsInCart = false;
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            await _cartService
+                .DeleteProductFromStorageCartAsync(App.CurrentLogin, product);
+            await Toast.Make(GeneralAlerts.REMOVED_FROM_CART,
+                    ToastDuration.Short).Show();
+            IsInCart = false;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not remove from cart!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
     async Task ChangeFavouriteStatusAsync()
     {
-        IsBusy = true;
-        if (IsFavourite)
-            await _favouritesService.DeleteFromFavouritesAsync(App.CurrentLogin, PickedProduct);
-        else await _favouritesService.SetFavouriteAsync(App.CurrentLogin, PickedProduct);
-        IsFavourite = !IsFavourite;
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            if (IsFavourite)
+                await _favouritesService.DeleteFromFavouritesAsync(App.CurrentLogin, PickedProduct);
+            else await _favouritesService.SetFavouriteAsync(App.CurrentLogin, PickedProduct);
+            IsFavourite = !IsFavourite;
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not change favourite status!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+
     }
 
     [RelayCommand]

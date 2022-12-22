@@ -49,18 +49,32 @@ public partial class CheckoutPageViewModel : BaseViewModel
             IsBusy = false;
             return;
         }
-
-        await _orderService.CheckoutAsync(App.CurrentLogin,
-            Products.ToList(),
-            BillingAddress,
-            TotalPrice);
-        await _cartService.ClearStorageCartAsync(App.CurrentLogin);
+        try
+        {
+            await _orderService.CheckoutAsync(App.CurrentLogin,
+                Products.ToList(),
+                BillingAddress,
+                TotalPrice);
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not make an order!", "OK");
+        }
+        try
+        {
+            await _cartService.ClearStorageCartAsync(App.CurrentLogin);
+        }
+        catch(Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not clear the cart!", "OK");
+        }
 
         await Shell.Current.DisplayAlert("SUCCESS!",
             "You order awaits confirmation\n" +
             "You can follow the status update in your account page",
             "OK");
         await Shell.Current.GoToAsync($"..");
+
         IsBusy = false;
     }
 

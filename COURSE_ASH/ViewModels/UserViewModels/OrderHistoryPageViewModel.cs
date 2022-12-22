@@ -24,9 +24,23 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
     }
     public async void RefreshAsync()
     {
-        if (string.IsNullOrEmpty(CurrentLogin)) return;
-        OrderHistory = new ObservableCollection<Order>
-            (await _orderService.GetOrdersAsync(CurrentLogin));
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            if (string.IsNullOrEmpty(CurrentLogin)) return;
+            OrderHistory = new ObservableCollection<Order>
+                (await _orderService.GetOrdersAsync(CurrentLogin));
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
+        }
+        finally
+        {
+            IsRefreshing = false;
+            IsBusy = false;
+        }
     }
 
     void OrdersChanged(object sender, PropertyChangedEventArgs e)

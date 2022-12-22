@@ -10,12 +10,6 @@ public partial class SearchPageViewModel : BaseViewModel
 
     public record struct RangeRecord(string LBorder, string RBorder);
 
-    //[ObservableProperty]
-    //private List<ProdType> _typeList;
-
-    //[ObservableProperty]
-    //private List<ProdType> _pickedTypes;
-
     [ObservableProperty]
     private RangeRecord _range;
 
@@ -51,8 +45,22 @@ public partial class SearchPageViewModel : BaseViewModel
 
     private async void GetProducts()
     {
-        _cacheList = await _service.GetProductsAsync();
-        Products = _cacheList.ToObservableCollection();
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            _cacheList = await _service.GetProductsAsync();
+            Products = _cacheList.ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+            IsRefreshing = false;
+        }
     }
 
     [RelayCommand]

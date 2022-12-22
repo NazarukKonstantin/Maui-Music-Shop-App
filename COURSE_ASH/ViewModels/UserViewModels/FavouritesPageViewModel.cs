@@ -19,10 +19,24 @@ public partial class FavouritesPageViewModel : BaseViewModel
     }
     public async void RefreshAsync()
     {
-        Favourites = (await _favouritesService
-            .GetFavouriteProductsAsync(App.CurrentLogin))?
-            .ToObservableCollection();
-        IsEmpty = Favourites is null || Favourites.Count==0;
+        try
+        {
+            IsRefreshing = true;
+            IsBusy = true;
+            Favourites = (await _favouritesService
+                .GetFavouriteProductsAsync(App.CurrentLogin))?
+                .ToObservableCollection();
+            IsEmpty = Favourites is null || Favourites.Count == 0;
+        }
+        catch(Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load favourites!", "OK");
+        }
+        finally
+        {
+            IsRefreshing = false;
+            IsBusy=false;
+        }
     }
 
     [RelayCommand]
@@ -38,14 +52,24 @@ public partial class FavouritesPageViewModel : BaseViewModel
     [RelayCommand]
     async Task DeleteFromFavouritesAsync(Product product)
     {
-        if (IsBusy) return;
-        IsBusy = true;
-        await _favouritesService
-            .DeleteFromFavouritesAsync(App.CurrentLogin, product);
-        Favourites = (await _favouritesService
-            .GetFavouriteProductsAsync(App.CurrentLogin))?
-            .ToObservableCollection();
-        IsEmpty = Favourites is null || Favourites.Count==0;
-        IsBusy = false;
+        try
+        {
+            if (IsBusy) return;
+            IsBusy = true;
+            await _favouritesService
+                .DeleteFromFavouritesAsync(App.CurrentLogin, product);
+            Favourites = (await _favouritesService
+                .GetFavouriteProductsAsync(App.CurrentLogin))?
+                .ToObservableCollection();
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not delete from favourites!", "OK");
+        }
+        finally
+        {
+            IsEmpty = Favourites is null || Favourites.Count == 0;
+            IsBusy = false;
+        }
     }
 }

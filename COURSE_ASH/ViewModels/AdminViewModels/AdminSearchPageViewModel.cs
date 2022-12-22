@@ -54,18 +54,20 @@ public partial class AdminSearchPageViewModel : BaseViewModel
 
     public async void RefreshAsync()
     {
-        IsRefreshing=true;
-        IsCategListSelected=true;
-        IsProdListSelected=false;
-        CurrentLogin=App.CurrentLogin;
+        IsRefreshing = true;
+        IsBusy = true;
+        IsCategListSelected = true;
+        IsProdListSelected = false;
+        CurrentLogin = App.CurrentLogin;
 
         await LoadCategoriesAsync();
         await LoadProductsAsync();
-        await LoadImagesAsync();
+        await LoadImageAsync();
 
-        IsProdListEmpty = Products.Count==0;
-        IsCategListEmpty = Categories.Count==0;
-        IsRefreshing=false;
+        IsProdListEmpty = Products.Count == 0;
+        IsCategListEmpty = Categories.Count == 0;
+        IsBusy = false;
+        IsRefreshing = false;
     }
 
     private async Task LoadCategoriesAsync()
@@ -76,7 +78,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not load categories");
+            await Shell.Current.DisplayAlert("ERROR", "Could not load categories!", "OK");
         }
     }
     private async Task LoadProductsAsync()
@@ -84,16 +86,15 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         try
         {
             Categories = CategCacheList.ToObservableCollection();
-            ProdCacheList= (await _productsService.GetProductsAsync()).ToList();
+            ProdCacheList = (await _productsService.GetProductsAsync()).ToList();
             Products = ProdCacheList.ToObservableCollection();
-
         }
         catch (Exception)
         {
-            //await _popup.NotifyAsync("Could not load products");
+            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
         }
     }
-    private async Task LoadImagesAsync()
+    private async Task LoadImageAsync()
     {
         try
         {
@@ -113,7 +114,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(ProfilePage)}", true,
            new Dictionary<string, object>
            {
-               ["ImageLink"]=ImageLink,
+               ["ImageLink"] = ImageLink,
            });
     }
 
@@ -191,9 +192,9 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ChooseCategActionAsync(CatalogItem item)
     {
-        if(IsCategListSelected)
+        if (IsCategListSelected)
         {
-            string choice = await Shell.Current.DisplayActionSheet("OPTIONS","Cancel","Delete","Open","Edit");
+            string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", "Delete", "Open", "Edit");
             switch (choice)
             {
                 case "Cancel": return;
@@ -202,7 +203,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 case "Edit": await ChangeCategoryAsync(item); break;
             }
         }
-        
+
     }
 
     [RelayCommand]
@@ -247,7 +248,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 //Передача страницу отфильтрованного списка
                 ["Products"] = filteredProducts,
                 //Передача странице переменной видимости нижних вкладок
-                [nameof(IsTabVisible)]=IsTabVisible
+                [nameof(IsTabVisible)] = IsTabVisible
             });
     }
 
@@ -262,14 +263,24 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task DeleteCategoryAsync(CatalogItem item)
     {
-        IsBusy = true;
-        bool choice = await Shell.Current.DisplayAlert("Are you sure?",
-            $"{item.Category} with all the products\n" +
-            $"of this category will be deleted",
-            "Confirm",
-            "Cancel");
-        if (choice) await _catalogService.RemoveCategoryAsync(item,_productsService);
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?",
+                $"{item.Category} with all the products\n" +
+                $"of this category will be deleted",
+                "Confirm",
+                "Cancel");
+            if (choice) await _catalogService.RemoveCategoryAsync(item, _productsService);
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not delete category!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
@@ -295,13 +306,23 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task DeleteProductAsync(Product product)
     {
-        IsBusy = true;
-        bool choice = await Shell.Current.DisplayAlert("Are you sure?",
-            $"{product.Model} will be deleted",
-            "Confirm",
-            "Cancel");
-        if (choice) await _productsService.DeleteProductAsync(product);
-        IsBusy = false;
+        try
+        {
+            IsBusy = true;
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?",
+                $"{product.Model} will be deleted",
+                "Confirm",
+                "Cancel");
+            if (choice) await _productsService.DeleteProductAsync(product);
+        }
+        catch (Exception)
+        {
+            await Shell.Current.DisplayAlert("ERROR", "Could not load products!", "OK");
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]

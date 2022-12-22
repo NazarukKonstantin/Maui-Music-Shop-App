@@ -401,7 +401,7 @@
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewCommand"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReview"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewAsync(COURSE_ASH.Models.Review)"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.addToCartCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.AddToCartCommand"/>.</summary>

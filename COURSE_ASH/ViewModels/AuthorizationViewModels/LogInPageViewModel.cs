@@ -74,12 +74,10 @@ public partial class LogInPageViewModel : BaseViewModel
     //Метод отвечает за переход на страницу регистрации
     async Task SignUp()
     {
-        IsBusy = true;
         Login = string.Empty;
         Password = string.Empty;
         IsFailed = false;
         IsSuccessful = false;
         await Shell.Current.GoToAsync(nameof(RegistrationPage));
-        IsBusy = false;
     }
 }

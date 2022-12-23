@@ -3,6 +3,7 @@ global using CommunityToolkit.Mvvm.Input;
 global using CommunityToolkit.Maui.Core.Extensions;
 global using CommunityToolkit.Maui.Alerts;
 global using CommunityToolkit.Maui.Core;
+global using CommunityToolkit.Maui.Views;
 global using System.ComponentModel;
 global using System.Collections.ObjectModel;
 global using Firebase.Database;

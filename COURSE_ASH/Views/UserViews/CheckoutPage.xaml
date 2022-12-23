@@ -2,15 +2,145 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.UserViews.CheckoutPage"
-             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
-             x:DataType="viewmodel:CheckoutPageViewModel"
+             xmlns:userViewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             xmlns:model="clr-namespace:COURSE_ASH.Models"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels"
+             x:DataType="userViewmodel:CheckoutPageViewModel"
              Title="CheckoutPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label 
-            Text="checkout"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </ScrollView>
+    <Grid RowSpacing="10" RowDefinitions="*,3,25,3,70">
+        <ScrollView>
+            <VerticalStackLayout  Spacing="5">
+                <Border HeightRequest="280"
+                        VerticalOptions="Start"
+                        StrokeShape="RoundRectangle 20"
+                        Margin="0,5,0,0"
+                        Padding="5,10"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="2">
+                    <CollectionView ItemsSource="{Binding Products}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:CartProduct">
+                                <Grid Margin="2,1,2,2"
+                                      HeightRequest="120"
+                                      BackgroundColor="{AppThemeBinding Light=White, Dark=Red}">
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                AncestorType={x:Type viewmodel:SearchPageViewModel}},
+                                Path=GoToProductCommand}"
+                                                              CommandParameter="{Binding .}" />
+                                    </Grid.GestureRecognizers>
+                                    <Grid ColumnDefinitions="0,5*,*,*,*"
+                                          RowDefinitions="3,*,0.5*,3">
+                                        <BoxView Grid.Row="0"
+                                                 Color="{StaticResource Primary}"
+                                                 Grid.ColumnSpan="4"
+                                                 Margin="10,0" />
+                                        <Label Grid.Row="1"
+                                               Text="{Binding UnitQuantity, StringFormat='x{0}'}"
+                                               Grid.Column="0"
+                                               VerticalOptions="Center"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               Grid.RowSpan="2" />
+                                        <Image Grid.Row="1"
+                                               Source="{Binding ImageLink}"
+                                               VerticalOptions="Fill"
+                                               Grid.Column="1"
+                                               Margin="0,10" />
+                                        <Label Grid.Row="2"
+                                               Text="{Binding Model}"
+                                               Grid.Column="1"
+                                               Grid.ColumnSpan="3"
+                                               VerticalOptions="Center"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Start"
+                                               Margin="20,0,20,0"
+                                               LineBreakMode="TailTruncation" />
+                                        <Label Grid.Row="1"
+                                               Text="{Binding Price, StringFormat='{0:F2}$'}"
+                                               Grid.Column="2"
+                                               VerticalOptions="Center"
+                                               FontSize="Medium"
+                                               HorizontalOptions="Center"
+                                               Grid.ColumnSpan="2" />
+                                        <BoxView Grid.Row="3"
+                                                 Color="{StaticResource Primary}"
+                                                 Grid.ColumnSpan="4"
+                                                 Margin="10,0" />
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Border>
+                <Border VerticalOptions="Start"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="5,10"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="2">
+                    <VerticalStackLayout Padding="20,5"
+                                         Spacing="10">
+                        <Label Text="Address:"
+                               FontSize="Medium" />
+                        <Label Text="{Binding BillingAddress}"
+                               FontSize="Medium" />
+                        <Button Text="Enter address"
+                                Clicked="EnterAddress_Clicked"/>
+                    </VerticalStackLayout>
+                </Border>
+                <Border VerticalOptions="Start"
+                        StrokeShape="RoundRectangle 20"
+                        Padding="20,10"
+                        BackgroundColor="Transparent"
+                        Stroke="{StaticResource Primary}"
+                        StrokeThickness="2">
+                    <Entry Placeholder="Enter phone number"
+                           Keyboard="Telephone"
+                           Text="{Binding PhoneNumber,StringFormat='+{0}'}"
+                           FontSize="Medium" />
+
+                </Border>
+            </VerticalStackLayout>
+        </ScrollView>
+
+
+        <BoxView Grid.Row="1"
+                 Color="{StaticResource Primary}" />
+        <Grid Padding="30, 0"
+              Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Text="Total: "
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   FontSize="Medium" />
+            <Label Text="{Binding TotalPrice, StringFormat='{0:F2}$'}"
+                   Grid.Column="1"
+                   HorizontalOptions="Start"
+                   FontSize="Medium"
+                   VerticalOptions="Center" />
+        </Grid>
+        <BoxView Grid.Row="3"
+                 Color="{StaticResource Primary}" />
+        <Frame HeightRequest="50"
+               VerticalOptions="End"
+               Margin="20"
+               Padding="20,0"
+               Grid.Row="4"
+               IsEnabled="{Binding IsNotBusy}">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding ConfirmCommand}" />
+            </Frame.GestureRecognizers>
+            <Label Text="Confirm"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   TextColor="{AppThemeBinding Dark=Black, Light=White}"
+                   FontSize="Medium"
+                   FontAttributes="Bold" />
+        </Frame>
+    </Grid>
 </ContentPage>

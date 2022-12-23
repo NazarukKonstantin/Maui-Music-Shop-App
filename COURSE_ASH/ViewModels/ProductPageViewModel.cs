@@ -1,7 +1,4 @@
-﻿using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Core;
-
-namespace COURSE_ASH.ViewModels;
+﻿namespace COURSE_ASH.ViewModels;
 
 [QueryProperty(nameof(PickedProduct),nameof(PickedProduct))]
 public partial class ProductPageViewModel : BaseViewModel
@@ -23,15 +20,15 @@ public partial class ProductPageViewModel : BaseViewModel
     private int _rating;
 
     [ObservableProperty]
-    private string _currentLogin;
-
-    [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotInCart))]
     private bool _isInCart = false;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(IsNotFavourite))]
     private bool _isFavourite = false;
+
+    [ObservableProperty]
+    private bool _isReviewNotEmpty = false;
 
     public bool IsNotFavourite => !IsFavourite;
     public bool IsNotInCart => !IsInCart;
@@ -42,7 +39,14 @@ public partial class ProductPageViewModel : BaseViewModel
         _favouritesService = favouritesService;
         _productsService=productsService;
         GetReviewsAsync();
+        PropertyChanged += CheckReviewEmpty;
         PropertyChanged += ProductPropertyChanged;
+    }
+
+    private void CheckReviewEmpty(object sender, PropertyChangedEventArgs e)
+    {
+        if (e.PropertyName != nameof(Review)) return;
+        IsReviewNotEmpty = !string.IsNullOrEmpty(Review);
     }
 
     private async void GetReviewsAsync()
@@ -53,7 +57,7 @@ public partial class ProductPageViewModel : BaseViewModel
             IsRefreshing = true;
             ReviewList = (await _productsService.GetReviewsForAsync(PickedProduct)).ToObservableCollection();
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not load reviews!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
@@ -67,8 +71,20 @@ public partial class ProductPageViewModel : BaseViewModel
     public async void ProductPropertyChanged(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName != nameof(PickedProduct)) return;
-        IsInCart = await _cartService.IsProductInStorageCart(PickedProduct, App.CurrentLogin);
-        IsFavourite = await _favouritesService.IsProductFavouriteAsync(App.CurrentLogin, PickedProduct);
+        IsBusy = true;
+        try
+        {
+            IsInCart = await _cartService.IsProductInStorageCart(PickedProduct, App.CurrentLogin);
+            IsFavourite = await _favouritesService.IsProductFavouriteAsync(App.CurrentLogin, PickedProduct);
+        }
+        catch
+        {
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
+        }
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     [RelayCommand]
@@ -79,7 +95,7 @@ public partial class ProductPageViewModel : BaseViewModel
             IsBusy = true;
             await _productsService.AddReviewForAsync(PickedProduct,review);
         }
-        catch(Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not save review!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
@@ -102,7 +118,7 @@ public partial class ProductPageViewModel : BaseViewModel
             await Toast.Make(GeneralAlerts.ADDED_TO_CART, ToastDuration.Short).Show();
             IsInCart = true;
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not add to cart!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
@@ -147,7 +163,7 @@ public partial class ProductPageViewModel : BaseViewModel
             else await _favouritesService.SetFavouriteAsync(App.CurrentLogin, PickedProduct);
             IsFavourite = !IsFavourite;
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not change favourite status!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();

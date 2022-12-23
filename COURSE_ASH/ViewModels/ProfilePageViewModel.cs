@@ -1,4 +1,6 @@
-﻿namespace COURSE_ASH.ViewModels;
+﻿using COURSE_ASH.Models;
+
+namespace COURSE_ASH.ViewModels;
 
 [QueryProperty(nameof(ImageLink),nameof(ImageLink))]
 public partial class ProfilePageViewModel : BaseViewModel
@@ -64,8 +66,10 @@ public partial class ProfilePageViewModel : BaseViewModel
             NewPassword = string.Empty;
             ConfirmPassword = string.Empty;
         }
-        catch (Exception)
+        catch
         {
+            IsSuccessful = false;
+            IsFailed = true;
             //await Shell.Current.DisplayAlert("ERROR", "Could not change password!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }

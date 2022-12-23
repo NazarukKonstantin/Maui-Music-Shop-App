@@ -32,7 +32,7 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
             OrderHistory = new ObservableCollection<Order>
                 (await _orderService.GetOrdersAsync(CurrentLogin));
         }
-        catch (Exception)
+        catch 
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();

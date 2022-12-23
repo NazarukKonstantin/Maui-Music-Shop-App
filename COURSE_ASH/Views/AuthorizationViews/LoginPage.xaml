@@ -32,7 +32,7 @@
                    VerticalOptions="CenterAndExpand"
                    WidthRequest="130"
                    HeightRequest="130"
-                   Aspect="AspectFill" />
+                   Aspect="AspectFill"/>
         </Frame>
 
         <VerticalStackLayout Margin="0"
@@ -40,13 +40,8 @@
                              Spacing="20">
 
             <Label Text="{Binding Alert}"
-                   TextColor="OrangeRed"
-                   Margin="30,0,30,0"
-                   HorizontalTextAlignment="Center"
-                   HorizontalOptions="StartAndExpand"
-                   IsVisible="{Binding IsFailed}"
-                   FontSize="Small"
-                   TextDecorations="Underline" />
+                   Style="{StaticResource AlertLabel}"
+                   Margin="30,0,30,0" />
 
             <Border Style="{StaticResource ErrorPossibleBorder}">
                 <Frame Style="{StaticResource LoginEntryFrame}"

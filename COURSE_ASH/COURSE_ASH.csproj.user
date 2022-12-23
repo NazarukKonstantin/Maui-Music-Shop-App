@@ -51,10 +51,10 @@
     <MauiXaml Update="Views\AdminViews\OrdersCatalogPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\AdminViews\OrderStatusPage.xaml">
+    <MauiXaml Update="Views\AdminViews\OrderStatusPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\UserViews\BillingAddressPage.xaml">
+    <MauiXaml Update="Views\UserViews\BillingAddressPopup.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="Views\UserViews\CartPage.xaml">

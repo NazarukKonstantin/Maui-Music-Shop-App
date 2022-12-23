@@ -7,10 +7,6 @@ public partial class AccountsPageViewModel : BaseViewModel
     [ObservableProperty]
     ObservableCollection<AccountData> _accounts;
 
-    //Clear
-    [ObservableProperty]
-    private Roles _role;
-
     public AccountsPageViewModel(AccountManager accountsService)
     {
         _service = accountsService;

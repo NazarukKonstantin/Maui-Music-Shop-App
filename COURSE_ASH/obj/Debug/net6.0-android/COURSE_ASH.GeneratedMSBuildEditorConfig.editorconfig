@@ -123,11 +123,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AdminView
 build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\OrdersCatalogPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\OrdersCatalogPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AdminViews/OrderStatusPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AdminViews/OrderStatusPopup.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AdminViews.OrderStatusPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\OrderStatusPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\OrderStatusPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.AdminViews.OrderStatusPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AdminViews\OrderStatusPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AdminViews\OrderStatusPopup.xaml
 
 [E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/AuthorizationViews/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
@@ -159,11 +159,11 @@ build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.SearchPag
 build_metadata.AdditionalFiles.TargetPath = Views\SearchPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\SearchPage.xaml
 
-[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/UserViews/BillingAddressPage.xaml]
+[E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/UserViews/BillingAddressPopup.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.UserViews.BillingAddressPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\UserViews\BillingAddressPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\UserViews\BillingAddressPage.xaml
+build_metadata.AdditionalFiles.ManifestResourceName = COURSE_ASH.Views.UserViews.BillingAddressPopup.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\UserViews\BillingAddressPopup.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\UserViews\BillingAddressPopup.xaml
 
 [E:/OOPIP/COURSE_WORK/Maui-Music-Shop-App/COURSE_ASH/Views/UserViews/CartPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

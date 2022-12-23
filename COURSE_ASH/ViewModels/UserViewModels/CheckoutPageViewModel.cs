@@ -36,58 +36,48 @@ public partial class CheckoutPageViewModel : BaseViewModel
     async Task ConfirmAsync()
     {
         IsBusy = true;
-
-        if (string.IsNullOrEmpty(BillingAddress))
-        {
-            await Toast.Make(AddressAlerts.WRONG_ADDRESS, ToastDuration.Long).Show();
-            IsBusy = false;
-            return;
-        }
-        if (string.IsNullOrEmpty(PhoneNumber) || !Order.IsPhoneNumber(PhoneNumber))
-        {
-            await Toast.Make(AddressAlerts.WRONG_NUMBER, ToastDuration.Long).Show();
-            IsBusy = false;
-            return;
-        }
         try
         {
+            if (string.IsNullOrEmpty(BillingAddress))
+            {
+                await Toast.Make(AddressAlerts.WRONG_ADDRESS, ToastDuration.Long).Show();
+                IsBusy = false;
+                return;
+            }
+            if (string.IsNullOrEmpty(PhoneNumber) || !Order.IsPhoneNumber(PhoneNumber))
+            {
+                await Toast.Make(AddressAlerts.WRONG_NUMBER, ToastDuration.Long).Show();
+                IsBusy = false;
+                return;
+            }
             await _orderService.CheckoutAsync(App.CurrentLogin,
                 Products.ToList(),
                 BillingAddress,
                 TotalPrice);
+
+            await _cartService.ClearStorageCartAsync(App.CurrentLogin);
+
+            await Shell.Current.DisplayAlert("SUCCESS!",
+                "You order awaits confirmation\n" +
+                "You can follow the status update in your account page",
+                "OK");
+            await Shell.Current.GoToAsync($"..");
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not make an order!", "OK");
-            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
-        }
-        try
-        {
-            await _cartService.ClearStorageCartAsync(App.CurrentLogin);
-        }
-        catch(Exception)
-        {
             //await Shell.Current.DisplayAlert("ERROR", "Could not clear the cart!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
-
-        await Shell.Current.DisplayAlert("SUCCESS!",
-            "You order awaits confirmation\n" +
-            "You can follow the status update in your account page",
-            "OK");
-        await Shell.Current.GoToAsync($"..");
-
-        IsBusy = false;
+        finally
+        {
+            IsBusy = false;
+        }
     }
 
     private void CheckEmpty(object sender, PropertyChangedEventArgs e)
     {
         if (e.PropertyName == nameof(IsNotEmpty)) return;
-        IsNotEmpty=!(string.IsNullOrEmpty(BillingAddress));
-    }
-    [RelayCommand]
-    async Task EnterAddressAsync()
-    {
-        await Shell.Current.GoToAsync($"{nameof(BillingAddressPage)}");
+        IsNotEmpty = !(string.IsNullOrEmpty(BillingAddress));
     }
 }

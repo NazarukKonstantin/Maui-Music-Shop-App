@@ -63,6 +63,7 @@ public class ProductsService
         }
         if (review != null)
         {
+            review.CurrentLogin = App.CurrentLogin;
             product.Reviews.Add(review);
         }
 

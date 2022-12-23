@@ -28,7 +28,7 @@ public partial class FavouritesPageViewModel : BaseViewModel
                 .ToObservableCollection();
             IsEmpty = Favourites is null || Favourites.Count == 0;
         }
-        catch(Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not load favourites!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
@@ -63,7 +63,7 @@ public partial class FavouritesPageViewModel : BaseViewModel
                 .GetFavouriteProductsAsync(App.CurrentLogin))?
                 .ToObservableCollection();
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not delete from favourites!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();

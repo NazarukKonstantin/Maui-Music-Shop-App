@@ -6,9 +6,6 @@ public partial class AppShell : Shell
     {
         InitializeComponent();
 
-        BindingContext = new AppShellViewModel();
-
-        Routing.RegisterRoute(nameof(BillingAddressPage), typeof(BillingAddressPage));
         Routing.RegisterRoute(nameof(CartPage), typeof(CartPage));
         Routing.RegisterRoute(nameof(CatalogPage), typeof(CatalogPage));
         Routing.RegisterRoute(nameof(CheckoutPage), typeof(CheckoutPage));

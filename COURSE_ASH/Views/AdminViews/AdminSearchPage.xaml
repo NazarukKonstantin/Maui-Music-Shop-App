@@ -19,253 +19,254 @@
             ,Light={StaticResource Primary}}"
                                StatusBarStyle="{AppThemeBinding Dark=LightContent,Light=DarkContent}" />
     </Page.Behaviors>
-    <ScrollView>
-        <Grid RowDefinitions=".2*,*,*,*"
-              ColumnDefinitions="*,Auto,.1*">
-            <BoxView Style="{StaticResource NavBarBoxView}"
-                     Grid.Row="0"
-                     Grid.Column="0"
-                     Grid.ColumnSpan="3" />
+    <Grid RowDefinitions=".2*,*,*,*"
+          ColumnDefinitions="*,Auto,.1*">
+        <BoxView Style="{StaticResource NavBarBoxView}"
+                 Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="3" />
 
-            <Image  x:Name="LogOut"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Style="{StaticResource CatalogNavBarImage}"
-                    Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
+        <Image  x:Name="LogOut"
+                Grid.Row="0"
+                Grid.Column="0"
+                Style="{StaticResource CatalogNavBarImage}"
+                Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
                                         ,Light={Static global:Icons.LogoutDark}}"
-                    VerticalOptions="StartAndExpand">
+                VerticalOptions="StartAndExpand">
+
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
+                                            {x:Type viewmodel:AdminSearchPageViewModel}},
+                        Path=SignOutCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <SearchBar x:Name="SearchCategories"
+                   IsEnabled="{Binding IsCategListSelected}"
+                   IsVisible="{Binding IsCategListSelected}"
+                   Margin="-35"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding Query}"
+                   Placeholder="Search category"
+                   SearchButtonPressed="SearchCategories_SearchButtonPressed">
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="TextChanged"
+                                                Command="{Binding SearchCategoriesCommand}" />
+            </SearchBar.Behaviors>
+        </SearchBar>
+
+        <SearchBar x:Name="SearchProducts"
+                   IsEnabled="{Binding IsProdListSelected}"
+                   IsVisible="{Binding IsProdListSelected}"
+                   Margin="-35"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Text="{Binding Query}"
+                   Placeholder="Search product model"
+                   SearchButtonPressed="SearchProducts_SearchButtonPressed">
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="TextChanged"
+                                                Command="{Binding SearchProductsCommand}" />
+            </SearchBar.Behaviors>
+        </SearchBar>
+
+        <Border Stroke="Transparent"
+                StrokeShape="Ellipse"
+                Grid.Row="0"
+                Grid.Column="2">
+
+            <Image x:Name="ProfilePic"
+                   Source="{Binding ImageLink, FallbackValue={AppThemeBinding 
+                        Dark = {Static global:Icons.DefaultProfile},
+                        Light = {Static global:Icons.DefaultProfile}}}"
+                   Style="{StaticResource CatalogNavBarImage}"
+                   Aspect="AspectFill">
 
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
-                                            {x:Type viewmodel:AdminSearchPageViewModel}},
-                        Path=SignOutCommand}" />
+                    {x:Type viewmodel:AdminSearchPageViewModel}},Path=GoToProfilePageCommand}" />
                 </Image.GestureRecognizers>
             </Image>
+        </Border>
 
-            <SearchBar x:Name="SearchCategories"
-                       IsEnabled="{Binding IsCategListSelected}"
-                       IsVisible="{Binding IsCategListSelected}"
-                       Margin="-35"
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       Text="{Binding Query}"
-                       Placeholder="Search category">
-                <SearchBar.Behaviors>
-                    <toolkit:EventToCommandBehavior EventName="TextChanged"
-                                                    Command="{Binding SearchCategoriesCommand}" />
-                </SearchBar.Behaviors>
-            </SearchBar>
-
-            <SearchBar x:Name="SearchProducts"
-                       IsEnabled="{Binding IsProdListSelected}"
-                       IsVisible="{Binding IsProdListSelected}"
-                       Margin="-35"
-                       Grid.Row="0"
-                       Grid.Column="1"
-                       Text="{Binding Query}"
-                       Placeholder="Search product model">
-                <SearchBar.Behaviors>
-                    <toolkit:EventToCommandBehavior EventName="TextChanged"
-                                                    Command="{Binding SearchProductsCommand}" />
-                </SearchBar.Behaviors>
-            </SearchBar>
-
-            <Border Stroke="Transparent"
-                    StrokeShape="Ellipse"
-                    Grid.Row="0"
-                    Grid.Column="2">
-
-                <Image x:Name="ProfilePic"
-                       Source="{Binding ImageLink, FallbackValue={AppThemeBinding 
-                        Dark = {Static global:Icons.DefaultProfile},
-                        Light = {Static global:Icons.DefaultProfile}}}"
-                       Style="{StaticResource CatalogNavBarImage}"
-                       Aspect="AspectFill">
-
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
-                    {x:Type viewmodel:AdminSearchPageViewModel}},Path=GoToProfilePageCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
-            </Border>
-
-            <HorizontalStackLayout Grid.Row="1"
-                                   Grid.Column="0"
-                                   Grid.ColumnSpan="3">
-                <RadioButton x:Name="CategoryChoice"
-                             IsChecked="{Binding IsCategListSelected}">
-                    <RadioButton.Content>
-                        <HorizontalStackLayout Spacing="5">
-                            <Label Text="Categories"
-                                   Style="{StaticResource Title}" />
-                            <Image Source="{x:Static global:Icons.Category}" />
-                        </HorizontalStackLayout>
-                    </RadioButton.Content>
-                </RadioButton>
-
-                <RadioButton x:Name="ProductsChoice"
-                             IsChecked="{Binding IsProdListSelected}">
-                    <RadioButton.Content>
-                        <HorizontalStackLayout Spacing="5">
-                            <Label Text="Products"
-                                   Style="{StaticResource Title}" />
-                            <Image Source="{x:Static global:Icons.Products}" />
-                        </HorizontalStackLayout>
-                    </RadioButton.Content>
-                </RadioButton>
-            </HorizontalStackLayout>
-
-            <BoxView Grid.Row="2"
-                     Style="{StaticResource NavBarBoxView}"
-                     HeightRequest="5" />
-
-            <!--Catalog-->
-            <CollectionView x:Name="CategoriesView"
-                            IsVisible="{Binding IsCategListSelected}"
-                            Grid.Row="3"
-                            Grid.ColumnSpan="3"
-                            ItemsSource="{Binding Categories}">
-                <CollectionView.EmptyView>
-                    <VerticalStackLayout Spacing="10">
-                        <skia:SKLottieView Grid.Row="2"
-                                           Source="{AppThemeBinding Dark=empty_blue_box.json,
-                                                                    Light=empty_orange_box.json}"
-                                           RepeatCount="-1" />
-                        <Label Text="No products!"
+        <HorizontalStackLayout Grid.Row="1"
+                               Grid.Column="0"
+                               Grid.ColumnSpan="3">
+            <RadioButton x:Name="CategoryChoice"
+                         IsChecked="{Binding IsCategListSelected}">
+                <RadioButton.Content>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="Categories"
                                Style="{StaticResource Title}" />
-                    </VerticalStackLayout>
-                </CollectionView.EmptyView>
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="1"
-                                     Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:CatalogItem">
-                        <Grid Padding="8">
-                            <Border Style="{StaticResource CardViewBorder}">
-                                <Border.Shadow>
-                                    <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                        <Image Source="{x:Static global:Icons.Category}" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+
+            <RadioButton x:Name="ProductsChoice"
+                         IsChecked="{Binding IsProdListSelected}">
+                <RadioButton.Content>
+                    <HorizontalStackLayout Spacing="5">
+                        <Label Text="Products"
+                               Style="{StaticResource Title}" />
+                        <Image Source="{x:Static global:Icons.Products}" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+        </HorizontalStackLayout>
+
+        <BoxView Grid.Row="2"
+                 Style="{StaticResource NavBarBoxView}"
+                 HeightRequest="5" />
+
+        <!--Catalog-->
+        <CollectionView x:Name="CategoriesView"
+                        IsVisible="{Binding IsCategListSelected}"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Categories}">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Spacing="10">
+                    <skia:SKLottieView Grid.Row="2"
+                                       Source="{AppThemeBinding Dark=empty_blue_box.json,
+                                                                    Light=empty_orange_box.json}"
+                                       RepeatCount="-1" />
+                    <Label Text="No products!"
+                           Style="{StaticResource Title}" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CatalogItem">
+                    <Grid Padding="8">
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light=Black}"
-                                            Offset="15,15"
-                                            Radius="15"
-                                            Opacity="0.2" />
-                                </Border.Shadow>
-                                <Frame HeightRequest="150"
-                                       Style="{StaticResource CatalogStyle}">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                              Command="{Binding Source={RelativeSource AncestorType=
+                                        Offset="15,15"
+                                        Radius="15"
+                                        Opacity="0.2" />
+                            </Border.Shadow>
+                            <Frame HeightRequest="150"
+                                   Style="{StaticResource CatalogStyle}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType=
                                             {x:Type viewmodel:AdminSearchPageViewModel}},Path=GoToSearchPageCommand}" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid ColumnDefinitions="*,*">
-                                        <Image Source="{Binding ImageLink}"
-                                               Rotation="{Binding ImageRotation}"
-                                               Scale="{Binding ImageScale}"
-                                               Style="{StaticResource CatalogImageStyle}" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="*,*">
+                                    <Image Source="{Binding ImageLink}"
+                                           Rotation="{Binding ImageRotation}"
+                                           Scale="{Binding ImageScale}"
+                                           Style="{StaticResource CatalogImageStyle}" />
 
-                                        <Label Text="{Binding Category}"
-                                               Grid.Column="1"
-                                               HorizontalOptions="Center"
-                                               Style="{StaticResource Title}" />
-                                    </Grid>
-                                </Frame>
-                            </Border>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <!--Products-->
-            <CollectionView x:Name="ProductCollection"
-                            BackgroundColor="Transparent"
-                            Grid.Row="3"
-                            Grid.ColumnSpan="3"
-                            ItemsSource="{Binding Products}"
-                            SelectionMode="None">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="2"
-                                     Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.EmptyView>
-                    <VerticalStackLayout Spacing="10">
-                        <skia:SKLottieView Grid.Row="2"
-                                           Source="{AppThemeBinding Dark=empty_blue_box.json,
+                                    <Label Text="{Binding Category}"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           Style="{StaticResource Title}" />
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--Products-->
+        <CollectionView x:Name="ProductCollection"
+                        BackgroundColor="Transparent"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Products}"
+                        SelectionMode="None">
+            
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Spacing="10">
+                    <skia:SKLottieView Grid.Row="2"
+                                       Source="{AppThemeBinding Dark=empty_blue_box.json,
                                                                     Light=empty_orange_box.json}"
-                                           RepeatCount="-1" />
-                        <Label Text="No products!"
-                               Style="{StaticResource Title}" />
-                    </VerticalStackLayout>
-                </CollectionView.EmptyView>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Product">
-                        <Grid Padding="10">
-                            <Border Style="{StaticResource CardViewBorder}">
-                                <Border.StrokeShape>
-                                    <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
-                                </Border.StrokeShape>
-                                <Border.Shadow>
-                                    <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                       RepeatCount="-1" />
+                    <Label Text="No products!"
+                           Style="{StaticResource Title}" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Grid Padding="10">
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.StrokeShape>
+                                <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light={StaticResource PrimaryDark}}"
-                                            Offset="10,10"
-                                            Radius="20"
-                                            Opacity="0.5" />
-                                </Border.Shadow>
-                                <Frame x:Name="BottomFrame"
-                                       Style="{StaticResource SearchFrameBottom}"
-                                       HeightRequest="400"
-                                       Padding="0">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                        Offset="10,10"
+                                        Radius="20"
+                                        Opacity="0.5" />
+                            </Border.Shadow>
+                            <Frame x:Name="BottomFrame"
+                                   Style="{StaticResource SearchFrameBottom}"
+                                   HeightRequest="400"
+                                   Padding="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource 
                                                                         AncestorType={x:Type viewmodel:AdminSearchPageViewModel}}, 
                                                                         Path=GoToProductPageCommand}"
-                                                              CommandParameter="{Binding .}" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid RowDefinitions=".7*,.3*"
-                                          RowSpacing="20">
-                                        <Frame   Style="{StaticResource SearchFrameTop}"
-                                                 Grid.Row="0">
-                                            <Frame.GestureRecognizers>
-                                                <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                                          CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Grid RowDefinitions=".7*,.3*"
+                                      RowSpacing="20">
+                                    <Frame   Style="{StaticResource SearchFrameTop}"
+                                             Grid.Row="0">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource 
                                                                                         AncestorType={x:Type viewmodel:AdminSearchPageViewModel}},
                                                                                         Path=GoToProductPageCommand}"
-                                                                      CommandParameter="{Binding .}" />
-                                            </Frame.GestureRecognizers>
+                                                                  CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
 
-                                            <Image Source="{Binding ImageLink}"
-                                                   Aspect="AspectFit" />
-                                        </Frame>
+                                        <Image Source="{Binding ImageLink}"
+                                               Aspect="AspectFit" />
+                                    </Frame>
 
-                                        <VerticalStackLayout HorizontalOptions="Start"
-                                                             VerticalOptions="Start"
-                                                             Grid.Row="1"
-                                                             Padding="0"
-                                                             Spacing="5"
-                                                             Margin="15,0,15,0">
-                                            <Label Text="{Binding Price, StringFormat='{0:C2}'}"
-                                                   Style="{StaticResource PriceStyle}" />
+                                    <VerticalStackLayout HorizontalOptions="Start"
+                                                         VerticalOptions="Start"
+                                                         Grid.Row="1"
+                                                         Padding="0"
+                                                         Spacing="5"
+                                                         Margin="15,0,15,0">
+                                        <Label Text="{Binding Price, StringFormat='{0:C2}'}"
+                                               Style="{StaticResource PriceStyle}" />
 
-                                            <Label Text="{Binding Model}"
-                                                   Style="{StaticResource CenteredLabel}"
-                                                   FontSize="21"
-                                                   HorizontalOptions="StartAndExpand"
-                                                   VerticalOptions="Start"
-                                                   MaxLines="1"
-                                                   LineBreakMode="TailTruncation" />
-                                            <rating:SimpleRatingControl Amount="5"
-                                                                        CurrentValue="{Binding Rating}"
-                                                                        AccentColor="{AppThemeBinding 
+                                        <Label Text="{Binding Model}"
+                                               Style="{StaticResource CenteredLabel}"
+                                               FontSize="21"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="Start"
+                                               MaxLines="1"
+                                               LineBreakMode="TailTruncation" />
+                                        <rating:SimpleRatingControl Amount="5"
+                                                                    CurrentValue="{Binding Rating}"
+                                                                    AccentColor="{AppThemeBinding 
                                                                                          Dark={StaticResource TenderWhite}
                                                                                         ,Light={StaticResource DarkBlue}}"
-                                                                        FontSize="25"
-                                                                        HorizontalOptions="Start"
-                                                                        IsEnabled="False" />
-                                        </VerticalStackLayout>
-                                    </Grid>
-                                </Frame>
-                            </Border>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </Grid>
-    </ScrollView>
+                                                                    FontSize="25"
+                                                                    HorizontalOptions="Start"
+                                                                    IsEnabled="False" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

@@ -41,6 +41,7 @@ public partial class EditProductPageViewModel : BaseViewModel
     {
         _productsService = productsService;
         PropertyChanged += ProductChanged;
+        PropertyChanged += CheckEmpty;
         _catalogService=catalogService;
         _catalogService.CategoryChanged+=CategoryChanged;
         GetCategories();
@@ -144,8 +145,6 @@ public partial class EditProductPageViewModel : BaseViewModel
     [RelayCommand]
     public async Task AddCategoryAsync()
     {
-        IsBusy = true;
         await Shell.Current.GoToAsync($"{nameof(AddCategoryPage)}");
-        IsBusy = false;
     }
 }

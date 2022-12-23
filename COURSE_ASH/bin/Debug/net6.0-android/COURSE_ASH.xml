@@ -7,9 +7,6 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.Accounts">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._accounts"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.Role">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._role"/>
-        </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.switchRoleCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.SwitchRoleCommand"/>.</summary>
         </member>
@@ -295,26 +292,20 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.Orders">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel._orders"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.goToOrderCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrderCommand"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.CurrentOrder">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel._currentOrder"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrderCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.OrdersCatalogPageViewModel.GoToOrder(COURSE_ASH.Models.Order)"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.IsStatusChanged">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel._isStatusChanged"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.CurrentOrder">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._currentOrder"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.Status">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel._status"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.IsStatusChanged">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._isStatusChanged"/>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.changeStatusCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.ChangeStatusCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.Status">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel._status"/>
-        </member>
-        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.changeStatusCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusCommand"/>.</summary>
-        </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPageViewModel.ChangeStatusAsync"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.ChangeStatusCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.OrderStatusPopupViewModel.ChangeStatusAsync"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel.Login">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AuthorizationViewModels.LogInPageViewModel._login"/>
@@ -391,14 +382,14 @@
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.Rating">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._rating"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.CurrentLogin">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._currentLogin"/>
-        </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsInCart">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isInCart"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsFavourite">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isFavourite"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProductPageViewModel.IsReviewNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProductPageViewModel._isReviewNotEmpty"/>
         </member>
         <member name="F:COURSE_ASH.ViewModels.ProductPageViewModel.saveReviewCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProductPageViewModel.SaveReviewCommand"/>.</summary>
@@ -517,41 +508,35 @@
         <member name="P:COURSE_ASH.ViewModels.SearchPageViewModel.FilterProductsByCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.SearchPageViewModel.FilterProductsBy"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Alert">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._alert"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.Alert">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._alert"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Country">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._country"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.Country">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._country"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.City">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._city"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.City">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._city"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.Street">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._street"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.Street">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._street"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.BuildingNumber">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._buildingNumber"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.BuildingNumber">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._buildingNumber"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.ApartmentNumber">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._apartmentNumber"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.ApartmentNumber">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._apartmentNumber"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.PostalCode">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel._postalCode"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.PostalCode">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel._postalCode"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.IsNotEmpty">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.isNotEmpty"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.IsNotEmpty">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.isNotEmpty"/>
         </member>
-        <member name="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.checkAddressCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddressCommand"/>.</summary>
+        <member name="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.checkAddressCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.CheckAddressCommand"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddressCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.CheckAddress"/>.</summary>
-        </member>
-        <member name="F:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.suggestPostCodeCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCodeCommand"/>.</summary>
-        </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCodeCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPageViewModel.SuggestPostCode"/>.</summary>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.CheckAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.BillingAddressPopupViewModel.CheckAddress"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.Products">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel._products"/>
@@ -655,12 +640,6 @@
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.ConfirmCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.ConfirmAsync"/>.</summary>
         </member>
-        <member name="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.enterAddressCommand">
-            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressCommand"/>.</summary>
-        </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.EnterAddressAsync"/>.</summary>
-        </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel.Favourites">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.FavouritesPageViewModel._favourites"/>
         </member>
@@ -702,6 +681,12 @@
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.RequestCancellationCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.OrderPageViewModel.RequestCancellationAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.Views.AdminViews.OrdersCatalogPage.popUpCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.Views.AdminViews.OrdersCatalogPage.PopUpCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.Views.AdminViews.OrdersCatalogPage.PopUpCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:COURSE_ASH.Views.AdminViews.OrdersCatalogPage.PopUp(COURSE_ASH.Models.Order)"/>.</summary>
         </member>
         <member name="M:Microsoft.Maui.Controls.ColorAnimationExtensions_Button.TextColorTo(Microsoft.Maui.Controls.Button,Microsoft.Maui.Graphics.Color,System.UInt32,System.UInt32,Microsoft.Maui.Easing)">
             <summary>

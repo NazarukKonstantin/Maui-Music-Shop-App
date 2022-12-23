@@ -62,8 +62,6 @@ public static class MauiProgram
         builder.Services.AddTransient<OrdersCatalogPage>();
         builder.Services.AddTransient<OrdersCatalogPageViewModel>();
 
-        builder.Services.AddTransient<OrderStatusPage>();
-        builder.Services.AddTransient<OrderStatusPageViewModel>();
 
 
 
@@ -72,11 +70,9 @@ public static class MauiProgram
 
         builder.Services.AddTransient<RegistrationPage>();
         builder.Services.AddTransient<RegistrationPageViewModel>();
+        
 
 
-
-        builder.Services.AddTransient<BillingAddressPage>();
-        builder.Services.AddTransient<BillingAddressPageViewModel>();
 
         builder.Services.AddTransient<CartPage>();
         builder.Services.AddTransient<CartPageViewModel>();

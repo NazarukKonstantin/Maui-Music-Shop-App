@@ -5,7 +5,7 @@ public class OrderService
     public async Task CheckoutAsync(string currentLogin, List<CartProduct> products, string address, double totalPrice)
     {
         var orders = await DataStorageService<Order>.GetItemListAsync();
-        int newID = (from order in orders select order.ID)?.Max() ?? 1;
+        int newID = orders.Count() == 0 ? 1 : (from order in orders select order.ID).Max() + 1;
         Order newOrder = new Order
         {
             ID = newID,

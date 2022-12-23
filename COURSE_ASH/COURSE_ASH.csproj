@@ -232,10 +232,10 @@
 	  <MauiXaml Update="Views\AdminViews\OrdersCatalogPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\AdminViews\OrderStatusPage.xaml">
+	  <MauiXaml Update="Views\AdminViews\OrderStatusPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\UserViews\BillingAddressPage.xaml">
+	  <MauiXaml Update="Views\UserViews\BillingAddressPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\UserViews\CartPage.xaml">
@@ -309,11 +309,14 @@
 	  <Compile Update="Views\AdminViews\AdminSearchPage.xaml.cs">
 	    <DependentUpon>AdminSearchPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\AdminViews\OrderStatusPopup.xaml.cs">
+	    <DependentUpon>OrderStatusPopup.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\AuthorizationViews\LoginPage.xaml.cs">
 	    <DependentUpon>LoginPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\UserViews\BillingAddressPage.xaml.cs">
-	    <DependentUpon>BillingAddressPage.xaml</DependentUpon>
+	  <Compile Update="Views\UserViews\BillingAddressPopup.xaml.cs">
+	    <DependentUpon>BillingAddressPopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\UserViews\CatalogPage.xaml.cs">
 	    <DependentUpon>CatalogPage.xaml</DependentUpon>

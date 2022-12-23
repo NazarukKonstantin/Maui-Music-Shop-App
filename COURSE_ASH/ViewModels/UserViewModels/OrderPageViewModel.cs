@@ -26,7 +26,7 @@ public partial class OrderPageViewModel : BaseViewModel
             CurrentOrder = await _orderService
                 .ChangeStatusAsync(CurrentOrder.ID, OrderStatus.CANCELLATION_REQUESTED);
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not change order status!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();

@@ -173,8 +173,6 @@ public partial class CartPageViewModel : BaseViewModel
     //Метод отвечает за переход из корзины на страницу поиска товаров 
     async Task GoToSearchPageAsync()
     {
-        var loc = Shell.Current.CurrentState;
-        Console.WriteLine(loc);
         await Shell.Current.GoToAsync("Search");
     }
 

@@ -37,6 +37,7 @@ public partial class AddCategoryPageViewModel : BaseViewModel
     {
         try
         {
+            IsBusy = true;
             bool isSuccessful = await _service.AddCategory(Name, _image, ImageRotation, ImageScale);
             if (!isSuccessful)
             {

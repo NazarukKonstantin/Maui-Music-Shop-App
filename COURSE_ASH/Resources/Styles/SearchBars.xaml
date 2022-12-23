@@ -43,8 +43,6 @@
                          Value="True">
                 <Setter Property="PlaceholderColor"
                         Value="OrangeRed" />
-                <Setter Property="Text"
-                        Value="" />
             </DataTrigger>
             <DataTrigger TargetType="Entry"
                          Binding="{Binding IsSuccessful}"
@@ -72,5 +70,13 @@
                 Value="End" />
         <Setter Property="VerticalOptions"
                 Value="End" />
+        <Style.Triggers>
+            <DataTrigger TargetType="Entry"
+                         Binding="{Binding IsFailed}"
+                         Value="True">
+                <Setter Property="Text"
+                        Value="" />
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

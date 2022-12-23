@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+           x:Class="COURSE_ASH.Views.AdminViews.OrderStatusPopup"
+           xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
+           xmlns:global="clr-namespace:COURSE_ASH.Globals"
+           xmlns:model="clr-namespace:COURSE_ASH.Models"
+           x:DataType="viewmodel:OrderStatusPopupViewModel"
+           CanBeDismissedByTappingOutsideOfPopup="False"
+           Shell.NavBarIsVisible="False"
+           Shell.TabBarIsVisible="False">
+    
+    <VerticalStackLayout Spacing="20"
+                         Padding="10"
+                         BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},Light={StaticResource TenderWhite}}">
+        
+        <Frame Style="{StaticResource CatalogStyle}"
+               HeightRequest="300">
+            <VerticalStackLayout>
+                <Label Text="{Binding CurrentOrder.CurrentLogin, StringFormat='User: {0}'}"
+                       Margin="20,15,20,0"
+                       Style="{StaticResource Title}"
+                       HorizontalOptions="Center" />
+
+                <Label Text="{Binding CurrentOrder.OrderTime, StringFormat='Order time: {0}'}"
+                       Style="{StaticResource AppThemeStyle}"
+                       FontSize="Medium"
+                       Margin="20,0,20,0" />
+
+                <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0:f2}$'}"
+                       Style="{StaticResource PriceStyle}"
+                       FontSize="Medium"
+                       Margin="20,0,20,0" />
+                <Label Text="{Binding CurrentOrder.Address, StringFormat='Shipping address: {0}'}"
+                       FontSize="Medium"
+                       LineBreakMode="CharacterWrap"
+                       Margin="20,0,20,0" />
+                <Label Text="{Binding CurrentOrder.PhoneNumber, StringFormat='Phone number +{0}'}"
+                       FontSize="Medium"
+                       Margin="20,0,20,0" />
+                <HorizontalStackLayout Margin="20,-10">
+                    <Label Text="Status: "
+                           FontSize="Medium"
+                           Style="{StaticResource AppThemeStyle}" />
+
+                    <Picker ItemsSource="{Static global:OrderStatus.Statuses}"
+                            SelectedItem="{Binding Status, Mode=TwoWay}"
+                            FontSize="Medium" 
+                            TextColor="{StaticResource LightText}"
+                            BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                        ,Light={StaticResource PrimaryDark}}"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+        <CollectionView ItemsSource="{Binding CurrentOrder.Products}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CartProduct">
+                    <Frame Style="{StaticResource CatalogStyle}"
+                           HeightRequest="150">
+                        <Grid RowDefinitions="*,*"
+                              ColumnDefinitions="*,*,*">
+                            <Frame Style="{StaticResource SearchFrameTop}">
+                                <Image Source="{Binding ImageLink}"
+                                       Aspect="AspectFit" />
+                            </Frame>
+
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Grid.RowSpan="2"
+                                   Text="{Binding Model}"
+                                   Style="{StaticResource AppThemeStyle}" 
+                                   LineBreakMode="WordWrap"/>
+
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   Style="{StaticResource PriceStyle}"
+                                   Text="{Binding Price, StringFormat='{0:C2}'}"/>
+                            
+                            <Label Grid.Row="1"
+                                   Grid.Column="2"
+                                   Text="{Binding UnitQuantity, StringFormat='x{0}'}" 
+                                   Style="{StaticResource AppThemeStyle}"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button x:Name="UpdateStatusButton"
+                Text="Update Status"
+                Command="{Binding ChangeStatusCommand}"
+                IsVisible="{Binding IsStatusChanged}"
+                IsEnabled="{Binding IsNotBusy}" 
+                Clicked="UpdateStatusButton_Clicked"/>
+    </VerticalStackLayout>
+</mct:Popup>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup   xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Views;assembly=CommunityToolkit.Maui"
+             x:Class="COURSE_ASH.Views.UserViews.BillingAddressPopup"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             CanBeDismissedByTappingOutsideOfPopup="False"
+             x:DataType="viewmodel:BillingAddressPopupViewModel">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Label Text="{Binding Alert}"
+                   Style="{StaticResource AlertLabel}"
+                   Margin="0,5,0,0" />
+
+            <Picker ItemsSource="{Binding Countries}"
+                    SelectedItem="{Binding Country}"
+                    Title="Select country"
+                    FontSize="Medium"
+                    SelectedIndexChanged="Picker_SelectedIndexChanged"
+                    BackgroundColor="{StaticResource TenderWhite}">
+            </Picker>
+
+            <VerticalStackLayout x:Name="addressFields"
+                                 IsVisible="false"
+                                 Spacing="5"
+                                 Margin="0,0,0,20">
+                <Border Style="{StaticResource ErrorPossibleBorder}">
+                    <Entry x:Name="cityEntry"
+                           Placeholder="City"
+                           FontSize="Medium"
+                           Text="{Binding City}" />
+                </Border>
+                <Border Style="{StaticResource ErrorPossibleBorder}">
+                    <Entry x:Name="streetEntry"
+                           Placeholder="Street"
+                           FontSize="Medium"
+                           Text="{Binding Street}" />
+                </Border>
+                <Border Style="{StaticResource ErrorPossibleBorder}">
+                    <Entry x:Name="buildingEntry"
+                           Placeholder="Building Number"
+                           FontSize="Medium"
+                           Text="{Binding BuildingNumber}"
+                           Keyboard="Numeric" />
+                </Border>
+                <Border Style="{StaticResource ErrorPossibleBorder}">
+                    <Entry x:Name="apartmentEntry"
+                           Placeholder="Apartment Number (optional)"
+                           FontSize="Medium"
+                           Text="{Binding ApartmentNumber}"
+                           Keyboard="Numeric" />
+                </Border>
+                <Border Style="{StaticResource ErrorPossibleBorder}">
+                    <Entry x:Name="postalcodeEntry"
+                           Placeholder="Postalcode"
+                           FontSize="Medium"
+                           Text="{Binding PostalCode, Mode=TwoWay}" />
+                </Border>
+            </VerticalStackLayout>
+
+            <Button x:Name="ConfirmButton"
+                    Text="Confirm"
+                    Style="{StaticResource LoginButtons}"
+                    Command="{Binding CheckAddressCommand}"
+                    Clicked="ConfirmButton_Clicked"
+                    VerticalOptions="End" 
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</mct:Popup>

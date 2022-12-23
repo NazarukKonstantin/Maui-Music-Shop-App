@@ -3,9 +3,9 @@
 public partial class OrdersCatalogPageViewModel : BaseViewModel
 {
     [ObservableProperty]
-    ObservableCollection<Order> _orders;
+    private ObservableCollection<Order> _orders;
 
-    OrderService _service;
+    private readonly OrderService _service;
     public OrdersCatalogPageViewModel(OrderService orderService)
     {
         _service = orderService;
@@ -20,7 +20,7 @@ public partial class OrdersCatalogPageViewModel : BaseViewModel
             IsBusy = true;
             Orders = (await _service.GetAllOrdersAsync()).ToObservableCollection();
         }
-        catch(Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not load orders!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
@@ -32,13 +32,4 @@ public partial class OrdersCatalogPageViewModel : BaseViewModel
         }
     }
 
-    [RelayCommand]
-    async Task GoToOrder(Order order)
-    {
-        await Shell.Current.GoToAsync($"{nameof(OrderStatusPage)}",
-            new Dictionary<string, object>
-            {
-                ["CurrentOrder"] = order
-            });
-    }
 }

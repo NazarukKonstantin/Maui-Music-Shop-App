@@ -3,14 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.AdminViews.EditCategoryPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
              x:DataType="viewmodel:EditCategoryPageViewModel"
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False"
              Title="EditCategoryPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="EditCategory"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    
+    <ScrollView>
+        <VerticalStackLayout Spacing="20">
+
+            <BoxView x:Name="NavBar"
+                     Margin="0"
+                     Style="{StaticResource NavBarBoxView}" />
+
+            <ImageButton x:Name="GoBack"
+                         Style="{StaticResource GoBackArrow}"
+                         Command="{Binding GoBackCommand}" />
+
+            <Grid Padding="8">
+                <Border Style="{StaticResource CardViewBorder}">
+                    <Border.Shadow>
+                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                                       ,Light=Black}"
+                                Offset="15,15"
+                                Radius="15"
+                                Opacity="0.2" />
+                    </Border.Shadow>
+                    <Frame HeightRequest="150"
+                           Style="{StaticResource CatalogStyle}">
+                        <Grid ColumnDefinitions="*,*">
+                            <Image Source="{Binding ImageLink,FallbackValue={AppThemeBinding Dark={x:Static global:Icons.AddImageWhite}
+                            ,Light={x:Static global:Icons.AddImageBlack}}}"
+                                   Rotation="{Binding ImageRotation}"
+                                   Scale="{Binding ImageScale}"
+                                   Style="{StaticResource CatalogImageStyle}">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PickImageCommand}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                            <Label Text="{Binding Name,FallbackValue=SampleText}"
+                                   Grid.Column="1"
+                                   HorizontalOptions="Center"
+                                   Style="{StaticResource Title}" />
+                        </Grid>
+                    </Frame>
+                </Border>
+            </Grid>
+
+            <Border Style="{StaticResource EntryBorder}">
+                <Entry x:Name="CategoryNameEntry"
+                       Placeholder="Enter category"
+                       Text="{Binding Name}"
+                       Completed="CategoryNameEntryCompleted" />
+            </Border>
+
+            <Border Style="{StaticResource EntryBorder}">
+                <Slider x:Name="imgRotation"
+                        Maximum="360"
+                        Value="{Binding ImageRotation, Mode=TwoWay}" />
+            </Border>
+
+            <Border Style="{StaticResource EntryBorder}">
+                <Slider x:Name="imgScale"
+                        Maximum="5.0"
+                        Value="{Binding ImageScale, Mode=TwoWay}" />
+            </Border>
+
+            <Button x:Name="ApplyButton"
+                    Text="Apply"
+                    Style="{StaticResource LoginButtons}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    IsVisible="{Binding IsNotEmpty}"
+                    Command="{Binding ChangeCategoryCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

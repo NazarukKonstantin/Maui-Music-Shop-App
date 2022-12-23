@@ -145,6 +145,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private void SearchProducts()
     {
+        IsBusy = true;
         CheckQuery();
 
         var filteredItems = ProdCacheList
@@ -165,11 +166,13 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 Products = Products.OrderBy(p => p.Model).ToObservableCollection();
             }
         }
+        IsBusy = false;
     }
 
     [RelayCommand]
     private void SearchCategories()
     {
+        IsBusy = true;
         CheckQuery();
 
         var filteredItems = CategCacheList
@@ -190,6 +193,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 Categories = Categories.OrderBy(c => c.Category).ToObservableCollection();
             }
         }
+        IsBusy = false;
     }
 
     [RelayCommand]
@@ -258,9 +262,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task AddCategoryAsync()
     {
-        IsBusy = true;
         await Shell.Current.GoToAsync($"{nameof(AddCategoryPage)}");
-        IsBusy = false;
     }
 
     [RelayCommand]
@@ -291,21 +293,17 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ChangeCategoryAsync(CatalogItem item)
     {
-        IsBusy = true;
         await Shell.Current.GoToAsync($"{nameof(EditCategoryPage)}",
             new Dictionary<string, object>
             {
                 ["Category"] = item
             });
-        IsBusy = false;
     }
 
     [RelayCommand]
     private async Task AddProductAsync()
     {
-        IsBusy = true;
         await Shell.Current.GoToAsync($"{nameof(AddProductPage)}");
-        IsBusy = false;
     }
 
     [RelayCommand]
@@ -334,13 +332,11 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ChangeProductAsync(Product product)
     {
-        IsBusy = true;
         await Shell.Current.GoToAsync($"{nameof(EditProductPage)}",
             new Dictionary<string, object>
             {
                 ["CurrentProduct"] = product
             });
-        IsBusy = false;
     }
 
     private void CategoryChanged(object sender, CategoryEventArgs e)

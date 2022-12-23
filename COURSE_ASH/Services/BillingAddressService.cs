@@ -21,20 +21,6 @@ public class BillingAddressService
             return AddressAlerts.WRONG_CITY;
         return AddressAlerts.SUCCESS;
     }
-    public async Task<string> GetPostalCodeAsync(string country, string city, string street, int? buildingNumber)
-    {
-        if (AreFieldsEmpty(country, city, street) || buildingNumber is null) return string.Empty;
-
-        IEnumerable<BingAddress> addresses = await geocoder.GeocodeAsync($"{country}, {city}, {street}, {buildingNumber}");
-
-        BingAddress address = addresses.FirstOrDefault((BingAddress)null);
-
-        if (!(address.CountryRegion.ToLower().Contains(country.ToLower()) &&
-                address.Locality.ToLower().Contains(city.ToLower())))
-            return string.Empty;
-
-        return address?.PostalCode;
-    }
     public static IEnumerable<string> GetCountries()
     {
         List<string> countries = new();

@@ -5,10 +5,6 @@
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
              x:DataType="viewmodel:FavouritesPageViewModel"
              Title="FavouritesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="favourites"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    
 </ContentPage>

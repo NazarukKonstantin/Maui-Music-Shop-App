@@ -96,6 +96,7 @@ public partial class SearchPageViewModel : BaseViewModel
     [RelayCommand]
     private void FilterProductsBy()
     {
+        IsBusy = true;
         if (string.IsNullOrWhiteSpace(Query))
         {
             Query = string.Empty;
@@ -119,6 +120,7 @@ public partial class SearchPageViewModel : BaseViewModel
                 SortProductsBy(FilterField.MODEL, SortDirection.ASC);
             }
         }
+        IsBusy = false;
     }
 
     //private IEnumerable<Product> GetEnumerableFilteredBy(FilterField filter = FilterField.MODEL)

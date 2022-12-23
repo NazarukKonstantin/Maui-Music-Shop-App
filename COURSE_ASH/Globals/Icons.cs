@@ -25,6 +25,8 @@ public static class Icons
     public const string FeedbackFilled = "feedback_filled.svg";
     public const string FilterBlank = "filter_blank.png";
     public const string FilterFilled = "filter_filled.png";
+    public const string HistoryBlack = "history_black.png";
+    public const string HistoryWhite = "history_white.png";
     public const string HomeBlank = "home_blank.svg";
     public const string HomeFilled = "home_filled.svg";
     public const string InfoBlack = "info_black.svg";

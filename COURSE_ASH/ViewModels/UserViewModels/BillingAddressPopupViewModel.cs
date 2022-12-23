@@ -50,10 +50,10 @@ public partial class BillingAddressPopupViewModel : BaseViewModel
 
     private async Task GoBackAsync(string address)
     {
-        await Shell.Current.GoToAsync($"..",
+        await Shell.Current.GoToAsync($"{nameof(CheckoutPage)}",
             new Dictionary<string, object>
             {
-                ["Address"] = address
+                ["BillingAddress"] = address
             });
     }
 }

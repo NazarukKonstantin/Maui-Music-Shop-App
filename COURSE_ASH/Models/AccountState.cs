@@ -3,10 +3,10 @@
 public class AccountState
 {
     public string Login { get; set; }
-    public Roles Role { get; set; }
+    public string Role { get; set; }
     public string Alert { get; set; }
 
-    public AccountState(string login, Roles role,string alert)
+    public AccountState(string login, string role,string alert)
     {
         Login=login;
         Role=role;

@@ -97,13 +97,24 @@
 	  <None Remove="Resources\Images\feedback_filled.svg" />
 	  <None Remove="Resources\Images\home_blank.svg" />
 	  <None Remove="Resources\Images\home_filled.svg" />
+	  <None Remove="Resources\Images\icons\add_image_black.png" />
+	  <None Remove="Resources\Images\icons\add_image_white.png" />
 	  <None Remove="Resources\Images\icons\arrow_back_black.png" />
 	  <None Remove="Resources\Images\icons\arrow_back_white.png" />
+	  <None Remove="Resources\Images\icons\bin_empty.png" />
+	  <None Remove="Resources\Images\icons\bin_filled.png" />
+	  <None Remove="Resources\Images\icons\category.png" />
 	  <None Remove="Resources\Images\icons\close.svg" />
+	  <None Remove="Resources\Images\icons\default_profile.png" />
+	  <None Remove="Resources\Images\icons\edit.png" />
 	  <None Remove="Resources\Images\icons\error_blank.svg" />
 	  <None Remove="Resources\Images\icons\error_filled.svg" />
 	  <None Remove="Resources\Images\icons\feedback_blank.svg" />
 	  <None Remove="Resources\Images\icons\feedback_filled.svg" />
+	  <None Remove="Resources\Images\icons\filter_blank.png" />
+	  <None Remove="Resources\Images\icons\filter_filled.png" />
+	  <None Remove="Resources\Images\icons\history_black.png" />
+	  <None Remove="Resources\Images\icons\history_white.png" />
 	  <None Remove="Resources\Images\icons\home_blank.svg" />
 	  <None Remove="Resources\Images\icons\home_filled.svg" />
 	  <None Remove="Resources\Images\icons\info_black.svg" />
@@ -117,11 +128,15 @@
 	  <None Remove="Resources\Images\icons\manage_search.svg" />
 	  <None Remove="Resources\Images\icons\menu.svg" />
 	  <None Remove="Resources\Images\icons\no_net.svg" />
+	  <None Remove="Resources\Images\icons\orders_empty.png" />
+	  <None Remove="Resources\Images\icons\orders_filled.png" />
+	  <None Remove="Resources\Images\icons\products.png" />
 	  <None Remove="Resources\Images\icons\search.svg" />
 	  <None Remove="Resources\Images\icons\shopping_cart.svg" />
 	  <None Remove="Resources\Images\icons\star_blank.svg" />
 	  <None Remove="Resources\Images\icons\star_full.svg" />
 	  <None Remove="Resources\Images\icons\star_half.svg" />
+	  <None Remove="Resources\Images\icons\user.png" />
 	  <None Remove="Resources\Images\icons\visibility_off_blank.svg" />
 	  <None Remove="Resources\Images\icons\visibility_off_dark.svg" />
 	  <None Remove="Resources\Images\icons\visibility_off_empty.svg" />
@@ -151,12 +166,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Include="Resources\Images\icons\add_image_black.png" />
+	  <MauiImage Include="Resources\Images\icons\add_image_white.png" />
 	  <MauiImage Include="Resources\Images\icons\arrow_back_black.png" />
 	  <MauiImage Include="Resources\Images\icons\arrow_back_white.png" />
+	  <MauiImage Include="Resources\Images\icons\bin_empty.png" />
+	  <MauiImage Include="Resources\Images\icons\bin_filled.png" />
+	  <MauiImage Include="Resources\Images\icons\category.png" />
+	  <MauiImage Include="Resources\Images\icons\default_profile.png" />
+	  <MauiImage Include="Resources\Images\icons\edit.png" />
 	  <MauiImage Include="Resources\Images\icons\error_blank.svg" />
 	  <MauiImage Include="Resources\Images\icons\error_filled.svg" />
+	  <MauiImage Include="Resources\Images\icons\filter_blank.png" />
+	  <MauiImage Include="Resources\Images\icons\filter_filled.png" />
+	  <MauiImage Include="Resources\Images\icons\history_black.png" />
+	  <MauiImage Include="Resources\Images\icons\history_white.png" />
 	  <MauiImage Include="Resources\Images\icons\info_black.svg" />
 	  <MauiImage Include="Resources\Images\icons\info_white.svg" />
+	  <MauiImage Include="Resources\Images\icons\orders_empty.png" />
+	  <MauiImage Include="Resources\Images\icons\orders_filled.png" />
+	  <MauiImage Include="Resources\Images\icons\products.png" />
+	  <MauiImage Include="Resources\Images\icons\user.png" />
 	</ItemGroup>
 
 	<ItemGroup>

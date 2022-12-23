@@ -3,14 +3,51 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.UserViews.OrderHistoryPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             xmlns:model="clr-namespace:COURSE_ASH.Models"
              x:DataType="viewmodel:OrderHistoryPageViewModel"
              Title="OrderHistoryPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label 
-            Text="orderHistory"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </ScrollView>
+
+    <Grid>
+        <Label Text="No orders yet"
+               Style="{StaticResource Title}"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontSize="Medium"
+               IsVisible="{Binding IsEmpty}"
+               HorizontalTextAlignment="Center" />
+        <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                     Command="{Binding RefreshAsyncCommand}">
+            <CollectionView IsVisible="{Binding IsNotEmpty}"
+                            ItemsSource="{Binding OrderHistory}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:Order">
+                        <Frame HorizontalOptions="Fill"
+                               Margin="10,5"
+                               Style="{StaticResource CatalogStyle}"
+                               HeightRequest="100">
+                            <Grid RowSpacing="5"
+                                  RowDefinitions="*,*,*,*">
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                AncestorType={x:Type viewmodel:OrderHistoryPageViewModel}},
+                                Path=GoToOrderCommand}"
+                                                          CommandParameter="{Binding .}" />
+                                </Grid.GestureRecognizers>
+
+                                <Label Grid.Row="0"
+                                       Style="{StaticResource AppThemeStyle}"
+                                       Text="{Binding ID, StringFormat='Order ID: {0}'}" />
+                                <Label Grid.Row="1"
+                                       Style="{StaticResource AppThemeStyle}"
+                                       Text="{Binding OrderTime, StringFormat='Order time: {0}'}" />
+                                <Label Grid.Row="2"
+                                       Style="{StaticResource AppThemeStyle}"
+                                       Text="{Binding TotalPrice, StringFormat='Total price: {0}'}" />
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
 </ContentPage>

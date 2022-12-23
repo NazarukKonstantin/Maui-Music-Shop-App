@@ -36,4 +36,9 @@ public partial class OrderPageViewModel : BaseViewModel
             IsBusy = false;
         }
     }
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
+    }
 }

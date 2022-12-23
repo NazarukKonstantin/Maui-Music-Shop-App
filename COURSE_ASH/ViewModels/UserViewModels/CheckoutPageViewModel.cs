@@ -80,4 +80,9 @@ public partial class CheckoutPageViewModel : BaseViewModel
         if (e.PropertyName == nameof(IsNotEmpty)) return;
         IsNotEmpty = !(string.IsNullOrEmpty(BillingAddress));
     }
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
+    }
 }

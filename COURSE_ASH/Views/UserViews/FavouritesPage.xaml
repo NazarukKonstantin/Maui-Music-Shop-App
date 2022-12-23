@@ -3,8 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.UserViews.FavouritesPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
+             xmlns:model="clr-namespace:COURSE_ASH.Models"
              x:DataType="viewmodel:FavouritesPageViewModel"
              Title="FavouritesPage">
+    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                 Command="{Binding RefreshAsyncCommand}">
+        <CollectionView Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Favourites}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+                                <SwipeItem Text="Delete"
+                                           IconImageSource="{x:Static global:Icons.BinFilled}"
+                                           BackgroundColor="Red"
+                                           CommandParameter="{Binding .}"
+                                           Command="{Binding Source={RelativeSource 
+            AncestorType={x:Type viewmodel:FavouritesPageViewModel}},
+            Path=DeleteFromFavouritesCommand}" />
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                 ,Light=Black}"
+                                        Offset="15,15"
+                                        Radius="15"
+                                        Opacity="0.2" />
+                            </Border.Shadow>
+                            <Frame HeightRequest="150"
+                                   Style="{StaticResource CatalogStyle}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavouritesPageViewModel}},Path=GoToProductCommand}" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions=".4*,.6*"
+                                      RowDefinitions=".6*,.4*">
+                                    <Border HeightRequest="150"
+                                            WidthRequest="150"
+                                            Style="{StaticResource CardViewBorder}">
+                                        <Border.StrokeShape>
+                                            <RoundRectangle CornerRadius="30" />
+                                        </Border.StrokeShape>
+                                        <Frame Style="{StaticResource SearchFrameTop}">
+                                            <Image Source="{Binding ImageLink}"
+                                                   Aspect="AspectFit" />
+                                        </Frame>
+                                    </Border>
+                                    <Label Text="{Binding Model}"
+                                           Style="{StaticResource Title}"
+                                           Grid.Row="0"
+                                           Grid.Column="1"
+                                           LineBreakMode="TailTruncation" />
 
-    
+                                    <Button Style="{StaticResource LoginButtons}"
+                                            Text="Add To Cart"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center"
+                                            Grid.Column="1"
+                                            Grid.Row="1"
+                                            CommandParameter="{Binding .}"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:FavouritesPageViewModel}},Path=AddToCartCommand}" />
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
 </ContentPage>

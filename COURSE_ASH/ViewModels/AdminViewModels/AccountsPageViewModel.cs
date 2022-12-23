@@ -7,11 +7,16 @@ public partial class AccountsPageViewModel : BaseViewModel
     [ObservableProperty]
     ObservableCollection<AccountData> _accounts;
 
+    [ObservableProperty]
+    private bool _isAdmin = false;
+
     public AccountsPageViewModel(AccountManager accountsService)
     {
         _service = accountsService;
         RefreshAsync();
     }
+
+    [RelayCommand]
     public async void RefreshAsync()
     {
         try
@@ -39,7 +44,12 @@ public partial class AccountsPageViewModel : BaseViewModel
     {
         try
         {
-            if (IsAccountImmutable(account)) return;
+            if (IsAccountImmutable(account))
+            {
+                await Shell.Current.DisplayAlert("ERROR!", $"Cannot delete {account.CurrentLogin}" +
+                    "for safety matter", "OK");
+                return;
+            }
             IsBusy = true;
             account.Role = _service.SwitchRole(account.Role);
             await _service.RecordNewRoleAsync(account.CurrentLogin, account.Role);
@@ -60,7 +70,12 @@ public partial class AccountsPageViewModel : BaseViewModel
     {
         try
         {
-            if (IsAccountImmutable(account)) return;
+            if (IsAccountImmutable(account))
+            {
+                await Shell.Current.DisplayAlert("ERROR!",$"Cannot delete {account.CurrentLogin}" +
+                    "for safety matter","OK");
+                return;
+            }
             IsBusy = true;
             bool choice = await Shell.Current.DisplayAlert("Are you sure?!",
                 $"Account {account.CurrentLogin} will be deleted",
@@ -82,7 +97,8 @@ public partial class AccountsPageViewModel : BaseViewModel
         }
     }
 
-    private bool IsAccountImmutable(AccountData account)
+
+    public bool IsAccountImmutable(AccountData account)
     {
         return account.CurrentLogin.Equals(App.CurrentLogin)
             ||account.Role==Roles.Boss;

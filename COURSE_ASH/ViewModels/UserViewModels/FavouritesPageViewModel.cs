@@ -1,8 +1,11 @@
-﻿namespace COURSE_ASH.ViewModels.UserViewModels;
+﻿using COURSE_ASH.Services;
+
+namespace COURSE_ASH.ViewModels.UserViewModels;
 
 public partial class FavouritesPageViewModel : BaseViewModel
 {
-    private readonly FavouritesService _favouritesService; 
+    private readonly FavouritesService _favouritesService;
+    private readonly CartService _cartService;
 
     [ObservableProperty]
     ObservableCollection<Product> _favourites;
@@ -11,12 +14,14 @@ public partial class FavouritesPageViewModel : BaseViewModel
     [NotifyPropertyChangedFor(nameof(IsNotEmpty))]
     private bool isEmpty = true;
     public bool IsNotEmpty => !isEmpty;
-    public FavouritesPageViewModel(FavouritesService favouritesService)
+    public FavouritesPageViewModel(FavouritesService favouritesService, CartService cartService)
     {
         _favouritesService = favouritesService;
+        _cartService = cartService;
 
         RefreshAsync();
     }
+    [RelayCommand]
     public async void RefreshAsync()
     {
         try
@@ -41,7 +46,30 @@ public partial class FavouritesPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    async Task GoToProduct(Product currentProduct)
+    async Task AddToCartAsync(Product product)
+    {
+        try
+        {
+            IsBusy = true;
+            await _cartService
+                .AddProductToStorageCartAsync(App.CurrentLogin,
+                    new CartProduct(product) { UnitQuantity = 0 });
+            await Toast.Make(GeneralAlerts.ADDED_TO_CART, ToastDuration.Short).Show();
+            await DeleteFromFavouritesAsync(product);
+        }
+        catch
+        {
+            //await Shell.Current.DisplayAlert("ERROR", "Could not add to cart!", "OK");
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
+        }
+        finally
+        {
+            IsBusy = false;
+        }
+    }
+
+    [RelayCommand]
+    async Task GoToProductAsync(Product currentProduct)
     {
         await Shell.Current.GoToAsync($"{nameof(ProductPage)}",
             new Dictionary<string, object>
@@ -73,5 +101,10 @@ public partial class FavouritesPageViewModel : BaseViewModel
             IsEmpty = Favourites is null || Favourites.Count == 0;
             IsBusy = false;
         }
+    }
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
     }
 }

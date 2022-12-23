@@ -52,6 +52,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         RefreshAsync();
     }
 
+    [RelayCommand]
     public async void RefreshAsync()
     {
         IsRefreshing = true;

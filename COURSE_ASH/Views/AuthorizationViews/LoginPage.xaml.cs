@@ -10,6 +10,7 @@ public partial class LoginPage : ContentPage
         InitializeComponent();
         _viewModel = viewModel;
         BindingContext = viewModel;
+        Focus();
     }
     private void VisibilityChanged(object sender, EventArgs e)
     {
@@ -33,8 +34,8 @@ public partial class LoginPage : ContentPage
 #endif
 
         PassEntry.Unfocus();
-
         LoginButton.Focus();
         await _viewModel.LogInAsync();
+        Focus();
     }
 }

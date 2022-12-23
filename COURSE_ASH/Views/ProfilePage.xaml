@@ -1,12 +1,217 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels"
              x:DataType="viewmodel:ProfilePageViewModel"
              x:Class="COURSE_ASH.Views.ProfilePage">
-    <ScrollView>
-        <Label Text="Profile"/>
-    </ScrollView>
-    
+
+    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                 Command="{Binding RefreshAsyncCommand}">
+        <Grid RowDefinitions="Auto,250,.6*,.5*">
+            <BoxView Margin="0"
+                     Style="{StaticResource NavBarBoxView}" />
+
+            <ImageButton Grid.Row="0"
+                         Style="{StaticResource GoBackArrow}"
+                         Command="{Binding }"
+                         CommandParameter="{Binding .}" />
+
+            <ImageButton Grid.Row="0"
+                         Source="{AppThemeBinding Dark={x:Static global:Icons.HistoryWhite},Light={x:Static global:Icons.HistoryBlack}}"
+                         VerticalOptions="Start"
+                         HorizontalOptions="End"
+                         HeightRequest="50"
+                         WidthRequest="50"
+                         Aspect="AspectFill"
+                         Command="{Binding GoToOrderHistoryPageAsyncCommand}" />
+
+            <Frame Grid.Row="1"
+                   HeightRequest="160"
+                   WidthRequest="160"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   CornerRadius="80"
+                   BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},
+                                               Light={StaticResource PrimaryDark}}">
+                <Image Source="{AppThemeBinding Dark={Static global:Icons.WaltuhWhite},
+                                          Light={Static global:Icons.WaltuhBlack}}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       WidthRequest="130"
+                       HeightRequest="130"
+                       Aspect="AspectFill" />
+            </Frame>
+
+            <VerticalStackLayout Grid.Row="2"
+                                 Margin="0"
+                                 Padding="0"
+                                 Spacing="20">
+
+                <Label Text="{Binding Alert}"
+                       Style="{StaticResource AlertLabel}"
+                       Margin="30,0,30,0" />
+
+                <Frame Style="{StaticResource CatalogStyle}"
+                       HeightRequest="400"
+                       IsVisible="False"
+                       x:Name="ChangePasswordFrame">
+                    <VerticalStackLayout Spacing="10">
+                        <Border Style="{StaticResource ErrorPossibleBorder}">
+                            <Frame Style="{StaticResource LoginEntryFrame}"
+                                   Margin="0"
+                                   Padding="0">
+                                <Grid ColumnDefinitions="*,.2*"
+                                      Margin="0,0,0,10"
+                                      Padding="0">
+                                    <Entry x:Name="OldPassEntry"
+                                           Placeholder="Password"
+                                           Style="{StaticResource PasswordEntry}"
+                                           Completed="OldPasswordEntryCompleted"
+                                           Grid.Column="0"
+                                           Text="{Binding OldPassword}" />
+
+                                    <Image x:Name="OldPassVisibilityOnImg"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           IsEnabled="True"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="OldPassVisibilityOffImg"
+                                           IsVisible="False"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},
+    Light={Static global:Icons.VisibilityOffDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                </Grid>
+                            </Frame>
+                        </Border>
+                        <Border Style="{StaticResource ErrorPossibleBorder}">
+                            <Frame Style="{StaticResource LoginEntryFrame}"
+                                   Margin="0"
+                                   Padding="0">
+                                <Grid ColumnDefinitions="*,.2*"
+                                      Margin="0,0,0,10"
+                                      Padding="0">
+                                    <Entry x:Name="NewPassEntry"
+                                           Placeholder="Password"
+                                           Style="{StaticResource PasswordEntry}"
+                                           Completed="NewPasswordEntryCompleted"
+                                           Grid.Column="0"
+                                           Text="{Binding NewPassword}" />
+
+                                    <Image x:Name="NewPassVisibilityOnImg"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           IsEnabled="True"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="NewPassVisibilityOffImg"
+                                           IsVisible="False"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},
+    Light={Static global:Icons.VisibilityOffDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+
+                                </Grid>
+                            </Frame>
+                        </Border>
+                        <Border Style="{StaticResource ErrorPossibleBorder}">
+                            <Frame Style="{StaticResource LoginEntryFrame}"
+                                   Margin="0"
+                                   Padding="0">
+                                <Grid ColumnDefinitions="*,.2*"
+                                      Margin="0,0,0,10"
+                                      Padding="0">
+                                    <Entry x:Name="ConfirmNewPassEntry"
+                                           Placeholder="Confirm Password"
+                                           Style="{StaticResource PasswordEntry}"
+                                           Grid.Column="0"
+                                           Text="{Binding ConfirmPassword}"
+                                           Completed="ConfirmPasswordEntryCompleted" />
+
+                                    <Image x:Name="ConfirmVisibilityOnImg"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOnLight},Light={Static global:Icons.VisibilityOnDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           IsEnabled="True"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                    <Image x:Name="ConfirmVisibilityOffImg"
+                                           IsVisible="False"
+                                           Source="{AppThemeBinding Dark={Static global:Icons.VisibilityOffLight},
+                                            Light={x:Static global:Icons.VisibilityOffDark}}"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,15,0,0"
+                                           Grid.Column="1">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="VisibilityTapped" />
+                                        </Image.GestureRecognizers>
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </Border>
+                        <Button x:Name="ConfirmPassButton"
+                                Grid.Row="3"
+                                Margin="10"
+                                Padding="0"
+                                Text="Confirm"
+                                Style="{StaticResource LoginButtons}"
+                                Command="{Binding ChangePasswordCommand}"
+                                FontAttributes="Bold"
+                                IsEnabled="{Binding IsNotBusy}"
+                                FontSize="30" />
+                    </VerticalStackLayout>
+
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </RefreshView>
 </ContentPage>
     

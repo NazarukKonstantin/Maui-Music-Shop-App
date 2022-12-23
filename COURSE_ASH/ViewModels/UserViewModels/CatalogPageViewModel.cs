@@ -77,6 +77,7 @@ public partial class CatalogPageViewModel : BaseViewModel
         App.Current.MainPage = new AuthorizationShell();
     }
 
+    [RelayCommand]
     //Метод отвечает за обновление страницы
     public async void RefreshAsync()
     {

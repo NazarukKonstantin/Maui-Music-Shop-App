@@ -38,12 +38,13 @@ public partial class SearchPageViewModel : BaseViewModel
     public SearchPageViewModel(ProductsService service)
     {
         _service = service;
-        GetProducts();
+        RefreshAsync();
         IsTabVisible = true;
         PropertyChanged += ProductCollectionChanged;
     }
 
-    private async void GetProducts()
+    [RelayCommand]
+    private async void RefreshAsync()
     {
         try
         {

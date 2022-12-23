@@ -12,6 +12,8 @@ public partial class OrdersCatalogPageViewModel : BaseViewModel
 
         RefreshAsync();
     }
+
+    [RelayCommand]
     public async void RefreshAsync()
     {
         try

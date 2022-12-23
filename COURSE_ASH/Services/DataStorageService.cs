@@ -7,20 +7,22 @@ public static class DataStorageService<T> where T : class
     private const string FB_REALTIME_DB_URL = "https://musicshop-725ec-default-rtdb.europe-west1.firebasedatabase.app/";
 
     private static readonly ChildQuery _firebaseQuery =
-        new FirebaseClient(FB_REALTIME_DB_URL).Child(GetTableName(typeof(T)));
+        new FirebaseClient(FB_REALTIME_DB_URL).Child(GetTableName());
 
-    private static string GetTableName(Type type)
+    private static string GetTableName()
     {
-        return type.Name;
+        return typeof(T).Name;
         //return $"{type.Name.ToLower()}s";
     }
 
     public static async Task<IEnumerable<T>> GetItemListAsync()
     {
-        return (from item in (await _firebaseQuery
+        var collection = await _firebaseQuery
                 .OrderByKey()
-                .OnceAsync<T>())
-                select item.Object)?.AsEnumerable();
+                .OnceAsync<T>();
+
+        return (from item in collection
+                select item.Object)?.AsEnumerable<T>();
     }
 
     public static async Task<T> GetItemByAsync(string searchFieldName, int value)
@@ -37,7 +39,7 @@ public static class DataStorageService<T> where T : class
         var item = await _firebaseQuery
             .OrderBy(searchFieldName)
             .EqualTo(value)
-            .OnceAsync<T>();
+            .OnceAsync<T>() ?? default;
         return item.Any() ? item.First().Object : default;
     }
     public static async Task<IEnumerable<T>> GetItemsByAsync(string searchFieldName, int value)

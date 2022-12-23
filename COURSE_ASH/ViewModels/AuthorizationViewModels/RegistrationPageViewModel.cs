@@ -46,12 +46,17 @@ public partial class RegistrationPageViewModel: BaseViewModel
             //Если присутствуют ошибки при регистрации, присвоить полям IsSuccessful и Alert соответствующие значения
             if (accountState.Alert != AccountAlerts.SUCCESS)
             {
+                IsFailed = true;
                 IsSuccessful = false;
                 Alert = accountState.Alert;
             }
-            else IsSuccessful = true;
+            else
+            {
+                IsSuccessful = true;
+                await GoBackAsync();
+            }
         }
-        catch (Exception)
+        catch
         {
             //await Shell.Current.DisplayAlert("ERROR", "Could not create account!", "OK");
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();

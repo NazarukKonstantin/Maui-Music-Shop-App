@@ -49,6 +49,7 @@ public partial class ProductPageViewModel : BaseViewModel
         IsReviewNotEmpty = !string.IsNullOrEmpty(Review);
     }
 
+    [RelayCommand]
     private async void GetReviewsAsync()
     {
         try

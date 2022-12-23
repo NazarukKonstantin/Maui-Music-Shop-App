@@ -176,6 +176,7 @@ public partial class CartPageViewModel : BaseViewModel
         await Shell.Current.GoToAsync("Search");
     }
 
+    [RelayCommand]
     //Метод отвечает за обновление экрана корзины
     public void RefreshAsync()
     {

@@ -44,7 +44,7 @@ public partial class ProfilePageViewModel : BaseViewModel
 
 
     [RelayCommand]
-    async Task ChangePasswordAsync()
+    public async Task ChangePasswordAsync()
     {
         try
         {
@@ -87,10 +87,17 @@ public partial class ProfilePageViewModel : BaseViewModel
         ImageLink = _image.FullPath;
     }
 
+    [RelayCommand]
     public void RefreshAsync()
     {
         CurrentLogin = App.CurrentLogin;
         IsSuccessful = false;
         IsFailed = false;
+    }
+
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
     }
 }

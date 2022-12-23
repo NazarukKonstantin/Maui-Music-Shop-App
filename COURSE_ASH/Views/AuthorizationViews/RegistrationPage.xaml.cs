@@ -15,6 +15,7 @@ public partial class RegistrationPage : ContentPage
     private void VisibilityTapped(object sender, EventArgs e)
     {
         PassEntry.IsPassword = !PassEntry.IsPassword;
+        ConfirmPassEntry.IsPassword = !ConfirmPassEntry.IsPassword;
         VisibilityOnImg.IsVisible = !VisibilityOnImg.IsVisible;
         VisibilityOffImg.IsVisible = !VisibilityOffImg.IsVisible;
         ConfirmVisibilityOnImg.IsVisible = !ConfirmVisibilityOnImg.IsVisible;
@@ -43,18 +44,5 @@ public partial class RegistrationPage : ContentPage
         ConfirmPassEntry.Unfocus();
         SignUpButton.Focus();
         await _viewModel.CreateAccountAsync();
-    }
-
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        LoginEntry.Text = String.Empty;
-        PassEntry.Text = String.Empty;
-        base.OnNavigatedTo(args);
-    }
-    protected override void OnNavigatedFrom(NavigatedFromEventArgs args)
-    {
-        LoginEntry.Text = String.Empty;
-        PassEntry.Text = String.Empty;
-        base.OnNavigatedFrom(args);
     }
 }

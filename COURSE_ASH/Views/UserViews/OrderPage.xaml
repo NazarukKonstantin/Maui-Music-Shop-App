@@ -1,16 +1,99 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
-             x:DataType="viewmodel:OrderPageViewModel"
+             xmlns:userViewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels"
+             xmlns:model="clr-namespace:COURSE_ASH.Models"
+             x:DataType="userViewmodel:OrderPageViewModel"
              x:Class="COURSE_ASH.Views.UserViews.OrderPage"
              Title="OrderPage">
-    <ScrollView>
-        <VerticalStackLayout>
-            <Label 
-            Text="order!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        </VerticalStackLayout>
-    </ScrollView>
+    
+    <VerticalStackLayout Spacing="20"
+                         Padding="10">
+        
+        <Label Text="{Binding CurrentOrder.OrderTime, StringFormat='Order time: {0}'}"
+               FontSize="Medium"
+               Margin="20,15,20,0" 
+               Style="{StaticResource AppThemeStyle}"/>
+        
+        <Label Text="{Binding CurrentOrder.TotalPrice, StringFormat='Total price: {0:f2}$'}"
+               FontSize="Medium"
+               Margin="20,0,20,0"
+               Style="{StaticResource AppThemeStyle}" />
+        
+        <Label Text="{Binding CurrentOrder.Status, StringFormat='Status: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,20,0"
+               Style="{StaticResource AppThemeStyle}" />
+        
+        <Label Text="{Binding CurrentOrder.Address, StringFormat='Shipping address: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,20,0"
+               Style="{StaticResource AppThemeStyle}" />
+        
+        <Label Text="{Binding CurrentOrder.PhoneNumber, StringFormat='Email: {0}'}"
+               FontSize="Medium"
+               Margin="20,0,20,0"
+               Style="{StaticResource AppThemeStyle}" />
+
+        <CollectionView ItemsSource="{Binding CurrentOrder.Products}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CartProduct">
+                    <Grid Margin="8,8,8,0"
+                          HeightRequest="120"
+                          BackgroundColor="{AppThemeBinding Light=White, Dark=Red}">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                AncestorType={x:Type viewmodel:SearchPageViewModel}},
+                                Path=GoToProductCommand}"
+                                                  CommandParameter="{Binding .}" />
+                        </Grid.GestureRecognizers>
+                        <Grid ColumnDefinitions="0.5*,*,*,*"
+                              RowDefinitions="3,*,0.5*,3">
+                            
+                            <BoxView Grid.Row="0"
+                                     Color="{StaticResource Primary}"
+                                     Grid.ColumnSpan="4"
+                                     Margin="10,0" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding UnitQuantity, StringFormat='x{0}'}"
+                                   Grid.Column="0"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center"
+                                   Grid.RowSpan="2" />
+                            <Image Grid.Row="1"
+                                   Source="{Binding ImageLink}"
+                                   VerticalOptions="Fill"
+                                   Grid.Column="1"
+                                   Margin="0,10" />
+                            <Label Grid.Row="2"
+                                   Text="{Binding Model}"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="3"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Start"
+                                   Margin="20,0,0,0"
+                                   LineBreakMode="TailTruncation" />
+                            <Label Grid.Row="1"
+                                   Text="{Binding Price, StringFormat='{0:C2}'}"
+                                   Grid.Column="2"
+                                   VerticalOptions="Center"
+                                   FontSize="Medium"
+                                   HorizontalOptions="Center"
+                                   Grid.ColumnSpan="2" />
+                            <BoxView Grid.Row="3"
+                                     Color="{StaticResource Primary}"
+                                     Grid.ColumnSpan="4"
+                                     Margin="10,0" />
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Request cancellation"
+                IsVisible="{Binding CanBeCancelled}"
+                Command="{Binding RequestCancellationCommand}" />
+    </VerticalStackLayout>
 </ContentPage>

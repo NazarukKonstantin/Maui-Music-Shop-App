@@ -48,47 +48,50 @@
             </Border>
 
             <!--Catalog-->
-            <CollectionView Grid.Row="1"
-                            Grid.ColumnSpan="3"
-                            ItemsSource="{Binding Items}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Span="1"
-                                     Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:CatalogItem">
-                        <Grid Padding="8">
-                            <Border Style="{StaticResource CardViewBorder}">
-                                <Border.Shadow>
-                                    <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                         Command="{Binding RefreshAsyncCommand}">
+                <CollectionView Grid.Row="1"
+                                Grid.ColumnSpan="3"
+                                ItemsSource="{Binding Items}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Span="1"
+                                         Orientation="Vertical" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:CatalogItem">
+                            <Grid Padding="8">
+                                <Border Style="{StaticResource CardViewBorder}">
+                                    <Border.Shadow>
+                                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light=Black}"
-                                            Offset="15,15"
-                                            Radius="15"
-                                            Opacity="0.2" />
-                                </Border.Shadow>
-                                <Frame HeightRequest="150"
-                                       Style="{StaticResource CatalogStyle}">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                              Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToSearchPageCommand}" />
-                                    </Frame.GestureRecognizers>
-                                    <Grid ColumnDefinitions="*,*">
-                                        <Image Source="{Binding ImageLink}"
-                                               Rotation="{Binding ImageRotation}"
-                                               Scale="{Binding ImageScale}"
-                                               Style="{StaticResource CatalogImageStyle}" />
+                                                Offset="15,15"
+                                                Radius="15"
+                                                Opacity="0.2" />
+                                    </Border.Shadow>
+                                    <Frame HeightRequest="150"
+                                           Style="{StaticResource CatalogStyle}">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToSearchPageCommand}" />
+                                        </Frame.GestureRecognizers>
+                                        <Grid ColumnDefinitions="*,*">
+                                            <Image Source="{Binding ImageLink}"
+                                                   Rotation="{Binding ImageRotation}"
+                                                   Scale="{Binding ImageScale}"
+                                                   Style="{StaticResource CatalogImageStyle}" />
 
-                                        <Label Text="{Binding Category}"
-                                               Grid.Column="1"
-                                               HorizontalOptions="Center"
-                                               Style="{StaticResource Title}" />
-                                    </Grid>
-                                </Frame>
-                            </Border>
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                            <Label Text="{Binding Category}"
+                                                   Grid.Column="1"
+                                                   HorizontalOptions="Center"
+                                                   Style="{StaticResource Title}" />
+                                        </Grid>
+                                    </Frame>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
         </Grid>
     </ScrollView>
 </ContentPage>

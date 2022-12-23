@@ -110,11 +110,13 @@ public static class MauiProgram
         builder.Services.AddSingleton<RegistrationService>();
 
         builder.Services.AddSingleton<BillingAddressService>();
-        builder.Services.AddSingleton<ProductsService>();
         builder.Services.AddSingleton<CartService>();
-        builder.Services.AddSingleton<OrderService>();
+        builder.Services.AddSingleton<CatalogService>();
         builder.Services.AddSingleton<FavouritesService>();
-
+        builder.Services.AddSingleton<OrderService>();
+        builder.Services.AddSingleton<ProductsService>();
+        
+       
         //Метод возвращает готовый объект приложения
         return builder.Build();
     }

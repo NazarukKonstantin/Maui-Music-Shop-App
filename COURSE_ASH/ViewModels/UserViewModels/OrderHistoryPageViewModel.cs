@@ -22,6 +22,7 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
         PropertyChanged += OrdersChanged;
         RefreshAsync();
     }
+    [RelayCommand]
     public async void RefreshAsync()
     {
         try
@@ -58,5 +59,10 @@ public partial class OrderHistoryPageViewModel : BaseViewModel
             {
                 ["CurrentOrder"] = order
             });
+    }
+    [RelayCommand]
+    async Task GoBackAsync()
+    {
+        await Shell.Current.GoToAsync("..");
     }
 }

@@ -18,4 +18,24 @@ public partial class AdminShell : Shell
         Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));
         Routing.RegisterRoute(nameof(ProductPage), typeof(ProductPage));
     }
+
+    protected override void OnNavigated(ShellNavigatedEventArgs args)
+    {
+        string location = args.Current?.Location?.ToString();
+        switch (location)
+        {
+            case $"//{nameof(AdminSearchPage)}":
+                ((AdminSearchPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            case $"//{nameof(AccountsPage)}":
+                ((AccountsPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            case $"//{nameof(OrdersCatalogPage)}":
+                ((OrdersCatalogPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            default: break;
+        }
+
+        base.OnNavigated(args);
+    }
 }

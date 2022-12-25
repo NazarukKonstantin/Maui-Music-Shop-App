@@ -3,133 +3,239 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.AdminViews.EditProductPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.AdminViewModels"
+             xmlns:behaviors="clr-namespace:COURSE_ASH.Behaviors"
              xmlns:global="clr-namespace:COURSE_ASH.Globals"
              xmlns:rating="http://www.tsjdev-apps.de/maui/controls"
              x:DataType="viewmodel:EditProductPageViewModel"
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False"
              Title="EditProductPage">
-    
-    <ScrollView>
-        <VerticalStackLayout Spacing="20">
+
+        <Grid RowDefinitions="Auto,*,.001*,.1*"
+              ColumnDefinitions=".2*,.8*"
+              RowSpacing="15">
 
             <BoxView x:Name="NavBar"
+                     Grid.ColumnSpan="2"
                      Margin="0"
                      Style="{StaticResource NavBarBoxView}" />
 
             <ImageButton x:Name="GoBack"
+                         HorizontalOptions="Start"
+                         Margin="15,20,0,0"
+                         VerticalOptions="Start"
                          Style="{StaticResource GoBackArrow}"
                          Command="{Binding GoBackCommand}" />
 
-            <Grid Padding="10">
-                <Border Style="{StaticResource CardViewBorder}">
-                    <Border.StrokeShape>
-                        <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
-                    </Border.StrokeShape>
-                    <Border.Shadow>
-                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
-            ,Light={StaticResource PrimaryDark}}"
-                                Offset="10,10"
-                                Radius="20"
-                                Opacity="0.5" />
-                    </Border.Shadow>
-                    <Frame x:Name="BottomFrame"
-                           Style="{StaticResource SearchFrameBottom}"
-                           HeightRequest="400"
-                           Padding="0">
-                        <Grid RowDefinitions=".7*,.3*"
-                              RowSpacing="20">
-                            <Frame   Style="{StaticResource SearchFrameTop}"
-                                     Grid.Row="0">
-                                <Image Source="{Binding ImageLink, FallbackValue={AppThemeBinding Dark={x:Static global:Icons.AddImageWhite}
-                            ,Light={x:Static global:Icons.AddImageBlack}}}"
-                                       Aspect="AspectFit">
-                                    <Image.GestureRecognizers>
+            <Label Text="Edit Product"
+                   HorizontalOptions="Start"
+                   LineBreakMode="TailTruncation"
+                   FontSize="40"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Style="{StaticResource PageTitle}" />
+
+            <ScrollView Padding="10,-10,10,10"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="1">
+                <Grid RowDefinitions="Auto,*,*,*,*,*,*,*">
+                    <Border Style="{StaticResource CardViewBorder}"
+                            Margin="10,20,10,10"
+                            Grid.Row="0"
+                            StrokeThickness="3">
+                        <Border.StrokeShape>
+                            <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
+                        </Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+          ,Light={StaticResource PrimaryDark}}"
+                                    Offset="10,10"
+                                    Radius="20"
+                                    Opacity="0.5" />
+                        </Border.Shadow>
+                        <Frame x:Name="BottomFrame"
+                               Style="{StaticResource SearchFrameBottom}"
+                               HeightRequest="400"
+                               WidthRequest="200"
+                               Padding="0">
+                            <Grid RowDefinitions=".7*,.3*"
+                                  RowSpacing="20">
+                                <Frame Style="{StaticResource SearchFrameTop}"
+                                       Grid.Row="0"
+                                       HasShadow="True">
+                                    <Image Source="{Binding ImageLink,TargetNullValue={x:Static global:Icons.AddImageBlack}}"
+                                           Aspect="AspectFit"
+                                           WidthRequest="100"
+                                           Rotation="{Binding ImageRotation}"
+                                           Scale="{Binding ImageScale}"
+                                           HeightRequest="100" />
+                                    <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding PickImageCommand}" />
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </Frame>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+                                <VerticalStackLayout HorizontalOptions="Start"
+                                                     VerticalOptions="Start"
+                                                     Grid.Row="1"
+                                                     Padding="0"
+                                                     Spacing="5"
+                                                     Margin="15,0,15,0">
 
-                            <VerticalStackLayout HorizontalOptions="Start"
-                                                 VerticalOptions="Start"
-                                                 Grid.Row="1"
-                                                 Padding="0"
-                                                 Spacing="5"
-                                                 Margin="15,0,15,0">
-                                <Label Text="{Binding Price, StringFormat='{0:C2}'}"
-                                       Style="{StaticResource PriceStyle}" />
+                                    <Label Text="{Binding Price,StringFormat='{0:C2}',TargetNullValue='0.00'}"
+                                           Style="{StaticResource PriceStyle}" />
 
-                                <Label Text="{Binding Model}"
-                                       Style="{StaticResource CenteredLabel}"
-                                       FontSize="21"
-                                       HorizontalOptions="StartAndExpand"
-                                       VerticalOptions="Start"
-                                       MaxLines="1"
-                                       LineBreakMode="TailTruncation" />
-                                <rating:SimpleRatingControl Amount="5"
-                                                            CurrentValue="5"
-                                                            AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
-                ,Light={StaticResource DarkBlue}}"
-                                                            FontSize="25"
-                                                            HorizontalOptions="Start"
-                                                            IsEnabled="False" />
-                            </VerticalStackLayout>
-                        </Grid>
-                    </Frame>
-                </Border>
-            </Grid>
+                                    <Label Text="{Binding Model,TargetNullValue='Model'}"
+                                           Style="{StaticResource CenteredLabel}"
+                                           FontSize="21"
+                                           HorizontalOptions="StartAndExpand"
+                                           VerticalOptions="Start"
+                                           MaxLines="1"
+                                           LineBreakMode="TailTruncation" />
 
-            <Border Style="{StaticResource EntryBorder}">
-                <Entry x:Name="ModelEntry"
-                       Placeholder="Enter model"
-                       Text="{Binding Model}"
-                       Completed="ModelEntry_Completed" />
-            </Border>
+                                    <rating:SimpleRatingControl Amount="5"
+                                                                CurrentValue="5"
+                                                                AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
+              ,Light={StaticResource DarkBlue}}"
+                                                                FontSize="25"
+                                                                HorizontalOptions="Start"
+                                                                IsEnabled="False" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Border>
 
-            <Border Style="{StaticResource EntryBorder}">
-                <Entry x:Name="PriceEntry"
-                       Placeholder="Enter price"
-                       Keyboard="Numeric"
-                       Text="{Binding Price}"
-                       Completed="PriceEntry_Completed" />
-            </Border>
+                    <Border Style="{StaticResource SquareishEntryBorder}"
+                            Grid.Row="1">
+                        <VerticalStackLayout Spacing="3">
+                            <Slider x:Name="imgRotation"
+                                    Maximum="180"
+                                    Minimum="-180"
+                                    Margin="25,25,20,0"
+                                    Value="{Binding ImageRotation, Mode=TwoWay}"
+                                    ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                                          ,Light={StaticResource PrimaryDark}}"
+                                    MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                                  ,Light={StaticResource Primary}}"
+                                    HeightRequest="10" />
+                            <Label Text="Rotate"
+                                   FontSize="20"
+                                   Style="{StaticResource AppThemeStyleReversed}" />
+                        </VerticalStackLayout>
+                    </Border>
 
-            <Border Style="{StaticResource EntryBorder}">
-                <HorizontalStackLayout>
-                    <Entry x:Name="CategoryEntry"
-                           Placeholder="Enter category"
-                           Keyboard="Text"
-                           Text="{Binding ProductCategory}"
-                           Completed="CategoryEntry_Completed" />
-                    <Button Style="{StaticResource LoginButtons}"
-                            Text="+"
-                            WidthRequest="65"
-                            CornerRadius="20"
-                            Command="{Binding AddCategoryCommand}" />
-                </HorizontalStackLayout>
-            </Border>
+                    <Border Style="{StaticResource SquareishEntryBorder}"
+                            Grid.Row="2">
+                        <VerticalStackLayout Spacing="0">
+                            <Slider x:Name="imgScale"
+                                    Margin="25,20,20,0"
+                                    Maximum="5.0"
+                                    MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight
+                          },Light={StaticResource Primary}}"
+                                    Value="{Binding ImageScale, Mode=TwoWay, FallbackValue='1'}"
+                                    ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                          ,Light={StaticResource PrimaryDark}}" />
 
-            <Border Style="{StaticResource EntryBorder}">
-                <Entry x:Name="ProductTypeEntry"
-                       Placeholder="Enter product type"
-                       Text="{Binding ProductType}"
-                       Completed="ProductTypeEntry_Completed" />
-            </Border>
+                            <Label Text="Scale"
+                                   FontSize="20"
+                                   Style="{StaticResource AppThemeStyleReversed}" />
+                        </VerticalStackLayout>
+                    </Border>
 
-            <Border Style="{StaticResource EntryBorder}">
-                <Editor x:Name="InfoEditor"
-                        Placeholder="Enter info"
-                        Text="{Binding Info}"
-                        AutoSize="TextChanges"
-                        Completed="InfoEditor_Completed" />
-            </Border>
+                    <Border Grid.Row="3"
+                            Style="{StaticResource SquareishEntryBorder}">
+                        <Entry x:Name="ModelEntry"
+                               Placeholder="Enter model"
+                               Text="{Binding Model}"
+                               BackgroundColor="Transparent"
+                               Completed="ModelEntry_Completed" />
+                    </Border>
 
+                    <Border Style="{StaticResource SquareishEntryBorder}"
+                            Grid.Row="4">
+                        <Entry x:Name="PriceEntry"
+                               Placeholder="Enter price"
+                               Keyboard="Numeric"
+                               BackgroundColor="Transparent"
+                               Text="{Binding Price}"
+                               Completed="PriceEntry_Completed">
+                            <Entry.Behaviors>
+                                <behaviors:CurrencyEntryBehavior/>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </Border>
+
+                    <Border Style="{StaticResource SquareishEntryBorder}"
+                            Grid.Row="5">
+                        <HorizontalStackLayout Grid.Row="6">
+                            <Picker x:Name="CategoryPicker"
+                                    ItemsSource="{Binding Categories}"
+                                    BackgroundColor="Transparent"
+                                    Title="Select category"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="255"
+                                    FontSize="18"
+                                    SelectedIndex="{Binding ProductCategory}"
+                                    SelectedIndexChanged="CategoryPicker_SelectedIndexChanged"
+                                    Margin="30,0,10,0"
+                                    TextColor="{StaticResource TenderWhite}"
+                                    TitleColor="{StaticResource GrayText}"
+                                    SelectedItem="{Binding ProductCategory}" />
+
+                            <Button Style="{StaticResource LoginButtons}"
+                                    Text="+"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    Padding="0,-4,0,0"
+                                    WidthRequest="50"
+                                    FontSize="35"
+                                    HeightRequest="50"
+                                    CornerRadius="10"
+                                    Command="{Binding AddCategoryCommand}"/>
+                        </HorizontalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource SquareishEntryBorder}"
+                            Grid.Row="7">
+                        <Entry x:Name="ProductTypeEntry"
+                               Placeholder="Enter product type"
+                               Text="{Binding ProductType}"
+                               Completed="ProductTypeEntry_Completed" />
+                    </Border>
+
+                    <Border Grid.Row="8"
+                            HeightRequest="400"
+                            Style="{StaticResource SquareishEntryBorder}">
+                        <ScrollView>
+                            <Editor x:Name="InfoEditor"
+                                    Placeholder="Enter info"
+                                    Background="Transparent"
+                                    Text="{Binding Info}"
+                                    AutoSize="TextChanges"
+                                    Margin="0,10,0,0"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Center"
+                                    FontSize="18"
+                                    WidthRequest="290"
+                                    Completed="InfoEditor_Completed" />
+                        </ScrollView>
+                    </Border>
+                </Grid>
+            </ScrollView>
+            <BoxView Color="{StaticResource Primary}"
+                     Grid.Row="2"
+                     Margin="0,-26,0,0"
+                     HeightRequest="3"
+                     Grid.ColumnSpan="2" />
             <Button x:Name="ApplyButton"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
                     Text="Apply"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,27"
                     Style="{StaticResource LoginButtons}"
                     IsEnabled="{Binding IsNotBusy}"
-                    IsVisible="{Binding IsNotEmpty}"
+                    IsVisible="True"
                     Command="{Binding ChangeProductCommand}" />
-        </VerticalStackLayout>
-    </ScrollView>
+        </Grid>
+    
 </ContentPage>

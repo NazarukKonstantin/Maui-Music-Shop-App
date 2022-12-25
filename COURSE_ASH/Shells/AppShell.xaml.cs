@@ -17,4 +17,27 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));
         Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
     }
+
+    protected override void OnNavigated(ShellNavigatedEventArgs args)
+    {
+        string location = args.Current?.Location?.ToString();
+        switch (location)
+        {
+            case $"//{nameof(CatalogPage)}":
+                ((CatalogPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            case $"//{nameof(CartPage)}":
+                ((CartPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            case $"//{nameof(FavouritesPage)}":
+                ((FavouritesPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            case $"//{nameof(SearchPage)}":
+                ((SearchPage)Shell.Current.CurrentPage).ViewModel.RefreshAsync();
+                break;
+            default: break;
+        }
+
+        base.OnNavigated(args);
+    }
 }

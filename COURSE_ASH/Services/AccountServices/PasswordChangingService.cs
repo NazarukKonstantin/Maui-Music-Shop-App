@@ -4,8 +4,17 @@ public class PasswordChangingService : AccountService
 {
     public async Task<AccountState> ChangePasswordAsync(string login, string oldPassword, string newPassword, string repeatPassword)
     {
-        string state = AccountSafetyChecker.CheckPasswordChange(oldPassword, newPassword, repeatPassword);
-        if (state != AccountAlerts.SUCCESS) return new AccountState(state);
+        string state = AccountSafetyChecker.CheckPasswordChange(oldPassword, newPassword, repeatPassword, out bool isValid);
+        if (!isValid)
+        {
+            bool choice = await Shell.Current.DisplayAlert("Are you sure?", $"{state}", "Confirm", "Cancel");
+            if (!choice)
+            {
+                return new AccountState(state);
+            }
+        }
+        else if (isValid && state != AccountAlerts.SUCCESS)
+            return new AccountState(state);
 
         AccountData account = await DataStorageService<AccountData>.GetItemByAsync(nameof(AccountData.CurrentLogin), login);
 

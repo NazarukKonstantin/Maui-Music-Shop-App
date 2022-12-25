@@ -91,7 +91,7 @@ public static class DataStorageService<T> where T : class
                 .DeleteAsync();
         }
     }
-    public static async Task UpdateItemAsync(T item, string searchFieldName, int value)
+    public static async Task UpdateItemAsync(T newItem, string searchFieldName, int value)
     {
         var target = (await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -99,14 +99,14 @@ public static class DataStorageService<T> where T : class
             .OnceAsync<T>());
         if (target.Count is 0)
         {
-            await AddItemAsync(item);
+            await AddItemAsync(newItem);
             return;
         }
         await _firebaseQuery
             .Child(target.First().Key)
-            .PatchAsync(item);
+            .PatchAsync(newItem);
     }
-    public static async Task UpdateItemAsync(T item, string searchFieldName, string value)
+    public static async Task UpdateItemAsync(T newItem, string searchFieldName, string value)
     {
         var target = (await _firebaseQuery
             .OrderBy(searchFieldName)
@@ -114,11 +114,11 @@ public static class DataStorageService<T> where T : class
             .OnceAsync<T>());
         if (target.Count is 0)
         {
-            await AddItemAsync(item);
+            await AddItemAsync(newItem);
             return;
         }
         await _firebaseQuery
             .Child(target.First().Key)
-            .PatchAsync(item);
+            .PatchAsync(newItem);
     }
 }

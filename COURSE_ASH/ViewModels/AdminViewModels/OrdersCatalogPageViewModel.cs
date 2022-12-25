@@ -1,6 +1,6 @@
 ﻿namespace COURSE_ASH.ViewModels.AdminViewModels;
 
-public partial class OrdersCatalogPageViewModel : BaseViewModel
+public partial class OrdersCatalogPageViewModel : BaseViewModel, IRefreshable
 {
     [ObservableProperty]
     private ObservableCollection<Order> _orders;

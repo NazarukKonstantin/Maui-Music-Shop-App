@@ -14,8 +14,11 @@ public class CatalogService
 
     public async Task<bool> AddCategory(string name, FileResult categoryImage, double imageRotation, double imageScale)
     {
-        if ((from categ in (await GetCategoriesAsync())
-             where categ.Category == name select categ).Any())
+        IEnumerable<CatalogItem> catalogItems = await GetCategoriesAsync();
+        if (catalogItems is not null
+            &&(from categ in catalogItems
+             where categ.Category == name
+             select categ).Any())
             return false;
 
         CatalogItem category = new()
@@ -55,7 +58,7 @@ public class CatalogService
             await DataStorageService<Product>.UpdateItemAsync(product.CloneProductWithCategory(newItem.Category), 
                 nameof(Product.ID), product.ID);
 
-        await DataStorageService<CatalogItem>.UpdateItemAsync(oldCategory, nameof(CatalogItem.Category), oldName);
+        await DataStorageService<CatalogItem>.UpdateItemAsync(newItem, nameof(CatalogItem.Category), oldName);
         CategoryChanged?.Invoke(this, new CategoryEventArgs(newItem, CategoryEventArgs.CategoryWas.Changed));
     }
 

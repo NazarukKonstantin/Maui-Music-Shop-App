@@ -45,11 +45,10 @@
                    Margin="30,0,30,0" />
 
             <Border Style="{StaticResource ErrorPossibleBorder}">
-                <Frame Style="{StaticResource LoginEntryFrame}"
-                       Margin="0"
-                       Padding="0">
+                <Frame Style="{StaticResource LoginEntryFrame}">
                     <Entry x:Name="LoginEntry"
                            Placeholder="Login"
+                           BackgroundColor="Transparent"
                            Text="{Binding Login, Mode=TwoWay}"
                            Completed="LoginEntryCompleted"
                            Style="{StaticResource ErrorPossibleEntry}">
@@ -65,6 +64,7 @@
                           Padding="0">
                         <Entry x:Name="PassEntry"
                                Grid.Column="0"
+                               BackgroundColor="Transparent"
                                Placeholder="Password"
                                Text="{Binding Password, Mode=TwoWay}"
                                Completed="PasswordEntryCompleted"

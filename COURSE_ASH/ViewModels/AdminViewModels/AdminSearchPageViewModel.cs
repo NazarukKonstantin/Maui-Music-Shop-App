@@ -1,6 +1,9 @@
 ﻿namespace COURSE_ASH.ViewModels.AdminViewModels;
 
-public partial class AdminSearchPageViewModel : BaseViewModel
+[QueryProperty(nameof(ProfileImageLink), nameof(ProfileImageLink))]
+[QueryProperty(nameof(ProfileImageRotation), nameof(ProfileImageRotation))]
+[QueryProperty(nameof(ProfileImageScale), nameof(ProfileImageScale))]
+public partial class AdminSearchPageViewModel : BaseViewModel, IRefreshable
 {
     private readonly ProductsService _productsService;
     private readonly CatalogService _catalogService;
@@ -36,16 +39,19 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     public bool IsCategListNotEmpty => !IsCategListEmpty;
 
     [ObservableProperty]
+    private bool _isEmptyView = false;
+
+    [ObservableProperty]
     private string _currentLogin;
 
     [ObservableProperty]
-    private string _imageLink;
+    private string _profileImageLink;
 
     [ObservableProperty]
-    private double _imageRotation=0;
+    private double _profileImageRotation = 0;
 
     [ObservableProperty]
-    private double _imageScale = 1;
+    private double _profileImageScale = 1;
 
     public AdminSearchPageViewModel(ProductsService productsService, CatalogService catalogService)
     {
@@ -57,34 +63,47 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    public void RefreshAsync()
+    public async void RefreshAsync()
     {
         IsRefreshing = true;
         IsBusy = true;
         CurrentLogin = App.CurrentLogin;
-        ImageLink = Icons.DefaultProfile;
 
-        //await LoadCategoriesAsync();
-        //await LoadProductsAsync();
-        //await LoadImageAsync();
+        await LoadCategoriesAsync();
+        await LoadProductsAsync();
+
+        if (string.IsNullOrEmpty(ProfileImageLink))
+            await LoadProfilePicAsync();
 
         IsProdListEmpty = Products is null || Products.Count == 0;
-        IsCategListEmpty = Categories is null ||  Categories.Count == 0;
+        IsCategListEmpty = Categories is null || Categories.Count == 0;
+        RecountIsEmptyView();
         IsBusy = false;
         IsRefreshing = false;
+        Categories ??= new();
+    }
+
+    private void RecountIsEmptyView()
+    {
+        if (IsCategListEmpty && IsProdListEmpty
+            || IsCategListEmpty && IsCategoryListSelected
+            || IsProdListEmpty && IsProductListSelected)
+            IsEmptyView = true;
+        else IsEmptyView = false;
     }
 
     [RelayCommand]
     private void SetList()
     {
         IsCategoryListSelected = !IsCategoryListSelected;
+        RecountIsEmptyView();
     }
 
     private async Task LoadCategoriesAsync()
     {
         try
         {
-            CategCacheList = (await _catalogService.GetCategoriesAsync()).ToList();
+            CategCacheList = (await _catalogService.GetCategoriesAsync())?.ToList() ?? new();
         }
         catch (Exception)
         {
@@ -97,7 +116,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         try
         {
             Categories = CategCacheList.ToObservableCollection();
-            ProdCacheList = (await _productsService.GetProductsAsync()).ToList();
+            ProdCacheList = (await _productsService.GetProductsAsync())?.ToList() ?? new();
             Products = ProdCacheList.ToObservableCollection();
         }
         catch (Exception)
@@ -106,15 +125,18 @@ public partial class AdminSearchPageViewModel : BaseViewModel
             await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
         }
     }
-    private async Task LoadImageAsync()
+    private async Task LoadProfilePicAsync()
     {
         try
         {
-            ImageLink = (await DataStorageService<AccountData>
-                        .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
-                        .ImageLink;
-            if (string.IsNullOrEmpty(ImageLink))
-                ImageLink = Icons.DefaultProfile;
+            AccountData currentAccount = await DataStorageService<AccountData>
+            .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin);
+            ProfileImageLink = currentAccount.ImageLink;
+            ProfileImageRotation = currentAccount.ImageRotation;
+            ProfileImageScale = currentAccount.ImageScale;
+            if (string.IsNullOrEmpty(ProfileImageLink))
+                ProfileImageLink = App.Current.UserAppTheme == AppTheme.Dark ?
+                                    Icons.WaltuhWhite : Icons.WaltuhBlack;
         }
         catch (Exception)
         {
@@ -129,25 +151,26 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         await Shell.Current.GoToAsync($"{nameof(ProfilePage)}", true,
            new Dictionary<string, object>
            {
-               ["ImageLink"] = ImageLink,
+               ["ImageLink"] = ProfileImageLink,
                ["IsNotAdmin"] = false,
-               ["ImageRotation"]=ImageRotation,
-               ["ImageScale"]=ImageScale,
+               ["ImageRotation"] = ProfileImageRotation,
+               ["ImageScale"] = ProfileImageScale,
            });
     }
 
     [RelayCommand]
     private async void SignOut()
     {
-        bool choice = await Shell.Current.DisplayAlert("Are you sure?","Do you want to sign out?","Yes","No");
+        bool choice = await Shell.Current.DisplayAlert("Are you sure?", "Do you want to sign out?", "Yes", "No");
         if (choice)
         {
             Products = null;
             Categories = null;
             IsProdListEmpty = true;
             IsCategListEmpty = true;
+            IsEmptyView = true;
             CurrentLogin = string.Empty;
-            ImageLink = string.Empty;
+            ProfileImageLink = string.Empty;
             App.CurrentLogin = string.Empty;
             App.Current.MainPage = new AuthorizationShell();
         }
@@ -220,7 +243,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     {
         if (IsCategoryListSelected)
         {
-            string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", "Delete", "Open", "Edit");
+            string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", null, "Open", "Edit", "Delete");
             switch (choice)
             {
                 case "Cancel": return;
@@ -237,7 +260,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     {
         if (IsProductListSelected)
         {
-            string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", "Delete", "Open", "Edit");
+            string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", null, "Open", "Edit", "Delete");
             switch (choice)
             {
                 case "Cancel": return;
@@ -295,8 +318,11 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 $"of this category will be deleted",
                 "Confirm",
                 "Cancel");
-            if (choice) await _catalogService.RemoveCategoryAsync(item);
-            await Toast.Make("Category deleted",ToastDuration.Short).Show();
+            if (choice)
+            {
+                await _catalogService.RemoveCategoryAsync(item);
+                await Toast.Make("Category deleted", ToastDuration.Short).Show();
+            }
         }
         catch (Exception)
         {
@@ -335,7 +361,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 $"{product.Model} will be deleted",
                 "Confirm",
                 "Cancel");
-            if (choice) await _productsService.DeleteProductAsync(product);
+            if (choice)
+                await _productsService.DeleteProductAsync(product);
         }
         catch (Exception)
         {
@@ -364,7 +391,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         {
             case CategoryEventArgs.CategoryWas.Added:
                 Categories.Add(e.Item);
-                if (IsCategListEmpty) IsCategListEmpty = false;
+                if (IsCategListEmpty)
+                    IsCategListEmpty = false;
                 break;
             case CategoryEventArgs.CategoryWas.Removed:
                 Categories.Remove(e.Item);
@@ -374,6 +402,8 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 Categories[Categories.IndexOf(e.Item)] = e.Item;
                 break;
         }
+        if (Categories is not null)
+            Categories = Categories.OrderBy(c => c.Category).ToObservableCollection();
     }
 
     private void ProductChanged(object sender, ProductEventArgs e)
@@ -392,5 +422,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
                 Products[Products.IndexOf(e.Product)] = e.Product;
                 break;
         }
+        if (Products is not null)
+            Products = Products.OrderBy(p => p.Model).ToObservableCollection();
     }
 }

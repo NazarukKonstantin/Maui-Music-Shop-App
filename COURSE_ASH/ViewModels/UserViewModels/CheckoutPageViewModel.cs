@@ -18,7 +18,7 @@ public partial class CheckoutPageViewModel : BaseViewModel
     private string _billingAddress;
 
     [ObservableProperty]
-    private string _phoneNumber;
+    private string _email;
 
     [ObservableProperty]
     private double _totalPrice;
@@ -44,9 +44,9 @@ public partial class CheckoutPageViewModel : BaseViewModel
                 IsBusy = false;
                 return;
             }
-            if (string.IsNullOrEmpty(PhoneNumber) || !Order.IsPhoneNumber(PhoneNumber))
+            if (string.IsNullOrEmpty(Email) || !Order.IsEmail(Email))
             {
-                await Toast.Make(AddressAlerts.WRONG_NUMBER, ToastDuration.Long).Show();
+                await Toast.Make(AddressAlerts.WRONG_EMAIL, ToastDuration.Long).Show();
                 IsBusy = false;
                 return;
             }

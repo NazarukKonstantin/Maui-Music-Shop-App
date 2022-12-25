@@ -11,7 +11,7 @@
              Shell.TabBarIsVisible="False"
              Title="AddProductPage">
 
-    <SwipeView>
+    
         <Grid RowDefinitions="Auto,*,.001*,.1*"
               ColumnDefinitions=".2*,.8*"
               RowSpacing="15">
@@ -238,5 +238,5 @@
                     IsVisible="True"
                     Command="{Binding AddProductCommand}" />
         </Grid>
-    </SwipeView>
+    
 </ContentPage>

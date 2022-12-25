@@ -4,8 +4,16 @@ public class RegistrationService : AccountService
 {
     public async Task<AccountState> RegisterAsync(string login, string password, string repeatPassword)
     {
-        string state = AccountSafetyChecker.CheckRegistration(login, password, repeatPassword);
-        if (state != AccountAlerts.SUCCESS)
+        string state = AccountSafetyChecker.CheckRegistration(login, password, repeatPassword, out bool isValid);
+        if (!isValid)
+        {
+            bool choice = await Shell.Current.DisplayAlert("Confirm input data?", $"{state}", "Confirm", "Cancel");
+            if (!choice)
+            {
+                return new AccountState(state);
+            }
+        }
+        else if (isValid && state != AccountAlerts.SUCCESS)
             return new AccountState(state);
 
         IEnumerable<AccountData> accounts =

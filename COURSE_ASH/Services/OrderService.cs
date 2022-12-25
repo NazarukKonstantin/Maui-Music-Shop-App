@@ -6,7 +6,7 @@ public class OrderService
     {
         var orders = await DataStorageService<Order>.GetItemListAsync();
         int newID = orders.Count() == 0 ? 1 : (from order in orders select order.ID).Max() + 1;
-        Order newOrder = new Order
+        Order newOrder = new()
         {
             ID = newID,
             CurrentLogin = currentLogin,

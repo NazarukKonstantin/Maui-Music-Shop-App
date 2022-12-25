@@ -11,13 +11,14 @@ public class Order : IAccountBased
     public DateTime OrderTime { get; set; }
     public string Address { get; set; }
     public double TotalPrice { get; set;  }
-    public string PhoneNumber { get; set; }
+    public string Email { get; set; }
     public string Status { get; set; }
 
-    private static readonly string _phoneNumberPattern = @"^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$";
-    public static bool IsPhoneNumber(string str)
+    private static readonly string _emailPattern = @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+            @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$";
+    public static bool IsEmail(string str)
     {
-        return Regex.IsMatch(str, _phoneNumberPattern);
+        return Regex.IsMatch(str, _emailPattern, RegexOptions.IgnoreCase);
     }
     public static bool CanBeCancelled(string status)
     {

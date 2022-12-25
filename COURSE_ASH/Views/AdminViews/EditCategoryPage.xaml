@@ -9,74 +9,107 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="False"
              Title="EditCategoryPage">
-    
-    <ScrollView>
-        <VerticalStackLayout Spacing="20">
 
-            <BoxView x:Name="NavBar"
-                     Margin="0"
-                     Style="{StaticResource NavBarBoxView}" />
+    <Grid RowDefinitions="Auto,*,Auto,100,100,80"
+          RowSpacing="20">
 
-            <ImageButton x:Name="GoBack"
-                         Style="{StaticResource GoBackArrow}"
-                         Command="{Binding GoBackCommand}" />
+        <BoxView x:Name="NavBar"
+                 Grid.Row="0"
+                 Margin="0"
+                 Style="{StaticResource NavBarBoxView}" />
 
-            <Grid Padding="8">
-                <Border Style="{StaticResource CardViewBorder}">
-                    <Border.Shadow>
-                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
-                                                       ,Light=Black}"
-                                Offset="15,15"
-                                Radius="15"
-                                Opacity="0.2" />
-                    </Border.Shadow>
-                    <Frame HeightRequest="150"
-                           Style="{StaticResource CatalogStyle}">
-                        <Grid ColumnDefinitions="*,*">
-                            <Image Source="{Binding ImageLink,FallbackValue={AppThemeBinding Dark={x:Static global:Icons.AddImageWhite}
-                            ,Light={x:Static global:Icons.AddImageBlack}}}"
-                                   Rotation="{Binding ImageRotation}"
-                                   Scale="{Binding ImageScale}"
-                                   Style="{StaticResource CatalogImageStyle}">
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding PickImageCommand}" />
-                                </Image.GestureRecognizers>
-                            </Image>
+        <ImageButton x:Name="GoBack"
+                     Grid.Row="0"
+                     Style="{StaticResource GoBackArrow}"
+                     Command="{Binding GoBackCommand}" />
+        <Label Text="Add Category"
+               Style="{StaticResource PageTitle}" />
 
-                            <Label Text="{Binding Name,FallbackValue=SampleText}"
-                                   Grid.Column="1"
-                                   HorizontalOptions="Center"
-                                   Style="{StaticResource Title}" />
-                        </Grid>
-                    </Frame>
-                </Border>
-            </Grid>
+        <Grid Grid.Row="1"
+              Padding="10">
+            <Border Style="{StaticResource CardViewBorder}">
+                <Border.Shadow>
+                    <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                                  ,Light=Black}"
+                            Offset="15,15"
+                            Radius="15"
+                            Opacity="0.2" />
+                </Border.Shadow>
+                <Frame HeightRequest="150"
+                       Style="{StaticResource CatalogStyle}">
+                    <Grid ColumnDefinitions="*,*">
+                        <Image Source="{Binding ImageLink,TargetNullValue='add_image_black.png'}"
+                               Rotation="{Binding ImageRotation}"
+                               Scale="{Binding ImageScale}">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding PickImageCommand}" />
+                            </Image.GestureRecognizers>
+                        </Image>
 
-            <Border Style="{StaticResource EntryBorder}">
-                <Entry x:Name="CategoryNameEntry"
-                       Placeholder="Enter category"
-                       Text="{Binding Name}"
-                       Completed="CategoryNameEntryCompleted" />
+                        <Label Text="{Binding Name,TargetNullValue='SampleText'}"
+                               Grid.Column="1"
+                               Padding="20,20,20,20"
+                               HorizontalOptions="Center"
+                               Style="{StaticResource Title}" />
+                    </Grid>
+                </Frame>
             </Border>
+        </Grid>
 
-            <Border Style="{StaticResource EntryBorder}">
+        <Border Grid.Row="2"
+                Style="{StaticResource SquareishEntryBorder}">
+            <Entry x:Name="CategoryNameEntry"
+                   Placeholder="Enter category"
+                   BackgroundColor="Transparent"
+                   Text="{Binding Name}"
+                   Completed="CategoryNameEntryCompleted" />
+        </Border>
+
+        <Border Style="{StaticResource SquareishEntryBorder}"
+                Grid.Row="3">
+            <VerticalStackLayout Spacing="3">
                 <Slider x:Name="imgRotation"
-                        Maximum="360"
-                        Value="{Binding ImageRotation, Mode=TwoWay}" />
-            </Border>
+                        Maximum="180"
+                        Minimum="-180"
+                        Margin="25,25,20,0"
+                        Value="{Binding ImageRotation,FallbackValue='1'}"
+                        ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                                           ,Light={StaticResource PrimaryDark}}"
+                        MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                                   ,Light={StaticResource Primary}}"
+                        HeightRequest="10" />
+                <Label Text="Rotate"
+                       FontSize="20"
+                       Style="{StaticResource AppThemeStyleReversed}" />
+            </VerticalStackLayout>
+        </Border>
 
-            <Border Style="{StaticResource EntryBorder}">
+        <Border Style="{StaticResource SquareishEntryBorder}"
+                Grid.Row="4">
+            <VerticalStackLayout Spacing="0">
                 <Slider x:Name="imgScale"
+                        Margin="25,20,20,0"
                         Maximum="5.0"
-                        Value="{Binding ImageScale, Mode=TwoWay}" />
-            </Border>
+                        MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight
+                           },Light={StaticResource Primary}}"
+                        Value="{Binding ImageScale, Mode=TwoWay, FallbackValue='1'}"
+                        ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                           ,Light={StaticResource PrimaryDark}}" />
 
-            <Button x:Name="ApplyButton"
-                    Text="Apply"
-                    Style="{StaticResource LoginButtons}"
-                    IsEnabled="{Binding IsNotBusy}"
-                    IsVisible="{Binding IsNotEmpty}"
-                    Command="{Binding ChangeCategoryCommand}" />
-        </VerticalStackLayout>
-    </ScrollView>
+                <Label Text="Scale"
+                       FontSize="20"
+                       Style="{StaticResource AppThemeStyleReversed}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Button x:Name="ApplyButton"
+                Grid.Row="5"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Margin="0,0,0,10"
+                Text="Apply"
+                Style="{StaticResource LoginButtons}"
+                IsVisible="True"
+                Command="{Binding ChangeCategoryCommand}" />
+    </Grid>
 </ContentPage>

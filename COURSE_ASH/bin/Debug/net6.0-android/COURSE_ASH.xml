@@ -136,17 +136,20 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategListEmpty">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isCategListEmpty"/>
         </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsEmptyView">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isEmptyView"/>
+        </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.CurrentLogin">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._currentLogin"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageLink">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageLink"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ProfileImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._profileImageLink"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageRotation">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageRotation"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ProfileImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._profileImageRotation"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageScale">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageScale"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ProfileImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._profileImageScale"/>
         </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.refreshAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.RefreshAsyncCommand"/>.</summary>
@@ -679,14 +682,14 @@
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.CurrentLogin">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._currentLogin"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageLink">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageLink"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ProfileImageLink">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._profileImageLink"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageRotation">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageRotation"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ProfileImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._profileImageRotation"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageScale">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageScale"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ProfileImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._profileImageScale"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.Products">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._products"/>
@@ -724,8 +727,8 @@
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.BillingAddress">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._billingAddress"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.PhoneNumber">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._phoneNumber"/>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.Email">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._email"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel.TotalPrice">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CheckoutPageViewModel._totalPrice"/>

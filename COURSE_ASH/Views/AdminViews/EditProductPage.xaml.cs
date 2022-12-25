@@ -9,6 +9,7 @@ public partial class EditProductPage : ContentPage
 		InitializeComponent();
 		BindingContext=viewModel;
 	}
+
     private void ModelEntry_Completed(object sender, EventArgs e)
     {
         ModelEntry.Unfocus();
@@ -18,14 +19,21 @@ public partial class EditProductPage : ContentPage
     private void PriceEntry_Completed(object sender, EventArgs e)
     {
         PriceEntry.Unfocus();
-        CategoryEntry.Focus();
+        CategoryPicker.Focus();
     }
 
-    private void CategoryEntry_Completed(object sender, EventArgs e)
+
+    private void CategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
-        CategoryEntry.Unfocus();
+        CategoryPicker.Unfocus();
         ProductTypeEntry.Focus();
     }
+
+    //private void CategoryEntry_Completed(object sender, EventArgs e)
+    //{
+    //	CategoryEntry.Unfocus();
+    //	ProductTypeEntry.Focus();
+    //}
 
     private void ProductTypeEntry_Completed(object sender, EventArgs e)
     {

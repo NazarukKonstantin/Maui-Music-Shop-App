@@ -52,21 +52,22 @@ public partial class ProfilePage : ContentPage
 
     private void ChangePassButton_Pressed(object sender, EventArgs e)
     {
-        ChangePassButton.IsVisible = false;
-        ChangePasswordFrame.IsVisible = true;
-        RotationSlider.IsVisible = false;
-        ScaleSlider.IsVisible = false;
-        SaveImageButton.IsVisible = false;
+        ChangePassButton.IsVisible = !ChangePassButton.IsVisible;
+        ChangePasswordFrame.IsVisible =!ChangePasswordFrame.IsVisible;
+        RotationSlider.IsVisible = !RotationSlider.IsVisible;
+        ScaleSlider.IsVisible = !ScaleSlider.IsVisible;
+        SaveImageButton.IsVisible = !SaveImageButton.IsVisible;
+        ConfirmPassButton.IsVisible = !ConfirmPassButton.IsVisible;
     }
 
     private void ConfirmPassButton_Clicked(object sender, EventArgs e)
     {
-        ChangePassButton.IsVisible = true;
-        ChangePasswordFrame.IsVisible = false;
-        ConfirmPassButton.IsVisible = false;
-        SaveImageButton.IsVisible = true;
-        RotationSlider.IsVisible = true;
-        ScaleSlider.IsVisible = true;
+        ChangePassButton.IsVisible = !ChangePassButton.IsVisible;
+        ChangePasswordFrame.IsVisible = !ChangePasswordFrame.IsVisible;
+        RotationSlider.IsVisible = !RotationSlider.IsVisible;
+        ScaleSlider.IsVisible = !ScaleSlider.IsVisible;
+        SaveImageButton.IsVisible = !SaveImageButton.IsVisible;
+        ConfirmPassButton.IsVisible = !ConfirmPassButton.IsVisible;
         OldPassEntry.Text = String.Empty;
         NewPassEntry.Text = String.Empty;
         ConfirmNewPassEntry.Text = String.Empty;

@@ -2,7 +2,7 @@
 
 [QueryProperty(nameof(Products), nameof(Products))]
 [QueryProperty(nameof(IsTabVisible), nameof(IsTabVisible))]
-public partial class SearchPageViewModel : BaseViewModel
+public partial class SearchPageViewModel : BaseViewModel, IRefreshable
 {
     private readonly ProductsService _service;
 
@@ -44,7 +44,7 @@ public partial class SearchPageViewModel : BaseViewModel
     }
 
     [RelayCommand]
-    private async void RefreshAsync()
+    public async void RefreshAsync()
     {
         try
         {

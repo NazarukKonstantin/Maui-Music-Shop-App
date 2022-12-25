@@ -9,7 +9,7 @@
              x:Class="COURSE_ASH.Views.ProfilePage">
 
 
-    <Grid RowDefinitions="Auto,190,.6*,.5*">
+    <Grid RowDefinitions="Auto,190,Auto,*,Auto,*">
         <BoxView Margin="0"
                  Style="{StaticResource NavBarBoxView}" />
 
@@ -53,69 +53,72 @@
             </Frame.GestureRecognizers>
         </Frame>
 
-        <VerticalStackLayout Grid.Row="2"
-                             Margin="0"
+        <Button Style="{StaticResource LoginButtons}"
+                x:Name="ChangePassButton"
+                Text="Change Password"
+                FontSize="20"
+                Grid.Row="2"
+                HorizontalOptions="Center"
+                Pressed="ChangePassButton_Pressed"
+                VerticalOptions="Center" />
+
+        <Border Style="{StaticResource SquareishEntryBorder}"
+                Grid.Row="3"
+                x:Name="RotationSlider">
+            <VerticalStackLayout Spacing="3">
+                <Slider x:Name="imgRotation"
+                        Maximum="180"
+                        Minimum="-180"
+                        Margin="25,25,20,0"
+                        Value="{Binding ImageRotation, Mode=TwoWay}"
+                        ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+                         ,Light={StaticResource PrimaryDark}}"
+                        MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+                                 ,Light={StaticResource Primary}}"
+                        HeightRequest="10" />
+                <Label Text="Rotate"
+                       FontSize="20"
+                       Style="{StaticResource AppThemeStyleReversed}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Border Style="{StaticResource SquareishEntryBorder}"
+                Grid.Row="4"
+                x:Name="ScaleSlider">
+            <VerticalStackLayout Spacing="0">
+                <Slider x:Name="imgScale"
+                        Margin="25,20,20,0"
+                        Maximum="5.0"
+                        MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight
+         },Light={StaticResource Primary}}"
+                        Value="{Binding ImageScale, Mode=TwoWay, FallbackValue='1'}"
+                        ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
+         ,Light={StaticResource PrimaryDark}}" />
+
+                <Label Text="Scale"
+                       FontSize="20"
+                       Style="{StaticResource AppThemeStyleReversed}" />
+            </VerticalStackLayout>
+        </Border>
+
+        <Button Style="{StaticResource LoginButtons}"
+                x:Name="SaveImageButton"
+                Text="Save Image"
+                FontSize="20"
+                Grid.Row="5"
+                HorizontalOptions="Center"
+                Command="{Binding SaveImageCommand}"
+                VerticalOptions="Center" />
+
+        <VerticalStackLayout Grid.Row="3"
+                             Margin="0,10,0,0"
                              Padding="0"
-                             Spacing="20">
+                             Spacing="0">
 
             <Label Text="{Binding Alert}"
                    Style="{StaticResource AlertLabel}"
                    Margin="30,0,30,0" />
 
-            <Button Style="{StaticResource LoginButtons}"
-                    x:Name="ChangePassButton"
-                    Text="Change Password"
-                    FontSize="20"
-                    HorizontalOptions="Center"
-                    Pressed="ChangePassButton_Pressed"
-                    VerticalOptions="Center" />
-
-            <Border Style="{StaticResource SquareishEntryBorder}"
-                    Grid.Row="1"
-                    x:Name="RotationSlider">
-                <VerticalStackLayout Spacing="3">
-                    <Slider x:Name="imgRotation"
-                            Maximum="180"
-                            Minimum="-180"
-                            Margin="25,25,20,0"
-                            Value="{Binding ImageRotation, Mode=TwoWay}"
-                            ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
-                         ,Light={StaticResource PrimaryDark}}"
-                            MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
-                                 ,Light={StaticResource Primary}}"
-                            HeightRequest="10" />
-                    <Label Text="Rotate"
-                           FontSize="20"
-                           Style="{StaticResource AppThemeStyleReversed}" />
-                </VerticalStackLayout>
-            </Border>
-
-            <Border Style="{StaticResource SquareishEntryBorder}"
-                    Grid.Row="2"
-                    x:Name="ScaleSlider">
-                <VerticalStackLayout Spacing="0">
-                    <Slider x:Name="imgScale"
-                            Margin="25,20,20,0"
-                            Maximum="5.0"
-                            MinimumTrackColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight
-         },Light={StaticResource Primary}}"
-                            Value="{Binding ImageScale, Mode=TwoWay, FallbackValue='1'}"
-                            ThumbColor="{AppThemeBinding Dark={StaticResource DarkBlue}
-         ,Light={StaticResource PrimaryDark}}" />
-
-                    <Label Text="Scale"
-                           FontSize="20"
-                           Style="{StaticResource AppThemeStyleReversed}" />
-                </VerticalStackLayout>
-            </Border>
-
-            <Button Style="{StaticResource LoginButtons}"
-                    x:Name="SaveImageButton"
-                    Text="Save Image"
-                    FontSize="20"
-                    HorizontalOptions="Center"
-                    Command="{Binding SaveImageCommand}"
-                    VerticalOptions="Center" />
 
             <Frame Style="{StaticResource CatalogStyle}"
                    HeightRequest="380"
@@ -273,7 +276,7 @@
                             Style="{StaticResource LoginButtons}"
                             Command="{Binding ChangePasswordCommand}"
                             FontAttributes="Bold"
-                            IsEnabled="{Binding IsNotBusy}"
+                            IsEnabled="{Binding IsSuccessful}"
                             FontSize="30" />
                 </VerticalStackLayout>
             </Frame>

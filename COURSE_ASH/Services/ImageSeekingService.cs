@@ -2,12 +2,12 @@
 
 public class ImageSeekingService
 {
-    public static async Task<bool> ShouldDelete<T>(string imageURI) where T : IImageDisposable
+    public static async Task<bool> ShouldDelete<T>(string imageLink) where T : IImageDisposable
     {
-        if (imageURI is null) return false;
-        var favTask = IsImageInFavourites(imageURI);
-        var cartTask = IsImageInCart(imageURI);
-        var prodTask = ImageManager<T>.CountLinksAsync(imageURI);
+        if (string.IsNullOrEmpty(imageLink)) return false;
+        var favTask = IsImageInFavourites(imageLink);
+        var cartTask = IsImageInCart(imageLink);
+        var prodTask = ImageManager<T>.CountLinksAsync(imageLink);
 
         var Tasks = new List<Task> { favTask, cartTask, prodTask };
 
@@ -58,7 +58,7 @@ public class ImageSeekingService
         foreach (AccountData account in users)
         {
             var cart = await DataStorageService<Cart>
-                .GetItemByAsync(account.CurrentLogin, nameof(Cart.CurrentLogin));
+                .GetItemByAsync(nameof(Cart.CurrentLogin),account.CurrentLogin);
             if (cart is null || cart.Products is null) continue;
             if ((from product in cart.Products where product.ImageLink == imageLink select product).Any())
                 return true;

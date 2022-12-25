@@ -1,4 +1,5 @@
 ﻿using Firebase.Database;
+using Firebase.Storage;
 
 namespace COURSE_ASH.Services;
 
@@ -8,26 +9,41 @@ public class ImageManager<T> where T: IImageDisposable
     private const string FB_STORAGE_URL = "musicshop-725ec.appspot.com";
 
     private static readonly ChildQuery _firebaseQuery =
-    new FirebaseClient(FB_REALTIME_DB_URL).Child(GetTableName(typeof(T)));
+    new FirebaseClient(FB_REALTIME_DB_URL).Child(GetTableName());
     private static readonly FirebaseStorageReference _storage =
-        new FirebaseStorage(FB_STORAGE_URL).Child(GetTableName(typeof(T)));
-    private static string GetTableName(Type type)
+        new FirebaseStorage(FB_STORAGE_URL).Child(GetTableName());
+    private static readonly FirebaseStorage _firebaseStorage =
+        new FirebaseStorage(FB_STORAGE_URL);
+    private static string GetTableName()
     {
-        return type.Name;
+        return typeof(T).Name;
         //return $"{type.Name.ToLower()}s";
     }
 
     public static async Task<string> LinkImageToStorageAsync(FileResult file)
     {
-        Stream imageToUpload = await file.OpenReadAsync();
-        string fileName = file.FileName;
+        //Stream imageToUpload = await file.OpenReadAsync();
+        //string fileName = file.FileName;
 
-        await _storage
-            .Child($"{fileName}")
+        //await _storage
+        //    .Child($"{fileName}")
+        //    .PutAsync(imageToUpload);
+
+        //string ret = await _storage
+        //    .Child($"{fileName}")
+        //    .GetDownloadUrlAsync();
+
+        //return ret;
+        Stream imageToUpload = await file.OpenReadAsync();
+
+        await _firebaseStorage
+            .Child(typeof(T).Name)
+            .Child($"{file.FileName}")
             .PutAsync(imageToUpload);
 
-        return await _storage
-            .Child($"{fileName}")
+        return await _firebaseStorage
+            .Child(typeof(T).Name)
+            .Child($"{file.FileName}")
             .GetDownloadUrlAsync();
     }
 

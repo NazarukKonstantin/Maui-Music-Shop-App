@@ -96,9 +96,10 @@
                         BackgroundColor="Transparent"
                         Stroke="{StaticResource Primary}"
                         StrokeThickness="2">
-                    <Entry Placeholder="Enter phone number"
-                           Keyboard="Telephone"
-                           Text="{Binding PhoneNumber,StringFormat='+{0}'}"
+                    
+                    <Entry Placeholder="Enter email"
+                           Keyboard="Email"
+                           Text="{Binding Email}"
                            FontSize="Medium" />
 
                 </Border>

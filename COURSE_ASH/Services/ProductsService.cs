@@ -32,18 +32,18 @@ public class ProductsService
 
         ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Removed));
     }
-    public async Task ChangeProductAsync(Product product, FileResult productImage=null)
+    public async Task ChangeProductAsync(Product newProduct, FileResult productImage=null)
     {
-        string oldImageLink = product.ImageLink;
+        string oldImageLink = newProduct.ImageLink;
         if (productImage != null)
-            product.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
+            newProduct.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
 
-        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
+        await DataStorageService<Product>.UpdateItemAsync(newProduct, nameof(Product.ID), newProduct.ID);
 
         if (productImage != null && await ImageSeekingService.ShouldDelete<Product>(oldImageLink))
             await ImageManager<Product>.RemoveImageAsync(oldImageLink);
 
-        ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Changed));
+        ProductChanged?.Invoke(this, new ProductEventArgs(newProduct, ProductEventArgs.ProductWas.Changed));
     }
 
     public async Task<List<Review>> GetReviewsForAsync(Product product)
@@ -93,9 +93,9 @@ public class ProductsService
     {
        return await DataStorageService<Product>.GetItemByAsync(nameof(Product.ID), product.ID);
     }
-    private async Task UpdateByIDAsync(Product product)
+    private async Task UpdateByIDAsync(Product newProduct)
     {
-        await DataStorageService<Product>.UpdateItemAsync(product, nameof(Product.ID), product.ID);
+        await DataStorageService<Product>.UpdateItemAsync(newProduct, nameof(Product.ID), newProduct.ID);
     }
 
     public void CountRatingOf(Product product)

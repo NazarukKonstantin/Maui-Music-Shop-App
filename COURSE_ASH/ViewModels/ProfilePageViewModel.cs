@@ -61,6 +61,7 @@ public partial class ProfilePageViewModel : BaseViewModel
         try
         {
             IsBusy = true;
+            IsSuccessful = false;
             AccountState accountState = await _service
                 .ChangePasswordAsync(App.CurrentLogin, OldPassword, NewPassword, ConfirmPassword);
             if (accountState.Alert == AccountAlerts.SUCCESS)
@@ -102,14 +103,30 @@ public partial class ProfilePageViewModel : BaseViewModel
     [RelayCommand]
     async Task SaveImageAsync()
     {
-        await AccountService.RecordNewImage(ImageLink,ImageRotation,ImageScale,CurrentLogin);
+        try
+        {
+            await AccountService.RecordNewImage(_image, ImageRotation, ImageScale, CurrentLogin);
+            await Toast.Make(GeneralAlerts.IMAGE_CHANGED, ToastDuration.Short).Show();
+        }
+        catch
+        {
+            await Toast.Make(GeneralAlerts.NO_CONNECTION, ToastDuration.Short).Show();
+        }
+
     }
 
     [RelayCommand]
-    public void RefreshAsync()
+    public async void RefreshAsync()
     {
-        ImageLink ??= Icons.WaltuhBlack;
         CurrentLogin = App.CurrentLogin;
+        AccountData currentAccount = await DataStorageService<AccountData>
+                    .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin);
+        ImageLink = currentAccount.ImageLink;
+        ImageRotation = currentAccount.ImageRotation;
+        ImageScale = currentAccount.ImageScale;
+        if (string.IsNullOrEmpty(ImageLink))
+            ImageLink = App.Current.UserAppTheme == AppTheme.Dark ? 
+                Icons.WaltuhWhite : Icons.WaltuhBlack; 
         IsSuccessful = false;
         IsFailed = false;
     }
@@ -117,6 +134,12 @@ public partial class ProfilePageViewModel : BaseViewModel
     [RelayCommand]
     async Task GoBackAsync()
     {
-        await Shell.Current.GoToAsync("..");
+        await Shell.Current.GoToAsync("..",true,
+            new Dictionary<string, object>
+            {
+                ["ProfileImageLink"]=ImageLink,
+                ["ProfileImageRotation"]=ImageRotation,
+                ["ProfileImageScale"]=ImageScale,
+            });
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace COURSE_ASH.ViewModels.AdminViewModels;
 
-public partial class AccountsPageViewModel : BaseViewModel
+public partial class AccountsPageViewModel : BaseViewModel, IRefreshable
 {
     private readonly AccountManager _service;
 
@@ -43,13 +43,14 @@ public partial class AccountsPageViewModel : BaseViewModel
         {
             if (IsAccountImmutable(account))
             {
-                await Shell.Current.DisplayAlert("ERROR!", $"Cannot delete {account.CurrentLogin}" +
+                await Shell.Current.DisplayAlert("ERROR!", $"Cannot switch role of {account.CurrentLogin} " +
                     "for safety matter", "OK");
                 return;
             }
             IsBusy = true;
             account.Role = _service.SwitchRole(account.Role);
             await _service.RecordNewRoleAsync(account.CurrentLogin, account.Role);
+            RefreshAsync();
         }
         catch (Exception)
         {
@@ -69,7 +70,7 @@ public partial class AccountsPageViewModel : BaseViewModel
         {
             if (IsAccountImmutable(account))
             {
-                await Shell.Current.DisplayAlert("ERROR!",$"Cannot delete {account.CurrentLogin}" +
+                await Shell.Current.DisplayAlert("ERROR!",$"Cannot delete {account.CurrentLogin} " +
                     "for safety matter","OK");
                 return;
             }
@@ -81,6 +82,7 @@ public partial class AccountsPageViewModel : BaseViewModel
             if (choice)
             {
                 await _service.DeleteAccount(account.CurrentLogin);
+                RefreshAsync();
             }
         }
         catch (Exception)

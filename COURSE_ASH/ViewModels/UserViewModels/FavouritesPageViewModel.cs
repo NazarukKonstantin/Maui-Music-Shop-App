@@ -2,7 +2,7 @@
 
 namespace COURSE_ASH.ViewModels.UserViewModels;
 
-public partial class FavouritesPageViewModel : BaseViewModel
+public partial class FavouritesPageViewModel : BaseViewModel, IRefreshable
 {
     private readonly FavouritesService _favouritesService;
     private readonly CartService _cartService;

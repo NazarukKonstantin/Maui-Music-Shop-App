@@ -13,7 +13,7 @@
     <Color x:Key="DarkBackground">#0e1621</Color>
 
     <Color x:Key="LightText">#fdffff</Color>
-    <Color x:Key="DarkText">#18191a</Color>
+    <Color x:Key="DarkText">#28191a</Color>
     <Color x:Key="GrayText">#B4B4B4</Color>
     <Color x:Key="DarkBlue">#242f3d</Color>
 

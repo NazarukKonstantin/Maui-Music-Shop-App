@@ -36,7 +36,7 @@
                        FontSize="Medium"
                        LineBreakMode="CharacterWrap"
                        Margin="20,0,20,0" />
-                <Label Text="{Binding CurrentOrder.PhoneNumber, StringFormat='Phone number +{0}'}"
+                <Label Text="{Binding CurrentOrder.Email, StringFormat='Email: {0}'}"
                        FontSize="Medium"
                        Margin="20,0,20,0" />
                 <HorizontalStackLayout Margin="20,-10">

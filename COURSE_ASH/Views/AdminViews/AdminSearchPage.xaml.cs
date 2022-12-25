@@ -5,10 +5,11 @@ namespace COURSE_ASH.Views.AdminViews;
 
 public partial class AdminSearchPage : ContentPage
 {
+   public  IRefreshable ViewModel { get; set; }
 	public AdminSearchPage(AdminSearchPageViewModel viewModel)
 	{
 		InitializeComponent();
-
+        ViewModel = viewModel;
 		BindingContext = viewModel;
 	}
 

@@ -16,104 +16,109 @@
             ,Light={StaticResource Primary}}"
                                StatusBarStyle="{AppThemeBinding Dark=LightContent,Light=DarkContent}" />
     </Page.Behaviors>
-    
-        <Grid RowDefinitions=".1*,.9*"
-              ColumnDefinitions=".2*,.6*,.2*"
-              Margin="0"
-              Padding="0">
-            
-            <BoxView Style="{StaticResource NavBarBoxView}"
-                     Grid.ColumnSpan="3"
-                     HeightRequest="70"/>
 
-            <Image Grid.Row="0"
-                   Grid.Column="0"
-                   HorizontalOptions="Center"
-                    x:Name="LogOut"
-                    Style="{StaticResource CatalogNavBarImage}"
-                    Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
+    <Grid RowDefinitions=".1*,.9*"
+          ColumnDefinitions=".2*,.6*,.2*"
+          Margin="0"
+          Padding="0">
+
+        <BoxView Style="{StaticResource NavBarBoxView}"
+                 Grid.ColumnSpan="3"
+                 HeightRequest="70" />
+
+        <Image Grid.Row="0"
+               Grid.Column="0"
+               HorizontalOptions="Center"
+               x:Name="LogOut"
+               Style="{StaticResource CatalogNavBarImage}"
+               Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
                                         ,Light={Static global:Icons.LogoutDark}}"
-                    VerticalOptions="StartAndExpand">
+               VerticalOptions="StartAndExpand">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding SignOutCommand}" />
+            </Image.GestureRecognizers>
+        </Image>
+
+        <Label Text="Catalog"
+               Grid.Column="1"
+               Grid.Row="0"
+               Padding="0"
+               Margin="0,0,20,15"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Style="{StaticResource PageTitle}" />
+
+
+        <Border Stroke="Transparent"
+                StrokeShape="Ellipse"
+                Grid.Row="0"
+                HeightRequest="60"
+                WidthRequest="60"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Column="2"
+                IsEnabled="{Binding IsNotBusy}"
+                BackgroundColor="{AppThemeBinding Dark={StaticResource ComplimentaryLight},
+                                Light={StaticResource PrimaryDark}}">
+
+            <Image x:Name="ProfilePic"
+                   Style="{StaticResource ProfilePicStyle}"
+                   Aspect="AspectFit"
+                   VerticalOptions="Center"
+                   Rotation="{Binding ProfileImageRotation}"
+                   Scale="{Binding ProfileImageScale}"
+                   Source="{Binding ProfileImageLink}">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
+                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
+                    {x:Type viewmodel:CatalogPageViewModel}},Path=GoToProfilePageCommand}" />
                 </Image.GestureRecognizers>
             </Image>
+        </Border>
 
-            <Label Text="Catalog"
-                   Grid.Column="1"
-                   Grid.Row="0"
-                   Padding="0"
-                   Margin="0,0,20,15"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center"
-                   Style="{StaticResource PageTitle}" />
-            <Border Stroke="Transparent"
-                    StrokeShape="Ellipse"
-                    Grid.Row="0"
-                    HeightRequest="60"
-                    WidthRequest="60"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"
-                    Grid.Column="2">
+        <!--Catalog-->
 
-                <Image x:Name="ProfilePic"
-                       Style="{StaticResource ProfilePicStyle}"
-                        Aspect="AspectFill"
-                       VerticalOptions="Center"
-                       Rotation="{Binding ImageRotation}"
-                       Scale="{Binding ImageScale}"
-                       Source="{x:Static global:Icons.DefaultProfile}">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
-                    {x:Type viewmodel:CatalogPageViewModel}},Path=GoToProfilePageCommand}" />
-                    </Image.GestureRecognizers>
-                </Image>
-            </Border>
-
-            <!--Catalog-->
-
-                <CollectionView Grid.Row="1"
-                                Grid.ColumnSpan="3"
-                                ItemsSource="{Binding Items}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Span="1"
-                                         Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:CatalogItem">
-                            <Grid Padding="8">
-                                <Border Style="{StaticResource CardViewBorder}">
-                                    <Border.Shadow>
-                                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+        <CollectionView Grid.Row="1"
+                        Grid.ColumnSpan="3"
+                        ItemsSource="{Binding Items}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="1"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:CatalogItem">
+                    <Grid Padding="8">
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light=Black}"
-                                                Offset="15,15"
-                                                Radius="15"
-                                                Opacity="0.2" />
-                                    </Border.Shadow>
-                                    <Frame HeightRequest="150"
-                                           Style="{StaticResource CatalogStyle}">
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToSearchPageCommand}" />
-                                        </Frame.GestureRecognizers>
-                                        <Grid ColumnDefinitions="*,*">
-                                            <Image Source="{Binding ImageLink}"
-                                                   Rotation="{Binding ImageRotation}"
-                                                   Scale="{Binding ImageScale}"
-                                                   Style="{StaticResource CatalogImageStyle}" />
+                                        Offset="15,15"
+                                        Radius="15"
+                                        Opacity="0.2" />
+                            </Border.Shadow>
+                            <Frame HeightRequest="150"
+                                   Style="{StaticResource CatalogStyle}">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:CatalogPageViewModel}},Path=GoToSearchPageCommand}" />
+                                </Frame.GestureRecognizers>
+                                <Grid ColumnDefinitions="*,*">
+                                    <Image Source="{Binding ImageLink}"
+                                           Rotation="{Binding ImageRotation}"
+                                           Scale="{Binding ImageScale}"
+                                           Style="{StaticResource CatalogImageStyle}" />
 
-                                            <Label Text="{Binding Category}"
-                                                   Grid.Column="1"
-                                                   HorizontalOptions="Center"
-                                                   Style="{StaticResource Title}" />
-                                        </Grid>
-                                    </Frame>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            
-        </Grid>
-    
+                                    <Label Text="{Binding Category}"
+                                           Grid.Column="1"
+                                           HorizontalOptions="Center"
+                                           Style="{StaticResource Title}" />
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+
 </ContentPage>

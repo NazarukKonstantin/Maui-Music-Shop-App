@@ -31,7 +31,7 @@
                Margin="20,0,20,0"
                Style="{StaticResource AppThemeStyle}" />
         
-        <Label Text="{Binding CurrentOrder.PhoneNumber, StringFormat='Email: {0}'}"
+        <Label Text="{Binding CurrentOrder.Email, StringFormat='Email: {0}'}"
                FontSize="Medium"
                Margin="20,0,20,0"
                Style="{StaticResource AppThemeStyle}" />

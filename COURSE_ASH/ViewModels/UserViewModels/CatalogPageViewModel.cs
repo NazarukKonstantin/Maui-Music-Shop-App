@@ -1,10 +1,13 @@
 ﻿namespace COURSE_ASH.ViewModels.UserViewModels;
 
-public partial class CatalogPageViewModel : BaseViewModel
+[QueryProperty(nameof(ProfileImageLink), nameof(ProfileImageLink))]
+[QueryProperty(nameof(ProfileImageRotation), nameof(ProfileImageRotation))]
+[QueryProperty(nameof(ProfileImageScale), nameof(ProfileImageScale))]
+public partial class CatalogPageViewModel : BaseViewModel, IRefreshable
 {
     //Объект сервиса по работе с товарами
-    private readonly ProductsService _service;
-
+    private readonly ProductsService _productService;
+    private readonly CatalogService _catalogService;
     //Атрибут, позволяющий удобно реализовать паттерн Наблюдатель
     [ObservableProperty]
     //Поле, хранящее логин вошедшего пользователя
@@ -12,13 +15,13 @@ public partial class CatalogPageViewModel : BaseViewModel
 
     [ObservableProperty]
     //Поле, хранящее ссылку на изображение - аватар пользователя
-    string _imageLink;
+    string _profileImageLink;
 
     [ObservableProperty]
-    private double _imageRotation;
+    private double _profileImageRotation;
 
     [ObservableProperty]
-    private double _imageScale;
+    private double _profileImageScale;
 
     [ObservableProperty]
     //Коллекция товаров
@@ -29,9 +32,10 @@ public partial class CatalogPageViewModel : BaseViewModel
     ObservableCollection<CatalogItem> _items;
 
     //Аргумент конструктора - объект сервиса работы с товарами
-    public CatalogPageViewModel(ProductsService productsService)
+    public CatalogPageViewModel(ProductsService productsService, CatalogService catalogService)
     {
-        _service=productsService;
+        _catalogService = catalogService;
+        _productService=productsService;
         RefreshAsync();
     }
 
@@ -68,10 +72,10 @@ public partial class CatalogPageViewModel : BaseViewModel
             new Dictionary<string, object>
             {
                 //Передача странице ссылки на изображение - аватар пользователя
-                ["ImageLink"] = ImageLink,
+                ["ImageLink"] = ProfileImageLink,
                 ["IsNotAdmin"] = true,
-                ["ImageRotation"]=ImageRotation,
-                ["ImageScale"]=ImageScale
+                ["ImageRotation"]=ProfileImageRotation,
+                ["ImageScale"]=ProfileImageScale
             });
     }
 
@@ -83,9 +87,9 @@ public partial class CatalogPageViewModel : BaseViewModel
         if (choice)
         {
             CurrentLogin = string.Empty;
-            ImageLink = string.Empty;
-            ImageRotation = 0;
-            ImageScale = 1;
+            ProfileImageLink = string.Empty;
+            ProfileImageRotation = 0;
+            ProfileImageScale = 1;
             App.CurrentLogin = string.Empty;
             //Переход на страницу авторизации
             App.Current.MainPage = new AuthorizationShell();
@@ -102,13 +106,19 @@ public partial class CatalogPageViewModel : BaseViewModel
             IsBusy = true;
             CurrentLogin = App.CurrentLogin;
             //Получение ссылки на изображение из БД
-            ImageLink = (await DataStorageService<AccountData>
-                        .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
-                        .ImageLink;
-            if (string.IsNullOrEmpty(ImageLink))
-                ImageLink = Icons.DefaultProfile;
-            Items = CatalogItem.CatalogList.ToObservableCollection();
-            Products = (await _service.GetProductsAsync()).ToObservableCollection();
+            if (string.IsNullOrEmpty(ProfileImageLink))
+            {
+                AccountData currentAccount = await DataStorageService<AccountData>
+                            .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin);
+                ProfileImageLink = currentAccount.ImageLink;
+                ProfileImageRotation = currentAccount.ImageRotation;
+                ProfileImageScale = currentAccount.ImageScale;
+                if (string.IsNullOrEmpty(ProfileImageLink))
+                    ProfileImageLink = App.Current.UserAppTheme == AppTheme.Dark ?
+                                        Icons.WaltuhWhite : Icons.WaltuhBlack;
+            }
+            Items = (await _catalogService.GetCategoriesAsync()).ToObservableCollection();
+            Products = (await _productService.GetProductsAsync()).ToObservableCollection();
         }
         catch (Exception)
         {

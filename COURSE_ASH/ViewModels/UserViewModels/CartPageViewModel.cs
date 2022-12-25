@@ -1,6 +1,6 @@
 ﻿namespace COURSE_ASH.ViewModels.UserViewModels;
 
-public partial class CartPageViewModel : BaseViewModel
+public partial class CartPageViewModel : BaseViewModel, IRefreshable
 {
     private readonly CartService _cartService;
     

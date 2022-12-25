@@ -14,6 +14,8 @@ public class Product : IImageDisposable
 {
     public int ID { get; set; }
     public string ImageLink { get; set; }
+    public double ImageRotation { get; set; }
+    public double ImageScale { get; set; }
 
     public string Category { get; set; }
     public string ProductType { get; set; }
@@ -21,11 +23,13 @@ public class Product : IImageDisposable
     public string Info { get; set; }
     public double Price { get; set; }
     public double Rating { get; set; }
+
     public List<Review> Reviews { get; set; }
 
     public Product() { }
 
-    public Product(string category, string productType, string model, string info, double price, string imageLink, double rating)
+    public Product(string category, string productType, string model, string info, 
+        double price, string imageLink, double rating, double imageRotation=0, double imageScale=0)
     {
         Category = category;
         ProductType = productType;
@@ -34,6 +38,8 @@ public class Product : IImageDisposable
         Price = price;
         ImageLink = imageLink;
         Rating = rating;
+        ImageRotation = imageRotation;
+        ImageScale = imageScale;
     }
 
     public static List<string> ProductTypes { get; set; } = new()
@@ -75,6 +81,8 @@ public class Product : IImageDisposable
             Price = Price,
             ImageLink = ImageLink,
             Rating = Rating,
+            ImageRotation=ImageRotation,
+            ImageScale=ImageScale,
         };
     }
 

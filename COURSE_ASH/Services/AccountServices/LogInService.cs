@@ -11,7 +11,7 @@ public class LogInService : AccountService
         AccountData account = await DataStorageService<AccountData>
             .GetItemByAsync(nameof(AccountData.CurrentLogin),login);
 
-        if (account is null || !DoPasswordsMatch(account.PasswordSHA256, password))
+        if (account is null || !DoPasswordsMatch(account.Password, password))
             return new AccountState(AccountAlerts.INCORRECT_LOGIN_OR_PASSWORD);
 
         return new AccountState(login, account.Role, AccountAlerts.SUCCESS);

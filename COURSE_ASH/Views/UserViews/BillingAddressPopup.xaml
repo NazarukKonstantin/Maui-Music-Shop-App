@@ -7,7 +7,6 @@
              CanBeDismissedByTappingOutsideOfPopup="False"
              x:DataType="viewmodel:BillingAddressPopupViewModel">
     
-    <ScrollView>
         <VerticalStackLayout Padding="10">
             <Label Text="{Binding Alert}"
                    Style="{StaticResource AlertLabel}"
@@ -64,8 +63,7 @@
                     Style="{StaticResource LoginButtons}"
                     Command="{Binding CheckAddressCommand}"
                     Clicked="ConfirmButton_Clicked"
-                    VerticalOptions="End" 
-                    HorizontalOptions="Center"/>
+                    VerticalOptions="End"
+                    HorizontalOptions="Center" />
         </VerticalStackLayout>
-    </ScrollView>
 </mct:Popup>

@@ -11,4 +11,16 @@ public class AccountService
     {
         return SHA256HashComputer.ComputeSha256Hash(newPassword);
     }
+    public static async Task RecordNewImage(string imageLink, double imageRotation, double imageScale, string login)
+    {
+        AccountData account = await DataStorageService<AccountData>.GetItemByAsync(nameof(AccountData.CurrentLogin), login);
+        string oldImageLink = account.ImageLink;
+        account.ImageLink = imageLink;
+        account.ImageRotation = imageRotation;
+        account.ImageScale = imageScale;
+        if (imageLink != null && await ImageSeekingService.ShouldDelete<AccountData>(oldImageLink))
+            await ImageManager<AccountData>.RemoveImageAsync(oldImageLink);
+        await DataStorageService<AccountData>.UpdateItemAsync(account, nameof(AccountData.CurrentLogin), login);
+    }
+
 }

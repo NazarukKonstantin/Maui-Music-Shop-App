@@ -11,9 +11,13 @@ public partial class ProfilePage : ContentPage
         _viewModel = viewModel;
         BindingContext=viewModel;
     }
+
     private void VisibilityTapped(object sender, EventArgs e)
     {
         OldPassEntry.IsPassword = !OldPassEntry.IsPassword;
+        NewPassEntry.IsPassword = !NewPassEntry.IsPassword;
+        ConfirmNewPassEntry.IsPassword = !ConfirmNewPassEntry.IsPassword;
+
         OldPassVisibilityOnImg.IsVisible = !OldPassVisibilityOnImg.IsVisible;
         OldPassVisibilityOffImg.IsVisible = !OldPassVisibilityOffImg.IsVisible;
         NewPassVisibilityOnImg.IsVisible = !NewPassVisibilityOnImg.IsVisible;
@@ -46,9 +50,23 @@ public partial class ProfilePage : ContentPage
         await _viewModel.ChangePasswordAsync();
     }
 
-    private void ChangePasswordButton_Clicked(object sender, EventArgs e)
+    private void ChangePassButton_Pressed(object sender, EventArgs e)
     {
-        ChangePasswordFrame.IsVisible = !ChangePasswordFrame.IsVisible;
+        ChangePassButton.IsVisible = false;
+        ChangePasswordFrame.IsVisible = true;
+        RotationSlider.IsVisible = false;
+        ScaleSlider.IsVisible = false;
+        SaveImageButton.IsVisible = false;
+    }
+
+    private void ConfirmPassButton_Clicked(object sender, EventArgs e)
+    {
+        ChangePassButton.IsVisible = true;
+        ChangePasswordFrame.IsVisible = false;
+        ConfirmPassButton.IsVisible = false;
+        SaveImageButton.IsVisible = true;
+        RotationSlider.IsVisible = true;
+        ScaleSlider.IsVisible = true;
         OldPassEntry.Text = String.Empty;
         NewPassEntry.Text = String.Empty;
         ConfirmNewPassEntry.Text = String.Empty;

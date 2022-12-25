@@ -32,7 +32,8 @@
                    VerticalOptions="CenterAndExpand"
                    WidthRequest="130"
                    HeightRequest="130"
-                   Aspect="AspectFill"/>
+                   Aspect="AspectFill" />
+
         </Frame>
 
         <VerticalStackLayout Margin="0"

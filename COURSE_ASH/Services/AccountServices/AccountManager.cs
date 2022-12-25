@@ -1,4 +1,6 @@
-﻿namespace COURSE_ASH.Services.AccountServices;
+﻿using COURSE_ASH.Views;
+
+namespace COURSE_ASH.Services.AccountServices;
 
 public class AccountManager
 {
@@ -11,8 +13,12 @@ public class AccountManager
                     IsAdmin = account.IsAdmin,
                     ID = account.ID,
                     CurrentLogin = account.CurrentLogin,
-                });
+                    ImageLink = account.ImageLink,
+                    ImageRotation = account.ImageRotation,
+                    ImageScale = account.ImageScale,
+                }) ;
     }
+
     public async Task RecordNewRoleAsync(string login, string newRole)
     {
         AccountData account = await DataStorageService<AccountData>.GetItemByAsync(nameof(AccountData.CurrentLogin), login);

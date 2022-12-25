@@ -9,8 +9,13 @@ public partial class LoginPage : ContentPage
     {
         InitializeComponent();
         _viewModel = viewModel;
-        BindingContext = viewModel;
+        BindingContext = viewModel; 
+    }
+
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
         Focus();
+        base.OnNavigatedTo(args);
     }
     private void VisibilityChanged(object sender, EventArgs e)
     {
@@ -37,5 +42,17 @@ public partial class LoginPage : ContentPage
         LoginButton.Focus();
         await _viewModel.LogInAsync();
         Focus();
+    }
+
+    private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+    {
+        _viewModel.Login = "testUser";
+        _viewModel.Password = "12345678";
+    }
+
+    private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+    {
+        _viewModel.Login = "testUser1";
+        _viewModel.Password = "12345678";
     }
 }

@@ -96,10 +96,6 @@ public class CartService
     private async Task<Cart> GetCartBy(string currentLogin)
     {
         Cart cart = await DataStorageService<Cart>.GetItemByAsync(nameof(Cart.CurrentLogin), currentLogin);
-        if (cart is null)
-        {
-            await Shell.Current.DisplayAlert("ERROR!", $"Cart of {currentLogin} doesn't exist", "OK");
-        }
         return cart;
     }
 

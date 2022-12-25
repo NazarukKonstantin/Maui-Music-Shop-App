@@ -9,10 +9,10 @@ public class PasswordChangingService : AccountService
 
         AccountData account = await DataStorageService<AccountData>.GetItemByAsync(nameof(AccountData.CurrentLogin), login);
 
-        if (account is null || !DoPasswordsMatch(account.PasswordSHA256,oldPassword))
+        if (account is null || !DoPasswordsMatch(account.Password,oldPassword))
             return new AccountState(AccountAlerts.INCORRECT_OLD_PASSWORD);
 
-        account.PasswordSHA256 = SetPasswordSHA256(newPassword);
+        account.Password = SetPasswordSHA256(newPassword);
 
         await DataStorageService<AccountData>.UpdateItemAsync(account,nameof(AccountData.CurrentLogin),login); 
 

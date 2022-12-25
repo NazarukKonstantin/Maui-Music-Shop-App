@@ -3,21 +3,48 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="COURSE_ASH.Views.UserViews.OrderHistoryPage"
              xmlns:viewmodel="clr-namespace:COURSE_ASH.ViewModels.UserViewModels"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             xmlns:global="clr-namespace:COURSE_ASH.Globals"
              xmlns:model="clr-namespace:COURSE_ASH.Models"
              x:DataType="viewmodel:OrderHistoryPageViewModel"
-             Title="OrderHistoryPage">
+             Shell.NavBarIsVisible="False"
+             >
 
-    <Grid>
-        <Label Text="No orders yet"
-               Style="{StaticResource Title}"
+    <Grid Margin="0">
+        <BoxView Margin="0"
+                 Style="{StaticResource NavBarBoxView}" />
+
+        <Label Text="Order History"
+               Style="{StaticResource PageTitle}"
                HorizontalOptions="Center"
-               VerticalOptions="Center"
-               FontSize="Medium"
-               IsVisible="{Binding IsEmpty}"
-               HorizontalTextAlignment="Center" />
-        <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                     Command="{Binding RefreshAsyncCommand}">
-            <CollectionView IsVisible="{Binding IsNotEmpty}"
+               VerticalOptions="Start"
+               Margin="0,5,0,0"/>
+
+        <ImageButton HorizontalOptions="Start"
+                     VerticalOptions="Start"
+                     Margin="15,20,0,0"
+                     Style="{StaticResource GoBackArrow}"
+                     Command="{Binding GoBackCommand}"
+                     CommandParameter="{Binding .}" />
+
+        <Grid Grid.ColumnSpan="3"
+              Grid.Column="0"
+              RowDefinitions="*,.1*"
+              Grid.Row="2"
+              Margin="0,0,0,0"
+              IsVisible="{Binding IsEmpty}">
+            <skia:SKLottieView Grid.Row="0"
+                               Margin="0,0,0,0"
+                               Source="{AppThemeBinding Dark=empty_blue_box.json,Light=empty_orange_box.json}"
+                               RepeatCount="1" />
+            
+            <Label Text="No order history yet"
+                   Margin="0,-350,0,0"
+                   Grid.Row="1"
+                   Style="{StaticResource Title}" />
+        </Grid>
+
+        <CollectionView IsVisible="{Binding IsNotEmpty}"
                             ItemsSource="{Binding OrderHistory}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="model:Order">
@@ -48,6 +75,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
+        
     </Grid>
 </ContentPage>

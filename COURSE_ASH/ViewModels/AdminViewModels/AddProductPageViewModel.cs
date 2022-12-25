@@ -28,6 +28,12 @@ public partial class AddProductPageViewModel : BaseViewModel
     string _imageLink;
 
     [ObservableProperty]
+    double _imageRotation=0;
+
+    [ObservableProperty]
+    double _imageScale=1;
+
+    [ObservableProperty]
     bool _isNotEmpty;
 
     public AddProductPageViewModel(ProductsService productsService, CatalogService catalogService)
@@ -102,6 +108,8 @@ public partial class AddProductPageViewModel : BaseViewModel
                 Model = Model,
                 Price = double.Parse(Price),
                 Info = Info,
+                ImageScale=ImageScale,
+                ImageRotation=ImageRotation,
             };
             await _productsService.AddProductAsync(newProduct, _image);
             await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product added", "OK");
@@ -121,13 +129,6 @@ public partial class AddProductPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task GoBackAsync()
     {
-        _image=null;
-        ProductType=string.Empty;
-        Category=string.Empty;
-        Model=string.Empty;
-        Price=string.Empty;
-        Info=string.Empty;
-        ImageLink=null;
         await Shell.Current.GoToAsync("..");
     }
 

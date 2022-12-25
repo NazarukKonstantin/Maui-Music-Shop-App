@@ -16,30 +16,53 @@
             ,Light={StaticResource Primary}}"
                                StatusBarStyle="{AppThemeBinding Dark=LightContent,Light=DarkContent}" />
     </Page.Behaviors>
-    <ScrollView>
-        <Grid RowDefinitions="Auto,*"
-              ColumnDefinitions="*,Auto,.1*">
+    
+        <Grid RowDefinitions=".1*,.9*"
+              ColumnDefinitions=".2*,.6*,.2*"
+              Margin="0"
+              Padding="0">
+            
             <BoxView Style="{StaticResource NavBarBoxView}"
-                     Grid.ColumnSpan="3" />
+                     Grid.ColumnSpan="3"
+                     HeightRequest="70"/>
 
-            <Image  x:Name="LogOut"
+            <Image Grid.Row="0"
+                   Grid.Column="0"
+                   HorizontalOptions="Center"
+                    x:Name="LogOut"
                     Style="{StaticResource CatalogNavBarImage}"
                     Source="{AppThemeBinding Dark={Static global:Icons.LogoutLight}
                                         ,Light={Static global:Icons.LogoutDark}}"
                     VerticalOptions="StartAndExpand">
                 <Image.GestureRecognizers>
-                    <TapGestureRecognizer />
+                    <TapGestureRecognizer Command="{Binding SignOutCommand}"/>
                 </Image.GestureRecognizers>
             </Image>
 
             <Label Text="Catalog"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   Padding="0"
+                   Margin="0,0,20,15"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
                    Style="{StaticResource PageTitle}" />
             <Border Stroke="Transparent"
-                    StrokeShape="Ellipse">
+                    StrokeShape="Ellipse"
+                    Grid.Row="0"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Grid.Column="2">
 
                 <Image x:Name="ProfilePic"
                        Style="{StaticResource ProfilePicStyle}"
-                       Grid.Column="2">
+                        Aspect="AspectFill"
+                       VerticalOptions="Center"
+                       Rotation="{Binding ImageRotation}"
+                       Scale="{Binding ImageScale}"
+                       Source="{x:Static global:Icons.DefaultProfile}">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType=
                     {x:Type viewmodel:CatalogPageViewModel}},Path=GoToProfilePageCommand}" />
@@ -48,8 +71,7 @@
             </Border>
 
             <!--Catalog-->
-            <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                         Command="{Binding RefreshAsyncCommand}">
+
                 <CollectionView Grid.Row="1"
                                 Grid.ColumnSpan="3"
                                 ItemsSource="{Binding Items}">
@@ -91,7 +113,7 @@
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
-            </RefreshView>
+            
         </Grid>
-    </ScrollView>
+    
 </ContentPage>

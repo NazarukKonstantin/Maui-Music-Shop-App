@@ -20,16 +20,23 @@ public partial class AddProductPage : ContentPage
 	private void PriceEntry_Completed(object sender, EventArgs e)
 	{
 		PriceEntry.Unfocus();
-		CategoryEntry.Focus();
+		CategoryPicker.Focus();
 	}
 
-	private void CategoryEntry_Completed(object sender, EventArgs e)
-	{
-		CategoryEntry.Unfocus();
+
+    private void CategoryPicker_SelectedIndexChanged(object sender, EventArgs e)
+    {
+		CategoryPicker.Unfocus();
 		ProductTypeEntry.Focus();
-	}
+    }
 
-	private void ProductTypeEntry_Completed(object sender, EventArgs e)
+    //private void CategoryEntry_Completed(object sender, EventArgs e)
+    //{
+    //	CategoryEntry.Unfocus();
+    //	ProductTypeEntry.Focus();
+    //}
+
+    private void ProductTypeEntry_Completed(object sender, EventArgs e)
 	{
 		ProductTypeEntry.Unfocus();
 		InfoEditor.Focus();

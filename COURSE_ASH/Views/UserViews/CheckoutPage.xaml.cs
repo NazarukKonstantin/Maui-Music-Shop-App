@@ -4,9 +4,10 @@ namespace COURSE_ASH.Views.UserViews;
 
 public partial class CheckoutPage : ContentPage
 {
-	public CheckoutPage()
+	public CheckoutPage(CheckoutPageViewModel viewModel)
 	{
 		InitializeComponent();
+        BindingContext = viewModel;
 	}
 
     private void EnterAddress_Clicked(object sender, EventArgs e)

@@ -13,7 +13,6 @@ public partial class AdminShell : Shell
         Routing.RegisterRoute(nameof(EditCategoryPage), typeof(EditCategoryPage));
         Routing.RegisterRoute(nameof(EditProductPage), typeof(EditProductPage));
         Routing.RegisterRoute(nameof(OrdersCatalogPage), typeof(OrdersCatalogPage));
-        //Routing.RegisterRoute(nameof(OrderStatusPopup), typeof(OrderStatusPopup));
 
         Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
         Routing.RegisterRoute(nameof(SearchPage), typeof(SearchPage));

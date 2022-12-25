@@ -7,9 +7,6 @@ public partial class AccountsPageViewModel : BaseViewModel
     [ObservableProperty]
     ObservableCollection<AccountData> _accounts;
 
-    [ObservableProperty]
-    private bool _isAdmin = false;
-
     public AccountsPageViewModel(AccountManager accountsService)
     {
         _service = accountsService;

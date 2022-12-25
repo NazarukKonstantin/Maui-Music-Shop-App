@@ -1,68 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <Style TargetType="Frame" ApplyToDerivedTypes="True">
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="CornerRadius" Value="10"/>
-        <Setter Property="IsClippedToBounds" Value="True"/>
+    <Style TargetType="Frame"
+           ApplyToDerivedTypes="True">
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="CornerRadius"
+                Value="10" />
+        <Setter Property="IsClippedToBounds"
+                Value="True" />
     </Style>
 
-    <Style x:Key="CatalogStyle" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBlue}
-            ,Light={StaticResource TenderWhite}}"/>
-    </Style>
-
-    <Style x:Key="SearchFrameTop" TargetType="Frame">
-        <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}
-            ,Light={StaticResource Primary}}"/>
-    </Style>
-
-        <Style x:Key="SearchFrameBottom"
+    <Style x:Key="CatalogStyle"
            TargetType="Frame">
-         <Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource DarkBlue}
-                            ,Light={StaticResource TenderWhite}}"/>
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Dark={StaticResource DarkBlue}
+            ,Light={StaticResource TenderWhite}}" />
     </Style>
 
-    <Style x:Key="CardViewBorder" TargetType="Border">
-        <Setter Property="HorizontalOptions" Value="Center"/>
-        <Setter Property="StrokeThickness" Value="0"/>
-        <Setter Property="Padding" Value="0"/>
+    <Style x:Key="SearchFrameTop"
+           TargetType="Frame">
+        <!--<Setter Property="BackgroundColor" Value="{AppThemeBinding Dark={StaticResource LightBackground}
+            ,Light={StaticResource Primary}}"/>-->
+        <Setter Property="BackgroundColor"
+                Value="{StaticResource TenderWhite}" />
     </Style>
 
-    <Style x:Key="CardViewBorderStrokeShape" TargetType="RoundRectangle">
-        <Setter Property="CornerRadius" Value="13"/>
+    <Style x:Key="SearchFrameBottom"
+           TargetType="Frame">
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding Dark={StaticResource DarkBlue}
+                            ,Light={StaticResource TenderWhite}}" />
     </Style>
 
-    <Style x:Key="NavBarBoxView" TargetType="BoxView">
-        <Setter Property="Color" Value="{AppThemeBinding Dark={StaticResource ComplimentaryDark},
-            Light={StaticResource Primary}}"/>
-        <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
-        <Setter Property="HeightRequest" Value="65"/>
-        <Setter Property="VerticalOptions" Value="Start"/>
+    <Style x:Key="CardViewBorder"
+           TargetType="Border">
+        <Setter Property="HorizontalOptions"
+                Value="Center" />
+        <Setter Property="StrokeThickness"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="0" />
     </Style>
 
-    <Style x:Key="LoginEntryFrame" TargetType="Frame">
-        <Setter Property="HeightRequest" Value="70"/>
-        <Setter Property="WidthRequest" Value="365"/>
-        <Setter Property="CornerRadius" Value="35"/>
-        <Setter Property="Padding" Value="15"/>
+    <Style x:Key="CardViewBorderStrokeShape"
+           TargetType="RoundRectangle">
+        <Setter Property="CornerRadius"
+                Value="13" />
     </Style>
 
-    <Style TargetType="CollectionView" ApplyToDerivedTypes="True">
-        <Setter Property="BackgroundColor" Value="Transparent"/>
-        <Setter Property="SelectionMode" Value="None"/>
+    <Style x:Key="NavBarBoxView"
+           TargetType="BoxView">
+        <Setter Property="Color"
+                Value="{AppThemeBinding Dark={StaticResource ComplimentaryDark},
+            Light={StaticResource Primary}}" />
+        <Setter Property="HorizontalOptions"
+                Value="FillAndExpand" />
+        <Setter Property="HeightRequest"
+                Value="65" />
+        <Setter Property="VerticalOptions"
+                Value="Start" />
     </Style>
 
-    <Style TargetType="Grid" ApplyToDerivedTypes="True">
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="Margin" Value="0"/>
-        <Setter Property="HorizontalOptions" Value="Fill"/>
-        <Setter Property="VerticalOptions" Value="Fill"/>
-        <Setter Property="BackgroundColor" Value="Transparent"/>
-        <Setter Property="RowSpacing" Value="0"/>
-        <Setter Property="ColumnSpacing" Value="0"/>
+    <Style x:Key="LoginEntryFrame"
+           TargetType="Frame">
+        <Setter Property="HeightRequest"
+                Value="70" />
+        <Setter Property="WidthRequest"
+                Value="365" />
+        <Setter Property="CornerRadius"
+                Value="35" />
+        <Setter Property="Padding"
+                Value="15" />
+    </Style>
+
+    <Style TargetType="CollectionView"
+           ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor"
+                Value="Transparent" />
+        <Setter Property="SelectionMode"
+                Value="None" />
+    </Style>
+
+    <Style TargetType="Grid"
+           ApplyToDerivedTypes="True">
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="HorizontalOptions"
+                Value="Fill" />
+        <Setter Property="VerticalOptions"
+                Value="Fill" />
+        <Setter Property="BackgroundColor"
+                Value="Transparent" />
+        <Setter Property="RowSpacing"
+                Value="0" />
+        <Setter Property="ColumnSpacing"
+                Value="0" />
     </Style>
 
     <Style TargetType="Border"
@@ -80,6 +117,14 @@
     </Style>
 
     <Style TargetType="Border"
+           BasedOn="{StaticResource EntryBorder}"
+           x:Key="SquareishEntryBorder">
+        <Setter Property="StrokeShape"
+                Value="RoundRectangle
+                10"/>
+    </Style>
+
+        <Style TargetType="Border"
            x:Key="ErrorPossibleBorder"
            BasedOn="{StaticResource EntryBorder}">
         <Style.Triggers>

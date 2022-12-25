@@ -44,8 +44,10 @@ public class CartProduct : Product
             Category = Category,
             Price = Price,
             Rating = Rating,
-            Info= Info,
-            ImageLink=ImageLink,
+            Info = Info,
+            ImageLink = ImageLink,
+            ImageRotation = ImageRotation,
+            ImageScale = ImageScale,
         };
     }
 }

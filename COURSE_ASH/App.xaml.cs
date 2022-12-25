@@ -8,6 +8,7 @@ public partial class App : Application
     {
         //Создание основной разметки
         InitializeComponent();
+
         //Инициализация объекта главной страницы приложения
         MainPage = new AuthorizationShell();
     }

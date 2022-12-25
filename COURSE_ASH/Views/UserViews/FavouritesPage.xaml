@@ -7,8 +7,17 @@
              xmlns:model="clr-namespace:COURSE_ASH.Models"
              x:DataType="viewmodel:FavouritesPageViewModel"
              Title="FavouritesPage">
-    <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                 Command="{Binding RefreshAsyncCommand}">
+
+    <Grid>
+        <BoxView Margin="0"
+                 Style="{StaticResource NavBarBoxView}" />
+
+        <Label Text="Favourites"
+               Style="{StaticResource PageTitle}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Margin="0,5,0,0" />
+
         <CollectionView Grid.Row="1"
                         Grid.ColumnSpan="3"
                         ItemsSource="{Binding Favourites}">
@@ -78,5 +87,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView>
+    </Grid>
 </ContentPage>

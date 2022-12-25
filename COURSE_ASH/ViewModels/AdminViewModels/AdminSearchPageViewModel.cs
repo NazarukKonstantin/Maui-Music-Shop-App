@@ -6,10 +6,9 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     private readonly CatalogService _catalogService;
 
     [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(IsProdListSelected))]
-    private bool _isCategListSelected;
-
-    public bool IsProdListSelected { get; set; }
+    [NotifyPropertyChangedFor(nameof(IsProductListSelected))]
+    bool _isCategoryListSelected;
+    public bool IsProductListSelected => !IsCategoryListSelected;
 
     [ObservableProperty]
     private string _query;
@@ -42,33 +41,43 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [ObservableProperty]
     private string _imageLink;
 
+    [ObservableProperty]
+    private double _imageRotation=0;
+
+    [ObservableProperty]
+    private double _imageScale = 1;
+
     public AdminSearchPageViewModel(ProductsService productsService, CatalogService catalogService)
     {
         _productsService = productsService;
         _catalogService = catalogService;
         _productsService.ProductChanged += ProductChanged;
         _catalogService.CategoryChanged += CategoryChanged;
-
         RefreshAsync();
     }
 
     [RelayCommand]
-    public async void RefreshAsync()
+    public void RefreshAsync()
     {
         IsRefreshing = true;
         IsBusy = true;
-        IsCategListSelected = true;
-        IsProdListSelected = false;
         CurrentLogin = App.CurrentLogin;
+        ImageLink = Icons.DefaultProfile;
 
-        await LoadCategoriesAsync();
-        await LoadProductsAsync();
-        await LoadImageAsync();
+        //await LoadCategoriesAsync();
+        //await LoadProductsAsync();
+        //await LoadImageAsync();
 
-        IsProdListEmpty = Products.Count == 0;
-        IsCategListEmpty = Categories.Count == 0;
+        IsProdListEmpty = Products is null || Products.Count == 0;
+        IsCategListEmpty = Categories is null ||  Categories.Count == 0;
         IsBusy = false;
         IsRefreshing = false;
+    }
+
+    [RelayCommand]
+    private void SetList()
+    {
+        IsCategoryListSelected = !IsCategoryListSelected;
     }
 
     private async Task LoadCategoriesAsync()
@@ -103,7 +112,9 @@ public partial class AdminSearchPageViewModel : BaseViewModel
         {
             ImageLink = (await DataStorageService<AccountData>
                         .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
-                        .ImageLink ?? string.Empty;
+                        .ImageLink;
+            if (string.IsNullOrEmpty(ImageLink))
+                ImageLink = Icons.DefaultProfile;
         }
         catch (Exception)
         {
@@ -119,20 +130,27 @@ public partial class AdminSearchPageViewModel : BaseViewModel
            new Dictionary<string, object>
            {
                ["ImageLink"] = ImageLink,
+               ["IsNotAdmin"] = false,
+               ["ImageRotation"]=ImageRotation,
+               ["ImageScale"]=ImageScale,
            });
     }
 
     [RelayCommand]
-    private void SignOut()
+    private async void SignOut()
     {
-        Products = null;
-        Categories = null;
-        IsProdListEmpty = true;
-        IsCategListEmpty = true;
-        CurrentLogin = string.Empty;
-        ImageLink = string.Empty;
-        App.CurrentLogin = string.Empty;
-        App.Current.MainPage = new AuthorizationShell();
+        bool choice = await Shell.Current.DisplayAlert("Are you sure?","Do you want to sign out?","Yes","No");
+        if (choice)
+        {
+            Products = null;
+            Categories = null;
+            IsProdListEmpty = true;
+            IsCategListEmpty = true;
+            CurrentLogin = string.Empty;
+            ImageLink = string.Empty;
+            App.CurrentLogin = string.Empty;
+            App.Current.MainPage = new AuthorizationShell();
+        }
     }
 
     private void CheckQuery()
@@ -200,7 +218,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ChooseCategActionAsync(CatalogItem item)
     {
-        if (IsCategListSelected)
+        if (IsCategoryListSelected)
         {
             string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", "Delete", "Open", "Edit");
             switch (choice)
@@ -217,7 +235,7 @@ public partial class AdminSearchPageViewModel : BaseViewModel
     [RelayCommand]
     private async Task ChooseProdActionAsync(Product prod)
     {
-        if (IsProdListSelected)
+        if (IsProductListSelected)
         {
             string choice = await Shell.Current.DisplayActionSheet("OPTIONS", "Cancel", "Delete", "Open", "Edit");
             switch (choice)

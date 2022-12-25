@@ -11,6 +11,7 @@ public class ProductsService
     {
         return (await DataStorageService<Product>.GetItemListAsync()).ToList();
     }
+
     public async Task AddProductAsync(Product product, FileResult productImage)
     {
         product.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
@@ -31,8 +32,9 @@ public class ProductsService
 
         ProductChanged?.Invoke(this, new ProductEventArgs(product, ProductEventArgs.ProductWas.Removed));
     }
-    public async Task ChangeProductAsync(Product product, string oldImageLink, FileResult productImage=null)
+    public async Task ChangeProductAsync(Product product, FileResult productImage=null)
     {
+        string oldImageLink = product.ImageLink;
         if (productImage != null)
             product.ImageLink = await ImageManager<Product>.LinkImageToStorageAsync(productImage);
 

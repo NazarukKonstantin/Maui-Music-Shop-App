@@ -160,7 +160,7 @@ public partial class CartPageViewModel : BaseViewModel
     void CountTotal()
     {
         TotalPrice = 0;
-        if (!Products.Any())
+        if (Products is null || !Products.Any())
             return;
 
         foreach (CartProduct product in Products)
@@ -171,9 +171,9 @@ public partial class CartPageViewModel : BaseViewModel
 
     [RelayCommand]
     //Метод отвечает за переход из корзины на страницу поиска товаров 
-    async Task GoToSearchPageAsync()
+    void GoToSearchPage()
     {
-        await Shell.Current.GoToAsync("Search");
+        Shell.Current.CurrentItem = Shell.Current.CurrentItem.Items[1];
     }
 
     [RelayCommand]

@@ -27,3 +27,4 @@ global using COURSE_ASH.Extensions;
 global using COURSE_ASH.Shells;
 global using COURSE_ASH.Services.AccountServices;
 global using COURSE_ASH.MyEventArgs;
+global using COURSE_ASH.Behaviors;

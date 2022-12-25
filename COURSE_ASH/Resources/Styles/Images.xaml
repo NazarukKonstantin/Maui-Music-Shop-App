@@ -19,12 +19,18 @@
     <Style x:Key="ProfilePicStyle"
            TargetType="Image">
         <Setter Property="Source"
-                Value="{Binding ImageLink, FallbackValue={AppThemeBinding 
-                        Dark = {Static global:Icons.WaltuhWhite},
-                        Light = {Static global:Icons.WaltuhBlack}}}" />
+                Value="{Binding ImageLink, FallbackValue='default_profile.png'}" />
         <Setter Property="HeightRequest"
                 Value="150" />
         <Setter Property="Aspect"
                 Value="AspectFit" />
+    </Style>
+
+    <Style x:Key="CatalogImageStyle"
+           TargetType="Image">
+        <Setter Property="HeightRequest"
+                Value="150" />
+        <Setter Property="Aspect"
+                Value="AspectFill" />
     </Style>
 </ResourceDictionary>

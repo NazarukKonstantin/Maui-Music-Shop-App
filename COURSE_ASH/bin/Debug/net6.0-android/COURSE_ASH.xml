@@ -7,9 +7,6 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.Accounts">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._accounts"/>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.IsAdmin">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel._isAdmin"/>
-        </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.refreshAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AccountsPageViewModel.RefreshAsyncCommand"/>.</summary>
         </member>
@@ -82,6 +79,12 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._imageLink"/>
         </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._imageScale"/>
+        </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.IsNotEmpty">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel._isNotEmpty"/>
         </member>
@@ -109,8 +112,8 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddCategoryCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AddProductPageViewModel.AddCategoryAsync"/>.</summary>
         </member>
-        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategListSelected">
-            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isCategListSelected"/>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.IsCategoryListSelected">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._isCategoryListSelected"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.Query">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._query"/>
@@ -139,11 +142,23 @@
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageLink"/>
         </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel._imageScale"/>
+        </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.refreshAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.RefreshAsyncCommand"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.RefreshAsyncCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.setListCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SetListCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SetListCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.SetList"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.goToProfilePageCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.AdminViewModels.AdminSearchPageViewModel.GoToProfilePageCommand"/>.</summary>
@@ -276,6 +291,12 @@
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._imageLink"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel._imageScale"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.IsNotEmpty">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.AdminViewModels.EditProductPageViewModel.isNotEmpty"/>
@@ -463,8 +484,17 @@
         <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._imageLink"/>
         </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._imageScale"/>
+        </member>
         <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.Alert">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._alert"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.IsNotAdmin">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.ProfilePageViewModel._isNotAdmin"/>
         </member>
         <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.goToOrderHistoryPageAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.GoToOrderHistoryPageAsyncCommand"/>.</summary>
@@ -483,6 +513,12 @@
         </member>
         <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.PickImageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProfilePageViewModel.PickImage"/>.</summary>
+        </member>
+        <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.saveImageCommand">
+            <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.SaveImageCommand"/>.</summary>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.ProfilePageViewModel.SaveImageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.ProfilePageViewModel.SaveImageAsync"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.ProfilePageViewModel.refreshAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.ProfilePageViewModel.RefreshAsyncCommand"/>.</summary>
@@ -632,7 +668,7 @@
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageCommand"/>.</summary>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPageAsync"/>.</summary>
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.GoToSearchPage"/>.</summary>
         </member>
         <member name="F:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.refreshAsyncCommand">
             <summary>The backing field for <see cref="P:COURSE_ASH.ViewModels.UserViewModels.CartPageViewModel.RefreshAsyncCommand"/>.</summary>
@@ -645,6 +681,12 @@
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageLink">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageLink"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageRotation">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageRotation"/>
+        </member>
+        <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.ImageScale">
+            <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._imageScale"/>
         </member>
         <member name="P:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel.Products">
             <inheritdoc cref="F:COURSE_ASH.ViewModels.UserViewModels.CatalogPageViewModel._products"/>

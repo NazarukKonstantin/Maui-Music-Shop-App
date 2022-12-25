@@ -2,7 +2,10 @@
 
 namespace COURSE_ASH.ViewModels;
 
-[QueryProperty(nameof(ImageLink),nameof(ImageLink))]
+[QueryProperty(nameof(ImageLink), nameof(ImageLink))]
+[QueryProperty(nameof(IsNotAdmin),nameof(IsNotAdmin))]
+[QueryProperty(nameof(ImageRotation), nameof(ImageRotation))]
+[QueryProperty(nameof(ImageScale), nameof(ImageScale))]
 public partial class ProfilePageViewModel : BaseViewModel
 {
     private readonly PasswordChangingService _service;
@@ -24,7 +27,16 @@ public partial class ProfilePageViewModel : BaseViewModel
     private string _imageLink;
 
     [ObservableProperty]
+    double _imageRotation = 0;
+
+    [ObservableProperty]
+    double _imageScale = 1;
+
+    [ObservableProperty]
     private string _alert;
+
+    [ObservableProperty]
+    private bool _isNotAdmin;
     
     public ProfilePageViewModel(PasswordChangingService service)
     {
@@ -88,8 +100,15 @@ public partial class ProfilePageViewModel : BaseViewModel
     }
 
     [RelayCommand]
+    async Task SaveImageAsync()
+    {
+        await AccountService.RecordNewImage(ImageLink,ImageRotation,ImageScale,CurrentLogin);
+    }
+
+    [RelayCommand]
     public void RefreshAsync()
     {
+        ImageLink ??= Icons.WaltuhBlack;
         CurrentLogin = App.CurrentLogin;
         IsSuccessful = false;
         IsFailed = false;

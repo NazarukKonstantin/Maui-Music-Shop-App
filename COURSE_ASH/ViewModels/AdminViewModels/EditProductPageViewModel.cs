@@ -4,7 +4,6 @@
 public partial class EditProductPageViewModel : BaseViewModel
 {
     private FileResult _image = null;
-    private string _oldImage = null;
     private readonly ProductsService _productsService;
     private readonly CatalogService _catalogService;
 
@@ -31,6 +30,12 @@ public partial class EditProductPageViewModel : BaseViewModel
 
     [ObservableProperty]
     private string _imageLink;
+
+    [ObservableProperty]
+    private double _imageRotation;
+
+    [ObservableProperty]
+    private double _imageScale;
 
 
     [ObservableProperty]
@@ -80,9 +85,9 @@ public partial class EditProductPageViewModel : BaseViewModel
         Model = CurrentProduct.Model;
         Price = CurrentProduct.Price.ToString();
         Info = CurrentProduct.Info;
+        ImageRotation = CurrentProduct.ImageRotation;
+        ImageScale = CurrentProduct.ImageScale;
         ImageLink = CurrentProduct.ImageLink;
-
-        _oldImage ??= CurrentProduct.ImageLink;
     }
 
     [RelayCommand]
@@ -97,8 +102,10 @@ public partial class EditProductPageViewModel : BaseViewModel
             CurrentProduct.Price = Double.Parse(Price);
             CurrentProduct.Info = Info;
             CurrentProduct.ImageLink = ImageLink;
+            CurrentProduct.ImageRotation = ImageRotation;
+            CurrentProduct.ImageScale = ImageScale;
 
-            await _productsService.ChangeProductAsync(CurrentProduct, _oldImage, _image);
+            await _productsService.ChangeProductAsync(CurrentProduct, _image);
             await Shell.Current.DisplayAlert("SUCCESSFUL!", "Product changed", "OK");
             await GoBackAsync();
         }

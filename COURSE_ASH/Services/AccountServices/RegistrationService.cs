@@ -24,7 +24,7 @@ public class RegistrationService : AccountService
         {
             ID = newID,
             CurrentLogin = login,
-            PasswordSHA256 = SetPasswordSHA256(password),
+            Password = SetPasswordSHA256(password),
             Role = role,
         };
         AccountManager.DefineRoleState(newAcc);

@@ -197,7 +197,7 @@
         </Border>
     </ControlTemplate>
 
-    <Style TargetType="RadioButton">
+    <Style TargetType="RadioButton" x:Key="RadioButtonStyle">
         <Setter Property="ControlTemplate"
                 Value="{StaticResource FrameRadioTemplate}" />
     </Style>

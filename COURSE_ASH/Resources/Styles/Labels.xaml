@@ -108,6 +108,13 @@
     </Style>
 
     <Style TargetType="Label"
+           x:Key="AppThemeStyleReversed"
+           BasedOn="{StaticResource CenteredLabel}">
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Dark={StaticResource LightText},Light={StaticResource DarkText}}" />
+    </Style>
+
+    <Style TargetType="Label"
            x:Key="AlertLabel">
         <Setter Property="TextColor"
                 Value="OrangeRed" />

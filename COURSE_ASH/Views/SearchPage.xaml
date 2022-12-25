@@ -11,120 +11,117 @@
              Shell.NavBarIsVisible="False"
              Shell.TabBarIsVisible="{Binding IsTabVisible}">
 
-    <ScrollView>
-        <Grid RowDefinitions="Auto,*"
-              ColumnDefinitions=".2*,.8*">
+    <Grid RowDefinitions="Auto,*"
+          ColumnDefinitions=".2*,.8*">
 
-            <BoxView x:Name="NavBar"
-                     Margin="0"
-                     Grid.Row="0"
-                     Grid.ColumnSpan="2"
-                     Style="{StaticResource NavBarBoxView}" />
+        <BoxView x:Name="NavBar"
+                 Margin="0"
+                 Grid.Row="0"
+                 Grid.ColumnSpan="2"
+                 Style="{StaticResource NavBarBoxView}" />
 
-            <ImageButton x:Name="GoBack"
-                         IsVisible="{Binding IsTabNotVisible}"
-                         Grid.Column="0"
-                         Style="{StaticResource GoBackArrow}"
-                         Command="{Binding GoBackCommand}"
-                         CommandParameter="{Binding .}" />
+        <ImageButton x:Name="GoBack"
+                     IsVisible="{Binding IsTabNotVisible}"
+                     Grid.Column="0"
+                     Style="{StaticResource GoBackArrow}"
+                     Command="{Binding GoBackCommand}"
+                     CommandParameter="{Binding .}" />
 
-            <SearchBar x:Name="ProductSearch"
-                       Grid.Column="1"
-                       Margin="-35"
-                       Grid.Row="0"
-                       Text="{Binding Query}">
-                <SearchBar.Behaviors>
-                    <toolkit:EventToCommandBehavior EventName="TextChanged"
-                                                    Command="{Binding FilterProductsByCommand}" />
-                </SearchBar.Behaviors>
-            </SearchBar>
+        <SearchBar x:Name="ProductSearch"
+                   Grid.Column="1"
+                   Margin="-35"
+                   Grid.Row="0"
+                   Text="{Binding Query}">
+            <SearchBar.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="TextChanged"
+                                                Command="{Binding FilterProductsByCommand}" />
+            </SearchBar.Behaviors>
+        </SearchBar>
 
-            <!--<ImageButton Source="{Static global:Icons.FilterFilled}"
+        <!--<ImageButton Source="{Static global:Icons.FilterFilled}"
                      Pressed="FilterButtonPressed"/>-->
-            <RefreshView IsRefreshing="{Binding IsRefreshing}"
-                         Command="{Binding RefreshAsyncCommand}">
-                <CollectionView x:Name="ProductCollection"
-                                BackgroundColor="Transparent"
-                                Grid.Row="1"
-                                Grid.ColumnSpan="2"
-                                ItemsSource="{Binding Products}"
-                                SelectionMode="None">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Span="2"
-                                         Orientation="Vertical" />
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="model:Product">
-                            <Grid Padding="10">
-                                <Border Style="{StaticResource CardViewBorder}">
-                                    <Border.StrokeShape>
-                                        <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
-                                    </Border.StrokeShape>
-                                    <Border.Shadow>
-                                        <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
+
+        <CollectionView x:Name="ProductCollection"
+                        BackgroundColor="Transparent"
+                        Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Products}"
+                        SelectionMode="None">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="2"
+                                 Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Grid Padding="10">
+                        <Border Style="{StaticResource CardViewBorder}">
+                            <Border.StrokeShape>
+                                <RoundRectangle Style="{StaticResource CardViewBorderStrokeShape}" />
+                            </Border.StrokeShape>
+                            <Border.Shadow>
+                                <Shadow Brush="{AppThemeBinding Dark={StaticResource ComplimentaryLight}
                                     ,Light={StaticResource PrimaryDark}}"
-                                                Offset="10,10"
-                                                Radius="20"
-                                                Opacity="0.5" />
-                                    </Border.Shadow>
-                                    <Frame x:Name="BottomFrame"
-                                           Style="{StaticResource SearchFrameBottom}"
-                                           HeightRequest="400"
-                                           Padding="0">
-                                        <Frame.GestureRecognizers>
-                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                        Offset="10,10"
+                                        Radius="20"
+                                        Opacity="0.5" />
+                            </Border.Shadow>
+                            <Frame x:Name="BottomFrame"
+                                   Style="{StaticResource SearchFrameBottom}"
+                                   HeightRequest="400"
+                                   Padding="0">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource 
                                         AncestorType={x:Type viewmodel:SearchPageViewModel}}, 
                                         Path=GoToProductPageCommand}"
-                                                                  CommandParameter="{Binding .}" />
-                                        </Frame.GestureRecognizers>
-                                        <Grid RowDefinitions=".7*,.3*"
-                                              RowSpacing="20">
-                                            <Frame   Style="{StaticResource SearchFrameTop}"
-                                                     Grid.Row="0">
-                                                <Frame.GestureRecognizers>
-                                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource 
+                                                          CommandParameter="{Binding .}" />
+                                </Frame.GestureRecognizers>
+                                <Grid RowDefinitions=".7*,.3*"
+                                      RowSpacing="20">
+                                    <Frame   Style="{StaticResource SearchFrameTop}"
+                                             Grid.Row="0">
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding Source={RelativeSource 
                                                 AncestorType={x:Type viewmodel:SearchPageViewModel}},
                                                 Path=GoToProductPageCommand}"
-                                                                          CommandParameter="{Binding .}" />
-                                                </Frame.GestureRecognizers>
+                                                                  CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
 
-                                                <Image Source="{Binding ImageLink}"
-                                                       Aspect="AspectFit" />
-                                            </Frame>
-
-                                            <VerticalStackLayout HorizontalOptions="Start"
-                                                                 VerticalOptions="Start"
-                                                                 Grid.Row="1"
-                                                                 Padding="0"
-                                                                 Spacing="5"
-                                                                 Margin="15,0,15,0">
-                                                <Label Text="{Binding Price, StringFormat='{0:C2}'}"
-                                                       Style="{StaticResource PriceStyle}" />
-
-                                                <Label Text="{Binding Model}"
-                                                       Style="{StaticResource CenteredLabel}"
-                                                       FontSize="21"
-                                                       HorizontalOptions="StartAndExpand"
-                                                       VerticalOptions="Start"
-                                                       MaxLines="1"
-                                                       LineBreakMode="TailTruncation" />
-                                                <rating:SimpleRatingControl Amount="5"
-                                                                            CurrentValue="{Binding Rating}"
-                                                                            AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
-                                        ,Light={StaticResource DarkBlue}}"
-                                                                            FontSize="25"
-                                                                            HorizontalOptions="Start"
-                                                                            IsEnabled="False" />
-                                            </VerticalStackLayout>
-                                        </Grid>
+                                        <Image Source="{Binding ImageLink}"
+                                               Aspect="AspectFit" />
                                     </Frame>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </RefreshView>
-            <!--<BoxView Grid.ColumnSpan="2" Grid.RowSpan="2"
+
+                                    <VerticalStackLayout HorizontalOptions="Start"
+                                                         VerticalOptions="Start"
+                                                         Grid.Row="1"
+                                                         Padding="0"
+                                                         Spacing="5"
+                                                         Margin="15,0,15,0">
+                                        <Label Text="{Binding Price, StringFormat='{0:C2}'}"
+                                               Style="{StaticResource PriceStyle}" />
+
+                                        <Label Text="{Binding Model}"
+                                               Style="{StaticResource CenteredLabel}"
+                                               FontSize="21"
+                                               HorizontalOptions="StartAndExpand"
+                                               VerticalOptions="Start"
+                                               MaxLines="1"
+                                               LineBreakMode="TailTruncation" />
+                                        <rating:SimpleRatingControl Amount="5"
+                                                                    CurrentValue="{Binding Rating}"
+                                                                    AccentColor="{AppThemeBinding Dark={StaticResource TenderWhite}
+                                        ,Light={StaticResource DarkBlue}}"
+                                                                    FontSize="25"
+                                                                    HorizontalOptions="Start"
+                                                                    IsEnabled="False" />
+                                    </VerticalStackLayout>
+                                </Grid>
+                            </Frame>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <!--<BoxView Grid.ColumnSpan="2" Grid.RowSpan="2"
                      Opacity="0.25"
                      Color="{AppThemeBinding Dark=White, Light=Black}"
                      IsVisible="{Binding IsFilterViewVisible}">
@@ -185,6 +182,5 @@
                     </CollectionView>
                 </Grid>
             </Frame>-->
-        </Grid>
-    </ScrollView>
+    </Grid>
 </ContentPage>

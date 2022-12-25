@@ -4,6 +4,7 @@ public class ImageSeekingService
 {
     public static async Task<bool> ShouldDelete<T>(string imageURI) where T : IImageDisposable
     {
+        if (imageURI is null) return false;
         var favTask = IsImageInFavourites(imageURI);
         var cartTask = IsImageInCart(imageURI);
         var prodTask = ImageManager<T>.CountLinksAsync(imageURI);

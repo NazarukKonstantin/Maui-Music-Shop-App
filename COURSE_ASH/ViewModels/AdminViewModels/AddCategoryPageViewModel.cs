@@ -12,10 +12,10 @@ public partial class AddCategoryPageViewModel : BaseViewModel
     private string _imageLink;
 
     [ObservableProperty]
-    private double _imageRotation;
+    private double _imageRotation=0;
 
     [ObservableProperty]
-    private double _imageScale;
+    private double _imageScale=1;
 
     [ObservableProperty]
     private bool isNotEmpty = false;

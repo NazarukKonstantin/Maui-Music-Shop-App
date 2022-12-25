@@ -15,6 +15,12 @@ public partial class CatalogPageViewModel : BaseViewModel
     string _imageLink;
 
     [ObservableProperty]
+    private double _imageRotation;
+
+    [ObservableProperty]
+    private double _imageScale;
+
+    [ObservableProperty]
     //Коллекция товаров
     ObservableCollection<Product> _products;
 
@@ -60,21 +66,30 @@ public partial class CatalogPageViewModel : BaseViewModel
     {
         await Shell.Current.GoToAsync($"{nameof(ProfilePage)}", true,
             new Dictionary<string, object>
-            { 
+            {
                 //Передача странице ссылки на изображение - аватар пользователя
-                ["ImageLink"]=ImageLink,
+                ["ImageLink"] = ImageLink,
+                ["IsNotAdmin"] = true,
+                ["ImageRotation"]=ImageRotation,
+                ["ImageScale"]=ImageScale
             });
     }
 
     [RelayCommand]
     //Метод отвечает за выход из аккаунта
-    void SignOut()
+    private async void SignOut()
     {
-        CurrentLogin = string.Empty;
-        ImageLink = string.Empty;
-        App.CurrentLogin = string.Empty;
-        //Переход на страницу авторизации
-        App.Current.MainPage = new AuthorizationShell();
+        bool choice = await Shell.Current.DisplayAlert("Are you sure?", "Do you want to sign out?", "Yes", "No");
+        if (choice)
+        {
+            CurrentLogin = string.Empty;
+            ImageLink = string.Empty;
+            ImageRotation = 0;
+            ImageScale = 1;
+            App.CurrentLogin = string.Empty;
+            //Переход на страницу авторизации
+            App.Current.MainPage = new AuthorizationShell();
+        }
     }
 
     [RelayCommand]
@@ -89,7 +104,9 @@ public partial class CatalogPageViewModel : BaseViewModel
             //Получение ссылки на изображение из БД
             ImageLink = (await DataStorageService<AccountData>
                         .GetItemByAsync(nameof(AccountData.CurrentLogin), CurrentLogin))
-                        .ImageLink ?? string.Empty;
+                        .ImageLink;
+            if (string.IsNullOrEmpty(ImageLink))
+                ImageLink = Icons.DefaultProfile;
             Items = CatalogItem.CatalogList.ToObservableCollection();
             Products = (await _service.GetProductsAsync()).ToObservableCollection();
         }
